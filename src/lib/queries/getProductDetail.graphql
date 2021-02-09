@@ -1,0 +1,172 @@
+#import "../fragments/productDetails.graphql"
+
+query productDetail($urlKey: String, $onServer: Boolean!) {
+    productDetail: products(filter: { url_key: { eq: $urlKey } }) {
+        items {
+            ...ProductDetails
+            description {
+                html
+            }
+            name
+            url_key
+            price_range {
+                minimum_price {
+                    final_price {
+                        currency
+                        value
+                    }
+                    regular_price {
+                        currency
+                        value
+                    }
+                    discount {
+                        amount_off
+                    }
+                }
+            }
+            media_gallery {
+                label
+                url
+            }
+            crosssell_products {
+                __typename
+                id
+                name
+                sku
+                url_key
+                url_suffix
+                price_range {
+                    minimum_price {
+                        final_price {
+                            currency
+                            value
+                        }
+                        regular_price {
+                            currency
+                            value
+                        }
+                        discount {
+                            amount_off
+                        }
+                    }
+                }
+                small_image {
+                    label
+                    url
+                }
+            }
+            related_products {
+                __typename
+                id
+                name
+                sku
+                url_key
+                url_suffix
+                price_range {
+                    minimum_price {
+                        final_price {
+                            currency
+                            value
+                        }
+                        regular_price {
+                            currency
+                            value
+                        }
+                        discount {
+                            amount_off
+                        }
+                    }
+                }
+                small_image {
+                    label
+                    url
+                }
+            }
+            upsell_products {
+                __typename
+                id
+                name
+                sku
+                url_key
+                url_suffix
+                price_range {
+                    minimum_price {
+                        final_price {
+                            currency
+                            value
+                        }
+                        regular_price {
+                            currency
+                            value
+                        }
+                        discount {
+                            amount_off
+                        }
+                    }
+                }
+                small_image {
+                    label
+                    url
+                }
+            }
+            name
+            url_key
+            ... on CustomizableProductInterface {
+                options {
+                    option_id
+                    required
+                    sort_order
+                    title
+                    ... on CustomizableAreaOption {
+                        product_sku
+                        areaValue: value {
+                            max_characters
+                            price
+                            price_type
+                            sku
+                        }
+                    }
+                    ... on CustomizableDropDownOption {
+                        dropDownValue: value {
+                            option_type_id
+                            price
+                            price_type
+                            sku
+                            sort_order
+                            title
+                        }
+                    }
+                    ... on CustomizableFieldOption {
+                        product_sku
+                        fieldValue: value {
+                            max_characters
+                            price
+                            price_type
+                            sku
+                        }
+                    }
+                    ... on CustomizableRadioOption {
+                        radioValue: value {
+                            option_type_id
+                            price
+                            price_type
+                            sku
+                            sort_order
+                            title
+                        }
+                    }
+                    ... on CustomizableCheckboxOption {
+                        checkboxValue: value {
+                            option_type_id
+                            price
+                            price_type
+                            sku
+                            sort_order
+                            title
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<form
+  onReset={[Function]}
+  onSubmit={[Function]}
+>
+  <input
+    className="form-control"
+    name="search_query"
+    onChange={[MockFunction]}
+    onFocus={[MockFunction]}
+    placeholder="Search..."
+    value="value"
+  />
+  <button
+    className="search-button btn"
+  >
+    <i
+      className="icon-magnifier"
+    />
+  </button>
+</form>
+`;

@@ -1,0 +1,247 @@
+// Footer
+.footer {
+    background-color: #161a21;
+    color: #a8a8a8;
+    flex: 0 0 auto;
+    font-size: $footer-font-size;
+    line-height: 1.4;
+
+    .social-icon {
+        background-color: #161a21;
+        color: #fff;
+        font-size: 1.3rem;
+        height: 3.4rem;
+        margin-bottom: 0;
+        width: 3.4rem;
+
+        + .social-icon {
+            margin-left: 0.4rem;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $primary;
+            color: #fff;
+        }
+    }
+}
+
+.footer-middle {
+    letter-spacing: 0.005em;
+    padding: 5.4rem 0 0.8rem;
+}
+
+.footer .widget-title {
+    color: #fff;
+    font: 700 1.2rem/1.1 'Oswald', sans-serif;
+    letter-spacing: 0;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+}
+
+.footer .widget {
+    margin-bottom: 3.8rem;
+}
+
+.footer .links {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.footer .links li {
+    font-weight: 300;
+    margin-bottom: 0.6rem;
+    padding: 0;
+    position: relative;
+}
+
+.footer .links a {
+    text-decoration: none;
+}
+
+.footer a,
+.footer .btn-link {
+    color: inherit;
+    font-weight: 300;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.contact-info {
+    margin-bottom: 0;
+    margin-top: -0.08rem;
+}
+
+.contact-info li {
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.contact-info-label {
+    color: #fff;
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.1rem;
+    text-transform: uppercase;
+}
+
+.footer-bottom {
+    align-items: center;
+    border-top: 1px solid #1f232f;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-bottom: 4.6rem;
+    padding-top: 3rem;
+}
+
+.footer-bottom .social-icon {
+    margin-bottom: 0;
+}
+
+.footer-copyright {
+    color: #a8a8a8;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-payments {
+    margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-adeoweb-signature {
+    display: flex;
+    justify-content: center;
+
+    a {
+        display: inline-block;
+        text-align: right;
+        width: 100%;
+    }
+
+    img {
+        max-width: 80px;
+    }
+
+    span {
+        align-self: center;
+        white-space: nowrap;
+    }
+}
+
+// Scroll Top Button
+#scroll-top {
+    background-color: #43494e;
+    border-radius: $border-radius $border-radius 0 0;
+    bottom: 0;
+    color: #fff;
+    font-size: 16px;
+    height: 40px;
+    line-height: 1;
+    opacity: 0;
+    padding: 11px 0;
+    position: fixed;
+    right: 15px;
+    text-align: center;
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+    transition: all 0.3s;
+    visibility: hidden;
+    width: 40px;
+    z-index: 9999;
+}
+
+#scroll-top:hover,
+#scroll-top:focus {
+    background-color: #3a4045;
+}
+
+#scroll-top.fixed {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    visibility: visible;
+}
+
+@media screen and (min-width: 992px) {
+    .footer .col-lg-2 {
+        -ms-flex: 0 0 16.6%;
+        flex: 0 0 16.6%;
+        max-width: 16.6%;
+    }
+
+    .footer .col-lg-3 {
+        -ms-flex: 0 0 21.9%;
+        flex: 0 0 21.9%;
+        max-width: 21.9%;
+    }
+
+    .footer .col-lg-4 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .footer .col-lg-5 {
+        -ms-flex: 0 0 36.5%;
+        flex: 0 0 36.5%;
+        max-width: 36.5%;
+    }
+
+    .footer-middle {
+        padding-top: 6.2rem;
+    }
+
+    .footer-bottom {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 7.1rem;
+    }
+
+    .footer-copyright {
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .footer-payments {
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .footer-bottom .social-icons {
+        margin-left: 5.4rem;
+    }
+
+    .footer-bottom .contact-info {
+        margin-bottom: 0;
+        margin-right: 0;
+    }
+
+    .footer-adeoweb-signature {
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .footer-bottom .social-icons {
+        margin-left: 9.2rem;
+    }
+}

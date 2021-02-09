@@ -1,0 +1,10 @@
+query getStoreList {
+    storeList {
+        base_url
+        code
+        id
+        locale
+        store_name
+        website_id
+    }
+}

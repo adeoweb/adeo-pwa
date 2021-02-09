@@ -1,0 +1,47 @@
+#import "../fragments/customerOrderBasicInfo.graphql"
+
+query getCustomerOrdersDetails {
+    customerOrders {
+        items {
+            ...CustomerOrderBasicInfo
+            items {
+                name
+                price_incl_tax {
+                    value
+                    currency
+                }
+                qty
+                sku
+            }
+            shipping_address {
+                firstname
+                lastname
+                telephone
+                customer_notes
+                street
+                city
+                postcode
+            }
+            billing_address {
+                firstname
+                lastname
+                telephone
+                street
+                city
+                postcode
+            }
+            subtotal {
+                value
+                currency
+            }
+            shipping_amount {
+                value
+                currency
+            }
+            tax_amount {
+                value
+                currency
+            }
+        }
+    }
+}

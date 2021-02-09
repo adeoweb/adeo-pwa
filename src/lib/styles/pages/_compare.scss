@@ -1,0 +1,204 @@
+.page-main {
+    padding-bottom: 50px;
+    padding-top: 15px;
+
+    & > .page-title-wrapper {
+        padding-top: 10px;
+    }
+
+    & > .page-title-wrapper .page-title {
+        color: #EE2D43;
+        font-size: 20px;
+        font-weight: 300;
+        margin: 0 0 30px;
+    }
+}
+
+.table-wrapper {
+    margin-bottom: 18px;
+
+    &.comparison {
+        clear: both;
+        overflow-x: auto;
+    }
+
+    &.comparison .table-comparison > tbody > tr > th,
+    &.comparison .table-comparison > tbody > tr > td {
+        border-top: 0;
+    }
+}
+
+.comparison {
+    .table-comparison .cell.label.product span,
+    table > caption {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    & .cell {
+        position: relative;
+    }
+
+    & .table-comparison .cell {
+        min-width: 185px;
+        padding: 15px;
+    }
+
+    & table > tbody > tr > th,
+    & table > tfoot > tr > th,
+    & table > tbody > tr > td,
+    & table > tfoot > tr > td {
+        vertical-align: top;
+    }
+
+    & table > thead > tr > th,
+    & table > tbody > tr > th,
+    & table > tfoot > tr > th,
+    & table > thead > tr > td,
+    & table > tbody > tr > td,
+    & table > tfoot > tr > td {
+        padding: 11px 9px;
+    }
+
+    & th {
+        color: #777;
+    }
+
+    & td {
+        color: #767F84;
+    }
+
+    .table-comparison {
+        table-layout: fixed;
+
+        & .product-item-actions,
+        & .price-box,
+        & .product.rating,
+        & .product-item-name {
+            display: block;
+            margin: 15px 0;
+        }
+
+        & .cell.label,
+        & td:last-child {
+            border-right: 1px solid #ccc;
+        }
+
+
+        & .cell.product.info,
+        & .cell.product.label {
+            border-bottom: 1px solid #ccc;
+        }
+    }
+
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        color: #212529;
+        margin-bottom: 0;
+        max-width: 100%;
+        width: auto;
+    }
+
+    .cell {
+        position: relative;
+    }
+
+    .abs-product-link > a:visited,
+    .product-item-name > a:visited {
+        color: #777;
+        text-decoration: underline;
+    }
+
+    .product-item-name {
+        display: block;
+        font-size: 14px;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        margin: 0 0 3px 0;
+        min-height: 31px;
+        word-wrap: break-word;
+
+        & a {
+            color: #777;
+            font-weight: 400;
+            text-decoration: none;
+        }
+    }
+
+    .btn-add-cart {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: #777;
+        display: inline-block;
+        line-height: 32px;
+        padding: 0 12px;
+        text-decoration: none;
+        transition: all 0.25s ease;
+
+        &:hover {
+            background-color: #EE2D43;
+            border-color: #EE2D43;
+            color: #fff;
+        }
+    }
+
+    .btn-icon-wish {
+        align-items: center;
+        border: 1px solid #ddd;
+        color: #777;
+        display: inline-flex;
+        line-height: 32px;
+        justify-content: center;
+        margin-left: 5px;
+        width: 32px;
+
+        &:hover {
+            color: #EE2D43;
+        }
+    }
+
+    .btn-remove {
+        border: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 9999;
+
+        &:before {
+            content: none;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .page-main {
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1140px;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .page-main {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .page-main {
+        max-width: 1140px;
+    }
+}

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`appends "active" to className if isSelected is true 1`] = `
+<li
+  className="active"
+>
+  <button
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "red",
+      }
+    }
+    title="red"
+  />
+</li>
+`;
+
+exports[`renders a Swatch correctly 1`] = `
+<li
+  className=""
+>
+  <button
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "red",
+      }
+    }
+    title="red"
+  />
+</li>
+`;

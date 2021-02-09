@@ -1,0 +1,63 @@
+.customer-order {
+    &-totals {
+        display: flex;
+        justify-content: stretch;
+
+        &-container {
+            width: 100%;
+            padding: 2.5rem;
+            border-radius: 4px;
+            background-color: $gray-246-color;
+        }
+
+        &-title {
+            font-weight: 500;
+            font-size: 1.7rem;
+            line-height: 2.1rem;
+            letter-spacing: 0.015rem;
+            color: $text-color;
+            padding-bottom: 1.5rem;
+            border-bottom: $default-order-border;
+            margin-bottom: 1.7rem;
+        }
+
+        &-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            letter-spacing: 0.025rem;
+            color: $text-color;
+            margin-bottom: 1.9rem;
+
+            &-last {
+                padding-bottom: 1.7rem;
+                border-bottom: $default-order-border;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        &-grand {
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+            color: $text-color;
+        }
+    }
+}
+
+@include mq('sm') {
+    .customer-order {
+        &-totals {
+            justify-content: flex-end;
+
+            &-container {
+                min-width: 340px;
+                width: auto;
+            }
+        }
+    }
+}

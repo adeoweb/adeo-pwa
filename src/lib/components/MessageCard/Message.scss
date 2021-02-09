@@ -1,0 +1,19 @@
+$padding-y: 0.7rem;
+$padding-y-firs-last: $padding-y * 2;
+
+.message {
+    padding-top: $padding-y;
+    padding-bottom: $padding-y;
+
+    &:first-of-type {
+        padding-top: $padding-y-firs-last;
+    }
+
+    &:last-of-type {
+        padding-bottom: $padding-y-firs-last;
+    }
+
+    svg {
+        height: 1rem;
+    }
+}

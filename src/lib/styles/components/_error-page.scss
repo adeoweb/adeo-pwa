@@ -1,0 +1,44 @@
+.error-page-wrapper {
+    margin-top: 66px;
+    margin-bottom: 100px;
+    text-align: center;
+
+    .error-type {
+        font-weight: bold;
+        font-size: 70px;
+        line-height: 104px;
+        color: $primary;
+    }
+
+    .error-title {
+        font-weight: bold;
+        font-size: 21px;
+        line-height: 23px;
+        text-align: center;
+        color: $headings-text;
+    }
+
+    .error-subtitle {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 42px;
+        text-align: center;
+        color: $gray-800;
+
+        + .error-subtitle {
+            line-height: 14px;
+        }
+    }
+
+    .error-actions {
+        padding-top: 24px;
+
+        .btn {
+            text-transform: uppercase;
+        }
+
+        .btn + .btn {
+            margin-left: 15px;
+        }
+    }
+}

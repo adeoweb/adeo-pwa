@@ -1,0 +1,9 @@
+#import "../fragments/wishlist.graphql"
+
+mutation removeFromWishlist($productId: Int!, $wishlistId: ID!) {
+    wishlistRemoveItem(
+        input: { product_id: $productId, wishlist_id: $wishlistId }
+    ) {
+        ...Wishlist
+    }
+}

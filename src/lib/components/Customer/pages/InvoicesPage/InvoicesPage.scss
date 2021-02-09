@@ -1,0 +1,146 @@
+@import '../../../../styles/config/variables';
+@import '../../../../styles/mixins/breakpoints';
+
+.pageTitle {
+    color: $headings-text;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 36px;
+    margin-bottom: 25px;
+}
+
+.invoicesTable {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+        border-radius: 4px;
+        box-shadow: $base-box-shadow;
+        display: flex;
+        margin-bottom: 15px;
+        padding: 20px 0;
+
+        .col {
+            align-items: center;
+            color: $body-text;
+            display: flex;
+            flex: 2;
+            font-size: 14px;
+            margin-right: 10px;
+
+            &:first-child {
+                min-width: 170px;
+                padding-left: 15px;
+
+                img {
+                    margin-right: 5px;
+                }
+            }
+
+            &:last-child {
+                flex-grow: 3;
+                justify-content: flex-end;
+                margin-right: 0;
+                padding-right: 15px;
+            }
+
+            a {
+                color: $secondary;
+                text-decoration: none;
+            }
+        }
+
+        .statusCol {
+            min-width: 147px;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .head {
+        box-shadow: none;
+        color: $body-text;
+        margin-bottom: 10px;
+        padding: 0;
+
+        .col:first-child,
+        .col:last-child {
+            color: $body-text;
+            padding-left: 0;
+            padding-right: 15px;
+        }
+    }
+}
+
+.invoicesMobile {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 50px;
+
+    .card {
+        border-radius: 4px;
+        box-shadow: $base-box-shadow;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        padding: 27px 25px 15px 25px;
+
+        .tableWrapper {
+            border-bottom: 1px solid $border-base-color;
+            padding-bottom: 17px;
+            margin-bottom: 15px;
+
+            table {
+                table-layout: fixed;
+                margin: 0;
+
+                tr td {
+                    border: none;
+                    color: $body-text;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 20px;
+                    letter-spacing: 0.25px;
+                    margin-right: 5px;
+                    padding: 0;
+                    padding-bottom: 14px;
+
+                    .invoiceCell {
+                        align-items: center;
+                        display: flex;
+
+                        img {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .downloadBtn {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}
+
+@include mq('md', 'max') {
+    .pageTitle {
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        line-height: 28px;
+        padding: 0 10px;
+    }
+
+    .invoicesTable {
+        display: none;
+    }
+
+    .invoicesMobile {
+        display: flex;
+    }
+}

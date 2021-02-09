@@ -1,0 +1,20 @@
+#import "../fragments/cartDetails.graphql"
+
+mutation setShippingMethod(
+    $cartId: String!
+    $carrierCode: String!
+    $methodCode: String!
+) {
+    setShippingMethodsOnCart(
+        input: {
+            cart_id: $cartId
+            shipping_methods: [
+                { carrier_code: $carrierCode, method_code: $methodCode }
+            ]
+        }
+    ) {
+        cart {
+            ...CartDetails
+        }
+    }
+}

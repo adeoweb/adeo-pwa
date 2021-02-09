@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`appends "active" to className if isSelected is true 1`] = `
+<li
+  className="active"
+>
+  <button
+    onClick={[Function]}
+  >
+    label
+  </button>
+</li>
+`;
+
+exports[`renders a Tile correctly 1`] = `
+<li
+  className=""
+>
+  <button
+    onClick={[Function]}
+  >
+    label
+  </button>
+</li>
+`;

@@ -1,0 +1,127 @@
+query getCategoryContent(
+    $id: String!
+    $pageSize: Int!
+    $currentPage: Int!
+    $sort: ProductAttributeSortInput!
+    $onServer: Boolean!
+    $filter: ProductAttributeFilterInput!
+) {
+    categoryList(filters: { ids: { eq: $id } }) {
+        id
+        description
+        name
+        product_count
+        breadcrumbs {
+            category_url_key
+        }
+        url_key
+        meta_title @include(if: $onServer)
+        meta_keywords @include(if: $onServer)
+        meta_description
+    }
+    products(
+        pageSize: $pageSize
+        currentPage: $currentPage
+        sort: $sort
+        filter: $filter
+    ) {
+        aggregations {
+            attribute_code
+            count
+            label
+            options {
+                count
+                label
+                value
+            }
+        }
+        page_info {
+            total_pages
+        }
+        total_count
+        items {
+            __typename
+            description {
+                html
+            }
+            id
+            media_gallery {
+                label
+                url
+            }
+            name
+            price_range {
+                maximum_price {
+                    discount {
+                        amount_off
+                        percent_off
+                    }
+                    final_price {
+                        currency
+                        value
+                    }
+                    regular_price {
+                        currency
+                        value
+                    }
+                }
+                minimum_price {
+                    discount {
+                        amount_off
+                        percent_off
+                    }
+                    final_price {
+                        currency
+                        value
+                    }
+                    regular_price {
+                        currency
+                        value
+                    }
+                }
+            }
+            sku
+            small_image {
+                url
+                label
+            }
+            url_key
+            url_suffix
+            ... on CustomizableProductInterface {
+                options {
+                    __typename
+                }
+            }
+            ... on ConfigurableProduct {
+                configurable_options {
+                    attribute_code
+                    attribute_id
+                    id
+                    label
+                    values {
+                        default_label
+                        label
+                        store_label
+                        use_default_value
+                        value_index
+                    }
+                }
+                variants {
+                    attributes {
+                        code
+                        value_index
+                    }
+                    product {
+                        id
+                        media_gallery {
+                            url
+                            label
+                        }
+                        sku
+                        stock_status
+                    }
+                }
+            }
+        }
+    }
+}

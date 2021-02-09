@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders TileList component correctly 1`] = `
+<ul
+  className="config-size-list"
+>
+  <li
+    className=""
+  >
+    <button
+      onClick={[Function]}
+    >
+      foo
+    </button>
+  </li>
+</ul>
+`;

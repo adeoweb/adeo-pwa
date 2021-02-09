@@ -1,0 +1,29 @@
+mutation addSimpleProductToCart(
+    $cartId: String!
+    $quantity: Float!
+    $sku: String!
+    $customOptions: [CustomizableOptionInput]
+) {
+    addSimpleProductsToCart(
+        input: {
+            cart_id: $cartId
+            cart_items: [
+                {
+                    data: { quantity: $quantity, sku: $sku }
+                    customizable_options: $customOptions
+                }
+            ]
+        }
+    ) {
+        cart {
+            items {
+                id
+                product {
+                    name
+                    sku
+                }
+                quantity
+            }
+        }
+    }
+}

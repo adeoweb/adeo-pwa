@@ -1,0 +1,168 @@
+fragment CartDetails on Cart {
+    id
+    email
+    applied_coupons {
+        code
+    }
+    available_payment_methods {
+        code
+        title
+    }
+    billing_address {
+        customer_address_id
+        city
+        company
+        country {
+            code
+            label
+        }
+        firstname
+        lastname
+        postcode
+        region {
+            code
+            label
+        }
+        street
+        telephone
+    }
+    items {
+        id
+        product {
+            name
+            sku
+            url_key
+            url_suffix
+            small_image {
+                url
+                label
+            }
+            price_range {
+                minimum_price {
+                    regular_price {
+                        value
+                        currency
+                    }
+                }
+            }
+        }
+        quantity
+        prices {
+            price {
+                currency
+                value
+            }
+            row_total {
+                currency
+                value
+            }
+        }
+        ... on ConfigurableCartItem {
+            configurable_options {
+                id
+                option_label
+                value_id
+                value_label
+            }
+            customizable_options {
+                id
+                label
+                sort_order
+                values {
+                    id
+                    label
+                    value
+                }
+            }
+        }
+        ... on SimpleCartItem {
+            custom_options: customizable_options {
+                id
+                label
+                sort_order
+                values {
+                    id
+                    label
+                    value
+                }
+            }
+        }
+    }
+    prices {
+        applied_taxes {
+            amount {
+                value
+                currency
+            }
+            label
+        }
+        grand_total {
+            value
+            currency
+        }
+        subtotal_excluding_tax {
+            value
+            currency
+        }
+        discounts {
+            label
+            amount {
+                value
+                currency
+            }
+        }
+    }
+    selected_payment_method {
+        code
+        purchase_order_number
+        title
+    }
+    shipping_addresses {
+        available_shipping_methods {
+            amount {
+                currency
+                value
+            }
+            available
+            carrier_code
+            carrier_title
+            method_code
+            method_title
+            error_message
+            price_excl_tax {
+                value
+                currency
+            }
+            price_incl_tax {
+                value
+                currency
+            }
+        }
+        customer_address_id
+        city
+        company
+        country {
+            code
+            label
+        }
+        firstname
+        lastname
+        postcode
+        region {
+            code
+            label
+        }
+        selected_shipping_method {
+            amount {
+                value
+                currency
+            }
+            carrier_code
+            carrier_title
+            method_code
+            method_title
+        }
+        street
+        telephone
+    }
+}

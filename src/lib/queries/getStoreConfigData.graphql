@@ -1,0 +1,16 @@
+query storeConfigData {
+    storeConfig {
+        id
+        base_currency_code
+        copyright
+        store_name
+        header_logo_src
+        list_per_page
+        logo_alt
+        logo_height
+        logo_width
+        root_category_id
+        category_url_suffix
+        website_id
+    }
+}

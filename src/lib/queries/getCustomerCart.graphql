@@ -1,0 +1,7 @@
+#import "../fragments/cartDetails.graphql"
+
+query getCustomerCart {
+    customerCart {
+        ...CartDetails
+    }
+}

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Option component correctly 1`] = `
+<div
+  className="product-single-filter"
+>
+  <label>
+    Foo
+  </label>
+  <i />
+</div>
+`;

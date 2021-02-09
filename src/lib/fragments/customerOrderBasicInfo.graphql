@@ -1,0 +1,11 @@
+fragment CustomerOrderBasicInfo on CustomerOrder {
+    id
+    created_at
+    grand_total {
+        value
+        currency
+    }
+    order_number
+    status
+    # TODO: get invoice file info when backend done
+}

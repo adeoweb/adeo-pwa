@@ -1,0 +1,14 @@
+#import "../fragments/cartDetails.graphql"
+
+mutation setShippingAddresses(
+    $cartId: String!
+    $addresses: [ShippingAddressInput]!
+) {
+    setShippingAddressesOnCart(
+        input: { cart_id: $cartId, shipping_addresses: $addresses }
+    ) {
+        cart {
+            ...CartDetails
+        }
+    }
+}

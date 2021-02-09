@@ -1,0 +1,31 @@
+mutation addConfigurableProductToCart(
+    $cartId: String!
+    $quantity: Float!
+    $sku: String!
+    $parentSku: String!
+    $customOptions: [CustomizableOptionInput]
+) {
+    addConfigurableProductsToCart(
+        input: {
+            cart_id: $cartId
+            cart_items: [
+                {
+                    data: { quantity: $quantity, sku: $sku }
+                    parent_sku: $parentSku
+                    customizable_options: $customOptions
+                }
+            ]
+        }
+    ) {
+        cart {
+            items {
+                id
+                product {
+                    name
+                    sku
+                }
+                quantity
+            }
+        }
+    }
+}

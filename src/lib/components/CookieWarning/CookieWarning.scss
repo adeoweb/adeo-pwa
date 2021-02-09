@@ -1,0 +1,44 @@
+@import '../../styles/config/variables';
+@import '../../styles/mixins/breakpoints';
+
+.warningContainer {
+    background-color: $primary;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 900;
+
+    .warningWrapper {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 5px;
+
+        .button {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1.25px;
+            line-height: 16px;
+            padding: 15px 25px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.textWrapper {
+    color: $black-color;
+    flex-grow: 1;
+    padding-right: 110px;
+
+    a,
+    p {
+        margin: 0;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: normal;
+        letter-spacing: 0.25px;
+        line-height: 20px;
+    }
+}

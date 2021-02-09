@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a suggestedProduct component 1`] = `
+Array [
+  <div
+    className="suggestion-left"
+  >
+    <div
+      className="undefined undefined"
+    >
+      <img
+        alt="product name"
+        className="undefined undefined"
+        loading="eager"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAFCAQAAADIpIVQAAAADklEQVR42mNkgAJGIhgAALQABsHyMOcAAAAASUVORK5CYII="
+        style={
+          Object {
+            "height": "auto",
+            "width": "60px",
+          }
+        }
+        width={60}
+      />
+      <img
+        alt="product name"
+        className="undefined undefined"
+        loading="lazy"
+        onError={[Function]}
+        onLoad={[Function]}
+        sizes="60px"
+        src="https://small.image/url"
+        srcSet="https://small.image/url 40w,
+https://small.image/url 80w,
+https://small.image/url 160w,
+https://small.image/url 320w,
+https://small.image/url 640w,
+https://small.image/url 960w,
+https://small.image/url 1280w,
+https://small.image/url 1600w,
+https://small.image/url 2560w"
+        style={
+          Object {
+            "height": "auto",
+            "width": "60px",
+          }
+        }
+        width={60}
+      />
+    </div>
+  </div>,
+  <div
+    className="suggestion-right"
+  >
+    <div
+      className="product-line product-name"
+    >
+      product name
+    </div>
+    <div
+      className="product-line product-price"
+    >
+      Price
+      : 
+      <span>
+        €
+      </span>
+      <span>
+        39
+      </span>
+      <span>
+        .
+      </span>
+      <span>
+        00
+      </span>
+    </div>
+    <div
+      className="product-des"
+    >
+      <p
+        className="short-des"
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "short desc",
+            }
+          }
+          onClick={[Function]}
+        />
+      </p>
+    </div>
+  </div>,
+]
+`;

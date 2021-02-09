@@ -6,11 +6,11 @@ Run the `docker/run-docker` script from the root of the repository to create a c
 
 This script will:
 
-* copy the `.env.docker` environment variables to `.env` to be easily consumable by `docker-compose`
-* add a custom domain, configured in `.env.docker`
-* generate a self-signed ssl/tls certificate and trust the certificate using `devcert` in the `makeHostAndCert.js` script
-* run `docker-compose build` to build the container network
-* run `docker-compose up` to start the container running PWA at the custom domain with https
+- copy the `.env.docker` environment variables to `.env` to be easily consumable by `docker-compose`
+- add a custom domain, configured in `.env.docker`
+- generate a self-signed ssl/tls certificate and trust the certificate using `devcert` in the `makeHostAndCert.js` script
+- run `docker-compose build` to build the container network
+- run `docker-compose up` to start the container running PWA at the custom domain with https
 
 After `docker/run-docker` is executed from the root of the repository, the default configuration will have the PWA application running at `https://pwa-docker.localhost`.
 
@@ -26,7 +26,7 @@ To use a custom .env file for configuration, pass it to the `run-docker` script 
 
 Service workers are disabled by default when running the `docker/run-docker` script, but they can easily be turned on by changing the default value of `DEV_SERVER_SERVICE_WORKER_ENABLED=false` to `DEV_SERVER_SERVICE_WORKER_ENABLED=true` in `.env.docker`.
 
-Hot reloading is enabled by default when running the `docker/run-docker` script and automatically refreshes the browser on changes made in the container as well as on the host machine, ie your local file system. 
+Hot reloading is enabled by default when running the `docker/run-docker` script and automatically refreshes the browser on changes made in the container as well as on the host machine, ie your local file system.
 
 If service workers are enabled during development, then service worker caching will affect the hot reloading and will require a manual refresh after the cached assets have fully reloaded.
 

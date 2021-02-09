@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html
+    lang="en"
+    data-image-optimizing-origin="<%= process.env.IMAGE_OPTIMIZING_ORIGIN %>"
+    data-media-backend="<%= global.MAGENTO_MEDIA_BACKEND_URL %>"
+>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#ff6334" />
+        <link rel="manifest" href="/manifest.json" />
+        <title>Home Page - <%= STORE_NAME %></title>
+
+        <!--
+            Apple Specific Tags
+
+            To be included until Safari supports WebAppManifest
+            See Docs:
+            - https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+            - https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+        -->
+        <!--
+            Apple Icons for Homescreen
+            Sizes: https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/
+        -->
+        <link rel="apple-touch-icon" href="/static/icons/venia_square_57.png" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/src/static/icons/apple-touch-icon.png"
+        />
+        <link rel="preconnect" href="<%= process.env.MAGENTO_BACKEND_URL %>" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/src/static/assets/css/fontawesome.min.css"
+        />
+
+        <style type="text/css">
+            @font-face {
+                font-family: 'porto';
+                src: url(/src/static/assets/fonts/porto.eot?64334846);
+                src: url(/src/static/assets/fonts/porto.eot?64334846#iefix)
+                        format('embedded-opentype'),
+                    url(/src/static/assets/fonts/porto.woff2?64334846)
+                        format('woff2'),
+                    url(/src/static/assets/fonts/porto.woff?64334846)
+                        format('woff'),
+                    url(/src/static/assets/fonts/porto.ttf?64334846)
+                        format('truetype'),
+                    url(/src/static/assets/fonts/porto.svg?64334846#porto)
+                        format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-wrapper" id="root"></div>
+
+        <!-- Fallback for when JavaScript is disabled. -->
+        <noscript>
+            <style>
+                .fallback-nojs {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .fallback-nojs a {
+                    color: currentColor;
+                }
+                .fallback-closed {
+                    height: 40vh;
+                }
+            </style>
+            <div class="fallback-nojs">
+                <img
+                    class="fallback-closed"
+                    alt="JavaScript is disabled"
+                    src="/venia-static/veniaClosed.png"
+                />
+                <h1 class="fallback-heading">Oops! JavaScript is disabled</h1>
+                <div>
+                    To browse the Venia store,<br />
+                    <a href="https://www.enable-javascript.com"
+                        >enable JavaScript in your browser.</a
+                    >
+                </div>
+            </div>
+        </noscript>
+        <script
+            crossorigin="anonymous"
+            src="https://polyfill.io/v3/polyfill.min.js?features=es2018%2Ces2017%2Ces2016%2Ces2015%2CAbortController%2CURL%2CNodeList.prototype.forEach%2CElement.prototype.remove%2CElement.prototype.closest"
+        ></script>
+    </body>
+</html>

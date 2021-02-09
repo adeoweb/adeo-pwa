@@ -1,0 +1,8 @@
+.root {
+    margin: auto;
+    max-width: 900px;
+
+    & :global .slick-slide {
+        padding: 0 10px;
+    }
+}

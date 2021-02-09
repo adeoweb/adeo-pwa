@@ -1,0 +1,75 @@
+// Variables
+$font-size: 1.3rem !default;
+$sidebar-font-size: 1.3rem !default;
+$footer-font-size: 1.3rem !default;
+$input-font-size: 1.3rem !default;
+$button-font-size: 1.4rem !default;
+
+$primary: #fa4a4a;
+$primary-dark: #6a9234 !default;
+$secondary: #282d3b;
+$secondary-dark: #2f3946 !default;
+$link-color: $primary !default;
+
+$gray-119-color: #777;
+$gray-196-color: #c4c4c4;
+$gray-221-color: #ddd;
+$gray-230-color: #e6e6e6;
+$gray-238-color: #eee;
+$gray-242-color: #f2f2f2;
+$gray-246-color: #f6f6f6;
+$gray-300: #f4f4f4;
+$gray-400: #ced4da;
+$gray-600: #d4d4d4;
+$gray-800: #777777;
+
+$matterhorn-grey-color: #504f4f;
+$river-bed-color: #465157;
+$ebony-clay-color: #21293c;
+$granny-apple-color: #e4f9ec;
+
+$white-color: #fff;
+$black-color: #000;
+
+$text-color: #2e2e2e;
+
+$border-width: 1px !default;
+$border-radius: 0 !default;
+$border-base-color: rgba(33, 33, 33, 0.08);
+
+$input-border-color: $gray-400 !default;
+$input-btn-border-width: $border-width !default;
+$input-border-width: $input-btn-border-width !default;
+
+$body-text: #767f84 !default;
+$light-text: #8a8a8a !default;
+$headings-text: #282d3b !default;
+$black-color: #000;
+
+$base-box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2),
+    0px 3px 3px rgba(0, 0, 0, 0.12), 0px 3px 4px rgba(0, 0, 0, 0.14);
+$add-to-cart-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2),
+    0px 3px 3px rgba(0, 0, 0, 0.12), 0px 3px 4px rgba(0, 0, 0, 0.14);
+
+$font-family: 'Roboto', sans-serif !default;
+$second-font-family: $font-family;
+$fa-font-family: 'Font Awesome 5 Free' !default;
+
+$breakpoints: (
+    xs: 480px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1600px,
+    xlst: 1920px
+);
+
+$max-breakpoints: (
+    xs: 479px,
+    sm: 575px,
+    md: 767px,
+    lg: 991px,
+    xl: 1199px,
+    xxl: 1599px
+);

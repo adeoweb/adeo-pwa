@@ -1,0 +1,88 @@
+.autocomplete-suggestions {
+    display: none;
+    border: 1px solid #bbb;
+    background: #fff;
+    cursor: default;
+    border-top: none;
+    overflow: auto;
+    max-height: 9999px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+
+    &.show {
+        display: block;
+    }
+}
+
+.autocomplete-title {
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.autocomplete-suggestion {
+    cursor: pointer;
+    overflow: hidden;
+    padding: 10px 5px 10px 5px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #eee;
+    display: block;
+
+    &:hover {
+        background: #eef3d6;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.suggestion-left {
+    float: left;
+    width: 15%;
+}
+
+.suggestion-right {
+    width: 82%;
+    padding-left: 10px;
+    text-align: left;
+    color: black;
+    float: left;
+
+    .product-name {
+        font-size: 14px;
+        line-height: 18px;
+        color: #39c;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .product-price {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .product-des {
+        font-size: 12px;
+    }
+
+    .product-des p {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .product-line {
+        margin-bottom: 5px;
+    }
+
+    p.short-des {
+        margin: 0;
+        font-size: 0.9em;
+        color: #aaa;
+    }
+}

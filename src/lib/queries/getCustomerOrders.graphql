@@ -1,0 +1,9 @@
+#import "../fragments/customerOrderBasicInfo.graphql"
+
+query getCustomerOrders {
+    customerOrders {
+        items {
+            ...CustomerOrderBasicInfo
+        }
+    }
+}

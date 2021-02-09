@@ -1,3 +1,5 @@
+// Deprecated script.
+
 require('events').EventEmitter.defaultMaxListeners = 100;
 
 const chalk = require('chalk');
@@ -24,13 +26,9 @@ process.on('SIGINT', gracefulExit);
 const rootDir = path.resolve(__dirname, '..');
 
 const restartDevServerOnChange = [
-    'packages/pwa-buildpack/lib/**/*.js',
-    'packages/upward-js/lib/**/*.js',
-    'packages/venia-*/*.{js,json,yml}',
-    'packages/venia-*/.env',
-    'packages/venia-*/static/**/*',
-    'packages/venia-*/templates/**/*',
-    'packages/venia-*/static/**/*',
+    'src/*.{json,yml}',
+    'src/static/**/*',
+    'src/templates/**/*',
     'yarn.lock'
 ];
 
@@ -58,7 +56,7 @@ function startDevServer() {
         'webpack-dev-server',
         ['--stdin', '--progress', '--color', '--env.mode', 'development'],
         {
-            cwd: path.join(rootDir, 'packages/venia-concept'),
+            cwd: path.join(rootDir, 'src/'),
             localDir: path.join(rootDir, 'node_modules/.bin')
         }
     );

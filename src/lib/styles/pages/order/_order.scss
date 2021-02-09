@@ -1,0 +1,10 @@
+$default-order-border: solid 1px $gray-238-color;
+
+@import 'order-totals';
+@import 'orders-details';
+
+.customer-order {
+    .customer-content-title {
+        margin-bottom: 2.5rem;
+    }
+}

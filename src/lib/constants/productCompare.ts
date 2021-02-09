@@ -1,0 +1,1 @@
+export const COMPARE_STORAGE_NAME = 'PRODUCT_COMPARE';

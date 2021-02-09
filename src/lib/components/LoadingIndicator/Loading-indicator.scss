@@ -1,0 +1,41 @@
+.indicatorBlock {
+    background-color: rgba(255, 255, 255, .5);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 50;
+
+    &:not(.global) {
+        position: absolute;
+    }
+}
+
+.global {
+    position: fixed;
+}
+
+.contentWrapper {
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image {
+    display: inline-block;
+    height: auto;
+    margin-bottom: 16px;
+    max-height: 64px;
+    max-width: 128px;
+    width: auto;
+}
+
+.message {
+    color: #212529;
+    display: block;
+    font-size: 1rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+}

@@ -1,0 +1,13 @@
+query getBreadcrumbData($category_id: String!) {
+    categoryList(filters: { ids: { eq: $category_id } }) {
+        breadcrumbs {
+            # We may not need level if `breadcrumbs` is sorted.
+            category_level
+            category_name
+            category_url_path
+        }
+        id
+        name
+        url_path
+    }
+}

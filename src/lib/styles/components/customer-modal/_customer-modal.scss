@@ -1,0 +1,14 @@
+.customer-modal {
+    padding: 2.5rem 3.2rem 3rem;
+    position: relative;
+
+    &-close-btn {
+        background-color: transparent;
+        border: none;
+        padding: 2.5rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 999;
+    }
+}

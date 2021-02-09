@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders SwatchList component correctly 1`] = `
+<ul
+  className="config-swatch-list"
+>
+  <li
+    className=""
+  >
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "foo",
+        }
+      }
+      title="foo"
+    />
+  </li>
+</ul>
+`;

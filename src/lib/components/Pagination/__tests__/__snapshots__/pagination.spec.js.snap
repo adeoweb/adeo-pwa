@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="pagination"
+>
+  <i />
+  <i />
+  <i />
+  <i />
+</div>
+`;
+
+exports[`renders nothing if totalPages is 1 1`] = `null`;

@@ -1,0 +1,14 @@
+#import "../fragments/cartDetails.graphql"
+
+mutation setPaymentMethod(
+    $cartId: String!
+    $paymentMethod: PaymentMethodInput!
+) {
+    setPaymentMethodOnCart(
+        input: { cart_id: $cartId, payment_method: $paymentMethod }
+    ) {
+        cart {
+            ...CartDetails
+        }
+    }
+}

@@ -1,0 +1,34 @@
+#import "./wishlist.graphql"
+
+fragment CustomerDetails on Customer {
+    email
+    firstname
+    lastname
+    is_subscribed
+    addresses {
+        city
+        company
+        country_code
+        default_billing
+        default_shipping
+        fax
+        firstname
+        id
+        lastname
+        middlename
+        postcode
+        prefix
+        region {
+            region
+            region_code
+        }
+        street
+        suffix
+        telephone
+        vat_id
+        address_name
+    }
+    wishlist {
+        ...Wishlist
+    }
+}

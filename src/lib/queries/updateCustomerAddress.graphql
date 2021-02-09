@@ -1,0 +1,7 @@
+#import "../fragments/customerAddress.graphql"
+
+mutation updateCustomerAddress($id: Int!, $address: CustomerAddressInput!) {
+    updateCustomerAddress(input: $address, id: $id) {
+        ...CustomerAddress
+    }
+}

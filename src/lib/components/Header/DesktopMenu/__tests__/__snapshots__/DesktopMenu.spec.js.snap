@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly 1`] = `
+<nav
+  className="main-nav"
+>
+  <nav
+    className="main-nav"
+  >
+    <ul
+      className="menu sf-arrows sf-js-enabled"
+      style={
+        Object {
+          "touchAction": "pan-y",
+        }
+      }
+    >
+      <li
+        className="megamenu-container "
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <a
+          className="sf-with-ul"
+          href="/mockurl.html"
+          onClick={[Function]}
+        >
+          Mock name
+        </a>
+        <div
+          className="megamenu col"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div
+            className="row row"
+          >
+            <div
+              className="col-lg-8"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-lg-4"
+                >
+                  <div
+                    className="menu-title"
+                  >
+                    <a
+                      href="/urlpath/path.html"
+                      onClick={[Function]}
+                    >
+                      Mock second name - 1
+                    </a>
+                  </div>
+                  <ul>
+                    <li>
+                      <a
+                        href="/urlpath/path.html"
+                        onClick={[Function]}
+                      >
+                        Mock third name - 1
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/urlpath/path.html"
+                        onClick={[Function]}
+                      >
+                        Mock third name - 2
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  className="col-lg-4"
+                >
+                  <div
+                    className="menu-title"
+                  >
+                    <a
+                      href="/urlpath/path.html"
+                      onClick={[Function]}
+                    >
+                      Mock second name - 1
+                    </a>
+                  </div>
+                  <ul />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</nav>
+`;

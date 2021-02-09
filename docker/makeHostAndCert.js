@@ -8,7 +8,7 @@ const makeFile = (name, content) => {
         console.log(`${name} CREATED SUCCESSFULLY`);
     });
 };
-const ssl = async function (domain) {
+const ssl = async function(domain) {
     const s = await devcert.certificateFor(domain);
     makeFile(`./docker/certs/${domain}.crt`, s.cert);
     makeFile(`./docker/certs/${domain}.key`, s.key);

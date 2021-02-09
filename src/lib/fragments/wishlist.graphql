@@ -1,0 +1,39 @@
+fragment Wishlist on Wishlist {
+    id
+    items {
+        added_at
+        description
+        id
+        product {
+            __typename
+            id
+            sku
+            name
+            url_key
+            url_suffix
+            small_image {
+                label
+                url
+            }
+            price_range {
+                minimum_price {
+                    final_price {
+                        currency
+                        value
+                    }
+                    regular_price {
+                        currency
+                        value
+                    }
+                    discount {
+                        amount_off
+                    }
+                }
+            }
+        }
+        qty
+    }
+    items_count
+    sharing_code
+    updated_at
+}

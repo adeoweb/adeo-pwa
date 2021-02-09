@@ -1,0 +1,25 @@
+query menu($id: String!) {
+    categoryList(filters: { ids: { eq: $id } }) {
+        children {
+            include_in_menu
+            name
+            position
+            url_path
+            url_suffix
+            children {
+                include_in_menu
+                name
+                position
+                url_path
+                url_suffix
+                children {
+                    include_in_menu
+                    name
+                    position
+                    url_path
+                    url_suffix
+                }
+            }
+        }
+    }
+}
