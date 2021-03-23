@@ -2,7 +2,7 @@
 
 exports[`render full-bleed row 1`] = `
 <div
-  className=""
+  className="root"
   style={
     Object {
       "backgroundColor": undefined,
@@ -27,7 +27,7 @@ exports[`render full-bleed row 1`] = `
 
 exports[`render row with all props configured 1`] = `
 <div
-  className=" test-class"
+  className="root test-class"
   style={
     Object {
       "backgroundAttachment": "fixed",
@@ -56,15 +56,18 @@ exports[`render row with all props configured 1`] = `
     }
   }
 >
-  <div />
+  <div
+    className="contained"
+  />
 </div>
 `;
 
 exports[`render row with mobile image displayed and parallax enabled 1`] = `
 <div
-  className=""
+  className="contained"
 >
   <div
+    className="inner"
     style={
       Object {
         "backgroundAttachment": undefined,
@@ -95,9 +98,10 @@ exports[`render row with mobile image displayed and parallax enabled 1`] = `
 
 exports[`render row with no props 1`] = `
 <div
-  className=""
+  className="contained"
 >
   <div
+    className="inner"
     style={
       Object {
         "backgroundColor": undefined,

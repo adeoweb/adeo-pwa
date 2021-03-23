@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className=""
+>
+  <div
+    className="mobile-menu-overlay"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  />
+  <div
+    className="mobile-menu-container"
+  >
+    <div
+      className="mobile-menu-wrapper"
+    >
+      <button
+        className="mobile-menu-close"
+        onClick={[Function]}
+      >
+        <i
+          className="icon-cancel"
+        />
+      </button>
+      <nav
+        className="mobile-nav"
+      >
+        <ul
+          className="mobile-menu"
+        >
+          <li
+            className=""
+          >
+            <a
+              href="/mockurl.html"
+              onClick={[Function]}
+            >
+              Mock name
+              <button
+                className="mmenu-btn"
+                onClick={[Function]}
+              />
+            </a>
+            <ul>
+              <li
+                className=""
+              >
+                <a
+                  href="/urlpath/path.html"
+                  onClick={[Function]}
+                >
+                  Mock second name - 1
+                  <button
+                    className="mmenu-btn"
+                    onClick={[Function]}
+                  />
+                </a>
+                <ul>
+                  <li
+                    className=""
+                  >
+                    <a
+                      href="/urlpath/path.html"
+                      onClick={[Function]}
+                    >
+                      Mock third name - 1
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                  >
+                    <a
+                      href="/urlpath/path.html"
+                      onClick={[Function]}
+                    >
+                      Mock third name - 2
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                className=""
+              >
+                <a
+                  href="/urlpath/path.html"
+                  onClick={[Function]}
+                >
+                  Mock second name - 1
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="social-icons"
+      >
+        <a
+          className="social-icon"
+          href="/"
+          target="_blank"
+        >
+          <i
+            className="icon-facebook"
+          />
+        </a>
+        <a
+          className="social-icon"
+          href="/"
+          target="_blank"
+        >
+          <i
+            className="icon-twitter"
+          />
+        </a>
+        <a
+          className="social-icon"
+          href="/"
+          target="_blank"
+        >
+          <i
+            className="icon-instagram"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -15,7 +15,6 @@ exports[`renders a RichContent component with HTML content 1`] = `
 
 exports[`renders a RichContent component with Page Builder content 1`] = `
 <div>
-  // @ts-ignore
   <div
     dataContentType="row"
   />

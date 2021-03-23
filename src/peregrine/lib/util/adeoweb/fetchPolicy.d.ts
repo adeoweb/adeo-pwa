@@ -1,13 +1,11 @@
-import { WatchQueryFetchPolicy } from '@apollo/client';
+import { FetchPolicy } from '@apollo/client';
 
 type TQueriesVariants = 'default';
-type TQueriesFetchPolicy = {
-    [index in TQueriesVariants]: WatchQueryFetchPolicy
-};
+type TQueriesFetchPolicy = { [index in TQueriesVariants]: FetchPolicy };
 
 type TMutationsVariants = 'default';
 type TMutationsFetchPolicy = {
-    [index in TMutationsVariants]: WatchQueryFetchPolicy
+    [index in TMutationsVariants]: 'no-cache' | undefined
 };
 
 type TFetchPolicy = {

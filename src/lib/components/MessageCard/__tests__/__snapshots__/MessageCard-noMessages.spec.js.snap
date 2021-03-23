@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+<div
+  className="ss-card alert alert-dismissible fade show p-0 d-none"
+  role="alert"
+/>
+`;

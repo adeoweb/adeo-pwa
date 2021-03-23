@@ -22,6 +22,7 @@ exports[`renders a Divider component 1`] = `
   }
 >
   <hr
+    className="hr"
     style={
       Object {
         "borderColor": undefined,
@@ -55,6 +56,7 @@ exports[`renders a Divider component with all props configured 1`] = `
   }
 >
   <hr
+    className="hr"
     style={
       Object {
         "borderColor": "#fd870a",

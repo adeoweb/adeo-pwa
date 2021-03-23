@@ -3,6 +3,7 @@
 exports[`renders a ButtonItem component 1`] = `
 <div>
   <button
+    className="root_normalPriority"
     onClick={[Function]}
     style={
       Object {
@@ -23,7 +24,9 @@ exports[`renders a ButtonItem component 1`] = `
     }
     type="button"
   >
-    <span />
+    <span
+      className="content"
+    />
   </button>
 </div>
 `;
@@ -33,6 +36,7 @@ exports[`renders a ButtonItem component with all properties configured 1`] = `
   className="test-class"
 >
   <button
+    className="root_normalPriority"
     onClick={[Function]}
     style={
       Object {
@@ -54,7 +58,9 @@ exports[`renders a ButtonItem component with all properties configured 1`] = `
     }
     type="button"
   >
-    <span>
+    <span
+      className="content"
+    >
       button text
     </span>
   </button>

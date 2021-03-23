@@ -2,7 +2,7 @@
 
 exports[`render configured tab 1`] = `
 <div
-  className=" test-class"
+  className="root test-class"
   data-tabs={true}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -27,7 +27,7 @@ exports[`render configured tab 1`] = `
     className={null}
   >
     <ul
-      className="react-tabs__tab-list"
+      className="navigationRight"
       onMouseDown={[Function]}
       onMouseLeave={[Function]}
       onMouseMove={[Function]}
@@ -38,7 +38,7 @@ exports[`render configured tab 1`] = `
         aria-controls="react-tabs-1"
         aria-disabled="false"
         aria-selected="true"
-        className="react-tabs__tab react-tabs__tab--selected"
+        className="header selected"
         id="react-tabs-0"
         role="tab"
         tabIndex="0"
@@ -48,6 +48,7 @@ exports[`render configured tab 1`] = `
     </ul>
   </div>
   <div
+    className="contentRight"
     style={
       Object {
         "minHeight": "300px",
@@ -57,7 +58,7 @@ exports[`render configured tab 1`] = `
   >
     <div
       aria-labelledby="react-tabs-0"
-      className="react-tabs__tab-panel react-tabs__tab-panel--selected"
+      className="panel panelSelected"
       id="react-tabs-1"
       role="tabpanel"
     >

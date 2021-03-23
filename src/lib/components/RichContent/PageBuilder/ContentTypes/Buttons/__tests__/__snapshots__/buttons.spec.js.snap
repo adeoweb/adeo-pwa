@@ -2,7 +2,7 @@
 
 exports[`renders a Buttons component with inline appearance and same width 1`] = `
 <div
-  className="  test-class"
+  className="root inline test-class"
   style={
     Object {
       "--buttonMinWidth": "150px",
@@ -27,7 +27,7 @@ exports[`renders a Buttons component with inline appearance and same width 1`] =
 
 exports[`renders a Buttons component with stacked appearance 1`] = `
 <div
-  className="  test-class"
+  className="root stacked test-class"
   style={
     Object {
       "--buttonMinWidth": null,

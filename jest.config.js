@@ -55,13 +55,13 @@ const testAdeoPwa = inPackage => ({
         '\\.(jpg|jpeg|png|svg)$': '<rootDir>/src/__mocks__/fileMock.js',
         '\\.css$': 'identity-obj-proxy',
         '\\.scss$': 'identity-obj-proxy',
-        '\\.svg$': 'identity-obj-proxy',
-        '^src.*': '<rootDir>/src'
+        '\\.svg$': 'identity-obj-proxy'
     },
     modulePaths: [
         inPackage(),
         inPackage('node_modules'),
-        '<rootDir>/node_modules'
+        '<rootDir>/node_modules',
+        '<rootDir>'
     ],
     // Set up Enzyme React 16 adapter for testing React components
     setupFilesAfterEnv: [

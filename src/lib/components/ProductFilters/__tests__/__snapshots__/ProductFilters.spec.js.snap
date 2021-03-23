@@ -1,3 +1,473 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders correctly 1`] = `null`;
+exports[`Renders correctly 1`] = `
+Array [
+  <div
+    className="widget"
+  >
+    <h3
+      className="widget-title"
+    >
+      <button
+        aria-expanded={true}
+        className=""
+        onClick={[Function]}
+      >
+        Category
+      </button>
+    </h3>
+    <div
+      className="collapse show"
+    >
+      <div
+        className="widget-body"
+      >
+        <ul
+          className="cat-list"
+        >
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "New Luma Yoga Collection (13)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Tops (50)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Jackets (12)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Hoodies & Sweatshirts (12)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Tees (12)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Bras & Tanks (14)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Women Sale (12)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Tees (12)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Erin Recommends (11)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Performance Fabrics (13)",
+                  }
+                }
+              />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Eco Friendly (6)",
+                  }
+                }
+              />
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="widget"
+  >
+    <h3
+      className="widget-title"
+    >
+      <button
+        aria-expanded={true}
+        className=""
+        onClick={[Function]}
+      >
+        Color
+      </button>
+    </h3>
+    <div
+      className="collapse show"
+    >
+      <div
+        className="widget-body"
+      >
+        <ul
+          className="config-swatch-list"
+        >
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "black",
+                  }
+                }
+              />
+              <span>
+                Black (12)
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "blue",
+                  }
+                }
+              />
+              <span>
+                Blue (22)
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "brown",
+                  }
+                }
+              />
+              <span>
+                Brown (1)
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "gray",
+                  }
+                }
+              />
+              <span>
+                Gray (8)
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "green",
+                  }
+                }
+              />
+              <span>
+                Green (18)
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "orange",
+                  }
+                }
+              />
+              <span>
+                Orange (21)
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "purple",
+                  }
+                }
+              />
+              <span>
+                Purple (23)
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "red",
+                  }
+                }
+              />
+              <span>
+                Red (18)
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "white",
+                  }
+                }
+              />
+              <span>
+                White (9)
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              onClick={[Function]}
+            >
+              <span
+                className="color-panel"
+                style={
+                  Object {
+                    "backgroundColor": "yellow",
+                  }
+                }
+              />
+              <span>
+                Yellow (16)
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="widget"
+  >
+    <h3
+      className="widget-title"
+    >
+      <button
+        aria-expanded={true}
+        className=""
+        onClick={[Function]}
+      >
+        Eco Collection
+      </button>
+    </h3>
+    <div
+      className="collapse show"
+    >
+      <div
+        className="widget-body"
+      >
+        <ul
+          className="cat-list"
+        >
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              No (38)
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={[Function]}
+            >
+              <i
+                className="icon-check-empty"
+              />
+              Yes (12)
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
+`;
