@@ -22,7 +22,7 @@
     "start": "buildpack serve .",
     "start:debug": "node --inspect-brk ./node_modules/.bin/webpack-dev-server --progress --color --env.mode development",
     "test": "jest",
-    "test:ci": "node --experimental-worker node_modules/.bin/jest --max-workers=3 --json --outputFile=test-results.json",
+    "test:ci": "node --experimental-worker node_modules/.bin/jest --max-workers=3 --ci --reporters=default --reporters=jest-junit --outputFile=report-junit.xml",
     "test:debug": "node --experimental-worker --inspect-brk node_modules/.bin/jest --no-cache",
     "test:dev": "node --experimental-worker node_modules/.bin/jest --watch",
     "validate-queries": "yarn run download-schema && graphql validate-magento-pwa-queries --project adeo-pwa",

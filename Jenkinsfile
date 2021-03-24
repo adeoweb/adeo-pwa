@@ -1,3 +1,5 @@
+library "adeoweb-jenkins-scripts@0.0.7"
+
 pipeline {
   agent {label 'debian-10-builder'}
   options {
@@ -8,6 +10,16 @@ pipeline {
     stage('Initialize Environment') {
       steps {
         sh 'cp .env.sample .env'
+      }
+    }
+    stage('Run checks') {
+      steps {
+        nodejs(nodeJSInstallationName: 'Node 12') {
+          sh "yarn install --frozen-lockfile"
+          sh "yarn run test:ci || true"
+          sh "yarn lint --format checkstyle -o report-checkstyle.xml"
+        }
+        stash includes: "**/report-*.xml", name: "results"
       }
     }
     stage('Run Docker Build') {
@@ -68,6 +80,9 @@ pipeline {
   }
   post {
     always {
+      unstash "results"
+      junit allowEmptyResults: true, testResults: "**/report-junit.xml"
+      processCheckstyle("**/report-checkstyle.xml")
       cleanWs()
     }
   }
