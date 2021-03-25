@@ -1,5 +1,6 @@
 import React from 'react';
 import { createTestInstance } from '@magento/peregrine';
+import { act } from 'react-test-renderer';
 import Row from '../row';
 
 jest.mock('src/lib/drivers', () => ({
@@ -59,7 +60,10 @@ test('row unmount causes Jarallax to be destroyed', () => {
             return true;
         }
     });
-    component.unmount();
+
+    act(() => {
+        component.unmount();
+    });
 
     expect(mockJarallax.mock.calls).toEqual([
         [

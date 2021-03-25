@@ -8,7 +8,10 @@ import { useCategoryList } from '@magento/peregrine/lib/talons/CategoryList/useC
 import { useCategoryTile } from '@magento/peregrine/lib/talons/CategoryList/useCategoryTile';
 import mockUseLogo from 'src/lib/util/__mocks__/hooks/mockUseLogo';
 
-jest.mock('src/lib/drivers');
+jest.mock('src/lib/drivers', () => ({
+    Link: jest.fn(() => null)
+}));
+
 jest.mock('../../../classify');
 
 jest.mock('src/peregrine/lib/talons/adeoweb/Logo/useLogo', () => {
