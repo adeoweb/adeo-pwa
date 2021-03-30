@@ -1,6 +1,7 @@
 import React from 'react';
-import TestRenderer from 'react-test-renderer';
+import { createTestInstance } from '@magento/peregrine';
 import SuggestedProduct from '../SuggestedProduct';
+import { IntlProvider } from 'react-intl';
 
 jest.mock('../../../classify');
 jest.mock('src/lib/drivers', () => ({
@@ -30,9 +31,11 @@ const defaultProps = {
 };
 
 test('renders a suggestedProduct component', () => {
-    const component = TestRenderer.create(
-        <SuggestedProduct {...defaultProps} />
+    const tree = createTestInstance(
+        <IntlProvider locale="en">
+            <SuggestedProduct {...defaultProps} />
+        </IntlProvider>
     );
 
-    expect(component.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot();
 });

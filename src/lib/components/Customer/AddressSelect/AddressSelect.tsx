@@ -64,6 +64,7 @@ const AddressSelect: FunctionComponent<TAddressSelectProps> = ({
         async values => {
             await createCustomerAddress({
                 address: values,
+                // @ts-ignore
                 createCustomerAddress: createCustomerAddressQuery,
                 fetchUserDetails
             });

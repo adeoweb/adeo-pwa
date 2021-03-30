@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import errorRecord from '@magento/peregrine/lib/util/createErrorRecord';
-
 import { useHistory } from 'src/lib/drivers';
 import { useAppContext } from '../../../context/adeoweb/app';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
@@ -70,7 +69,7 @@ export const useApp = props => {
         [renderError]
     );
 
-    const errors = renderError ?? unhandledErrors ?? [];
+    const errors = renderError ? renderErrors : unhandledErrors;
     const handleDismissError = renderError ? reload : markErrorHandled;
 
     // Only add toasts for errors if the errors list changes. Since `addToast`

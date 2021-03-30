@@ -1,25 +1,22 @@
 import React, { ChangeEvent, Fragment, FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import * as H from 'history';
 import { useSearchField } from 'src/peregrine/lib/talons/adeoweb/SearchBar/useSearchField';
 
 type TSearchFieldProps = {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     onFocus: () => void;
-    location: H.Location;
     value: string;
     setFieldValue: (field: string, value: string) => void;
 };
 
 const SearchField: FunctionComponent<TSearchFieldProps> = ({
-    location,
     onChange,
     onFocus,
     value,
     setFieldValue
 }) => {
     const { t } = useTranslation();
-    useSearchField({ location, setFieldValue });
+    useSearchField({ setFieldValue });
 
     return (
         <Fragment>

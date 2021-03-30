@@ -1,10 +1,5 @@
-import * as H from 'history';
 import { MutableRefObject } from 'react';
 import { FormikProps } from 'src/lib/drivers';
-
-type TUseSearchBarProps = {
-    history: H.History;
-};
 
 export type TUseSearchBarValues = {
     search_query: string;
@@ -19,4 +14,4 @@ type TUseSearchBar = {
     form: FormikProps<TUseSearchBarValues>;
 };
 
-export function useSearchBar(props: TUseSearchBarProps): TUseSearchBar;
+export function useSearchBar(): TUseSearchBar;

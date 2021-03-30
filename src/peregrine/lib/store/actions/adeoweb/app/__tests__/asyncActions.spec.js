@@ -6,7 +6,7 @@ import {
     setActiveStore,
     setLayoutMode
 } from '../asyncActions';
-import { setItem } from '@magento/peregrine/lib/util/simplePersistence';
+import { mockSetItem } from '@magento/peregrine/lib/util/simplePersistence';
 
 jest.mock('@magento/peregrine/lib/util/simplePersistence');
 
@@ -31,7 +31,7 @@ beforeEach(() => {
 
 afterEach(() => {
     window.location = originalLocation;
-    setItem.mockClear();
+    mockSetItem.mockClear();
 });
 
 test('toggleDrawer() to return a thunk', () => {
@@ -99,7 +99,7 @@ test('setActiveStore thunk returns undefined', async () => {
 test('setActiveStore thunk dispatches actions', async () => {
     await setActiveStore(mockStore)(...thunkArgs);
     expect(dispatch).toHaveBeenCalledTimes(2);
-    expect(setItem).toHaveBeenCalledWith('activeStore', mockStore);
+    expect(mockSetItem).toHaveBeenCalledWith('activeStore', mockStore);
     expect(window.location.reload).toHaveBeenCalled();
 });
 
@@ -117,5 +117,5 @@ test('setLayoutMode thunk dispatches actions', async () => {
     const layoutModeMock = 'test_layout_mode';
     await setLayoutMode(layoutModeMock)(...thunkArgs);
     expect(dispatch).toHaveBeenCalledTimes(1);
-    expect(setItem).toHaveBeenCalledWith('layoutMode', layoutModeMock);
+    expect(mockSetItem).toHaveBeenCalledWith('layoutMode', layoutModeMock);
 });

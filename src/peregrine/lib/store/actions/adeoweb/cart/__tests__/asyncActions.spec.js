@@ -3,10 +3,6 @@ import {
     mockRemoveItem,
     mockSetItem
 } from '@magento/peregrine/lib/util/simplePersistence';
-import * as mockPersistance from 'src/__mocks__/@magento/util/simplePersistence';
-
-// import BrowserPersistence from '@magento/peregrine/lib/util/simplePersistence';
-
 import actions from '../actions';
 import {
     addItemToCart,
@@ -18,13 +14,7 @@ import {
     writeImageToCache
 } from '../asyncActions';
 
-// jest.mock('@magento/peregrine/lib/util/simplePersistence');
-jest.mock(
-    '@magento/peregrine/lib/util/simplePersistence',
-    () => mockPersistance
-);
-
-// console.log('BrowserPersistence', new BrowserPersistence());
+jest.mock('@magento/peregrine/lib/util/simplePersistence');
 
 const dispatch = jest.fn();
 const fetchCartId = jest.fn().mockResolvedValue({

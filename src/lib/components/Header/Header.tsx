@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-import { Link, Route } from 'src/lib/drivers';
+import React from 'react';
+import { Link } from 'src/lib/drivers';
 import Logo from 'src/lib/components/Logo';
 import TopBar from './TopBar';
 import DesktopMenu from 'src/lib/components/Header/DesktopMenu';
@@ -10,30 +10,11 @@ import GET_CART_DETAILS_QUERY from '../../queries/getCartDetails.graphql';
 import MiniCart from 'src/lib/components/Header/MiniCart';
 import { useCartTrigger } from 'src/peregrine/lib/talons/adeoweb/Header/useCartTrigger';
 import { useNavigationTrigger } from 'src/peregrine/lib/talons/adeoweb/Header/useNavigationTrigger';
-
-const SearchBar = React.lazy(() => import('src/lib/components/SearchBar'));
+import SearchBar from 'src/lib/components/SearchBar';
 
 const Header = () => {
     const { handleSearchTriggerClick, searchOpen } = useHeader();
     const { handleOpenNavigation } = useNavigationTrigger();
-
-    // TODO: redo search bar placeholder?
-    const searchBarFallback = <div>Loading...</div>;
-
-    const searchBar = (
-        <Suspense fallback={searchBarFallback}>
-            <Route
-                render={({ history, location }) => (
-                    <SearchBar
-                        handleTriggerClick={handleSearchTriggerClick}
-                        isOpen={searchOpen}
-                        history={history}
-                        location={location}
-                    />
-                )}
-            />
-        </Suspense>
-    );
 
     useCartTrigger({
         createCartMutation: CREATE_CART_MUTATION,
@@ -50,8 +31,12 @@ const Header = () => {
                             <Logo />
                         </Link>
                     </div>
-
-                    <div className="header-center">{searchBar}</div>
+                    <div className="header-center">
+                        <SearchBar
+                            handleTriggerClick={handleSearchTriggerClick}
+                            isOpen={searchOpen}
+                        />
+                    </div>
 
                     <div className="header-right">
                         <button

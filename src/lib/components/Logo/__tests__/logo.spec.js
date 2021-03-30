@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Logo from '../Logo';
-import createTestInstance from '@magento/peregrine';
+import { createTestInstance } from '@magento/peregrine';
 
 jest.mock('src/peregrine/lib/talons/adeoweb/Logo/useLogo', () => {
     return {

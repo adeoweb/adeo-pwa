@@ -8,13 +8,6 @@ jest.mock('../SearchField', () => () => null);
 
 const handleTriggerClick = jest.fn();
 
-// TODO: check this for validity
-jest.mock('src/peregrine/lib/talons/adeoweb/SearchBar/useSearchBar', () => {
-    return {
-        useSearchBar: () => {}
-    };
-});
-
 test('renders correctly when closed', () => {
     const tree = createTestInstance(
         <SearchBar

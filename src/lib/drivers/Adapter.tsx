@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useMemo } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { history } from './history';
 import { ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { persistCache } from 'apollo-cache-persist';
@@ -88,8 +89,10 @@ const Adapter: FunctionComponent<TAdapterProps<{}>> = props => {
     return (
         <ApolloProvider client={apolloClient}>
             <ReduxProvider store={store}>
-                {/* @ts-ignore */}
-                <BrowserRouter>{children(apolloClient)}</BrowserRouter>
+                <Router history={history}>
+                    {/* @ts-ignore */}
+                    {children(apolloClient)}
+                </Router>
             </ReduxProvider>
         </ApolloProvider>
     );

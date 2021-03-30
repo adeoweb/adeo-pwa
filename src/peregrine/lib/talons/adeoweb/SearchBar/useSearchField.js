@@ -1,5 +1,5 @@
-import { useCallback } from 'react';
-import { useSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
+import { useEffect } from 'react';
+import { getSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
 
 /**
  * Returns props necessary to render a SearchField component.
@@ -9,17 +9,20 @@ import { useSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
  * @param {Function} props.onChange
  */
 export const useSearchField = props => {
-    const { location, setFieldValue } = props;
+    const { setFieldValue } = props;
 
-    const setValue = useCallback(
-        nextValue => {
-            // update the search field
-            if (nextValue) {
-                setFieldValue('search_query', nextValue);
+    // Pre-populate the search field with the search term from the URL.
+    // We purposefully only ever run this effect on initial mount.
+    useEffect(
+        () => {
+            const urlTerm = getSearchParam('query');
+
+            if (!urlTerm) {
+                return;
             }
-        },
-        [setFieldValue]
-    );
 
-    useSearchParam({ location, parameter: 'query', setValue });
+            setFieldValue('search_query', urlTerm);
+        },
+        [] // eslint-disable-line react-hooks/exhaustive-deps
+    );
 };

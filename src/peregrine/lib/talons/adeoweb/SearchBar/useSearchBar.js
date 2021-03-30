@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import { useDropdown } from '@magento/peregrine/lib/hooks/useDropdown';
 import { useFormik } from 'src/lib/drivers';
+import { history } from '../../../../../lib/drivers/history';
 
 const initialValues = { search_query: '' };
 
-export const useSearchBar = props => {
-    const { history } = props;
+export const useSearchBar = () => {
     const { push } = history;
     const { elementRef, expanded, setExpanded } = useDropdown();
 

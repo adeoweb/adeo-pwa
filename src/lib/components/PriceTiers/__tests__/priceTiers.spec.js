@@ -1,6 +1,7 @@
 import React from 'react';
 import { createTestInstance } from '@magento/peregrine';
 import PriceTiers from '../PriceTiers';
+import { IntlProvider } from 'react-intl';
 
 const tier1 = {
     final_price: {
@@ -48,7 +49,9 @@ describe('PriceTiers', () => {
         const priceTiers = [tier1];
 
         const tree = createTestInstance(
-            <PriceTiers priceTiers={priceTiers} priceRange={priceRange} />
+            <IntlProvider locale="en">
+                <PriceTiers priceTiers={priceTiers} priceRange={priceRange} />
+            </IntlProvider>
         );
 
         expect(tree.toJSON()).toMatchSnapshot();
@@ -58,7 +61,9 @@ describe('PriceTiers', () => {
         const priceTiers = [tier1, tier2];
 
         const tree = createTestInstance(
-            <PriceTiers priceTiers={priceTiers} priceRange={priceRange} />
+            <IntlProvider locale="en">
+                <PriceTiers priceTiers={priceTiers} priceRange={priceRange} />
+            </IntlProvider>
         );
 
         expect(tree.toJSON()).toMatchSnapshot();
@@ -68,7 +73,9 @@ describe('PriceTiers', () => {
         const priceTiers = [tier1, tier2, tier3];
 
         const tree = createTestInstance(
-            <PriceTiers priceTiers={priceTiers} priceRange={priceRange} />
+            <IntlProvider locale="en">
+                <PriceTiers priceTiers={priceTiers} priceRange={priceRange} />
+            </IntlProvider>
         );
 
         expect(tree.toJSON()).toMatchSnapshot();
@@ -78,7 +85,9 @@ describe('PriceTiers', () => {
         const priceTiers = [tier1, tier2, tier3, tier4];
 
         const tree = createTestInstance(
-            <PriceTiers priceTiers={priceTiers} priceRange={priceRange} />
+            <IntlProvider locale="en">
+                <PriceTiers priceTiers={priceTiers} priceRange={priceRange} />
+            </IntlProvider>
         );
 
         expect(tree.toJSON()).toMatchSnapshot();

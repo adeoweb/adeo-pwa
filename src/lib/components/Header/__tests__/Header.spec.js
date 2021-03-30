@@ -2,6 +2,7 @@ import React from 'react';
 import testRenderer from 'react-test-renderer';
 import Header from '../Header';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
 
 import mockUseMenu from 'src/lib/util/__mocks__/hooks/mockUseMenu';
 import mockUseProduct from 'src/lib/util/__mocks__/hooks/mockUseProduct';
@@ -104,7 +105,9 @@ jest.mock('src/peregrine/lib/talons/adeoweb/Product/useCompareDropdown', () => {
 test('Renders correctly', () => {
     const component = testRenderer.create(
         <Router>
-            <Header />
+            <IntlProvider locale="en">
+                <Header />
+            </IntlProvider>
         </Router>
     );
     expect(component.toJSON()).toMatchSnapshot();

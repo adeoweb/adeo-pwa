@@ -1,3 +1,6 @@
+// @ts-nocheck
+// testavimui
+
 import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TProductSearch } from 'src/lib/types/ProductSearch';
@@ -34,7 +37,7 @@ const SuggestedProduct: FunctionComponent<TSuggestedProductProps> = product => {
 
     const uri = getItemUrl(product);
 
-    let price;
+    let price: React.ReactNode | null = null;
     if (
         priceRange &&
         priceRange.maximum_price &&
