@@ -11,7 +11,7 @@
     "build:analyze": "yarn run clean && mkdir dist && webpack -p --profile --no-progress --env.mode production --json > dist/build-stats.json && webpack-bundle-analyzer dist/build-stats.json",
     "build:dev": "yarn run clean && yarn run validate-queries && webpack --no-progress --env.mode development",
     "build:prod": "yarn run clean && webpack --no-progress --env.mode production",
-    "clean": "rimraf dist",
+    "clean": "rimraf ./node_modules",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "download-schema": "graphql get-schema --project adeo-pwa --insecure",
     "lint": "eslint '@(src|scripts)/**/{*.ts,.tsx,.js}'",
