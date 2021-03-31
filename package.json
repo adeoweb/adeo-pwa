@@ -14,9 +14,9 @@
     "clean": "rimraf dist",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "download-schema": "graphql get-schema --project adeo-pwa --insecure",
-    "lint": "eslint '*/**/{*.ts,.tsx}' --ignore-pattern node_modules",
-    "prettier": "prettier --loglevel warn --write '*/**/*.@(css|graphql|js|ts|tsx)' '*.js'",
-    "prettier:check": "prettier --list-different '*/**/*.@(css|graphql|js|ts|tsx)' '*.js'",
+    "lint": "eslint '@(src|scripts)/**/{*.ts,.tsx,.js}'",
+    "prettier": "prettier --loglevel warn --write '@(src|scripts)/**/*.@(css|graphql|js|ts|tsx)' '*.js'",
+    "prettier:check": "prettier --list-different '@(src|scripts)/**/*.@(css|graphql|js|ts|tsx)' '*.js'",
     "prettier:fix": "yarn run -s prettier -- --write",
     "start": "buildpack serve .",
     "start:debug": "node --inspect-brk ./node_modules/.bin/webpack-dev-server --progress --color --env.mode development",
@@ -203,6 +203,11 @@
   "engines": {
     "node": ">=10.x",
     "yarn": ">=1.12.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run prettier:check && yarn run lint && yarn run test"
+    }
   },
   "pwa-studio": {
     "targets": {
