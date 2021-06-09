@@ -1,5 +1,6 @@
 import React from 'react';
-import { Archive as HistoryIcon, LogOut as SignOutIcon } from 'react-feather';
+import SignOutIcon from 'react-feather/log-out';
+import HistoryIcon from 'react-feather/archive';
 import { func, shape, string } from 'prop-types';
 
 import { mergeClasses } from '../../classify';

@@ -2,12 +2,10 @@ require('../../styles/styles.scss');
 import React, { useCallback, useEffect } from 'react';
 import { array, func, shape, string } from 'prop-types';
 import { useToasts } from '@magento/peregrine';
-import {
-    AlertCircle as AlertCircleIcon,
-    CloudOff as CloudOffIcon,
-    Wifi as WifiIcon,
-    RefreshCcw as RefreshIcon
-} from 'react-feather';
+import AlertCircleIcon from 'react-feather/alert-circle';
+import CloudOffIcon from 'react-feather/cloud-off';
+import WifiIcon from 'react-feather/wifi';
+import RefreshIcon from 'react-feather/refresh-ccw';
 
 import { useApp } from 'src/peregrine/lib/talons/adeoweb/App/useApp';
 import { useLoadConfig } from 'src/peregrine/lib/talons/adeoweb/App/useLoadConfig';

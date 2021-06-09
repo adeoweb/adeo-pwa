@@ -8,7 +8,7 @@ import { FieldIcons, Message } from '../Field';
 import defaultClasses from './select.css';
 
 import Icon from '../Icon';
-import { ChevronDown as ChevronDownIcon } from 'react-feather';
+import ChevronDownIcon from 'react-feather/chevron-down';
 
 const arrow = <Icon src={ChevronDownIcon} size={18} />;
 

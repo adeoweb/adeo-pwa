@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import classify from '../../classify';
 import { Message } from '../Field';
 import Icon from '../Icon';
-import { Check as CheckIcon } from 'react-feather';
+import CheckIcon from 'react-feather/check';
 import defaultClasses from './checkbox.css';
 
 /* TODO: change lint config to use `label-has-associated-control` */

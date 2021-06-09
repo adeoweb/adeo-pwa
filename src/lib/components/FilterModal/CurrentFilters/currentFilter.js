@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { shape, string } from 'prop-types';
-import { X as Remove } from 'react-feather';
+import Remove from 'react-feather/x';
 
 import { mergeClasses } from '../../../classify';
 import Icon from '../../Icon';

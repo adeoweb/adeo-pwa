@@ -3,6 +3,9 @@
         "baseUrl": "./",
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
+        "paths": {
+            "react-feather/*": ["react-feather/dist/icons/*"]
+        },
         "alwaysStrict": true,
         "experimentalDecorators": false,
         "lib": ["dom", "es5", "es6", "es7", "es2015", "es2017", "es2020"],

@@ -1,6 +1,6 @@
 import React from 'react';
 import { bool, shape, string } from 'prop-types';
-import { Check as Checkmark } from 'react-feather';
+import Checkmark from 'react-feather/check';
 
 import { mergeClasses } from '../../../classify';
 import Icon from '../../Icon';
