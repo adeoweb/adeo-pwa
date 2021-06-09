@@ -1,5 +1,5 @@
 import BrowserPersistence from '@magento/peregrine/lib/util/simplePersistence';
-import { mergeCarts } from '../cart';
+import { mergeCarts, removeCart } from '../cart';
 
 import actions from './actions';
 import remapToCustomerAddressFormValues from '../../../../util/adeoweb/remapToCustomerAddressFormValues';
@@ -60,6 +60,8 @@ export const signOut = ({ revokeToken }) => async dispatch => {
     // Remove token from local storage and Redux.
     await dispatch(clearToken());
     await dispatch(clearUserSessionTimer());
+    await dispatch(removeCart());
+
     await dispatch(actions.reset());
 };
 

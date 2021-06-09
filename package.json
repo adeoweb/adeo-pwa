@@ -7,7 +7,7 @@
   "license": "SEE LICENSE IN LICENSE.txt",
   "scripts": {
     "buildpack": "buildpack",
-    "build": "yarn run build:prod",
+    "build": "yarn generate && yarn run build:prod",
     "build:analyze": "yarn run clean:dist && mkdir dist && webpack -p --profile --no-progress --env.mode production --json > dist/build-stats.json && webpack-bundle-analyzer dist/build-stats.json",
     "build:dev": "yarn run clean:dist && yarn run validate-queries && webpack --no-progress --env.mode development",
     "build:prod": "yarn run clean:dist && webpack --no-progress --env.mode production",
@@ -29,7 +29,7 @@
     "watch": "webpack-dev-server --progress --color --env.mode development",
     "storybook": "start-storybook -p 9001 -c src/.storybook",
     "storybook:build": "build-storybook -c src/.storybook -o storybook-dist",
-    "generate": "graphql-codegen"
+    "generate": "graphql-codegen -r dotenv/config"
   },
   "main": "src/lib/index.js",
   "dependencies": {

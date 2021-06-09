@@ -6,15 +6,18 @@ const {
         getStoreConfigData,
         getPossibleTypes,
         getUnionAndInterfaceTypes
-    }
+    },
+    Utilities: { loadEnvironment }
 } = require('@magento/pwa-buildpack');
 const webpack = require('webpack');
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, EnvironmentPlugin } = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 
 module.exports = async env => {
+    const projectConfig = await loadEnvironment(path.resolve(__dirname));
+
     /**
      * configureWebpack() returns a regular Webpack configuration object.
      * You can customize the build by mutating the object here, as in
@@ -52,12 +55,10 @@ module.exports = async env => {
 
     const mediaUrl = await getMediaURL();
     const storeConfigData = await getStoreConfigData();
-    // const { availableStores } = await getAvailableStoresConfigData();
     const unionAndInterfaceTypes = await getUnionAndInterfaceTypes();
 
     global.MAGENTO_MEDIA_BACKEND_URL = mediaUrl;
     global.LOCALE = storeConfigData.locale.replace('_', '-');
-    // global.AVAILABLE_STORE_VIEWS = availableStores;
 
     const possibleTypes = await getPossibleTypes();
 
@@ -162,6 +163,7 @@ module.exports = async env => {
     };
 
     config.plugins = [
+        new EnvironmentPlugin(projectConfig.env),
         ...config.plugins,
         new DefinePlugin({
             /**

@@ -105,7 +105,7 @@ describe('signOut', () => {
         await signOut({ revokeToken })(dispatch);
 
         expect(revokeToken).toHaveBeenCalledTimes(1);
-        expect(dispatch).toHaveBeenCalledTimes(3);
+        expect(dispatch).toHaveBeenCalledTimes(4);
     });
 
     test('signOut thunk catches revokeToken error and proceeds', async () => {
@@ -116,7 +116,7 @@ describe('signOut', () => {
 
         expect(revokeToken).toHaveBeenCalledTimes(1);
         expect(consoleSpy).toHaveBeenCalledTimes(1);
-        expect(dispatch).toHaveBeenCalledTimes(3);
+        expect(dispatch).toHaveBeenCalledTimes(4);
 
         consoleSpy.mockRestore();
     });
