@@ -3576,31 +3576,32 @@
   dependencies:
     es-comments "^1.0.1"
 
-"@magento/eslint-config@~1.5.2":
+"@magento/eslint-config@^1.5.2":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@magento/eslint-config/-/eslint-config-1.5.2.tgz#24083d869afd124a414ae8a15401e0a6e44a99a6"
   integrity sha512-iN5Ic0JQe549ycijZNyNRu3JHajGVrBPX3a5yy4zAjdF9gE8z6jCVQOUP3WGuff4bEJfJgs/VODSIPuEU4NjBg==
 
-"@magento/pagebuilder@~4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@magento/pagebuilder/-/pagebuilder-4.0.1.tgz#682219d907eb5fda6a44239aad8df4ed62f1cefd"
-  integrity sha512-p1od6a803XxzVkU4fYO2ZZQlcJoDx3ezhTN0eBGxnna4uAgSlFRCOw4fQhQ5qGEgXvvs2UlM3UMYj+A+S/1Tgg==
+"@magento/pagebuilder@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@magento/pagebuilder/-/pagebuilder-5.0.0.tgz#e20feb40fe341e92cf978ccd4409381e474a3cc4"
+  integrity sha512-bfylUQmVVvErzU8kgVnjWioCy6PFJzM9//rPIjVNZGlTGXVFjWk6XU1yXuFwNLvNRAkAqPj8Mj9kYeugDQdJQw==
 
-"@magento/peregrine@~9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@magento/peregrine/-/peregrine-9.0.0.tgz#98f94810a215e44ef6f8e5e40e7f76e11a53d06d"
-  integrity sha512-RKrCLC9wlqznzoehVSSwH1qav0ZL11yw1hSKi9dLZMUtGV97olTI/xn7aZbWZUunadzscf0vJAQnWFaJFtNUwg==
+"@magento/peregrine@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@magento/peregrine/-/peregrine-10.0.0.tgz#bea3747a6b4c2442a7d04c46a1e38f2842797a21"
+  integrity sha512-xFrIwxfkYs825KlqYWxPN8RBk5ICrhO5drxt897o+SnZUpzEhrst/Wm8Ywi5FwialEMlqIib9rAJu7IZc240ew==
   dependencies:
     fast-glob "~3.2.4"
 
-"@magento/pwa-buildpack@~8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@magento/pwa-buildpack/-/pwa-buildpack-8.0.1.tgz#deb48b53562f3251e9c23dce5dc5cc15c02ccbae"
-  integrity sha512-ROOyWWvdFT0OJlUpn3Pf1+oNrx2M8I/MzNF8IwHQhOz8XTtQjVhFMW4TYPLWC3rNdJrkLQZce8wbsLlECjOYvg==
+"@magento/pwa-buildpack@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@magento/pwa-buildpack/-/pwa-buildpack-9.0.0.tgz#bcc6dca62327713b89fbfd7f09ba77e1da723fad"
+  integrity sha512-g+dMdKvgIZ1kmGe1nN8bR6Ed73yMIqRTfIqO0iGyyJOdtFPdpUKLw65tX2gi3h6OXIhI0Uj5R1FjUrAzS9AFqw==
   dependencies:
     "@magento/directive-parser" "~0.1.7"
-    "@magento/upward-js" "~5.0.1"
+    "@magento/upward-js" "~5.1.0"
     "@pmmmwh/react-refresh-webpack-plugin" "~0.4.1"
+    "@yarnpkg/lockfile" "~1.1.0"
     apicache "~1.4.0"
     boxen "~3.0.0"
     camelspace "~1.0.0"
@@ -3641,10 +3642,10 @@
     write-file-webpack-plugin "~4.5.0"
     yargs "~13.2.2"
 
-"@magento/upward-js@~5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@magento/upward-js/-/upward-js-5.0.1.tgz#dd290e62bf77b4b6bd35aa3cff4a5b837307889f"
-  integrity sha512-nUGwA+RjuDh6Q2jonYJGPT2sgli97qNFIGDR9UjhTLO4LdwL8WjEmdypz5H93YO7D/SQ0b2ryLwXk/AzOFWRKg==
+"@magento/upward-js@^5.1.0", "@magento/upward-js@~5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@magento/upward-js/-/upward-js-5.1.0.tgz#a2aac62887fa18a83abf5af473fdf51f87ed7c66"
+  integrity sha512-rfm+0tuYC+HUFtk9IjptoqUHsLYUTkXbA7EINgx5rlUVobvQDRdpqNrhbrXdApykI4BvEueQ7Yv8jq5Pxl1Yyw==
   dependencies:
     "@apollo/client" "~3.1.2"
     camelspace "~1.0.0"
@@ -3673,12 +3674,12 @@
   dependencies:
     "@adobe/adobe-client-data-layer" "~1.1.3"
 
-"@magento/venia-ui@~6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@magento/venia-ui/-/venia-ui-6.0.1.tgz#c20fb2066210b58aa4349f40818cf7e3e3131aa0"
-  integrity sha512-1C2CiU48TsXCXDjHUG6Gt6NKyoEFqdqIKeX8M74VRvJO4vcroEMbhB5AHFKylpKHdH1FY8NpoX1enP45lx+bnw==
+"@magento/venia-ui@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@magento/venia-ui/-/venia-ui-7.0.0.tgz#ea2c0f23983c1cad0df7d9dcabb9d4c7dcbfde51"
+  integrity sha512-ZCt2KgtT9zSmCwalggFZ+0wJlaN9bvpMnPXQdtXhJuY9gcGHnGWEN6W4/brm0F2jJLRZ4ItpTSEEKYClLkiEWw==
   dependencies:
-    informed "~2.11.17"
+    informed "~3.27.0"
     jarallax "~1.11.1"
     load-google-maps-api "~2.0.1"
     lodash.escape "~4.0.1"
@@ -4547,7 +4548,7 @@
   resolved "https://registry.yarnpkg.com/@types/js-yaml/-/js-yaml-3.12.6.tgz#7f10c926aa41e189a2755c4c7fcf8e4573bd7ac1"
   integrity sha512-cK4XqrLvP17X6c0C8n4iTbT59EixqyXL3Fk8/Rsk4dF3oX4dg70gYUXrXVUUHpnsGMPNlTQMqf+TVmNPX6FmSQ==
 
-"@types/json-schema@^7.0.3", "@types/json-schema@^7.0.5":
+"@types/json-schema@^7.0.3", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
   integrity sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==
@@ -5291,6 +5292,11 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@yarnpkg/lockfile@~1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
+  integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
+
 JSONStream@^1.0.4, JSONStream@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"
@@ -5449,7 +5455,7 @@ ajv@5, ajv@^5.5.1:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.3.0"
 
-ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.6, ajv@^6.9.1:
+ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5, ajv@^6.12.6, ajv@^6.9.1:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
   integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
@@ -12291,6 +12297,11 @@ informed@~2.11.17:
   dependencies:
     lodash "^4.17.11"
 
+informed@~3.27.0:
+  version "3.27.0"
+  resolved "https://registry.yarnpkg.com/informed/-/informed-3.27.0.tgz#ecf17b11f978bd28907018ca958fab85c2e780ef"
+  integrity sha512-GVlNvtDtZSrObdluWOWelyrLnC0WY2YGBHY5/fxA6XiA4yfFcdXD/NOlvLFQpWQxr15pEKXLN/ypjGeshtxcpg==
+
 inherits@2, inherits@2.0.4, inherits@^2.0.1, inherits@^2.0.3, inherits@^2.0.4, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
@@ -14245,6 +14256,15 @@ loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.2, loader-utils@^1.2
     big.js "^5.2.2"
     emojis-list "^3.0.0"
     json5 "^1.0.1"
+
+loader-utils@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-2.0.0.tgz#e4cace5b816d425a166b5f097e10cd12b36064b0"
+  integrity sha512-rP4F0h2RaWSvPEkD7BLDFQnvSf+nK+wr3ESUjNTyAGobqrijmW92zc+SO6d4p4B1wh7+B/Jg1mkQe5NYUEHtHQ==
+  dependencies:
+    big.js "^5.2.2"
+    emojis-list "^3.0.0"
+    json5 "^2.1.2"
 
 locate-path@^2.0.0:
   version "2.0.0"
@@ -18788,6 +18808,15 @@ schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6.5, schema-utils@^2.7
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
 
+schema-utils@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-3.0.0.tgz#67502f6aa2b66a2d4032b4279a2944978a0913ef"
+  integrity sha512-6D82/xSzO094ajanoOSbe4YvXWMfn2A//8Y1+MUqFAJul5Bs+yn36xbK9OtNDcRVSBJ9jjeoXftM6CfztsjOAA==
+  dependencies:
+    "@types/json-schema" "^7.0.6"
+    ajv "^6.12.5"
+    ajv-keywords "^3.5.2"
+
 scss-tokenizer@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/scss-tokenizer/-/scss-tokenizer-0.2.3.tgz#8eb06db9a9723333824d3f5530641149847ce5d1"
@@ -19839,13 +19868,21 @@ strong-log-transformer@^2.0.0:
     minimist "^1.2.0"
     through "^2.3.4"
 
-style-loader@^0.23.1, style-loader@~0.23.1:
+style-loader@^0.23.1:
   version "0.23.1"
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.23.1.tgz#cb9154606f3e771ab6c4ab637026a1049174d925"
   integrity sha512-XK+uv9kWwhZMZ1y7mysB+zoihsEj4wneFWAS5qoiLwzW0WzSqMrrsIy+a3zkQJq0ipFtBpX5W3MqyRIBF/WFGg==
   dependencies:
     loader-utils "^1.1.0"
     schema-utils "^1.0.0"
+
+style-loader@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-2.0.0.tgz#9669602fd4690740eaaec137799a03addbbc393c"
+  integrity sha512-Z0gYUJmzZ6ZdRUqpg1r8GsaFKypE+3xAzuFeMuoHgjc9KZv3wMyCRjQIWEbhoFSq7+7yoHXySDJyyWQaPajeiQ==
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
 
 sudo-prompt@^8.2.0:
   version "8.2.5"
