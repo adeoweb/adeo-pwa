@@ -1,6 +1,1 @@
-import { TMoney } from 'src/lib/types/graphql/Money';
-
-export type TDiscount = {
-    amount: TMoney;
-    label: string;
-};
+export { Discount as TDiscount } from '../graphql-types.generated';

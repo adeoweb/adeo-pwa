@@ -28,7 +28,7 @@ const AddressList: FunctionComponent<TAddressListProps> = ({
                 {addresses.map(
                     ({ id, firstname, lastname, street, city, postcode }) => (
                         <option key={id} value={id}>
-                            {`${firstname} ${lastname} - ${street.join(
+                            {`${firstname} ${lastname} - ${street?.join(
                                 ' '
                             )}, ${city}, ${postcode}`}
                         </option>

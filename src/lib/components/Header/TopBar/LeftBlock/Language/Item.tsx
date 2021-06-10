@@ -20,7 +20,7 @@ const FLAGS = new Map()
 
 const Item: FunctionComponent<TItemProps> = ({ item, onSelect }) => {
     const { store_name: storeName, locale } = item;
-    const [lang] = locale.split('_');
+    const [lang] = locale?.split('_') || [];
     let img: JSX.Element | null = null;
 
     if (FLAGS.has(lang)) {

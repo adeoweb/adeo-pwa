@@ -1,6 +1,1 @@
-import { TCurrency } from 'src/lib/constants/currency';
-
-export type TMoney = {
-    currency?: TCurrency;
-    value?: number;
-};
+export { Money as TMoney, CurrencyEnum } from '../graphql-types.generated';

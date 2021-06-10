@@ -1,5 +1,3 @@
-export type TSearchResultPageInfo = {
-    current_page?: number;
-    page_size?: number;
-    total_pages?: number;
-};
+export {
+    SearchResultPageInfo as TSearchResultPageInfo
+} from '../graphql-types.generated';

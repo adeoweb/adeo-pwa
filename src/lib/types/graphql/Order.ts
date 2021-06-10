@@ -1,3 +1,1 @@
-export type TOrder = {
-    order_number: string;
-};
+export { Order as TOrder } from '../graphql-types.generated';

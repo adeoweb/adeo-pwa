@@ -1,4 +1,4 @@
-import { TCart } from 'src//lib/types/graphql/Cart';
+import { TCart } from 'src/lib/types/graphql/Cart';
 
 export interface ICartState {
     addItemError: Error | null;

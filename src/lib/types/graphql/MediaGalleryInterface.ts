@@ -1,4 +1,3 @@
-export type TMediaGalleryInterface = {
-    label?: string;
-    url?: string;
-};
+export {
+    MediaGalleryInterface as TMediaGalleryInterface
+} from '../graphql-types.generated';
