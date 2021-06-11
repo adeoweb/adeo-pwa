@@ -8,13 +8,15 @@ import {
 export const useLayoutModes = () => {
     const [{ layoutMode }, { setLayoutMode }] = useAppContext();
 
-    const setGrid = useCallback(() => setLayoutMode(LAYOUT_MODE_GRID), [
-        setLayoutMode
-    ]);
+    const setGrid = useCallback(
+        () => setLayoutMode(LAYOUT_MODE_GRID),
+        [setLayoutMode]
+    );
 
-    const setList = useCallback(() => setLayoutMode(LAYOUT_MODE_LIST), [
-        setLayoutMode
-    ]);
+    const setList = useCallback(
+        () => setLayoutMode(LAYOUT_MODE_LIST),
+        [setLayoutMode]
+    );
 
     return {
         layoutMode,

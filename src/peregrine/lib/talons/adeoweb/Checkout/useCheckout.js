@@ -10,10 +10,8 @@ export const useCheckout = props => {
         getCartDetailsQuery,
         setShippingAddressesOnCartMutation
     } = props;
-    const [
-        { isLoading, isLoaded, initError: error },
-        { initCheckout }
-    ] = useCheckoutContext();
+    const [{ isLoading, isLoaded, initError: error }, { initCheckout }] =
+        useCheckoutContext();
     const [fetchCartId] = useMutation(createCartMutation, {
         fetchPolicy: fetchPolicy.mutations.default
     });

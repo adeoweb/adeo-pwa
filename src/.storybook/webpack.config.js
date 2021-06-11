@@ -32,8 +32,6 @@ module.exports = async ({ config: storybookBaseConfig, mode }) => {
 
     const webpackConfig = await baseWebpackConfig(mode);
 
-    console.log('webpack Config', webpackConfig);
-
     storybookBaseConfig.module = webpackConfig.module;
     storybookBaseConfig.resolve = webpackConfig.resolve;
 

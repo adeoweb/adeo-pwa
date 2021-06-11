@@ -7,6 +7,7 @@ import {
     TCartPrices,
     TSelectedShippingMethod
 } from 'src/lib/types/graphql/Cart';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 type TPricingSummary = {
     prices: TCartPrices;
@@ -28,8 +29,8 @@ const PricingSummary: FunctionComponent<TPricingSummary> = ({
         prices.subtotal_excluding_tax && prices.subtotal_excluding_tax.value
             ? prices.subtotal_excluding_tax.value
             : 0;
-    const taxes = prices.applied_taxes || [];
-    const discounts = prices.discounts || [];
+    const taxes = filterOutNullableValues(prices.applied_taxes);
+    const discounts = filterOutNullableValues(prices.discounts);
     const shippingPrice = shippingMethod.amount.value || 0;
     const grandTotal =
         prices.grand_total && prices.grand_total.value

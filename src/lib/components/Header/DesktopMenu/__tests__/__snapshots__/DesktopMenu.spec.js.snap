@@ -89,7 +89,6 @@ exports[`Renders correctly 1`] = `
                       Mock second name - 1
                     </a>
                   </div>
-                  <ul />
                 </div>
               </div>
             </div>

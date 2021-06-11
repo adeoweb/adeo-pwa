@@ -109,7 +109,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                     {countries &&
                         countries.map(({ id, full_name_english: name }) => (
                             <option key={id} value={id}>
-                                {t(name)}
+                                {t(name as string)}
                             </option>
                         ))}
                 </Form.Control>
@@ -131,7 +131,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                         <option value="">{t('Select State/Province')}</option>
                         {regions.map(({ id, code, name }) => (
                             <option key={id} value={code}>
-                                {t(name)}
+                                {t(name as string)}
                             </option>
                         ))}
                     </Form.Control>

@@ -21,14 +21,8 @@ export class TextInput extends Component {
     };
 
     render() {
-        const {
-            after,
-            before,
-            classes,
-            fieldState,
-            message,
-            ...rest
-        } = this.props;
+        const { after, before, classes, fieldState, message, ...rest } =
+            this.props;
 
         return (
             <Fragment>
@@ -45,7 +39,4 @@ export class TextInput extends Component {
     }
 }
 
-export default compose(
-    classify(defaultClasses),
-    asField
-)(TextInput);
+export default compose(classify(defaultClasses), asField)(TextInput);

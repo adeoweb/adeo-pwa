@@ -15,10 +15,10 @@ const ErrorContextProvider = props => {
         [markErrorHandled]
     );
 
-    const contextValue = useMemo(() => [unhandledErrors, errorApi], [
-        errorApi,
-        unhandledErrors
-    ]);
+    const contextValue = useMemo(
+        () => [unhandledErrors, errorApi],
+        [errorApi, unhandledErrors]
+    );
 
     return (
         <ErrorContext.Provider value={contextValue}>

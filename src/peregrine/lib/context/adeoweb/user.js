@@ -19,10 +19,10 @@ const UserContextProvider = props => {
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [userState, userApi], [
-        userApi,
-        userState
-    ]);
+    const contextValue = useMemo(
+        () => [userState, userApi],
+        [userApi, userState]
+    );
 
     return (
         <UserContext.Provider value={contextValue}>

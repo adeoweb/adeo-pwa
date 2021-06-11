@@ -1,4 +1,4 @@
-import { PriceTypeEnum } from 'src/lib/types/graphql/PriceTypeEnum';
+import { PriceTypeEnum } from 'src/lib/types/graphql-types.generated';
 
 export const getOptionPriceText = (
     value: number,

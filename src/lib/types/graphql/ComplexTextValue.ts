@@ -1,3 +1,1 @@
-export type TComplexTextValue = {
-    html: string;
-};
+export { ComplexTextValue as TComplexTextValue } from '../graphql-types.generated';

@@ -33,9 +33,6 @@ const mapDispatchToProps = dispatch => ({
     asyncActions: bindActionCreators(asyncActions, dispatch)
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AppContextProvider);
+export default connect(mapStateToProps, mapDispatchToProps)(AppContextProvider);
 
 export const useAppContext = () => useContext(AppContext);

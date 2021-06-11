@@ -21,10 +21,10 @@ const MenuContextProvider = ({
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [menuState, menuApi], [
-        menuApi,
-        menuState
-    ]);
+    const contextValue = useMemo(
+        () => [menuState, menuApi],
+        [menuApi, menuState]
+    );
 
     return (
         <MenuContext.Provider value={contextValue}>

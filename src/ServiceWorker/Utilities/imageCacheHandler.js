@@ -90,11 +90,7 @@ export const findSameOrLargerImage = async url => {
     if (best.candidate) {
         const bestCachedResponse = await cache.match(best.candidate);
         console.log(
-            `ServiceWorker responding to GET ${
-                url.pathname
-            } at ${requestedWidth}w with cached version ${
-                best.difference
-            }px larger: ${bestCachedResponse.url}`
+            `ServiceWorker responding to GET ${url.pathname} at ${requestedWidth}w with cached version ${best.difference}px larger: ${bestCachedResponse.url}`
         );
         return bestCachedResponse;
     }
@@ -132,9 +128,7 @@ const handleImagePreFetchRequest = (payload, event) => {
     } else {
         event.ports[0].postMessage({
             status: 'error',
-            message: `Slow Network detected. Not pre-fetching images. ${
-                payload.urls
-            }`
+            message: `Slow Network detected. Not pre-fetching images. ${payload.urls}`
         });
         return null;
     }

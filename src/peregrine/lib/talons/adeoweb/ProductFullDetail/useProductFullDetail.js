@@ -169,9 +169,8 @@ export const useProductFullDetail = ({
 }) => {
     const productType = product.__typename;
 
-    const isSupportedProductType = SUPPORTED_PRODUCT_TYPES.includes(
-        productType
-    );
+    const isSupportedProductType =
+        SUPPORTED_PRODUCT_TYPES.includes(productType);
 
     const [, { toggleDrawer }] = useAppContext();
     const [{ isAddingItem }, { addItemToCart }] = useCartContext();

@@ -1,4 +1,4 @@
-export enum CurrencyEnum {
+export enum Currencies {
     AFN,
     ALL,
     AZN,
@@ -171,4 +171,4 @@ export enum CurrencyEnum {
     XPF
 }
 
-export type TCurrency = keyof typeof CurrencyEnum;
+export type TCurrency = keyof typeof Currencies;

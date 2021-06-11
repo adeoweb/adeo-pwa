@@ -13,8 +13,9 @@ import idObj from 'identity-obj-proxy';
 
 const classify = () => WrappedComponent =>
     class extends Component {
-        static displayName = `Classify(${WrappedComponent.displayName ||
-            WrappedComponent.name})`;
+        static displayName = `Classify(${
+            WrappedComponent.displayName || WrappedComponent.name
+        })`;
 
         render() {
             return <WrappedComponent {...this.props} classes={idObj} />;

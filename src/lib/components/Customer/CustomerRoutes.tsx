@@ -6,8 +6,8 @@ const ChangePassword = lazy(() => import('./pages/ChangePasswordPage'));
 const EditCustomerInfo = lazy(() => import('./pages/EditCustomerInfoPage'));
 const ShippingInfo = lazy(() => import('./pages/ShippingInfoPage'));
 const AddShippingAddress = lazy(() => import('./pages/AddShippingAddressPage'));
-const EditShippingAddress = lazy(() =>
-    import('./pages/EditShippingAddressPage')
+const EditShippingAddress = lazy(
+    () => import('./pages/EditShippingAddressPage')
 );
 const BillingInfo = lazy(() => import('./pages/BillingInfoPage'));
 const AddBillingAddress = lazy(() => import('./pages/AddBillingAddressPage'));

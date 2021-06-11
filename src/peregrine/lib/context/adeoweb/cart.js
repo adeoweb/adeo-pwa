@@ -46,10 +46,10 @@ const CartContextProvider = props => {
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [derivedCartState, cartApi], [
-        cartApi,
-        derivedCartState
-    ]);
+    const contextValue = useMemo(
+        () => [derivedCartState, cartApi],
+        [cartApi, derivedCartState]
+    );
 
     return (
         <CartContext.Provider value={contextValue}>

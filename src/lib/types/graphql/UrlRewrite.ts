@@ -1,9 +1,1 @@
-export type TUrlRewrite = {
-    parameters?: THttpQueryParameter[];
-    url?: string;
-};
-
-type THttpQueryParameter = {
-    name?: string;
-    value?: string;
-};
+export { UrlRewrite as TUrlRewrite } from '../graphql-types.generated';

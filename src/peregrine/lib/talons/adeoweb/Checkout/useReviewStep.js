@@ -6,11 +6,8 @@ import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useReviewStep = props => {
-    const {
-        placeOrderMutation,
-        createCartMutation,
-        getCartDetailsQuery
-    } = props;
+    const { placeOrderMutation, createCartMutation, getCartDetailsQuery } =
+        props;
     const [
         {
             details: {

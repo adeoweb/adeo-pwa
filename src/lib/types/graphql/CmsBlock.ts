@@ -1,5 +1,1 @@
-export type TCmsBlock = {
-    content?: string;
-    identifier?: string;
-    title?: string;
-};
+export { CmsBlock as TCmsBlock } from '../graphql-types.generated';

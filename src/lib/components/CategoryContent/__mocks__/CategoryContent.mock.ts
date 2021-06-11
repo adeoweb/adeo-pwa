@@ -2,6 +2,7 @@ import { TCategoryInterface } from 'src/lib/types/graphql/Category';
 import { TProduct } from 'src/lib/types/graphql/Product';
 import { ICategoryContentProps } from 'src/lib/components/CategoryContent';
 import { ICategoryFilterControl } from 'src/lib/components/CategoryContent/CategoryContentTypes';
+
 import {
     ProductSortDirections,
     ProductSortFields
@@ -12,6 +13,7 @@ import {
     setFilterMock,
     toggleFilterMock
 } from 'src/lib/components/ProductFilters/__mocks__';
+import { CurrencyEnum } from 'src/lib/types/graphql/Money';
 
 const category: TCategoryInterface = {
     id: 21,
@@ -24,20 +26,17 @@ const category: TCategoryInterface = {
 const products: TProduct[] = [
     {
         description: {
-            html:
-                "<p>Convenience is next to nothing when your day is crammed with action. So whether you're heading to class, gym, or the unbeaten path, make sure you've got your Strive Shoulder Pack stuffed with all your essentials, and extras as well.</p>\r\n<ul>\r\n<li>Zippered main compartment.</li>\r\n<li>Front zippered pocket.</li>\r\n<li>Side mesh pocket.</li>\r\n<li>Cell phone pocket on strap.</li>\r\n<li>Adjustable shoulder strap and top carry handle.</li>\r\n</ul>"
+            html: "<p>Convenience is next to nothing when your day is crammed with action. So whether you're heading to class, gym, or the unbeaten path, make sure you've got your Strive Shoulder Pack stuffed with all your essentials, and extras as well.</p>\r\n<ul>\r\n<li>Zippered main compartment.</li>\r\n<li>Front zippered pocket.</li>\r\n<li>Side mesh pocket.</li>\r\n<li>Cell phone pocket on strap.</li>\r\n<li>Adjustable shoulder strap and top carry handle.</li>\r\n</ul>"
         },
         id: 2,
         media_gallery: [
             {
                 label: 'Image',
-                url:
-                    'https://stg.lemona.lt/media/catalog/product/cache/1bb5596fe10909d977e0c8185b18ce46/m/b/mb04-black-0.jpg'
+                url: 'https://stg.lemona.lt/media/catalog/product/cache/1bb5596fe10909d977e0c8185b18ce46/m/b/mb04-black-0.jpg'
             },
             {
                 label: 'Image',
-                url:
-                    'https://stg.lemona.lt/media/catalog/product/cache/1bb5596fe10909d977e0c8185b18ce46/m/b/mb04-black-0_alt1.jpg'
+                url: 'https://stg.lemona.lt/media/catalog/product/cache/1bb5596fe10909d977e0c8185b18ce46/m/b/mb04-black-0_alt1.jpg'
             }
         ],
         name: 'Strive Shoulder Pack',
@@ -48,11 +47,11 @@ const products: TProduct[] = [
                     percent_off: 0
                 },
                 final_price: {
-                    currency: 'EUR',
+                    currency: CurrencyEnum.Eur,
                     value: 32
                 },
                 regular_price: {
-                    currency: 'EUR',
+                    currency: CurrencyEnum.Eur,
                     value: 32
                 }
             },
@@ -62,19 +61,19 @@ const products: TProduct[] = [
                     percent_off: 0
                 },
                 final_price: {
-                    currency: 'EUR',
+                    currency: CurrencyEnum.Eur,
                     value: 32
                 },
                 regular_price: {
-                    currency: 'EUR',
+                    currency: CurrencyEnum.Eur,
                     value: 32
                 }
             }
         },
         sku: '24-MB04',
+        min_sale_qty: 1,
         small_image: {
-            url:
-                'https://stg.lemona.lt/media/catalog/product/cache/1bb5596fe10909d977e0c8185b18ce46/m/b/mb04-black-0.jpg',
+            url: 'https://stg.lemona.lt/media/catalog/product/cache/1bb5596fe10909d977e0c8185b18ce46/m/b/mb04-black-0.jpg',
             label: 'Image'
         },
         url_key: 'strive-shoulder-pack',

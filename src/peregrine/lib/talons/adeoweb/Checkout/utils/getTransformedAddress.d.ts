@@ -5,5 +5,5 @@ import {
 } from 'src/lib/types/graphql/Cart';
 
 export default function getTransformedAddress(
-    address: TBillingCartAddress | TShippingCartAddress
+    address: Partial<TBillingCartAddress | TShippingCartAddress>
 ): TCartAddressInput;

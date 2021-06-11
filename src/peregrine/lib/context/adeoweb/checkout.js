@@ -17,10 +17,10 @@ const CheckoutContextProvider = props => {
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [checkoutState, checkoutApi], [
-        checkoutApi,
-        checkoutState
-    ]);
+    const contextValue = useMemo(
+        () => [checkoutState, checkoutApi],
+        [checkoutApi, checkoutState]
+    );
 
     return (
         <CheckoutContext.Provider value={contextValue}>

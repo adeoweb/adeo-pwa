@@ -51,9 +51,7 @@ const MiniCart: FunctionComponent = () => {
         return (
             <div className="dropdown cart-dropdown">
                 <i
-                    className={`dropdown-toggle ${
-                        defaultClasses.hideDropdownArrow
-                    } ${defaultClasses.icon}`}
+                    className={`dropdown-toggle ${defaultClasses.hideDropdownArrow} ${defaultClasses.icon}`}
                 />
             </div>
         );

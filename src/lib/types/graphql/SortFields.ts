@@ -1,9 +1,1 @@
-export type TSortFields = {
-    default?: string;
-    options?: TSortField[];
-};
-
-type TSortField = {
-    label?: string;
-    value?: string;
-};
+export { SortFields as TSortFields } from '../graphql-types.generated';

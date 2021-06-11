@@ -89,9 +89,8 @@ const TabItem = props => {
 
     if (verticalAlignment) {
         dynamicStyles.display = 'flex';
-        dynamicStyles.justifyContent = verticalAlignmentToFlex(
-            verticalAlignment
-        );
+        dynamicStyles.justifyContent =
+            verticalAlignmentToFlex(verticalAlignment);
         dynamicStyles.flexDirection = 'column';
     }
 
