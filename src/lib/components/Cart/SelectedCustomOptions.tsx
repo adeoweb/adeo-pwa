@@ -9,7 +9,7 @@ type TSelectedCustomOptionsProps = {
 const SelectedCustomOptions: FunctionComponent<TSelectedCustomOptionsProps> = ({
     options
 }) => {
-    const sortedOptions = options.sort((a, b) => optionSort(a, b));
+    const sortedOptions = options.sort(optionSort);
 
     return sortedOptions.length ? (
         <ul className="product-options">
@@ -24,13 +24,15 @@ const SelectedCustomOptions: FunctionComponent<TSelectedCustomOptionsProps> = ({
                     return null;
                 }
 
-                // const { id: valueId, value, label: valueLabel } = values[0];
                 const key = `${id}-${optionValue?.id}`;
                 let optionText = '';
+
                 if (values.length === 1) {
                     optionText = optionValue.label;
                 } else {
-                    optionText = values.map(item => item?.label).join(', ');
+                    optionText = values
+                        .map(item => item?.value && item?.label)
+                        .join(', ');
                 }
 
                 return (
