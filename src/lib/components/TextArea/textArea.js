@@ -44,7 +44,4 @@ export class TextArea extends Component {
     }
 }
 
-export default compose(
-    classify(defaultClasses),
-    asField
-)(TextArea);
+export default compose(classify(defaultClasses), asField)(TextArea);

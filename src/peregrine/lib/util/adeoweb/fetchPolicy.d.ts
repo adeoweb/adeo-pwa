@@ -5,7 +5,7 @@ type TQueriesFetchPolicy = { [index in TQueriesVariants]: FetchPolicy };
 
 type TMutationsVariants = 'default';
 type TMutationsFetchPolicy = {
-    [index in TMutationsVariants]: 'no-cache' | undefined
+    [index in TMutationsVariants]: 'no-cache' | undefined;
 };
 
 type TFetchPolicy = {

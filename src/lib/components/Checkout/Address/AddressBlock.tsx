@@ -40,7 +40,7 @@ const AddressBlock: FunctionComponent<TAddressBlockProps> = ({ address }) => {
             {firstname} {lastname} <br />
             {street.join(' ')} <br />
             {city}, {region ? region.name + ' ' + postcode : postcode} <br />
-            {country && t(country.full_name_english)} <br />
+            {country && t(country.full_name_english as string)} <br />
             {telephone}
         </address>
     );

@@ -5,7 +5,7 @@ function getCategoryPath(category: TCategoryInterface) {
     const { breadcrumbs, url_key: urlKey } = category;
 
     const parts = (breadcrumbs || []).map(
-        ({ category_url_key: catUrlKey }) => catUrlKey
+        breadcrumb => breadcrumb?.category_url_key
     );
     parts.push(urlKey);
 

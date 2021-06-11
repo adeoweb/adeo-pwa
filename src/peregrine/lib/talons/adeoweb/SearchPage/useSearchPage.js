@@ -10,12 +10,8 @@ export const useSearchPage = props => {
     const { query, setTotalPages, currentPage, sortField, sortDir } = props;
     const location = useLocation();
     const inputText = getSearchParam('query', location);
-    const {
-        getFilterQuery,
-        activeFilters,
-        setFilter,
-        toggleFilter
-    } = useProductFilters();
+    const { getFilterQuery, activeFilters, setFilter, toggleFilter } =
+        useProductFilters();
 
     const { pageSize, setPageSize } = usePageSize();
     const [data, setData] = useState(null);

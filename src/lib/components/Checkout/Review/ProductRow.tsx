@@ -40,19 +40,24 @@ const ProductRow: FunctionComponent<TProductRowProps> = ({
                     </h2>
                     {options && (
                         <ul className="mb-0">
-                            {options.map(
-                                ({
+                            {options.map((option, index) => {
+                                if (!option) {
+                                    return;
+                                }
+                                const {
                                     id,
                                     option_label: optionLabel,
                                     value_label: valueLabel
-                                }) => (
-                                    <li key={id}>
+                                } = option;
+
+                                return (
+                                    <li key={`${id}-${index}`}>
                                         <div>
                                             {optionLabel}: {valueLabel}
                                         </div>
                                     </li>
-                                )
-                            )}
+                                );
+                            })}
                         </ul>
                     )}
                 </div>

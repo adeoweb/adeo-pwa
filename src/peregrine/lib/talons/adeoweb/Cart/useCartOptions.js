@@ -21,10 +21,8 @@ export const useCartOptions = props => {
         updateItemMutation
     } = props;
 
-    const {
-        configurable_options: cartItemOptions,
-        quantity: initialQuantity
-    } = cartItem;
+    const { configurable_options: cartItemOptions, quantity: initialQuantity } =
+        cartItem;
 
     const [, { updateItemInCart }] = useCartContext();
 

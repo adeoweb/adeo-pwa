@@ -3,6 +3,7 @@ import { Link } from 'src/lib/drivers';
 import SecondLevelMenu from 'src/lib/components/Header/DesktopMenu/SecondLevelMenu';
 import SimpleError from 'src/lib/components/SimpleError';
 import { TCategoryTree } from 'src/lib/types/graphql/Category';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 interface IFirstLevelMenuProps {
     menuChildren: TCategoryTree[];
@@ -14,7 +15,7 @@ const FirstLevelMenu: FunctionComponent<IFirstLevelMenuProps> = ({
     menuChildren
 }) => {
     const [active, setActive] = useState(0);
-    const hoverDelay: number = 200;
+    const hoverDelay = 200;
 
     const toggleMenu = ({ index }: { index: number }) => {
         clearTimeout(hoverTimer);
@@ -42,9 +43,9 @@ const FirstLevelMenu: FunctionComponent<IFirstLevelMenuProps> = ({
                         const currentIndex = index + 1;
                         const itemKey = `${name}-${index}`;
                         const isActive = active === currentIndex;
-                        const haveChilds =
-                            Array.isArray(secondLevelMenu) &&
-                            secondLevelMenu.length > 0;
+                        const secondLevelChildren =
+                            filterOutNullableValues(secondLevelMenu);
+                        const haveChilds = secondLevelChildren.length > 0;
                         const showSecondLevel = isActive ? 'show' : '';
 
                         if (!name || !urlPath) {
@@ -66,12 +67,13 @@ const FirstLevelMenu: FunctionComponent<IFirstLevelMenuProps> = ({
                                 >
                                     {name}
                                 </Link>
-                                {haveChilds && secondLevelMenu && (
-                                    <SecondLevelMenu
-                                        menuChildren={secondLevelMenu}
-                                        isActive={isActive}
-                                    />
-                                )}
+                                {haveChilds &&
+                                    Array.isArray(secondLevelMenu) && (
+                                        <SecondLevelMenu
+                                            menuChildren={secondLevelChildren}
+                                            isActive={isActive}
+                                        />
+                                    )}
                             </li>
                         );
                     }

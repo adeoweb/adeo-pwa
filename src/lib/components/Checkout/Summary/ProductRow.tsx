@@ -4,6 +4,7 @@ import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import { Link } from 'src/lib/drivers';
 import Image from 'src/lib/components/Image';
 import getItemUrl from 'src/lib/util/getItemUrl';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 type TProductRowProps = {
     item: TCartItem;
@@ -15,7 +16,7 @@ const ProductRow: FunctionComponent<TProductRowProps> = ({
     currencyCode
 }) => {
     const {
-        configurable_options: options,
+        configurable_options,
         product: { small_image: smallImage, name = '' },
         quantity,
         prices
@@ -24,6 +25,7 @@ const ProductRow: FunctionComponent<TProductRowProps> = ({
         (prices && prices.row_total && prices.row_total.value) || 0;
     const image = (smallImage && smallImage.url) || '';
     const fullUrl = getItemUrl(item.product);
+    const options = filterOutNullableValues(configurable_options);
 
     return (
         <tr>
@@ -37,7 +39,7 @@ const ProductRow: FunctionComponent<TProductRowProps> = ({
                     <h2 className="product-title">
                         <Link to={fullUrl}>{name}</Link>
                     </h2>
-                    {options && (
+                    {Boolean(options.length) && (
                         <ul className="mb-0">
                             {options.map(
                                 ({

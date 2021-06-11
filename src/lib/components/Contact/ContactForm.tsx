@@ -14,15 +14,10 @@ const ContactForm: FunctionComponent = () => {
         message: ''
     };
 
-    const {
-        handleSubmit,
-        handleChange,
-        values,
-        errors,
-        touched
-    } = useContactForm({
-        initialValues
-    });
+    const { handleSubmit, handleChange, values, errors, touched } =
+        useContactForm({
+            initialValues
+        });
 
     return (
         <Col md={8}>

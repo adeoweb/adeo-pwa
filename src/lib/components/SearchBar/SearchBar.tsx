@@ -14,13 +14,8 @@ const SearchBar: FunctionComponent<TSearchBarProps> = ({
     handleTriggerClick,
     isOpen
 }) => {
-    const {
-        containerRef,
-        handleFocus,
-        setExpanded,
-        expanded,
-        form
-    } = useSearchBar();
+    const { containerRef, handleFocus, setExpanded, expanded, form } =
+        useSearchBar();
     const { values, handleSubmit, handleChange, setFieldValue } = form;
     const { search_query: searchQuery } = values;
     const wrapperClass = `header-search-wrapper${isOpen ? ' show' : ''}`;

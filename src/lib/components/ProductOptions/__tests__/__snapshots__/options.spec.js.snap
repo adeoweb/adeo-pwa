@@ -3,26 +3,5 @@
 exports[`renders Options component correctly 1`] = `
 <div
   className="product-filters-container"
->
-  <div
-    className="product-single-filter"
-  >
-    <label>
-      option-1
-    </label>
-    <ul
-      className="config-swatch-list"
-    />
-  </div>
-  <div
-    className="product-single-filter"
-  >
-    <label>
-      option-1
-    </label>
-    <ul
-      className="config-size-list"
-    />
-  </div>
-</div>
+/>
 `;

@@ -15,17 +15,13 @@ const ProductQuantity: FunctionComponent<IQuantityProps> = ({
 }) => {
     const { t } = useTranslation();
 
-    const {
-        quantity,
-        setQuantity,
-        incrementQuantity,
-        decrementQuantity
-    } = useProductQuantity({
-        initialValue,
-        onValueChange,
-        validateQuantity: quantityIsValid,
-        minimumQuantity: PRODUCT_MINIMUM_QUANTITY
-    });
+    const { quantity, setQuantity, incrementQuantity, decrementQuantity } =
+        useProductQuantity({
+            initialValue,
+            onValueChange,
+            validateQuantity: quantityIsValid,
+            minimumQuantity: PRODUCT_MINIMUM_QUANTITY
+        });
 
     const onQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setQuantity(event.target.value);

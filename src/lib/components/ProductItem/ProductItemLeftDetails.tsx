@@ -10,41 +10,44 @@ interface IProductItemLeftDetailsProps {
     product: TProduct;
 }
 
-const ProductItemLeftDetails: FunctionComponent<
-    IProductItemLeftDetailsProps
-> = ({ product }) => {
-    const { name, small_image: smallImage, price_range: priceRange } = product;
-    const itemUrl = getItemUrl(product);
-    const itemName = name || '';
-    let imageLabel = '';
-    let imageUrl;
+const ProductItemLeftDetails: FunctionComponent<IProductItemLeftDetailsProps> =
+    ({ product }) => {
+        const {
+            name,
+            small_image: smallImage,
+            price_range: priceRange
+        } = product;
+        const itemUrl = getItemUrl(product);
+        const itemName = name || '';
+        let imageLabel = '';
+        let imageUrl;
 
-    if (smallImage) {
-        if (smallImage.label) {
-            imageLabel = smallImage.label;
+        if (smallImage) {
+            if (smallImage.label) {
+                imageLabel = smallImage.label;
+            }
+            if (smallImage.url) {
+                imageUrl = smallImage.url;
+            }
         }
-        if (smallImage.url) {
-            imageUrl = smallImage.url;
-        }
-    }
 
-    return (
-        <Fragment>
-            <figure>
-                <Link to={itemUrl}>
-                    <Image
-                        resource={'small_image'}
-                        alt={imageLabel}
-                        src={imageUrl}
-                    />
-                </Link>
-            </figure>
-            <div className="product-details">
-                <ProductTitle name={itemName} itemUrl={itemUrl} />
-                <PriceBox priceRange={priceRange} />
-            </div>
-        </Fragment>
-    );
-};
+        return (
+            <Fragment>
+                <figure>
+                    <Link to={itemUrl}>
+                        <Image
+                            resource={'small_image'}
+                            alt={imageLabel}
+                            src={imageUrl}
+                        />
+                    </Link>
+                </figure>
+                <div className="product-details">
+                    <ProductTitle name={itemName} itemUrl={itemUrl} />
+                    <PriceBox priceRange={priceRange} />
+                </div>
+            </Fragment>
+        );
+    };
 
 export default ProductItemLeftDetails;

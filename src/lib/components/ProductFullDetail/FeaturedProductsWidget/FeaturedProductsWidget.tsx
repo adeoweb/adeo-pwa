@@ -8,30 +8,29 @@ interface IFeaturedProductsWidgetProps {
     items: TProductInterface[];
 }
 
-const FeaturedProductsWidget: FunctionComponent<
-    IFeaturedProductsWidgetProps
-> = ({ items }) => {
-    const { t } = useTranslation();
-    const carouselSettings: Settings = {
-        autoplay: true,
-        arrows: true
-    };
+const FeaturedProductsWidget: FunctionComponent<IFeaturedProductsWidgetProps> =
+    ({ items }) => {
+        const { t } = useTranslation();
+        const carouselSettings: Settings = {
+            autoplay: true,
+            arrows: true
+        };
 
-    if (!items.length) {
-        return null;
-    }
+        if (!items.length) {
+            return null;
+        }
 
-    return (
-        <div className="widget widget-featured">
-            <h3 className="widget-title">{t('Featured Products')}</h3>
-            <div className="widget-body">
-                <VerticalProductsCarousel
-                    items={items}
-                    settings={carouselSettings}
-                />
+        return (
+            <div className="widget widget-featured">
+                <h3 className="widget-title">{t('Featured Products')}</h3>
+                <div className="widget-body">
+                    <VerticalProductsCarousel
+                        items={items}
+                        settings={carouselSettings}
+                    />
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    };
 
 export default FeaturedProductsWidget;

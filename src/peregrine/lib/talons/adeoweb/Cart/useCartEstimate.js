@@ -22,12 +22,7 @@ export const useCartEstimate = props => {
         firstname: yup.string().required(),
         lastname: yup.string().required(),
         company: yup.string(),
-        street: yup
-            .array()
-            .of(yup.string())
-            .required()
-            .ensure()
-            .compact(),
+        street: yup.array().of(yup.string()).required().ensure().compact(),
         city: yup.string().required(),
         postcode: yup.string().required(),
         telephone: yup.string().required(),
@@ -42,10 +37,8 @@ export const useCartEstimate = props => {
         countriesQuery,
         countryId: countryCode
     });
-    const [
-        { isSubmitting },
-        { submitEstimateAddress, submitShippingMethod }
-    ] = useCheckoutContext();
+    const [{ isSubmitting }, { submitEstimateAddress, submitShippingMethod }] =
+        useCheckoutContext();
     const [
         {
             details: { shipping_addresses: shippingAddresses }

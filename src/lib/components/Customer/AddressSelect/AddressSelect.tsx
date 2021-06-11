@@ -22,6 +22,7 @@ import GET_CUSTOMER_QUERY from 'src/lib/queries/getCustomer.graphql';
 import { TCustomer } from 'src/lib/types/graphql/Customer';
 import { OperationVariables } from '@apollo/client';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 type TAddressSelectProps = {
     selectedAddressId?: number | null;
@@ -50,11 +51,13 @@ const AddressSelect: FunctionComponent<TAddressSelectProps> = ({
 
     const [
         {
-            currentUser: { addresses = [] },
+            currentUser: { addresses: customerAddresses },
             isCreatingAddress
         },
         { createCustomerAddress }
     ] = useUserContext();
+
+    const addresses = filterOutNullableValues(customerAddresses);
 
     const hideAddAddressForm = useCallback(() => {
         setShowAddAddress(false);

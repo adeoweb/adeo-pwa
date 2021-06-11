@@ -4,7 +4,7 @@
  * @param {number} length
  * @returns {Iterator}
  */
-const fixedObserver = function*(length) {
+const fixedObserver = function* (length) {
     for (let i = 0; i < length; i++) {
         yield;
     }

@@ -57,16 +57,15 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
         talonHandleSubmit(values);
     };
 
-    const { handleSubmit, handleChange, values, errors, touched } = useFormik<
-        TGenerateCustomerTokenProps
-    >({
-        validationSchema: schema,
-        initialValues: {
-            email: '',
-            password: ''
-        },
-        onSubmit: submitCallback
-    });
+    const { handleSubmit, handleChange, values, errors, touched } =
+        useFormik<TGenerateCustomerTokenProps>({
+            validationSchema: schema,
+            initialValues: {
+                email: '',
+                password: ''
+            },
+            onSubmit: submitCallback
+        });
 
     return (
         <Form noValidate onSubmit={handleSubmit}>

@@ -11,7 +11,7 @@ const getStoreByLang = (
     lang: string,
     stores: TStore[] = []
 ): TStore | undefined => {
-    return stores.find(store => store.locale.indexOf(lang) === 0);
+    return stores.find(store => store.locale?.indexOf(lang) === 0);
 };
 
 const Language: FunctionComponent = () => {

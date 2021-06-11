@@ -29,6 +29,10 @@ const OrdersListDesktop: FunctionComponent<IOrdersListProps> = ({
                             order_number: orderNumber,
                             status
                         }) => {
+                            if (!id) {
+                                return;
+                            }
+
                             const detailsUrl = createDetailsUrl(id);
 
                             return (

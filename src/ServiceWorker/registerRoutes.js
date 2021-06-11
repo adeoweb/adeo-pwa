@@ -20,7 +20,7 @@ import {
  *
  * @returns {void}
  */
-export default function() {
+export default function () {
     const imageCacheHandler = createImageCacheHandler();
 
     registerRoute(

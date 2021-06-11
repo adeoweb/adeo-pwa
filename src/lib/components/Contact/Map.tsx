@@ -27,6 +27,7 @@ const Map: FunctionComponent<MapProps> = ({
                 height={height}
                 allowFullScreen={allowFullScreen}
                 aria-hidden={'false'}
+                title={'contact-map'}
             />
         </div>
     );

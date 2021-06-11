@@ -57,11 +57,6 @@ const AppRender = () => (
     </Adapter>
 );
 
-// For testing purposes.
-// const dummyRoot = document.createElement('div');
-// dummyRoot.setAttribute('id', 'root');
-// ReactDOM.render(<AppRender />, document.getElementById('root') ?? dummyRoot);
-
 ReactDOM.render(<AppRender />, document.getElementById('root'));
 
 const enableServiceWorker = false;

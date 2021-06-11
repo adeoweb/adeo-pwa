@@ -45,7 +45,7 @@ const CartEstimateShipping: React.FunctionComponent = () => {
             <h4>
                 <button
                     className={`btn btn-link ${expanded ? '' : 'collapsed'}`}
-                    role="button"
+                    type="button"
                     aria-expanded={expanded}
                     aria-controls="total-estimate-section"
                     onClick={toggleExpanded}
@@ -80,7 +80,7 @@ const CartEstimateShipping: React.FunctionComponent = () => {
                                 {countries.map(
                                     ({ id, full_name_english: name }) => (
                                         <option key={id} value={id}>
-                                            {t(name)}
+                                            {t(name as string)}
                                         </option>
                                     )
                                 )}
@@ -108,7 +108,7 @@ const CartEstimateShipping: React.FunctionComponent = () => {
                                 </option>
                                 {regions.map(({ id, code, name }) => (
                                     <option key={id} value={code}>
-                                        {t(name)}
+                                        {t(name as string)}
                                     </option>
                                 ))}
                             </Form.Control>

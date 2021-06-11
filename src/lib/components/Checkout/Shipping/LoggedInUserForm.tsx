@@ -23,7 +23,7 @@ const LoggedInUserForm: FunctionComponent<TLoggedInUserFormProps> = ({
     ] = useCartContext();
     const customerAddressIdOnCart =
         shippingAddresses && shippingAddresses.length > 0
-            ? shippingAddresses[0].customer_address_id
+            ? shippingAddresses[0]?.customer_address_id
             : null;
     const [
         {
@@ -32,7 +32,7 @@ const LoggedInUserForm: FunctionComponent<TLoggedInUserFormProps> = ({
     ] = useUserContext();
 
     const defaultShippingAddress = addresses.find(
-        ({ default_shipping: defaultShipping }) => defaultShipping
+        address => address?.default_shipping
     );
 
     const [selectedAddressId, setSelectedAddressId] = useState(

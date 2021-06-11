@@ -18,13 +18,21 @@ const SelectedCustomOptions: FunctionComponent<TSelectedCustomOptionsProps> = ({
                     return null;
                 }
 
-                const { id: valueId, value, label: valueLabel } = values[0];
-                const key = `${id}-${valueId}`;
+                const optionValue = values[0];
+
+                if (!optionValue) {
+                    return null;
+                }
+
+                const key = `${id}-${optionValue?.id}`;
                 let optionText = '';
+
                 if (values.length === 1) {
-                    optionText = valueLabel || value;
+                    optionText = optionValue.label;
                 } else {
-                    optionText = values.map(item => item.label).join(', ');
+                    optionText = values
+                        .map(item => item?.value && item?.label)
+                        .join(', ');
                 }
 
                 return (

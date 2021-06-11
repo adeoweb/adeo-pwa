@@ -55,7 +55,4 @@ class Select extends Component {
     }
 }
 
-export default compose(
-    classify(defaultClasses),
-    asField
-)(Select);
+export default compose(classify(defaultClasses), asField)(Select);

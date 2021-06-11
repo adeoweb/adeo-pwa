@@ -7,11 +7,8 @@ export const initCheckout = payload =>
     async function thunk(dispatch) {
         dispatch(actions.init.submit());
 
-        const {
-            fetchCartId,
-            fetchCartDetails,
-            setShippingAddressesOnCart
-        } = payload;
+        const { fetchCartId, fetchCartDetails, setShippingAddressesOnCart } =
+            payload;
 
         try {
             await dispatch(

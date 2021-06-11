@@ -6,7 +6,7 @@ import { act } from 'react-test-renderer';
 
 Object.defineProperty(HTMLElement.prototype, 'scrollWidth', {
     configurable: true,
-    get: function() {
+    get: function () {
         return this._scrollHeight || 0;
     },
     set(val) {

@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import ThirdLevelMenu from 'src/lib/components/Header/DesktopMenu/ThirdLevelMenu';
-import SimpleError from 'src/lib/components/SimpleError';
 import { Link } from 'src/lib/drivers';
 import { TCategoryTree } from 'src/lib/types/graphql/Category';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 interface ISecondLevelMenuProps {
     menuChildren: TCategoryTree[];
@@ -15,10 +15,6 @@ const SecondLevelMenu: FunctionComponent<ISecondLevelMenuProps> = ({
     isActive
 }) => {
     const showMenu = isActive ? 'block' : 'none';
-
-    if (!Array.isArray(menuChildren)) {
-        return <SimpleError />;
-    }
 
     return (
         <Col className="megamenu" style={{ display: showMenu }}>
@@ -35,6 +31,10 @@ const SecondLevelMenu: FunctionComponent<ISecondLevelMenuProps> = ({
                                 index
                             ) => {
                                 const itemKey = `${name}-${index}`;
+                                const thirdLevelChildren =
+                                    filterOutNullableValues(
+                                        thirdLevelMenuChildren
+                                    );
 
                                 if (!name || !urlPath) {
                                     return null;
@@ -45,13 +45,9 @@ const SecondLevelMenu: FunctionComponent<ISecondLevelMenuProps> = ({
                                         <div className="menu-title">
                                             <Link to={urlPath}>{name}</Link>
                                         </div>
-                                        {thirdLevelMenuChildren && (
-                                            <ThirdLevelMenu
-                                                menuChildren={
-                                                    thirdLevelMenuChildren
-                                                }
-                                            />
-                                        )}
+                                        <ThirdLevelMenu
+                                            menuChildren={thirdLevelChildren}
+                                        />
                                     </Col>
                                 );
                             }

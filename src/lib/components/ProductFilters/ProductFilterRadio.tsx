@@ -2,13 +2,14 @@ import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TProductFilterProps } from './ProductFilterTypes';
 import { TAggregationOption } from 'src/lib/types/graphql/Aggregation';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const ProductFilterRadio: FunctionComponent<TProductFilterProps> = ({
     filter,
     isActive,
     setOptions
 }) => {
-    const { options } = filter;
+    const options = filterOutNullableValues(filter?.options);
     const { t } = useTranslation();
     const selectValue = useCallback(
         (value: string) => {
@@ -17,7 +18,7 @@ const ProductFilterRadio: FunctionComponent<TProductFilterProps> = ({
         [setOptions]
     );
 
-    if (!options || !options.length) {
+    if (!options.length) {
         return null;
     }
 

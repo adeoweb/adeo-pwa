@@ -4,12 +4,8 @@ import { useFooterContact } from 'src/peregrine/lib/talons/adeoweb/Footer/useFoo
 
 const ContactInformation: FunctionComponent = () => {
     const { t } = useTranslation();
-    const {
-        storeAddress,
-        storePhone,
-        storeEmail,
-        storeWorkingHours
-    } = useFooterContact();
+    const { storeAddress, storePhone, storeEmail, storeWorkingHours } =
+        useFooterContact();
 
     return (
         <div className="col-lg-4 col-md-6">

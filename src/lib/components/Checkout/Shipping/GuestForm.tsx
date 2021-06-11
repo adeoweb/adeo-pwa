@@ -31,7 +31,7 @@ const GuestForm: FunctionComponent<TGuestFormProps> = ({ onSubmit }) => {
 
     const initialValues = {
         email: email || '',
-        ...getTransformedAddress(shippingAddress)
+        ...getTransformedAddress({ ...shippingAddress })
     };
 
     const {
