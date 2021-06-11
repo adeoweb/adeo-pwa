@@ -1,8 +1,10 @@
 import React, { FunctionComponent, useMemo } from 'react';
-import { useBreadcrumbs } from 'src/peregrine/lib/talons/adeoweb/Breadcrumbs/useBreadcrumbs';
-import GET_BREADCRUMB_DATA from '../../queries/getBreadcrumbData.graphql';
-import BreadcrumbsWrapper from 'src/lib/components/Breadcrumbs/BreadcrumbsWrapper';
+
 import BreadcrumbsLink from 'src/lib/components/Breadcrumbs/BreadcrumbLink';
+import BreadcrumbsWrapper from 'src/lib/components/Breadcrumbs/BreadcrumbsWrapper';
+import { useBreadcrumbs } from 'src/peregrine/lib/talons/adeoweb/Breadcrumbs/useBreadcrumbs';
+
+import GET_BREADCRUMB_DATA from '../../queries/getBreadcrumbData.graphql';
 
 type TBreadcrumbsProps = {
     categoryId: number | null;

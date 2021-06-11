@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
+
 import { useSwatch } from '@magento/peregrine/lib/talons/ProductOptions/useSwatch';
+
 import { TConfigurableProductOptionsValues } from 'src/lib/types/graphql/Product';
 
 type TSwatchProps = {

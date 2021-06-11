@@ -1,6 +1,7 @@
 import React, { FunctionComponent, InputHTMLAttributes, useState } from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 import { FormControlProps } from 'react-bootstrap/FormControl';
+
 import defaultClasses from './PasswordField.scss';
 
 type TPasswordFieldProps = InputHTMLAttributes<HTMLInputElement> &

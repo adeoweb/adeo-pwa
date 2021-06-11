@@ -1,7 +1,10 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
-import Language from '../Language';
+
 import mockUseStoreList from 'src/lib/util/__mocks__/hooks/mockUseStoreList';
+
+import Language from '../Language';
 
 jest.mock('src/peregrine/lib/context/adeoweb/app', () => {
     const state = {

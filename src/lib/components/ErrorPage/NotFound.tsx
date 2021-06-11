@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 type TNotFoundProps = {
     goHome: () => void;

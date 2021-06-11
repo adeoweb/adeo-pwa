@@ -1,11 +1,13 @@
+import { FormikErrors, FormikTouched } from 'formik';
 import { DocumentNode } from 'graphql';
+
+import * as React from 'react';
+
 import {
     TAvailableShippingMethod,
     TSelectedShippingMethod
 } from 'src/lib/types/graphql/Cart';
-import { FormikErrors, FormikTouched } from 'formik';
 import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
-import * as React from 'react';
 
 type TUseCartEstimateProps<Values> = {
     countriesQuery: DocumentNode;

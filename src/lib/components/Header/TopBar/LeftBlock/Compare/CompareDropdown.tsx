@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import CompareProductList from './CompareProductList';
-import CompareButtonBlock from './CompareButtonBlock';
+
 import { useCompareDropdown } from 'src/peregrine/lib/talons/adeoweb/Product/useCompareDropdown';
+
+import CompareButtonBlock from './CompareButtonBlock';
+import CompareProductList from './CompareProductList';
 
 const CompareDropdown: FunctionComponent = () => {
     const { compareDropdownOpen, compareDropdownRef } = useCompareDropdown();

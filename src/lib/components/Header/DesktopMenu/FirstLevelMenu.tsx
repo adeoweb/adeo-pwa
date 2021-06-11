@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useState } from 'react';
-import { Link } from 'src/lib/drivers';
+
 import SecondLevelMenu from 'src/lib/components/Header/DesktopMenu/SecondLevelMenu';
 import SimpleError from 'src/lib/components/SimpleError';
+import { Link } from 'src/lib/drivers';
 import { TCategoryTree } from 'src/lib/types/graphql/Category';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 

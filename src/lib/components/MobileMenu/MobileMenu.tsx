@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { useMenu } from 'src/peregrine/lib/talons/adeoweb/Menu/useMenu';
-import GET_MENU_QUERY from 'src/lib/queries/getMenu.graphql';
-import SimpleError from 'src/lib/components/SimpleError';
-import { useMobileMenu } from 'src/peregrine/lib/talons/adeoweb/Header/useMobileMenu';
+
 import MenuList from 'src/lib/components/MobileMenu/MenuList';
+import SimpleError from 'src/lib/components/SimpleError';
+import GET_MENU_QUERY from 'src/lib/queries/getMenu.graphql';
+import { useMobileMenu } from 'src/peregrine/lib/talons/adeoweb/Header/useMobileMenu';
+import { useMenu } from 'src/peregrine/lib/talons/adeoweb/Menu/useMenu';
 
 const MobileMenu: FunctionComponent = () => {
     const { isOpen, handleClose } = useMobileMenu();

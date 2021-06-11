@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react';
+import { Container } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { Settings } from 'react-slick';
-import { TProductInterface } from 'src/lib/types/graphql/Product';
-import { Container } from 'react-bootstrap';
-import HorizontalProductsCarousel from 'src/lib/components/ProductFullDetail/HorizontalProductsCarousel';
+
 import ChevronCircleIcon from 'src/lib/assets/icons/ChevronCircleIcon';
+import HorizontalProductsCarousel from 'src/lib/components/ProductFullDetail/HorizontalProductsCarousel';
+import { TProductInterface } from 'src/lib/types/graphql/Product';
 
 interface IRelatedProductsSectionProps {
     items: TProductInterface[];

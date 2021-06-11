@@ -1,7 +1,9 @@
-import React from 'react';
 import { oneOf, shape, string } from 'prop-types';
 
+import React from 'react';
+
 import { mergeClasses } from '../../classify';
+
 import defaultClasses from './button.css';
 
 const getRootClassName = priority => `root_${priority}Priority`;

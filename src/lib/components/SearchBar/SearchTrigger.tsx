@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import { useSearchTrigger } from '@magento/peregrine/lib/talons/Header/useSearchTrigger';
 
 type TSearchTriggerProps = {

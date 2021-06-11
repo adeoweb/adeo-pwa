@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Price } from '@magento/peregrine';
-import SummaryWrapper from 'src/lib/components/Checkout/Summary/SummaryWrapper';
 import { Button, Table } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
+import { Price } from '@magento/peregrine';
+
+import SummaryWrapper from 'src/lib/components/Checkout/Summary/SummaryWrapper';
 import {
     TCartPrices,
     TSelectedShippingMethod

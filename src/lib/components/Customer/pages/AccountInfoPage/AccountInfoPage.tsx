@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Card } from 'react-bootstrap';
-import { Link } from 'src/lib/drivers';
+import { useTranslation } from 'react-i18next';
+
 import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
+import { Link } from 'src/lib/drivers';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 
 const AccountInfoPage: FunctionComponent = () => {

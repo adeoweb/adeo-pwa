@@ -1,13 +1,15 @@
-import React, { useMemo } from 'react';
 import { number, string, shape } from 'prop-types';
+
+import React, { useMemo } from 'react';
 
 import { Link, resourceUrl } from 'src/lib/drivers';
 import { useNoProductsFound } from 'src/peregrine/lib/talons/adeoweb/RootComponents/Category';
 
-import Image from '../Image';
 import { mergeClasses } from '../../classify';
-import noProductsFound from './noProductsFound.png';
+import Image from '../Image';
+
 import defaultClasses from './noProductsFound.css';
+import noProductsFound from './noProductsFound.png';
 
 // TODO: get categoryUrlSuffix from graphql storeOptions when it is ready
 const categoryUrlSuffix = '.html';

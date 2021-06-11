@@ -4,14 +4,15 @@ import React, {
     useEffect,
     useState
 } from 'react';
-import { useTranslation } from 'react-i18next';
-import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
-import { useHistory } from 'src/lib/drivers';
 import { Button, Col, Container, Form, FormCheck, Row } from 'react-bootstrap';
-import UPDATE_CUSTOMER_MUTATION from 'src/lib/queries/updateCustomer.graphql';
+import { useTranslation } from 'react-i18next';
+
+import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
 import LoadingIndicator from 'src/lib/components/LoadingIndicator';
-import { useEditCustomer } from 'src/peregrine/lib/talons/adeoweb/Customer/useEditCustomer';
 import PasswordField from 'src/lib/components/PasswordField';
+import { useHistory } from 'src/lib/drivers';
+import UPDATE_CUSTOMER_MUTATION from 'src/lib/queries/updateCustomer.graphql';
+import { useEditCustomer } from 'src/peregrine/lib/talons/adeoweb/Customer/useEditCustomer';
 
 const EditCustomerInfoPage: FunctionComponent = () => {
     const { t } = useTranslation();

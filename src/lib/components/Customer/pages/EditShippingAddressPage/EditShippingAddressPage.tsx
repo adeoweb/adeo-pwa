@@ -1,13 +1,14 @@
 import React, { FunctionComponent, useCallback, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+
+import { CustomerAddressForm } from 'src/lib/components/Customer';
 import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
 import { useHistory } from 'src/lib/drivers';
 import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
 import GET_CUSTOMER_QUERY from 'src/lib/queries/getCustomer.graphql';
 import UPDATE_CUSTOMER_ADDRESS_MUTATION from 'src/lib/queries/updateCustomerAddress.graphql';
 import { useEditCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/Customer/useEditCustomerAddress';
-import { Button } from 'react-bootstrap';
-import { CustomerAddressForm } from 'src/lib/components/Customer';
 
 const EditShippingAddressPage: FunctionComponent = () => {
     const { t } = useTranslation();

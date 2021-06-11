@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import { TProductFilterProps } from './ProductFilterTypes';
 
 const ProductFilterRange: FunctionComponent<TProductFilterProps> = () => {

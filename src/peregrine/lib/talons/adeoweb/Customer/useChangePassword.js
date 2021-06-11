@@ -1,12 +1,14 @@
-import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { errorMessages } from 'src/lib/util/errorMessages';
-import { useCallback, useEffect, useState } from 'react';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
+
 import { useMutation } from '@apollo/react-hooks';
-import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
+import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import MessageType from 'src/lib/constants/message';
+import { errorMessages } from 'src/lib/util/errorMessages';
+import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useChangePassword = props => {

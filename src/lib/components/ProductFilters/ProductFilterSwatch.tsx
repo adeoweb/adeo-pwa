@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
+
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
+
 import { TProductFilterProps } from './ProductFilterTypes';
 
 const ProductFilterSwatch: FunctionComponent<TProductFilterProps> = ({

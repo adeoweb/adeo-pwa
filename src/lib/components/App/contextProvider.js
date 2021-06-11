@@ -1,10 +1,12 @@
 import React from 'react';
+
 import {
     ToastContextProvider,
     WindowSizeContextProvider
 } from '@magento/peregrine';
 
 import { PeregrineContextProvider } from 'src/peregrine/lib';
+
 /**
  * List of context providers that are required to run Venia
  *

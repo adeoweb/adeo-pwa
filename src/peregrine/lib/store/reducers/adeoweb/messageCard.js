@@ -1,4 +1,5 @@
 import { handleActions } from 'redux-actions';
+
 import actions from '../../actions/adeoweb/messageCard';
 
 export const name = 'messageCard';

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import { useResourceImage } from 'src/peregrine/lib/talons/adeoweb/Image/useResourceImage';
+
 import { generateSrcset, generateUrl } from '../../util/images';
 import { IResourceImageProps } from './ResourceImageTypes';
 import SimpleImage from './SimpleImage';

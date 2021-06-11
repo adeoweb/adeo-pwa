@@ -1,16 +1,18 @@
-import React, { FunctionComponent, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
-import { Button, Form } from 'react-bootstrap';
 import * as yup from 'yup';
-import { useSignIn } from 'src/peregrine/lib/talons/adeoweb/SignIn/useSignIn';
-import MERGE_CARTS_MUTATION from 'src/lib/queries/mergeCarts.graphql';
+
+import React, { FunctionComponent, useEffect } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import GET_CUSTOMER_QUERY from 'src/lib/queries/getCustomer.graphql';
 import GET_CUSTOMER_CART_QUERY from 'src/lib/queries/getCustomerCart.graphql';
+import MERGE_CARTS_MUTATION from 'src/lib/queries/mergeCarts.graphql';
 import SIGN_IN_MUTATION from 'src/lib/queries/signIn.graphql';
 import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
-import { errorMessages } from 'src/lib/util/errorMessages';
 import { TGenerateCustomerTokenProps } from 'src/lib/types/graphql/SignIn';
+import { errorMessages } from 'src/lib/util/errorMessages';
+import { useSignIn } from 'src/peregrine/lib/talons/adeoweb/SignIn/useSignIn';
 
 type TLoginFormProps = {
     openForgotPassword: () => void;

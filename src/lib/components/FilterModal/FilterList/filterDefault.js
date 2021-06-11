@@ -1,9 +1,11 @@
-import React from 'react';
 import { bool, shape, string } from 'prop-types';
+
+import React from 'react';
 import { Check as Checkmark } from 'react-feather';
 
 import { mergeClasses } from '../../../classify';
 import Icon from '../../Icon';
+
 import defaultClasses from './filterDefault.css';
 
 const FilterDefault = props => {

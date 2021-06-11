@@ -1,4 +1,5 @@
 import combine from '../combineValidators';
+
 const isRequired = jest.fn();
 const isRequiredFail = jest.fn(() => 'string');
 const hasLengthExactly = jest.fn('');

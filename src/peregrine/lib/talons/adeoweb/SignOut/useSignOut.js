@@ -1,11 +1,11 @@
+import { useApolloClient, useMutation } from '@apollo/react-hooks';
 import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useApolloClient, useMutation } from '@apollo/react-hooks';
-
-import { useUserContext } from '../../../context/adeoweb/user';
-import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
+import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+
+import { useUserContext } from '../../../context/adeoweb/user';
 
 export const useSignOut = ({ signOutMutation, createCartMutation }) => {
     const { resetStore } = useApolloClient();

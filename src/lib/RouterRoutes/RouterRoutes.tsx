@@ -1,6 +1,7 @@
 import { lazy } from 'react';
-import { IRoutes } from 'src/lib/types/Routes';
+
 import { rootCustomerRoute } from 'src/lib/components/Customer/CustomerRoutes';
+import { IRoutes } from 'src/lib/types/Routes';
 
 const CreateAccountPage = lazy(
     () => import('../components/Customer/pages/CreateAccountPage')

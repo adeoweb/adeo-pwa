@@ -1,14 +1,15 @@
-import React, { Component, Fragment } from 'react';
-import { arrayOf, node, number, oneOfType, shape, string } from 'prop-types';
 import { BasicSelect, Option, asField } from 'informed';
+import { arrayOf, node, number, oneOfType, shape, string } from 'prop-types';
 import { compose } from 'redux';
+
+import React, { Component, Fragment } from 'react';
+import { ChevronDown as ChevronDownIcon } from 'react-feather';
 
 import classify from '../../classify';
 import { FieldIcons, Message } from '../Field';
-import defaultClasses from './select.css';
-
 import Icon from '../Icon';
-import { ChevronDown as ChevronDownIcon } from 'react-feather';
+
+import defaultClasses from './select.css';
 
 const arrow = <Icon src={ChevronDownIcon} size={18} />;
 

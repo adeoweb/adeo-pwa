@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'src/lib/drivers';
 import { useTranslation } from 'react-i18next';
+
 import ArrowIcon from 'src/lib/assets/icons/ArrowIcon';
+import { Link } from 'src/lib/drivers';
 
 interface IBackButtonProps {
     url: string;

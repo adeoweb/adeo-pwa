@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import RichText from 'src/lib/components/RichText';
 
 interface IShortDescriptionProps {

@@ -1,9 +1,9 @@
-import { IRoutes } from 'src/lib/types/Routes';
-import Shipping from 'src/lib/components/Checkout/Shipping';
+import Failure from 'src/lib/components/Checkout/Failure';
 import Payment from 'src/lib/components/Checkout/Payment';
 import Review from 'src/lib/components/Checkout/Review';
+import Shipping from 'src/lib/components/Checkout/Shipping';
 import Success from 'src/lib/components/Checkout/Success';
-import Failure from 'src/lib/components/Checkout/Failure';
+import { IRoutes } from 'src/lib/types/Routes';
 
 export const rootCheckoutRoute = '/checkout';
 export const CheckoutRoutes: IRoutes = {

@@ -1,11 +1,13 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import { Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+
 import {
     DEFAULT_PRODUCT_SORT_FIELD,
     ProductSortDirections,
     ProductSortFields
 } from 'src/lib/constants/product';
+
 import { IProductsSortControl } from './ProductsSortTypes';
 
 type TProductSortProps = {

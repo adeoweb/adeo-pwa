@@ -1,24 +1,26 @@
 import React, { Fragment, FunctionComponent, useEffect } from 'react';
-import Pagination from 'src/lib/components/Pagination';
 import { Col, Container, Row } from 'react-bootstrap';
+
+import Breadcrumbs from 'src/lib/components/Breadcrumbs';
 import { ICategoryContentProps } from 'src/lib/components/CategoryContent';
+import LayoutModes from 'src/lib/components/LayoutModes';
+import Pagination from 'src/lib/components/Pagination';
+import ProductFilters from 'src/lib/components/ProductFilters';
 import ProductGrid from 'src/lib/components/ProductGrid';
 import ProductList from 'src/lib/components/ProductList';
-import RichText from 'src/lib/components/RichText';
 import ProductResults from 'src/lib/components/ProductResults';
+import ProductsSidebar from 'src/lib/components/ProductsSidebar';
 import ProductsSort from 'src/lib/components/ProductsSort';
-import LayoutModes from 'src/lib/components/LayoutModes';
+import RichText from 'src/lib/components/RichText';
 import { LAYOUT_MODE_GRID } from 'src/lib/constants/layoutModes';
+import MessageType from 'src/lib/constants/message';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
+import { useWishlist } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlist';
+
 import LoadingIndicator, {
     FullPageLoadingIndicator
 } from '../../components/LoadingIndicator';
-import Breadcrumbs from 'src/lib/components/Breadcrumbs';
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
-import ProductsSidebar from 'src/lib/components/ProductsSidebar';
-import ProductFilters from 'src/lib/components/ProductFilters';
-import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
-import { useWishlist } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlist';
-import MessageType from 'src/lib/constants/message';
 
 const CategoryContent: FunctionComponent<ICategoryContentProps> = ({
     categoryId,

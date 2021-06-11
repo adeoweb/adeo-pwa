@@ -1,5 +1,6 @@
-import { useMemo } from 'react';
 import { useQuery } from '@apollo/react-hooks';
+import { useMemo } from 'react';
+
 import { useConfigContext } from 'src/peregrine/lib/context/adeoweb/config';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 

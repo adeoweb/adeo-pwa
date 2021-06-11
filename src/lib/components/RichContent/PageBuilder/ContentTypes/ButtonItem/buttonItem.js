@@ -1,8 +1,11 @@
-import React, { useCallback } from 'react';
-import Button from '../../../../Button/button';
 import { arrayOf, oneOf, string, bool } from 'prop-types';
-import resolveLinkProps from '../../resolveLinkProps';
+
+import React, { useCallback } from 'react';
+
 import { useHistory } from 'src/lib/drivers';
+
+import Button from '../../../../Button/button';
+import resolveLinkProps from '../../resolveLinkProps';
 
 /**
  * Page Builder ButtonItem component.

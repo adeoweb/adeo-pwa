@@ -1,9 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
-import defaultClasses from './row.css';
-import { verticalAlignmentToFlex } from '../../utils';
-import { mergeClasses } from '../../../../../classify';
 import { arrayOf, oneOf, shape, bool, string, number } from 'prop-types';
+
+import React, { useEffect, useRef, useState } from 'react';
+
 import { resourceUrl } from 'src/lib/drivers';
+
+import { mergeClasses } from '../../../../../classify';
+import { verticalAlignmentToFlex } from '../../utils';
+
+import defaultClasses from './row.css';
 
 /**
  * Page Builder Row component.

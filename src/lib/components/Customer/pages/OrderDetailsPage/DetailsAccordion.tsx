@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Accordion, Card } from 'react-bootstrap';
+
 import ChevronIcon from 'src/lib/assets/icons/ChevronIcon';
 
 interface IDetailsAccordionProps {

@@ -1,9 +1,11 @@
 import React, { Fragment, FunctionComponent, useMemo } from 'react';
+
 import { transparentPlaceholder } from '@magento/peregrine/lib/util/images';
+
 import Image from 'src/lib/components/Image';
-import { useProductImageCarousel } from 'src/peregrine/lib/talons/adeoweb/ProductImageCarousel/useProductImageCarousel';
-import { TMediaGalleryInterface } from 'src/lib/types/graphql/MediaGalleryInterface';
 import Thumbnail from 'src/lib/components/ProductImageCarousel/Thumbnail';
+import { TMediaGalleryInterface } from 'src/lib/types/graphql/MediaGalleryInterface';
+import { useProductImageCarousel } from 'src/peregrine/lib/talons/adeoweb/ProductImageCarousel/useProductImageCarousel';
 
 type TCarouselProps = {
     images: TMediaGalleryInterface[];

@@ -1,5 +1,5 @@
-import { TStore } from 'src//lib/types/graphql/Store';
 import { CustomerModalTypes } from 'src//lib/constants/customer';
+import { TStore } from 'src//lib/types/graphql/Store';
 
 export type TAppState = {
     drawer: string | null;

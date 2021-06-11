@@ -1,3 +1,5 @@
+import { arrayOf, number, oneOf, shape, string } from 'prop-types';
+
 import React, {
     Children,
     useRef,
@@ -11,9 +13,10 @@ import {
     Tab as TabHeader,
     TabPanel
 } from 'react-tabs';
-import defaultClasses from './tabs.css';
+
 import { mergeClasses } from '../../../../../classify';
-import { arrayOf, number, oneOf, shape, string } from 'prop-types';
+
+import defaultClasses from './tabs.css';
 
 /**
  * Upper case the first letter of a string

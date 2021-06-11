@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { useLayoutModes } from 'src/peregrine/lib/talons/adeoweb/LayoutModes/useLayoutModes';
+
 import {
     LAYOUT_MODE_GRID,
     LAYOUT_MODE_LIST
 } from 'src/lib/constants/layoutModes';
+import { useLayoutModes } from 'src/peregrine/lib/talons/adeoweb/LayoutModes/useLayoutModes';
 
 const LayoutModes: FunctionComponent = () => {
     const { layoutMode, setGrid, setList } = useLayoutModes();

@@ -1,5 +1,7 @@
-import React from 'react';
 import { string } from 'prop-types';
+
+import React from 'react';
+
 import RichContent from '../RichContent';
 
 /**

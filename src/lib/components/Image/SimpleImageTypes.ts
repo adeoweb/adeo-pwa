@@ -1,4 +1,5 @@
 import { SyntheticEvent } from 'react';
+
 import { TBaseImgProps } from './ImageTypes';
 
 export interface ISimpleImageProps extends TBaseImgProps {

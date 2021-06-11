@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import { ISimpleImageProps } from './SimpleImageTypes';
 
 const SimpleImage: FunctionComponent<ISimpleImageProps> = ({

@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
+import { Container } from 'react-bootstrap';
+
 import LeftBlock from './LeftBlock';
 import RightBlock from './RightBlock';
-import { Container } from 'react-bootstrap';
 
 const TopBar: FunctionComponent = () => {
     return (

@@ -1,5 +1,7 @@
-import { useCallback, useMemo } from 'react';
 import queryString from 'query-string';
+
+import { useCallback, useMemo } from 'react';
+
 import { PAGER_TILE_TYPE_ELLIPSIS } from 'src/lib/constants/pagination';
 
 export const usePagination = props => {

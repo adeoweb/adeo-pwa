@@ -1,16 +1,17 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
-import LoginForm from 'src/lib/components/Customer/LoginForm';
-import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
-import { TShippingAddressFormValues } from 'src/lib/components/Checkout/Shipping/ShippingAddressFormTypes';
-import ShippingAddressForm from 'src/lib/components/Checkout/Shipping/ShippingAddressForm';
 import { Button } from 'react-bootstrap';
-import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
-import { getTransformedAddress } from 'src/peregrine/lib/talons/adeoweb/Checkout/utils';
-import { useShippingAddressForm } from 'src/peregrine/lib/talons/adeoweb/Checkout/useShippingAddressForm';
-import { TShippingCartAddress } from 'src/lib/types/graphql/Cart';
+import { useTranslation } from 'react-i18next';
+
+import ShippingAddressForm from 'src/lib/components/Checkout/Shipping/ShippingAddressForm';
+import { TShippingAddressFormValues } from 'src/lib/components/Checkout/Shipping/ShippingAddressFormTypes';
+import LoginForm from 'src/lib/components/Customer/LoginForm';
 import { CustomerModalTypes } from 'src/lib/constants/customer';
+import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
+import { TShippingCartAddress } from 'src/lib/types/graphql/Cart';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
+import { useShippingAddressForm } from 'src/peregrine/lib/talons/adeoweb/Checkout/useShippingAddressForm';
+import { getTransformedAddress } from 'src/peregrine/lib/talons/adeoweb/Checkout/utils';
 
 type TGuestFormProps = {
     onSubmit: (values: TShippingAddressFormValues) => void;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { useConfigContext } from 'src/peregrine/lib/context/adeoweb/config';
 
 export const usePageSize = () => {

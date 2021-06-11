@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import { usePlaceholderImage } from 'src/peregrine/lib/talons/adeoweb/Image/usePlaceholderImage';
 
 import PlaceholderImage from '../PlaceholderImage';

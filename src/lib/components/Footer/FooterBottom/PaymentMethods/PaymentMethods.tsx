@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import paymentsImage from './payments.png';
 
 const PaymentMethods: FunctionComponent = () => {

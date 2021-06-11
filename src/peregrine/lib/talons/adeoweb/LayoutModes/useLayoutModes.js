@@ -1,9 +1,10 @@
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useCallback } from 'react';
+
 import {
     LAYOUT_MODE_GRID,
     LAYOUT_MODE_LIST
 } from 'src/lib/constants/layoutModes';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 
 export const useLayoutModes = () => {
     const [{ layoutMode }, { setLayoutMode }] = useAppContext();

@@ -1,10 +1,12 @@
 import React, { FunctionComponent } from 'react';
+
 import { TStore } from 'src/lib/types/graphql/Store';
-import flagLt from 'src/static/icons/flags/lt.png';
-import flagRu from 'src/static/icons/flags/ru.png';
+
 import flagEn from 'src/static/icons/flags/en.png';
-import flagLv from 'src/static/icons/flags/lv.png';
 import flagEt from 'src/static/icons/flags/et.png';
+import flagLt from 'src/static/icons/flags/lt.png';
+import flagLv from 'src/static/icons/flags/lv.png';
+import flagRu from 'src/static/icons/flags/ru.png';
 
 type TItemProps = {
     item: TStore;

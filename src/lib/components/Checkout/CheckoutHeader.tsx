@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { Container } from 'react-bootstrap';
-import { Link } from 'src/lib/drivers';
 import { useTranslation } from 'react-i18next';
+
 import Logo from 'src/lib/components/Logo';
+import { Link } from 'src/lib/drivers';
 
 const CheckoutHeader: FunctionComponent = () => {
     const { t } = useTranslation();

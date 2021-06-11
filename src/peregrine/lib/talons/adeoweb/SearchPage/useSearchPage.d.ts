@@ -1,10 +1,11 @@
 import { DocumentNode } from 'graphql';
+
 import {
     ProductSortDirections,
     ProductSortFields
 } from 'src/lib/constants/product';
-import { TProduct } from 'src/lib/types/graphql/Product';
 import { TAggregation } from 'src/lib/types/graphql/Aggregation';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 type TUseSearchPageProps = {
     query: DocumentNode;

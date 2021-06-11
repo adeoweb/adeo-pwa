@@ -1,4 +1,5 @@
 import { default as resourceUrl } from './makeUrl';
+
 /**
  * This is specific to the Venia store-front sample data.
  */

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+
 import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 
 import { getSearchFromState, getStateFromSearch, stripHtml } from './helpers';

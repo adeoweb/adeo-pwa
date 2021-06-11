@@ -1,6 +1,9 @@
 import { useCallback } from 'react';
+
 import { useDropdown } from '@magento/peregrine/lib/hooks/useDropdown';
+
 import { useFormik } from 'src/lib/drivers';
+
 import { history } from '../../../../../lib/drivers/history';
 
 const initialValues = { search_query: '' };

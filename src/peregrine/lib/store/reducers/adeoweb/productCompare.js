@@ -1,7 +1,10 @@
 import { handleActions } from 'redux-actions';
-import actions from '../../actions/adeoweb/productCompare';
+
 import BrowserPersistence from '@magento/peregrine/lib/util/simplePersistence';
+
 import { COMPARE_STORAGE_NAME } from 'src/lib/constants/productCompare';
+
+import actions from '../../actions/adeoweb/productCompare';
 
 export const name = 'productCompare';
 const storage = new BrowserPersistence();

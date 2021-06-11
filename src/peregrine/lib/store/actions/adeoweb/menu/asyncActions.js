@@ -1,6 +1,6 @@
-import actions from './actions';
-import { filterSortMenu } from '../../../../util/adeoweb/filterSortMenu';
 import { fetchPolicy } from '../../../../util/adeoweb/fetchPolicy';
+import { filterSortMenu } from '../../../../util/adeoweb/filterSortMenu';
+import actions from './actions';
 
 export const getMenu =
     ({ fetchMenu }) =>

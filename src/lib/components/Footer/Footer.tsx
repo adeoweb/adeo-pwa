@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
+
+import CmsBlockGroup from 'src/lib/components/CmsBlock';
+import AccountLinks from 'src/lib/components/Footer/AccountLinks';
 import ContactInformation from 'src/lib/components/Footer/ContactInformation/ContactInformation';
 import FooterBottom from 'src/lib/components/Footer/FooterBottom';
 import Newsletter from 'src/lib/components/Footer/Newsletter';
-import AccountLinks from 'src/lib/components/Footer/AccountLinks';
-import CmsBlockGroup from 'src/lib/components/CmsBlock';
 
 const Footer: FunctionComponent = () => {
     return (

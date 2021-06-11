@@ -1,8 +1,8 @@
 import React from 'react';
-import testRenderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
-import MobileMenu from 'src/lib/components/MobileMenu';
+import testRenderer from 'react-test-renderer';
 
+import MobileMenu from 'src/lib/components/MobileMenu';
 import mockUseMenu from 'src/lib/util/__mocks__/hooks/mockUseMenu';
 
 jest.mock('src/peregrine/lib/context/adeoweb/app', () => {

@@ -1,14 +1,16 @@
-import { useCallback, useEffect, useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { useCustomerAddressForm } from 'src/peregrine/lib/talons/adeoweb/Customer/useCustomerAddressForm';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
-import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
+import { useCallback, useEffect, useState } from 'react';
+
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
-import MessageType from 'src/lib/constants/message';
 import { getSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
+
+import MessageType from 'src/lib/constants/message';
 import { useLocation } from 'src/lib/drivers';
-import remapToCustomerAddressFormValues from 'src/peregrine/lib/util/adeoweb/remapToCustomerAddressFormValues';
+import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
+import { useCustomerAddressForm } from 'src/peregrine/lib/talons/adeoweb/Customer/useCustomerAddressForm';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import remapToCustomerAddressFormValues from 'src/peregrine/lib/util/adeoweb/remapToCustomerAddressFormValues';
 
 export const useEditCustomerAddress = ({
     getCustomerQuery,

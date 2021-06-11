@@ -1,14 +1,16 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import { useHistory, useLocation } from 'src/lib/drivers';
 import { useTranslation } from 'react-i18next';
-import { useCustomerOrders } from 'src/peregrine/lib/talons/adeoweb/Customer/useCustomerOrders';
+
 import { getSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
+
 import BackButton from 'src/lib/components/BackButton';
-import OrderBlocks from 'src/lib/components/Customer/pages/OrderDetailsPage/OrderBlocks';
-import GET_CUSTOMER_ORDER_DETAILS from 'src/lib/queries/getCustomerOrderDetails.graphql';
 import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
+import OrderBlocks from 'src/lib/components/Customer/pages/OrderDetailsPage/OrderBlocks';
 import LoadingIndicator from 'src/lib/components/LoadingIndicator';
 import MessageType from 'src/lib/constants/message';
+import { useHistory, useLocation } from 'src/lib/drivers';
+import GET_CUSTOMER_ORDER_DETAILS from 'src/lib/queries/getCustomerOrderDetails.graphql';
+import { useCustomerOrders } from 'src/peregrine/lib/talons/adeoweb/Customer/useCustomerOrders';
 import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
 
 const OrderDetailsPage: FunctionComponent = () => {

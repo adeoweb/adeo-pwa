@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Table, Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
+import Price from '@magento/peregrine/lib/Price';
+
 import {
     TAvailableShippingMethod,
     TSelectedShippingMethod
 } from 'src/lib/types/graphql/Cart';
-import Price from '@magento/peregrine/lib/Price';
 
 type TShippingMethodsProps = {
     items: TAvailableShippingMethod[];

@@ -1,8 +1,10 @@
+import { useMutation } from '@apollo/react-hooks';
+import { useCallback } from 'react';
+
+import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
+
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
-import { useCallback } from 'react';
-import { useMutation } from '@apollo/react-hooks';
-import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useReviewStep = props => {

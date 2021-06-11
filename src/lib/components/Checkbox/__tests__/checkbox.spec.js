@@ -1,6 +1,8 @@
+import { Form } from 'informed';
+
 import React from 'react';
 import { act } from 'react-test-renderer';
-import { Form } from 'informed';
+
 import { createTestInstance } from '@magento/peregrine';
 
 import Checkbox from '../checkbox';

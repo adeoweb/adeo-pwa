@@ -1,10 +1,13 @@
-import React, { Fragment, Suspense, lazy, useMemo } from 'react';
-import { array, bool, shape, string } from 'prop-types';
 import { useFieldState } from 'informed';
+import { array, bool, shape, string } from 'prop-types';
+
+import React, { Fragment, Suspense, lazy, useMemo } from 'react';
+
 import setValidator from '@magento/peregrine/lib/validators/set';
 
 import { mergeClasses } from '../../../classify';
 import FilterItem from './filterItem';
+
 import defaultClasses from './filterList.css';
 
 const FilterSearch = lazy(() => import('../filterSearch'));

@@ -1,7 +1,8 @@
 import { useLazyQuery } from '@apollo/react-hooks';
 import { useCallback, useEffect, useState } from 'react';
-import { useProductFilters } from 'src/peregrine/lib/talons/adeoweb/Product/useProductFilters';
+
 import { usePageSize } from 'src/peregrine/lib/talons/adeoweb/Product/usePageSize';
+import { useProductFilters } from 'src/peregrine/lib/talons/adeoweb/Product/useProductFilters';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 const CATEGORY_ATTRIBUTE_CODE = 'category_id';

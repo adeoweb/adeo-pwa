@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { Col } from 'react-bootstrap';
-import classes from './styles/ContactDetails.scss';
 import { useTranslation } from 'react-i18next';
+
+import classes from './styles/ContactDetails.scss';
 
 const ContactDetails: FunctionComponent = () => {
     const { t } = useTranslation();

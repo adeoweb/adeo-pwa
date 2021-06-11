@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import Image from 'src/lib/components/Image';
 import { TMediaGalleryInterface } from 'src/lib/types/graphql/MediaGalleryInterface';
 import { useThumbnail } from 'src/peregrine/lib/talons/adeoweb/ProductImageCarousel/useThumbnail';

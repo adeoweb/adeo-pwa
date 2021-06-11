@@ -1,4 +1,5 @@
 import { DocumentNode } from 'graphql';
+
 import { TStore } from 'src/lib/types/graphql/Store';
 
 type TUseStoreListProps = {

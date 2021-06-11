@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useLocation } from 'src/lib/drivers';
+
 import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
+import { Link, useLocation } from 'src/lib/drivers';
 
 const Menu: FunctionComponent = () => {
     const location = useLocation();

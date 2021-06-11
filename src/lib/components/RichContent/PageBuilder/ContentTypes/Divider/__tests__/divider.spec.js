@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import Divider from '../divider';
 
 jest.mock('src/lib/classify');

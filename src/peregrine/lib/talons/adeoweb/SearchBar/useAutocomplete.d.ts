@@ -1,4 +1,5 @@
 import { DocumentNode } from 'graphql';
+
 import { TProductsSearch } from 'src/lib/types/ProductSearch';
 
 type TUseAutocompleteProps = {

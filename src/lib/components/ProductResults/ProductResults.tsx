@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { useProductResults } from 'src/peregrine/lib/talons/adeoweb/Product/useProductResults';
 
 type TProductResultsProps = {

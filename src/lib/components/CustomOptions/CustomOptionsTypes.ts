@@ -1,7 +1,9 @@
-import { TCustomizableOption } from 'src/lib/types/graphql/Product';
-import React from 'react';
-import { ICustomOptionsForm } from 'src/peregrine/lib/talons/adeoweb/ProductFullDetail/useCustomProduct';
 import { FormikErrors, FormikTouched } from 'formik';
+
+import React from 'react';
+
+import { TCustomizableOption } from 'src/lib/types/graphql/Product';
+import { ICustomOptionsForm } from 'src/peregrine/lib/talons/adeoweb/ProductFullDetail/useCustomProduct';
 
 export type TProductCustomOptionsProps = {
     customOptions: TCustomizableOption[];

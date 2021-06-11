@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import Buttons from '../buttons';
 
 jest.mock('src/lib/classify');

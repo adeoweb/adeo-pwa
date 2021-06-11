@@ -1,6 +1,6 @@
-import { TUseMiniCart } from 'src/peregrine/lib/talons/adeoweb/MiniCart/useMiniCart';
-import { TPriceRange, TProductPrice } from 'src/lib/types/graphql/Product';
 import { CurrencyEnum } from 'src/lib/types/graphql/Money';
+import { TPriceRange, TProductPrice } from 'src/lib/types/graphql/Product';
+import { TUseMiniCart } from 'src/peregrine/lib/talons/adeoweb/MiniCart/useMiniCart';
 
 const productPrice: TProductPrice = {
     regular_price: {

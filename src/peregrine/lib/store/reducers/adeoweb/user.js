@@ -1,11 +1,12 @@
 import { handleActions } from 'redux-actions';
 
 import { Util } from '@magento/peregrine';
+
+import actions from '../../actions/adeoweb/user';
+
 const { BrowserPersistence } = Util;
 
 const storage = new BrowserPersistence();
-
-import actions from '../../actions/adeoweb/user';
 
 export const name = 'user';
 

@@ -1,12 +1,13 @@
 import React, { Fragment, useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import SET_SHIPPING_ADDRESSES_MUTATION from 'src/lib/queries/setShippingAddresses.graphql';
-import { useCartEstimate } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartEstimate';
-import SET_SHIPPING_METHOD_MUTATION from 'src/lib/queries/setShippingMethod.graphql';
-import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
-import { TCartAddressInput } from 'src/lib/types/graphql/Cart';
 import { Button, Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import ShippingMethods from 'src/lib/components/ShippingMethods';
+import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
+import SET_SHIPPING_ADDRESSES_MUTATION from 'src/lib/queries/setShippingAddresses.graphql';
+import SET_SHIPPING_METHOD_MUTATION from 'src/lib/queries/setShippingMethod.graphql';
+import { TCartAddressInput } from 'src/lib/types/graphql/Cart';
+import { useCartEstimate } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartEstimate';
 
 const CartEstimateShipping: React.FunctionComponent = () => {
     const { t } = useTranslation();

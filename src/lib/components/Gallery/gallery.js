@@ -1,8 +1,10 @@
-import React, { useMemo } from 'react';
 import { string, shape, array } from 'prop-types';
+
+import React, { useMemo } from 'react';
 
 import { mergeClasses } from '../../classify';
 import GalleryItem from './item';
+
 import defaultClasses from './gallery.css';
 
 // map Magento 2.3.1 schema changes to Venia 2.0.0 proptype shape to maintain backwards compatibility

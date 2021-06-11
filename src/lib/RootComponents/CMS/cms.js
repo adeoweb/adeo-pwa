@@ -1,14 +1,16 @@
-import React from 'react';
 import { number } from 'prop-types';
-import { useQuery } from '@apollo/react-hooks';
 
-import { FullPageLoadingIndicator } from '../../components/LoadingIndicator';
-import cmsPageQuery from '../../queries/getCmsPage.graphql';
-import RichContent from '../../components/RichContent';
-import CategoryList from '../../components/CategoryList';
-import { Meta } from '../../components/Head';
+import { useQuery } from '@apollo/react-hooks';
+import React from 'react';
+
 import { BreadcrumbsWrapper } from 'src/lib/components/Breadcrumbs';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+
+import CategoryList from '../../components/CategoryList';
+import { Meta } from '../../components/Head';
+import { FullPageLoadingIndicator } from '../../components/LoadingIndicator';
+import RichContent from '../../components/RichContent';
+import cmsPageQuery from '../../queries/getCmsPage.graphql';
 
 const CMSPage = props => {
     const { id } = props;

@@ -1,9 +1,9 @@
 import BrowserPersistence from '@magento/peregrine/lib/util/simplePersistence';
-import { mergeCarts, removeCart } from '../cart';
 
-import actions from './actions';
-import remapToCustomerAddressFormValues from '../../../../util/adeoweb/remapToCustomerAddressFormValues';
 import { fetchPolicy } from '../../../../util/adeoweb/fetchPolicy';
+import remapToCustomerAddressFormValues from '../../../../util/adeoweb/remapToCustomerAddressFormValues';
+import { mergeCarts, removeCart } from '../cart';
+import actions from './actions';
 
 const storage = new BrowserPersistence();
 

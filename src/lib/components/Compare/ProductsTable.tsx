@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TProductData } from 'src/peregrine/lib/store/reducers/adeoweb/productCompare';
+
 import Product from 'src/lib/components/Compare/Product';
+import { TProductData } from 'src/peregrine/lib/store/reducers/adeoweb/productCompare';
 
 interface IProductsProps {
     productData: TProductData;

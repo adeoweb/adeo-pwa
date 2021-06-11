@@ -1,16 +1,19 @@
 import React, { FunctionComponent, useEffect } from 'react';
+
 import { usePagination } from '@magento/peregrine/lib/hooks/usePagination';
-import { FullPageLoadingIndicator } from '../../components/LoadingIndicator';
-import GET_CATEGORY_CONTENT from '../../queries/getCategoryContent.graphql';
+
 import CategoryContent, {
     ICategoryPageControl
 } from 'src/lib/components/CategoryContent';
-import NoProductsFound from 'src/lib/components/NoProductsFound';
-import { Meta } from '../../components/Head';
-import { useProductsSort } from 'src/peregrine/lib/talons/adeoweb/Product/useProductsSort';
-import { useCategoryContent } from 'src/peregrine/lib/talons/adeoweb/CategoryContent/useCategoryContent';
 import { ICategoryFilterControl } from 'src/lib/components/CategoryContent/CategoryContentTypes';
+import NoProductsFound from 'src/lib/components/NoProductsFound';
 import { ROOT_CATEGORY_ID } from 'src/lib/constants/category';
+import { useCategoryContent } from 'src/peregrine/lib/talons/adeoweb/CategoryContent/useCategoryContent';
+import { useProductsSort } from 'src/peregrine/lib/talons/adeoweb/Product/useProductsSort';
+
+import { Meta } from '../../components/Head';
+import { FullPageLoadingIndicator } from '../../components/LoadingIndicator';
+import GET_CATEGORY_CONTENT from '../../queries/getCategoryContent.graphql';
 
 interface ICategoryProps {
     id: number;

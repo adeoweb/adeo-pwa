@@ -1,7 +1,6 @@
-require('../../styles/styles.scss');
-import React, { useCallback, useEffect } from 'react';
 import { array, func, shape, string } from 'prop-types';
-import { useToasts } from '@magento/peregrine';
+
+import React, { useCallback, useEffect } from 'react';
 import {
     AlertCircle as AlertCircleIcon,
     CloudOff as CloudOffIcon,
@@ -9,29 +8,33 @@ import {
     RefreshCcw as RefreshIcon
 } from 'react-feather';
 
+import { useToasts } from '@magento/peregrine';
+
+import CustomerModal from 'src/lib/components/CustomerModal';
+import LoadingOverlay from 'src/lib/components/LoadingOverlay';
+import { Route, Switch, useHistory } from 'src/lib/drivers';
+import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
+import scrollTo from 'src/lib/util/scrollTo';
 import { useApp } from 'src/peregrine/lib/talons/adeoweb/App/useApp';
 import { useLoadConfig } from 'src/peregrine/lib/talons/adeoweb/App/useLoadConfig';
 import { useLoadUser } from 'src/peregrine/lib/talons/adeoweb/User/useLoadUser';
 import { useUserSession } from 'src/peregrine/lib/talons/adeoweb/User/useUserSession';
-import LoadingOverlay from 'src/lib/components/LoadingOverlay';
-import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
-import { Route, Switch, useHistory } from 'src/lib/drivers';
-import CustomerModal from 'src/lib/components/CustomerModal';
-import scrollTo from 'src/lib/util/scrollTo';
 
-import GET_STORE_CONFIG_DATA from '../../queries/getStoreConfigData.graphql';
-import GET_CUSTOMER_QUERY from '../../queries/getCustomer.graphql';
 import { HTML_UPDATE_AVAILABLE } from '../../constants/swMessageTypes';
+import GET_CUSTOMER_QUERY from '../../queries/getCustomer.graphql';
+import GET_STORE_CONFIG_DATA from '../../queries/getStoreConfigData.graphql';
 import { registerMessageHandler } from '../../util/swUtils';
 import Checkout, { rootCheckoutRoute } from '../Checkout';
-import ToastContainer from '../ToastContainer';
-import { HeadProvider, Title } from '../Head';
 import CookieWarning from '../CookieWarning';
-import MobileMenu from '../MobileMenu';
-import Routes from '../Routes';
+import { HeadProvider, Title } from '../Head';
 import Icon from '../Icon';
 import Main from '../Main';
 import Mask from '../Mask';
+import MobileMenu from '../MobileMenu';
+import Routes from '../Routes';
+import ToastContainer from '../ToastContainer';
+
+require('../../styles/styles.scss');
 
 const OnlineIcon = <Icon src={WifiIcon} attrs={{ width: 18 }} />;
 const OfflineIcon = <Icon src={CloudOffIcon} attrs={{ width: 18 }} />;

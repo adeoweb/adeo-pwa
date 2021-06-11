@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/react-hooks';
 import { useCallback, useEffect, useState } from 'react';
+
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useCountries = props => {

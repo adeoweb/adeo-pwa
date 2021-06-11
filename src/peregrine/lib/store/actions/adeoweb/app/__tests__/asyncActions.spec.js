@@ -1,3 +1,5 @@
+import { mockSetItem } from '@magento/peregrine/lib/util/simplePersistence';
+
 import actions from '../actions';
 import {
     closeDrawer,
@@ -6,7 +8,6 @@ import {
     setActiveStore,
     setLayoutMode
 } from '../asyncActions';
-import { mockSetItem } from '@magento/peregrine/lib/util/simplePersistence';
 
 jest.mock('@magento/peregrine/lib/util/simplePersistence');
 

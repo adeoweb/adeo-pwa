@@ -1,5 +1,6 @@
 import React, { ChangeEvent, Fragment, FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { useSearchField } from 'src/peregrine/lib/talons/adeoweb/SearchBar/useSearchField';
 
 type TSearchFieldProps = {

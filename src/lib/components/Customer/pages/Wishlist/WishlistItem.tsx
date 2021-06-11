@@ -1,16 +1,17 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TProduct } from 'src/lib/types/graphql/Product';
-import { Link } from 'src/lib/drivers';
+
+import { AddToCompare } from 'src/lib/components/Compare';
 import Image from 'src/lib/components/Image';
-import ProductTitle from 'src/lib/components/ProductItem/ProductTitle';
 import PriceBox from 'src/lib/components/PriceBox';
 import AddToCart from 'src/lib/components/ProductItem/AddToCart';
-import { AddToCompare } from 'src/lib/components/Compare';
-import { useWishlistItem } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlistItem';
+import ProductTitle from 'src/lib/components/ProductItem/ProductTitle';
+import { Link } from 'src/lib/drivers';
 import ADD_TO_WISHLIST_MUTATION from 'src/lib/queries/addToWishlist.graphql';
 import REMOVE_FROM_WISHLIST_MUTATION from 'src/lib/queries/removeFromWishlist.graphql';
+import { TProduct } from 'src/lib/types/graphql/Product';
 import getItemUrl from 'src/lib/util/getItemUrl';
+import { useWishlistItem } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlistItem';
 
 type TWishlistItemProps = {
     product: TProduct;

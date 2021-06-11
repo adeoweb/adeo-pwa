@@ -1,14 +1,16 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAddToCart } from 'src/peregrine/lib/talons/adeoweb/Product/useAddToCart';
+
+import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConfigurable';
+
+import ShoppingBagIcon from 'src/lib/assets/icons/ShoppingBagIcon';
+import { Link } from 'src/lib/drivers';
 import ADD_SIMPLE_MUTATION from 'src/lib/queries/addSimpleProductsToCart.graphql';
 import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
 import GET_CART_DETAILS_QUERY from 'src/lib/queries/getCartDetails.graphql';
 import { TProduct } from 'src/lib/types/graphql/Product';
-import ShoppingBagIcon from 'src/lib/assets/icons/ShoppingBagIcon';
-import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConfigurable';
-import { Link } from 'src/lib/drivers';
 import getItemUrl from 'src/lib/util/getItemUrl';
+import { useAddToCart } from 'src/peregrine/lib/talons/adeoweb/Product/useAddToCart';
 import { isProductCustomizable } from 'src/peregrine/lib/util/adeoweb/isProductCustomizable';
 
 interface IAddToCartProps {

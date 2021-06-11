@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import ColumnGroup from '../columnGroup';
 
 test('renders a ColumnGroup component', () => {

@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
+
 import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
 import { TCustomerAddress } from 'src/lib/types/graphql/Customer';
+import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
 
 type TAddressBlockProps = {
     address: TCustomerAddress;

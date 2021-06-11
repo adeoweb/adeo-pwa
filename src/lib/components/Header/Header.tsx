@@ -1,16 +1,18 @@
 import React from 'react';
-import { Link } from 'src/lib/drivers';
-import Logo from 'src/lib/components/Logo';
-import TopBar from './TopBar';
+
 import DesktopMenu from 'src/lib/components/Header/DesktopMenu';
-import { useHeader } from 'src/peregrine/lib/talons/adeoweb/Header/useHeader';
 import HeaderContact from 'src/lib/components/Header/HeaderContact';
+import MiniCart from 'src/lib/components/Header/MiniCart';
+import Logo from 'src/lib/components/Logo';
+import SearchBar from 'src/lib/components/SearchBar';
+import { Link } from 'src/lib/drivers';
+import { useCartTrigger } from 'src/peregrine/lib/talons/adeoweb/Header/useCartTrigger';
+import { useHeader } from 'src/peregrine/lib/talons/adeoweb/Header/useHeader';
+import { useNavigationTrigger } from 'src/peregrine/lib/talons/adeoweb/Header/useNavigationTrigger';
+
 import CREATE_CART_MUTATION from '../../queries/createCart.graphql';
 import GET_CART_DETAILS_QUERY from '../../queries/getCartDetails.graphql';
-import MiniCart from 'src/lib/components/Header/MiniCart';
-import { useCartTrigger } from 'src/peregrine/lib/talons/adeoweb/Header/useCartTrigger';
-import { useNavigationTrigger } from 'src/peregrine/lib/talons/adeoweb/Header/useNavigationTrigger';
-import SearchBar from 'src/lib/components/SearchBar';
+import TopBar from './TopBar';
 
 const Header = () => {
     const { handleSearchTriggerClick, searchOpen } = useHeader();

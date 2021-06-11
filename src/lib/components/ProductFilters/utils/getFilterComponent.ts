@@ -1,10 +1,12 @@
 import { FunctionComponent } from 'react';
+
 import { TAggregation } from 'src/lib/types/graphql/Aggregation';
-import { ProductFilterType, TProductFilterProps } from '../ProductFilterTypes';
-import getFilterType from './getFilterType';
+
 import ProductFilterList from '../ProductFilterList';
 import ProductFilterRadio from '../ProductFilterRadio';
 import ProductFilterSwatch from '../ProductFilterSwatch';
+import { ProductFilterType, TProductFilterProps } from '../ProductFilterTypes';
+import getFilterType from './getFilterType';
 
 const getFilterComponent = (
     filter: TAggregation

@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import { useWelcomeMessage } from 'src/peregrine/lib/talons/adeoweb/Header/useWelcomeMessage';
 
 const WelcomeMessage: FunctionComponent = () => {

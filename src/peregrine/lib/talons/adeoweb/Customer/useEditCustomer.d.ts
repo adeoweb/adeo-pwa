@@ -1,6 +1,8 @@
-import * as React from 'react';
-import { DocumentNode } from 'graphql';
 import { FormikErrors, FormikTouched } from 'formik';
+import { DocumentNode } from 'graphql';
+
+import * as React from 'react';
+
 import { TCustomerInput } from 'src/lib/types/graphql/Customer';
 
 type TUseEditCustomerProps = {

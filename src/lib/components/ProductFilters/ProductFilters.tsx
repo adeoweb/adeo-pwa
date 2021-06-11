@@ -1,6 +1,8 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import ProductFilterWrapper from './ProductFilterWrapper';
+
 import { TAggregation } from 'src/lib/types/graphql/Aggregation';
+
+import ProductFilterWrapper from './ProductFilterWrapper';
 
 export type TProductFiltersProps = {
     filters: TAggregation[];

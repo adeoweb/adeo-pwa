@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { getSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
 
 /**

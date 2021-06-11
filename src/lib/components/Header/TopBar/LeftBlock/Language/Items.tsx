@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import Item from './Item';
+
 import { TStore } from 'src/lib/types/graphql/Store';
+
+import Item from './Item';
 
 type TItemsProps = {
     items: TStore[];

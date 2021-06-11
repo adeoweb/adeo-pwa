@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import RichContent from '../richContent';
 
 jest.mock('src/lib/drivers', () => ({

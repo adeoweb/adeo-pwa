@@ -1,7 +1,7 @@
 import BrowserPersistence from '@magento/peregrine/lib/util/simplePersistence';
-import actions from './actions';
 
 import { fetchPolicy } from '../../../../util/adeoweb/fetchPolicy';
+import actions from './actions';
 
 const storage = new BrowserPersistence();
 

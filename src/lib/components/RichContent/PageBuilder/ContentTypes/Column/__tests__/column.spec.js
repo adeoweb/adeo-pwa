@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import Column from '../column';
 
 jest.mock('src/lib/drivers', () => ({

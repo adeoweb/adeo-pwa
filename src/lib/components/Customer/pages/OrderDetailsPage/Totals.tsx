@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { Price } from '@magento/peregrine';
+
 import { TMoney } from 'src/lib/types/graphql/Money';
 
 interface ITotalsProps {

@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from 'react';
+import { Form } from 'react-bootstrap';
+
+import { useSearchBar } from 'src/peregrine/lib/talons/adeoweb/SearchBar/useSearchBar';
+
+import Autocomplete from './Autocomplete';
 import SearchField from './SearchField';
 import SearchTrigger from './SearchTrigger';
-import { Form } from 'react-bootstrap';
-import Autocomplete from './Autocomplete';
-import { useSearchBar } from 'src/peregrine/lib/talons/adeoweb/SearchBar/useSearchBar';
 
 type TSearchBarProps = {
     handleTriggerClick: () => void;

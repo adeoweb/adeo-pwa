@@ -1,7 +1,9 @@
 import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
-import OrdersPage from 'src/lib/components/Customer/pages/OrdersPage';
 import { BrowserRouter as Router } from 'react-router-dom';
+
+import { createTestInstance } from '@magento/peregrine';
+
+import OrdersPage from 'src/lib/components/Customer/pages/OrdersPage';
 
 jest.mock('src/peregrine/lib/talons/adeoweb/Customer/useCustomerOrders', () => {
     const useCustomerOrders = jest.fn(() => ({

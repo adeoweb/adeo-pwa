@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Price } from '@magento/peregrine';
+
 // import Image from 'src/lib/components/Image';
 import DetailsAccordion from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsAccordion';
 import { TOrderItem } from 'src/lib/types/graphql/Customer';
-import { Price } from '@magento/peregrine';
 
 interface IDetailsProductsProps {
     items: TOrderItem[];

@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { useLogo } from 'src/peregrine/lib/talons/adeoweb/Logo/useLogo';
+
 import Image from 'src/lib/components/Image';
 import {
     DEFAULT_LOGO_HEIGHT,
     DEFAULT_LOGO_WIDTH,
     LOGO_PATH_PREFIX
 } from 'src/lib/constants/logo';
+import { useLogo } from 'src/peregrine/lib/talons/adeoweb/Logo/useLogo';
 
 const Logo: FunctionComponent = () => {
     const { storeName, logoSrc, logoAlt, logoHeight, logoWidth } = useLogo({

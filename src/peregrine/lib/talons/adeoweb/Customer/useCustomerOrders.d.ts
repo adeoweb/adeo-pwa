@@ -1,4 +1,5 @@
 import { DocumentNode } from 'graphql';
+
 import { TCustomerOrder } from 'src/lib/types/graphql/Customer';
 
 type TUseCustomerOrdersProps = {

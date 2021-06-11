@@ -1,6 +1,8 @@
 import React from 'react';
-import Carousel from '../Carousel';
+
 import { createTestInstance } from '@magento/peregrine';
+
+import Carousel from '../Carousel';
 
 const defaultProps = {
     images: [

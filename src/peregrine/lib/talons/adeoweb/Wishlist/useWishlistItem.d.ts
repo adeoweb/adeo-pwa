@@ -1,4 +1,5 @@
 import { DocumentNode } from 'graphql';
+
 import { TWishlistItem } from 'src/lib/types/graphql/Customer';
 import { TProduct } from 'src/lib/types/graphql/Product';
 

@@ -1,5 +1,6 @@
-declare const $: any;
 import 'owl.carousel';
+
+declare const $: any;
 
 const sliderDefaultOptions = {
     loop: true,

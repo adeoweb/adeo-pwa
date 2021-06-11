@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useMemo } from 'react';
 
-import { FullPageLoadingIndicator } from '../LoadingIndicator';
 import { IErrorViewProps } from 'src/lib/types/ErrorView';
+
+import { FullPageLoadingIndicator } from '../LoadingIndicator';
 
 const messages = new Map()
     .set('loading', FullPageLoadingIndicator)

@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from 'react';
+
 import { Price } from '@magento/peregrine';
-import { TCartItem } from 'src/lib/types/graphql/CartItem';
-import { Link } from 'src/lib/drivers';
+
 import Image from 'src/lib/components/Image';
+import { Link } from 'src/lib/drivers';
+import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import getItemUrl from 'src/lib/util/getItemUrl';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 

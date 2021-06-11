@@ -1,12 +1,14 @@
-import { useCallback } from 'react';
 import { useMutation } from '@apollo/react-hooks';
+import { useCallback } from 'react';
+
+import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
+
+import MessageType from 'src/lib/constants/message';
+import scrollTo from 'src/lib/util/scrollTo';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
-import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
-import MessageType from 'src/lib/constants/message';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
-import scrollTo from 'src/lib/util/scrollTo';
 
 const defaultQuantity = 1;
 const supportedProductTypes = ['SimpleProduct'];

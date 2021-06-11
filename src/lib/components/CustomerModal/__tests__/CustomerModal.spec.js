@@ -1,6 +1,7 @@
 import React from 'react';
-import testRenderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
+import testRenderer from 'react-test-renderer';
+
 import CustomerModal from 'src/lib/components/CustomerModal';
 
 jest.mock('src/peregrine/lib/talons/adeoweb/SignIn/useSignIn', () => {

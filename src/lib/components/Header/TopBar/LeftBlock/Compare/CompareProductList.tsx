@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import CompareProduct from './CompareProduct';
-import { useProductCompare } from 'src/peregrine/lib/talons/adeoweb/Product/useProductCompare';
-import isObjectEmpty from 'src/lib/util/isObjectEmpty';
+
 import { TProduct } from 'src/lib/types/graphql/Product';
+import isObjectEmpty from 'src/lib/util/isObjectEmpty';
+import { useProductCompare } from 'src/peregrine/lib/talons/adeoweb/Product/useProductCompare';
+
+import CompareProduct from './CompareProduct';
 
 type TRenderListProps = {
     productData: {

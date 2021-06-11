@@ -1,13 +1,16 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import detectPageBuilder from './PageBuilder/detectPageBuilder';
-import PageBuilder from './PageBuilder';
-import { mergeClasses } from '../../classify';
-import defaultClasses from './richContent.css';
+
 import {
     HomeSliders,
     PartnersSlider
 } from 'src/lib/components/RichContent/utils/slider';
 import RichText from 'src/lib/components/RichText';
+
+import { mergeClasses } from '../../classify';
+import PageBuilder from './PageBuilder';
+import detectPageBuilder from './PageBuilder/detectPageBuilder';
+
+import defaultClasses from './richContent.css';
 
 type TRichContentProps = {
     classes: {

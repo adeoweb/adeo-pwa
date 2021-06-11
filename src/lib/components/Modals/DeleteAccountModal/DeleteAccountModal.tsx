@@ -1,10 +1,12 @@
-import React, { FunctionComponent, useCallback, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import * as yup from 'yup';
-import { Button, Form, Modal, ModalProps } from 'react-bootstrap';
 import { useFormik } from 'formik';
-import { errorMessages } from 'src/lib/util/errorMessages';
+import * as yup from 'yup';
+
+import React, { FunctionComponent, useCallback, useEffect } from 'react';
+import { Button, Form, Modal, ModalProps } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import PasswordField from 'src/lib/components/PasswordField';
+import { errorMessages } from 'src/lib/util/errorMessages';
 
 type TDeleteAccountModalProps = {
     close: () => void;

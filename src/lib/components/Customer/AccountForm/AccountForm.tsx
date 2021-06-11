@@ -1,25 +1,27 @@
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+
 import React, {
     Fragment,
     FunctionComponent,
     useCallback,
     useEffect
 } from 'react';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
+
+import { useHistory } from 'src/lib/drivers';
+import CREATE_ACCOUNT_MUTATION from 'src/lib/queries/createAccount.graphql';
+import GET_CUSTOMER_QUERY from 'src/lib/queries/getCustomer.graphql';
+import GET_CUSTOMER_CART_QUERY from 'src/lib/queries/getCustomerCart.graphql';
+import MERGE_CARTS_MUTATION from 'src/lib/queries/mergeCarts.graphql';
+import SIGN_IN_MUTATION from 'src/lib/queries/signIn.graphql';
+import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
+import { errorMessages } from 'src/lib/util/errorMessages';
 import {
     TUseCreateAccountFormValues,
     useCreateAccount
 } from 'src/peregrine/lib/talons/adeoweb/CreateAccount/useCreateAccount';
-import CREATE_ACCOUNT_MUTATION from 'src/lib/queries/createAccount.graphql';
-import SIGN_IN_MUTATION from 'src/lib/queries/signIn.graphql';
-import GET_CUSTOMER_QUERY from 'src/lib/queries/getCustomer.graphql';
-import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
-import GET_CUSTOMER_CART_QUERY from 'src/lib/queries/getCustomerCart.graphql';
-import MERGE_CARTS_MUTATION from 'src/lib/queries/mergeCarts.graphql';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { useHistory } from 'src/lib/drivers';
-import { errorMessages } from 'src/lib/util/errorMessages';
 
 const AccountForm: FunctionComponent = () => {
     const history = useHistory();

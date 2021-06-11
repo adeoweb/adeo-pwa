@@ -1,12 +1,13 @@
 import React, { FunctionComponent, useCallback, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
-import { useHistory } from 'src/lib/drivers';
 import { Button, Form } from 'react-bootstrap';
-import { useChangePassword } from 'src/peregrine/lib/talons/adeoweb/Customer/useChangePassword';
-import CHANGE_PASSWORD_MUTATION from 'src/lib/queries/changePassword.graphql';
+import { useTranslation } from 'react-i18next';
+
+import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
 import LoadingIndicator from 'src/lib/components/LoadingIndicator';
 import PasswordField from 'src/lib/components/PasswordField';
+import { useHistory } from 'src/lib/drivers';
+import CHANGE_PASSWORD_MUTATION from 'src/lib/queries/changePassword.graphql';
+import { useChangePassword } from 'src/peregrine/lib/talons/adeoweb/Customer/useChangePassword';
 
 const ChangePasswordPage: FunctionComponent = () => {
     const { t } = useTranslation();

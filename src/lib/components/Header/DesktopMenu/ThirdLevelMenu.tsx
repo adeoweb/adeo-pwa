@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { TCategoryTree } from 'src/lib/types/graphql/Category';
+
 import { Link } from 'src/lib/drivers';
+import { TCategoryTree } from 'src/lib/types/graphql/Category';
 
 interface IMenuProps {
     menuChildren: TCategoryTree[];

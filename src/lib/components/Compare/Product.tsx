@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { useRemoveProduct } from 'src/peregrine/lib/talons/adeoweb/Compare/useRemoveProduct';
-import { TProduct } from 'src/lib/types/graphql/Product';
-import { Link } from 'src/lib/drivers';
+
 import Image from 'src/lib/components/Image';
 import PriceBox from 'src/lib/components/PriceBox';
 import AddToCart from 'src/lib/components/ProductItem/AddToCart';
+import { Link } from 'src/lib/drivers';
+import { TProduct } from 'src/lib/types/graphql/Product';
 import getItemUrl from 'src/lib/util/getItemUrl';
+import { useRemoveProduct } from 'src/peregrine/lib/talons/adeoweb/Compare/useRemoveProduct';
 
 interface IProductProps {
     product: TProduct;

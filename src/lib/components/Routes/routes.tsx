@@ -1,9 +1,10 @@
 import React, { Suspense, FunctionComponent } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import RouterRoutes from 'src/lib/RouterRoutes';
+
 import { FullPageLoadingIndicator } from '../LoadingIndicator';
 import MagentoRoute from '../MagentoRoute';
-import RouterRoutes from 'src/lib/RouterRoutes';
 
 const Routes: FunctionComponent = () => {
     const RouterRoutesArray = Object.values(RouterRoutes);

@@ -1,10 +1,12 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import { Link } from 'src/lib/drivers';
+
 import Image from 'src/lib/components/Image';
-import ProductTitle from './ProductTitle';
 import PriceBox from 'src/lib/components/PriceBox';
+import { Link } from 'src/lib/drivers';
 import { TProduct } from 'src/lib/types/graphql/Product';
 import getItemUrl from 'src/lib/util/getItemUrl';
+
+import ProductTitle from './ProductTitle';
 
 interface IProductItemLeftDetailsProps {
     product: TProduct;

@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'src/lib/drivers';
-import Price from '@magento/peregrine/lib/Price';
-import ProductList from 'src/lib/components/Header/MiniCart/ProductList';
 import { useTranslation } from 'react-i18next';
-import { TCartItem } from 'src/lib/types/graphql/CartItem';
+
+import Price from '@magento/peregrine/lib/Price';
+
 import RouterRoutes from 'src/lib/RouterRoutes';
 import { rootCheckoutRoute } from 'src/lib/components/Checkout';
+import ProductList from 'src/lib/components/Header/MiniCart/ProductList';
+import { Link } from 'src/lib/drivers';
+import { TCartItem } from 'src/lib/types/graphql/CartItem';
 
 interface IDropdownProps {
     numItems: number;

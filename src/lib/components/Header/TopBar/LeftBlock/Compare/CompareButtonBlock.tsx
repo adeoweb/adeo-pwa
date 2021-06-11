@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import RouterRoutes from 'src/lib/RouterRoutes/RouterRoutes';
 import { Link } from 'src/lib/drivers';
 import { useProductCompare } from 'src/peregrine/lib/talons/adeoweb/Product/useProductCompare';
-import RouterRoutes from 'src/lib/RouterRoutes/RouterRoutes';
 
 const CompareButtonBlock: FunctionComponent = () => {
     const { t } = useTranslation();

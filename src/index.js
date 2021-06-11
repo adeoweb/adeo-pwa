@@ -7,10 +7,10 @@ import { RetryLink } from '@apollo/client/link/retry';
 import { Util } from '@magento/peregrine';
 import app from '@magento/peregrine/lib/store/actions/app';
 
+import App from 'src/lib/components/App';
 import ContextProvider from 'src/lib/components/App/contextProvider';
 import { translate } from 'src/lib/drivers/i18n';
 import { registerSW } from 'src/registerSW';
-import App from 'src/lib/components/App';
 
 import Adapter from './lib/drivers/Adapter';
 import store from './store';

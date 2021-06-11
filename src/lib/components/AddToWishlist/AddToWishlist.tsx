@@ -1,8 +1,9 @@
 import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TProduct } from 'src/lib/types/graphql/Product';
+
 import ADD_TO_WISHLIST_MUTATION from 'src/lib/queries/addToWishlist.graphql';
 import REMOVE_FROM_WISHLIST_MUTATION from 'src/lib/queries/removeFromWishlist.graphql';
+import { TProduct } from 'src/lib/types/graphql/Product';
 import { useWishlistItem } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlistItem';
 
 type TAddToWishlistProps = {

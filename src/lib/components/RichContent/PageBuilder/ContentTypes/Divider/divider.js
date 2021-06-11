@@ -1,7 +1,10 @@
-import React from 'react';
-import defaultClasses from './divider.css';
-import { mergeClasses } from '../../../../../classify';
 import { arrayOf, shape, string } from 'prop-types';
+
+import React from 'react';
+
+import { mergeClasses } from '../../../../../classify';
+
+import defaultClasses from './divider.css';
 
 /**
  * Page Builder Divider component.
