@@ -13,21 +13,21 @@ export const useChangePassword = props => {
     const { changePasswordMutation } = props;
     const { t } = useTranslation();
     const validationSchema = yup.object({
-        currentPassword: yup.string().required(t(errorMessages.required)),
+        currentPassword: yup.string().required(),
         newPassword: yup
             .string()
             .matches(
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/,
                 t(errorMessages.password)
             )
-            .required(t(errorMessages.required)),
+            .required(),
         passwordConfirmation: yup
             .string()
             .oneOf(
                 [yup.ref('newPassword'), null],
                 t(errorMessages.passwordMatch)
             )
-            .required(t(errorMessages.required))
+            .required()
     });
     const [{ isChangingPassword, changePasswordError }, { changePassword }] =
         useUserContext();

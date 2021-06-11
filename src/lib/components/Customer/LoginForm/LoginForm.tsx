@@ -40,17 +40,14 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
     }, [isSignedIn, isSignedInCallback]);
 
     const schema = yup.object({
-        email: yup
-            .string()
-            .required(t(errorMessages.required))
-            .email(t(errorMessages.email)),
+        email: yup.string().required().email(),
         password: yup
             .string()
             .matches(
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/,
                 t(errorMessages.password)
             )
-            .required(t(errorMessages.required))
+            .required()
     });
 
     const submitCallback = (values: TGenerateCustomerTokenProps) => {

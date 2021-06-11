@@ -53,7 +53,7 @@ export default {
         'Sign Up for Newsletter': 'Sign Up for Newsletter',
         'First Name': 'First Name',
         'Last Name': 'Last Name',
-        'A required field.': 'A required field',
+        'A required field.': 'A required field.',
         'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case character.':
             'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case character.',
         'Passwords must match.': 'Passwords must match.',
