@@ -122,10 +122,11 @@ export const useCustomProduct = ({ product }) => {
                     case 'CustomizableCheckboxOption': {
                         const selectedValue = option.checkboxValue;
                         if (selectedValue) {
-                            const selectedCheckboxOptions = selectedValue.filter(
-                                ({ option_type_id: id }) =>
-                                    value.indexOf(id.toString()) !== -1
-                            );
+                            const selectedCheckboxOptions =
+                                selectedValue.filter(
+                                    ({ option_type_id: id }) =>
+                                        value.indexOf(id.toString()) !== -1
+                                );
                             selectedOptions = selectedOptions.concat(
                                 selectedCheckboxOptions
                             );

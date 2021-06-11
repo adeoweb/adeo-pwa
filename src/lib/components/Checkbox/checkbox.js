@@ -56,7 +56,4 @@ export class Checkbox extends Component {
 
 /* eslint-enable jsx-a11y/label-has-for */
 
-export default compose(
-    classify(defaultClasses),
-    asField
-)(Checkbox);
+export default compose(classify(defaultClasses), asField)(Checkbox);

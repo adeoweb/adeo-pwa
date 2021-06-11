@@ -17,10 +17,10 @@ const CatalogContextProvider = props => {
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [catalogState, catalogApi], [
-        catalogApi,
-        catalogState
-    ]);
+    const contextValue = useMemo(
+        () => [catalogState, catalogApi],
+        [catalogApi, catalogState]
+    );
 
     return (
         <CatalogContext.Provider value={contextValue}>

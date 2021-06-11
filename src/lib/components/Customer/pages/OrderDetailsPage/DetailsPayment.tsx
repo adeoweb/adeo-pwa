@@ -15,14 +15,8 @@ const DetailsPayment: FunctionComponent<IDetailsPaymentProps> = ({
     const { t } = useTranslation();
     const [{ currentUser }] = useUserContext();
 
-    const {
-        firstname,
-        lastname,
-        telephone,
-        street,
-        city,
-        postcode
-    } = billingAddress;
+    const { firstname, lastname, telephone, street, city, postcode } =
+        billingAddress;
 
     // TODO: get customer email for order from backend
     const email = (currentUser && currentUser.email) || null;

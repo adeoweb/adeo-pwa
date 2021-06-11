@@ -29,9 +29,10 @@ const Option: FunctionComponent<TProductOptionProps> = ({
         values
     });
     const optionValues = filterOutNullableValues(values);
-    const ValueList = useMemo(() => getListComponent(attributeCode), [
-        attributeCode
-    ]);
+    const ValueList = useMemo(
+        () => getListComponent(attributeCode),
+        [attributeCode]
+    );
 
     if (!attributeCode || !attributeId || !label || !optionValues.length) {
         return null;

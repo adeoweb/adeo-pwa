@@ -20,7 +20,7 @@ const SelectedCustomOptions: FunctionComponent<TSelectedCustomOptionsProps> = ({
 
                 const optionValue = values[0];
 
-                if(!optionValue){
+                if (!optionValue) {
                     return null;
                 }
 

@@ -143,7 +143,8 @@ const GoogleMap = props => {
 
                 // set the bounds of the map to the perimeter of the furthest locations in either direction
                 if (positions.length > 1) {
-                    const latitudeLongitudeBounds = new googleMaps.LatLngBounds();
+                    const latitudeLongitudeBounds =
+                        new googleMaps.LatLngBounds();
 
                     positions.forEach(position => {
                         latitudeLongitudeBounds.extend(position);

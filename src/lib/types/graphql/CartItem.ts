@@ -1,4 +1,7 @@
-import { ConfigurableCartItem, SimpleCartItem } from '../graphql-types.generated';
+import {
+    ConfigurableCartItem,
+    SimpleCartItem
+} from '../graphql-types.generated';
 
 export {
     ConfigurableCartItem as TConfigurableCartItem,

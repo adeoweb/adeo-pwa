@@ -48,9 +48,10 @@ const CheckboxOption: FunctionComponent<TOptionProps> = ({
         [checked, setChecked]
     );
 
-    const isChecked = useCallback((id: string) => checked.indexOf(id) !== -1, [
-        checked
-    ]);
+    const isChecked = useCallback(
+        (id: string) => checked.indexOf(id) !== -1,
+        [checked]
+    );
 
     useEffect(() => {
         setFieldValue(optionId.toString(), checked.join(','), true);

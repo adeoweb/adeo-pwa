@@ -76,20 +76,19 @@ const AccountForm: FunctionComponent = () => {
         talonHandleSubmit(values);
     };
 
-    const { handleSubmit, handleChange, values, errors, touched } = useFormik<
-        TUseCreateAccountFormValues
-    >({
-        validationSchema: schema,
-        initialValues: {
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-            confirm: '',
-            isSubscribed: false
-        },
-        onSubmit: submitCallback
-    });
+    const { handleSubmit, handleChange, values, errors, touched } =
+        useFormik<TUseCreateAccountFormValues>({
+            validationSchema: schema,
+            initialValues: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: '',
+                confirm: '',
+                isSubscribed: false
+            },
+            onSubmit: submitCallback
+        });
 
     return (
         <Fragment>

@@ -29,10 +29,8 @@ export const useChangePassword = props => {
             )
             .required(t(errorMessages.required))
     });
-    const [
-        { isChangingPassword, changePasswordError },
-        { changePassword }
-    ] = useUserContext();
+    const [{ isChangingPassword, changePasswordError }, { changePassword }] =
+        useUserContext();
     const [, { addMessage, clearAllMessages }] = useMessageCardContext();
     const [changePasswordQuery] = useMutation(changePasswordMutation, {
         fetchPolicy: fetchPolicy.mutations.default

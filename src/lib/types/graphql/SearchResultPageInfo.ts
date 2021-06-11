@@ -1,3 +1,1 @@
-export {
-    SearchResultPageInfo as TSearchResultPageInfo
-} from '../graphql-types.generated';
+export { SearchResultPageInfo as TSearchResultPageInfo } from '../graphql-types.generated';

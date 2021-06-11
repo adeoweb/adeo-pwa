@@ -35,39 +35,39 @@ const Totals: FunctionComponent<ITotalsProps> = ({
                         </span>
                     </div>
                 )}
-                {taxAmount != null &&
-                <div className="customer-order-totals-info">
-                    <span>{t('TAX')}</span>
-                    <span>
-                        <Price
-                            value={taxAmount.value}
-                            currencyCode={taxAmount.currency}
+                {taxAmount != null && (
+                    <div className="customer-order-totals-info">
+                        <span>{t('TAX')}</span>
+                        <span>
+                            <Price
+                                value={taxAmount.value}
+                                currencyCode={taxAmount.currency}
                             />
-                    </span>
-                </div>
-                        }
-                        {shippingAmount != null &&
-                <div className="customer-order-totals-info customer-order-totals-info-last">
-                    <span>{t('Delivery')}</span>
-                    <span>
-                        <Price
-                            value={shippingAmount.value}
-                            currencyCode={shippingAmount.currency}
+                        </span>
+                    </div>
+                )}
+                {shippingAmount != null && (
+                    <div className="customer-order-totals-info customer-order-totals-info-last">
+                        <span>{t('Delivery')}</span>
+                        <span>
+                            <Price
+                                value={shippingAmount.value}
+                                currencyCode={shippingAmount.currency}
                             />
-                    </span>
-                </div>
-                        }
-                        {grandTotal != null &&
-                <div className="customer-order-totals-grand">
-                    <span>{t('Pay total')}</span>
-                    <span>
-                        <Price
-                            value={grandTotal.value}
-                            currencyCode={grandTotal.currency}
+                        </span>
+                    </div>
+                )}
+                {grandTotal != null && (
+                    <div className="customer-order-totals-grand">
+                        <span>{t('Pay total')}</span>
+                        <span>
+                            <Price
+                                value={grandTotal.value}
+                                currencyCode={grandTotal.currency}
                             />
-                    </span>
-                </div>
-                        }
+                        </span>
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -9,20 +9,19 @@ interface IHorizontalProductsCarouselProps {
     settings: Settings;
 }
 
-const HorizontalProductsCarousel: FunctionComponent<
-    IHorizontalProductsCarouselProps
-> = ({ items, settings }) => {
-    return (
-        <div className={defaultClasses.root}>
-            <SlickSlider className={defaultClasses.item} {...settings}>
-                {items.map(item => (
-                    <div key={item.id} className="product-default">
-                        <ProductItem product={item} />
-                    </div>
-                ))}
-            </SlickSlider>
-        </div>
-    );
-};
+const HorizontalProductsCarousel: FunctionComponent<IHorizontalProductsCarouselProps> =
+    ({ items, settings }) => {
+        return (
+            <div className={defaultClasses.root}>
+                <SlickSlider className={defaultClasses.item} {...settings}>
+                    {items.map(item => (
+                        <div key={item.id} className="product-default">
+                            <ProductItem product={item} />
+                        </div>
+                    ))}
+                </SlickSlider>
+            </div>
+        );
+    };
 
 export default HorizontalProductsCarousel;

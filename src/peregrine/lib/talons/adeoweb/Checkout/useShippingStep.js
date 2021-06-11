@@ -42,10 +42,8 @@ export const useShippingStep = props => {
         available_shipping_methods: availableShippingMethods = [],
         selected_shipping_method: selectedShippingMethod
     } = shippingAddress;
-    const [
-        { isSubmitting },
-        { submitShippingMethod, submitShippingAddress }
-    ] = useCheckoutContext();
+    const [{ isSubmitting }, { submitShippingMethod, submitShippingAddress }] =
+        useCheckoutContext();
 
     const submitCustomerAddress = useCallback(
         id => {

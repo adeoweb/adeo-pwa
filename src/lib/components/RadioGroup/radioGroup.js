@@ -46,7 +46,4 @@ export class RadioGroup extends Component {
     }
 }
 
-export default compose(
-    classify(defaultClasses),
-    asField
-)(RadioGroup);
+export default compose(classify(defaultClasses), asField)(RadioGroup);

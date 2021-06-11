@@ -43,9 +43,8 @@ const FirstLevelMenu: FunctionComponent<IFirstLevelMenuProps> = ({
                         const currentIndex = index + 1;
                         const itemKey = `${name}-${index}`;
                         const isActive = active === currentIndex;
-                        const secondLevelChildren = filterOutNullableValues(
-                            secondLevelMenu
-                        );
+                        const secondLevelChildren =
+                            filterOutNullableValues(secondLevelMenu);
                         const haveChilds = secondLevelChildren.length > 0;
                         const showSecondLevel = isActive ? 'show' : '';
 

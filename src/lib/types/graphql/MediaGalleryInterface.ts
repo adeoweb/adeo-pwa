@@ -1,3 +1,1 @@
-export {
-    MediaGalleryInterface as TMediaGalleryInterface
-} from '../graphql-types.generated';
+export { MediaGalleryInterface as TMediaGalleryInterface } from '../graphql-types.generated';

@@ -31,9 +31,10 @@ const SecondLevelMenu: FunctionComponent<ISecondLevelMenuProps> = ({
                                 index
                             ) => {
                                 const itemKey = `${name}-${index}`;
-                                const thirdLevelChildren = filterOutNullableValues(
-                                    thirdLevelMenuChildren
-                                );
+                                const thirdLevelChildren =
+                                    filterOutNullableValues(
+                                        thirdLevelMenuChildren
+                                    );
 
                                 if (!name || !urlPath) {
                                     return null;

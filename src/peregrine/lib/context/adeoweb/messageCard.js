@@ -17,10 +17,10 @@ const MessageCardContextProvider = props => {
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [messageCardState, messageCardApi], [
-        messageCardApi,
-        messageCardState
-    ]);
+    const contextValue = useMemo(
+        () => [messageCardState, messageCardApi],
+        [messageCardApi, messageCardState]
+    );
 
     return (
         <MessageCardContext.Provider value={contextValue}>

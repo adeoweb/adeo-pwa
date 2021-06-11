@@ -18,9 +18,7 @@ const InvoicesPage: FunctionComponent = () => {
                         <a href="/">190000349717.pdf</a>
                     </div>
                     <div
-                        className={`${defaultClasses.col} ${
-                            defaultClasses.statusCol
-                        }`}
+                        className={`${defaultClasses.col} ${defaultClasses.statusCol}`}
                     >
                         <p>Neapmokėta</p>
                     </div>

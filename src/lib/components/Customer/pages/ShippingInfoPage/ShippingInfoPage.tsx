@@ -15,20 +15,16 @@ import { useSetDefaultCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/C
 const ShippingInfoPage: FunctionComponent = () => {
     const { t } = useTranslation();
     const history = useHistory();
-    const {
-        isDeletingAddress,
-        deleteCustomerAddress
-    } = useDeleteCustomerAddress({
-        deleteCustomerAddressMutation: DELETE_CUSTOMER_ADDRESS_MUTATION
-    });
-    const {
-        isUpdatingAddress,
-        setCustomerDefaultAddress
-    } = useSetDefaultCustomerAddress({
-        updateCustomerAddressMutation: UPDATE_CUSTOMER_ADDRESS_MUTATION,
-        getCustomerQuery: GET_CUSTOMER_QUERY,
-        shipping: true
-    });
+    const { isDeletingAddress, deleteCustomerAddress } =
+        useDeleteCustomerAddress({
+            deleteCustomerAddressMutation: DELETE_CUSTOMER_ADDRESS_MUTATION
+        });
+    const { isUpdatingAddress, setCustomerDefaultAddress } =
+        useSetDefaultCustomerAddress({
+            updateCustomerAddressMutation: UPDATE_CUSTOMER_ADDRESS_MUTATION,
+            getCustomerQuery: GET_CUSTOMER_QUERY,
+            shipping: true
+        });
     const [
         {
             currentUser: { addresses = [] }

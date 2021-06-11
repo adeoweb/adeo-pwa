@@ -21,10 +21,8 @@ export const useCoupon = props => {
     const appliedCouponCode = (appliedCoupons || []).length
         ? appliedCoupons[0].code
         : null;
-    const [
-        { applyCouponError, isSubmitting },
-        { applyCoupon, removeCoupon }
-    ] = useCheckoutContext();
+    const [{ applyCouponError, isSubmitting }, { applyCoupon, removeCoupon }] =
+        useCheckoutContext();
     const [couponCode, setCouponCode] = useState('');
     const [applyCouponToCart] = useMutation(applyCouponToCartMutation, {
         fetchPolicy: fetchPolicy.mutations.default

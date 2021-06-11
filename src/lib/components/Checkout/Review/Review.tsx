@@ -112,11 +112,7 @@ const Review: FunctionComponent = () => {
                                     >
                                         <p>
                                             {t(
-                                                `${
-                                                    selectedShippingMethod.carrier_title
-                                                } - ${
-                                                    selectedShippingMethod.method_title
-                                                }`
+                                                `${selectedShippingMethod.carrier_title} - ${selectedShippingMethod.method_title}`
                                             )}
                                         </p>
                                     </InfoBox>
