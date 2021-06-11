@@ -3576,24 +3576,24 @@
   dependencies:
     es-comments "^1.0.1"
 
-"@magento/eslint-config@^1.5.2":
+"@magento/eslint-config@~1.5.2":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@magento/eslint-config/-/eslint-config-1.5.2.tgz#24083d869afd124a414ae8a15401e0a6e44a99a6"
   integrity sha512-iN5Ic0JQe549ycijZNyNRu3JHajGVrBPX3a5yy4zAjdF9gE8z6jCVQOUP3WGuff4bEJfJgs/VODSIPuEU4NjBg==
 
-"@magento/pagebuilder@^5.0.0":
+"@magento/pagebuilder@~5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@magento/pagebuilder/-/pagebuilder-5.0.0.tgz#e20feb40fe341e92cf978ccd4409381e474a3cc4"
   integrity sha512-bfylUQmVVvErzU8kgVnjWioCy6PFJzM9//rPIjVNZGlTGXVFjWk6XU1yXuFwNLvNRAkAqPj8Mj9kYeugDQdJQw==
 
-"@magento/peregrine@^10.0.0":
+"@magento/peregrine@~10.0.0":
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/@magento/peregrine/-/peregrine-10.0.0.tgz#bea3747a6b4c2442a7d04c46a1e38f2842797a21"
   integrity sha512-xFrIwxfkYs825KlqYWxPN8RBk5ICrhO5drxt897o+SnZUpzEhrst/Wm8Ywi5FwialEMlqIib9rAJu7IZc240ew==
   dependencies:
     fast-glob "~3.2.4"
 
-"@magento/pwa-buildpack@^9.0.0":
+"@magento/pwa-buildpack@~9.0.0":
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@magento/pwa-buildpack/-/pwa-buildpack-9.0.0.tgz#bcc6dca62327713b89fbfd7f09ba77e1da723fad"
   integrity sha512-g+dMdKvgIZ1kmGe1nN8bR6Ed73yMIqRTfIqO0iGyyJOdtFPdpUKLw65tX2gi3h6OXIhI0Uj5R1FjUrAzS9AFqw==
@@ -3642,7 +3642,7 @@
     write-file-webpack-plugin "~4.5.0"
     yargs "~13.2.2"
 
-"@magento/upward-js@^5.1.0", "@magento/upward-js@~5.1.0":
+"@magento/upward-js@~5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@magento/upward-js/-/upward-js-5.1.0.tgz#a2aac62887fa18a83abf5af473fdf51f87ed7c66"
   integrity sha512-rfm+0tuYC+HUFtk9IjptoqUHsLYUTkXbA7EINgx5rlUVobvQDRdpqNrhbrXdApykI4BvEueQ7Yv8jq5Pxl1Yyw==
@@ -3674,7 +3674,7 @@
   dependencies:
     "@adobe/adobe-client-data-layer" "~1.1.3"
 
-"@magento/venia-ui@^7.0.0":
+"@magento/venia-ui@~7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@magento/venia-ui/-/venia-ui-7.0.0.tgz#ea2c0f23983c1cad0df7d9dcabb9d4c7dcbfde51"
   integrity sha512-ZCt2KgtT9zSmCwalggFZ+0wJlaN9bvpMnPXQdtXhJuY9gcGHnGWEN6W4/brm0F2jJLRZ4ItpTSEEKYClLkiEWw==
@@ -20634,10 +20634,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@~4.1.5:
-  version "4.1.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.5.tgz#123a3b214aaff3be32926f0d8f1f6e704eb89a72"
-  integrity sha512-6OSu9PTIzmn9TCDiovULTnET6BgXtDYL4Gg4szY+cGsc3JP1dQL8qvE8kShTRx1NIw4Q9IBHlwODjkjWEtMUyA==
+typescript@~4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.2.tgz#399ab18aac45802d6f2498de5054fcbbe716a805"
+  integrity sha512-zZ4hShnmnoVnAHpVHWpTcxdv7dWP60S2FsydQLV8V5PbS3FifjWFFRiHSWpDJahly88PRyV5teTSLoq4eG7mKw==
 
 ua-parser-js@^0.7.18:
   version "0.7.24"

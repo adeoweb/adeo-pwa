@@ -57,8 +57,29 @@ module.exports = async env => {
     const storeConfigData = await getStoreConfigData();
     const unionAndInterfaceTypes = await getUnionAndInterfaceTypes();
 
+    /* Backend does not have `availableStores` query.
+     * However, AVAILABLE_STORE_VIEWS should be defined as a global variable, as it's a dependency on PWA 10.
+     * TODO: When APWA backend upgrades to Magento 2.4, make sure it has `availableStores` query and
+     * uncomment lines below.
+     */
+    // const { availableStores } = await getAvailableStoresConfigData();
+
+    /**
+     * Loop the available stores when there is provided STORE_VIEW_CODE
+     * in the .env file, because should set the store name from the
+     * given store code instead of the default one.
+     */
+    // const availableStore = availableStores.find(
+    //     ({ code }) => code === process.env.STORE_VIEW_CODE
+    // );
+
+    // global.AVAILABLE_STORE_VIEWS = availableStores;
+
+    const availableStores = [process.env.STORE_VIEW_CODE];
+
     global.MAGENTO_MEDIA_BACKEND_URL = mediaUrl;
     global.LOCALE = storeConfigData.locale.replace('_', '-');
+    global.AVAILABLE_STORE_VIEWS = availableStores;
 
     const possibleTypes = await getPossibleTypes();
 
@@ -175,7 +196,8 @@ module.exports = async env => {
             STORE_NAME: JSON.stringify('Venia'),
             STORE_VIEW_CODE: process.env.STORE_VIEW_CODE
                 ? JSON.stringify(process.env.STORE_VIEW_CODE)
-                : JSON.stringify(storeConfigData.code)
+                : JSON.stringify(storeConfigData.code),
+            AVAILABLE_STORE_VIEWS: JSON.stringify(availableStores)
         }),
         new HTMLWebpackPlugin({
             filename: 'index.html',
