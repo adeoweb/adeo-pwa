@@ -1,4 +1,5 @@
 import { DocumentNode } from 'graphql';
+
 import { TCategoryTree } from 'src/lib/types/graphql/Category';
 
 type TUseMenuProps = {

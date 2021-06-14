@@ -1,5 +1,12 @@
-import { createTestInstance } from '@magento/peregrine';
+import { useQuery } from '@apollo/react-hooks';
 import React from 'react';
+import SlickSlider from 'react-slick';
+
+import { createTestInstance } from '@magento/peregrine';
+
+import GET_PRODUCTS_BY_SKU from '../../../../../../queries/getProductsBySku.graphql';
+import Gallery from '../../../../../Gallery';
+import GalleryItem from '../../../../../Gallery/item';
 import Products from '../products';
 
 jest.mock('@apollo/react-hooks', () => ({
@@ -8,16 +15,14 @@ jest.mock('@apollo/react-hooks', () => ({
 jest.mock('react-slick', () => {
     return jest.fn();
 });
-import SlickSlider from 'react-slick';
+
 const mockSlick = SlickSlider.mockImplementation(({ children }) => (
     <div>{children}</div>
 ));
-import { useQuery } from '@apollo/react-hooks';
+
 jest.mock('../../../../../Gallery', () => jest.fn());
 jest.mock('../../../../../Gallery/item', () => jest.fn());
-import Gallery from '../../../../../Gallery';
-import GalleryItem from '../../../../../Gallery/item';
-import GET_PRODUCTS_BY_SKU from '../../../../../../queries/getProductsBySku.graphql';
+
 const mockGallery = Gallery.mockImplementation(() => 'Gallery');
 const mockGalleryItem = GalleryItem.mockImplementation(() => 'GalleryItem');
 

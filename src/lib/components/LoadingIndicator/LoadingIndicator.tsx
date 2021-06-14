@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { Image } from 'react-bootstrap';
+
 import { LOGO_PATH_PREFIX } from 'src/lib/constants/logo';
 import { useLogo } from 'src/peregrine/lib/talons/adeoweb/Logo/useLogo';
+
 import defaultClasses from './Loading-indicator.scss';
 
 type TLoadingIndicatorProps = {

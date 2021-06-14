@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsTypes';
 import { getOptionPriceText } from 'src/lib/components/CustomOptions/utils/getOptionPriceText';
 import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';

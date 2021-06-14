@@ -1,7 +1,9 @@
 import { useFormik } from 'formik';
-import { useCallback, useEffect, useState } from 'react';
-import { customFormikValidate } from 'src/lib/util/customFormikValidate';
 import * as yup from 'yup';
+
+import { useCallback, useEffect, useState } from 'react';
+
+import { customFormikValidate } from 'src/lib/util/customFormikValidate';
 import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
 
 export const useCustomerAddressForm = props => {

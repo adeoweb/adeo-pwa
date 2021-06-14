@@ -1,9 +1,12 @@
 import i18n, { TFunction } from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import translations from 'src/lib/translations';
-import { DEFAULT_LANG } from 'src/lib/constants/language';
-import { BrowserPersistence } from '@magento/peregrine/lib/util';
 import { setLocale } from 'yup';
+
+import { initReactI18next } from 'react-i18next';
+
+import { BrowserPersistence } from '@magento/peregrine/lib/util';
+
+import { DEFAULT_LANG } from 'src/lib/constants/language';
+import translations from 'src/lib/translations';
 
 const storage = new BrowserPersistence();
 

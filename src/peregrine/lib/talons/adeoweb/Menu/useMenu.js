@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { getSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
+
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
+import { getSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
 
 import { useMenuContext } from 'src/peregrine/lib/context/adeoweb/menu';
 

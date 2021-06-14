@@ -1,6 +1,8 @@
-import { useEffect, useMemo } from 'react';
-import { useLazyQuery } from '@apollo/react-hooks';
 import debounce from 'lodash.debounce';
+
+import { useLazyQuery } from '@apollo/react-hooks';
+import { useEffect, useMemo } from 'react';
+
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 /**

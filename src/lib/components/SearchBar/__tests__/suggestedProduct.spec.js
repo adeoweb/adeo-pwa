@@ -1,7 +1,9 @@
 import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
-import SuggestedProduct from '../SuggestedProduct';
 import { IntlProvider } from 'react-intl';
+
+import { createTestInstance } from '@magento/peregrine';
+
+import SuggestedProduct from '../SuggestedProduct';
 
 jest.mock('../../../classify');
 jest.mock('src/lib/drivers', () => ({

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Form, FormCheck } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { TAddressFormProps } from './AddressFormTypes';
 
 const AddressForm: FunctionComponent<TAddressFormProps> = ({

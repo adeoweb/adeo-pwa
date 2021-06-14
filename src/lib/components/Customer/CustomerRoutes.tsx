@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+
 import { IRoutes } from 'src/lib/types/Routes';
 
 const AccountInfo = lazy(() => import('./pages/AccountInfoPage'));

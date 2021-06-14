@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
+
 import ProductRow from './ProductRow';
 
 type TProductsTable = {

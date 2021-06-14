@@ -1,14 +1,15 @@
 import React, { FunctionComponent, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useHistory } from 'src/lib/drivers';
-import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
 import { Button, Col, Row } from 'react-bootstrap';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
+import { useTranslation } from 'react-i18next';
+
 import AddressCard from 'src/lib/components/Customer/AddressCard';
+import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
+import LoadingIndicator from 'src/lib/components/LoadingIndicator';
+import { useHistory } from 'src/lib/drivers';
+import DELETE_CUSTOMER_ADDRESS_MUTATION from 'src/lib/queries/deleteCustomerAddress.graphql';
 import GET_CUSTOMER_QUERY from 'src/lib/queries/getCustomer.graphql';
 import UPDATE_CUSTOMER_ADDRESS_MUTATION from 'src/lib/queries/updateCustomerAddress.graphql';
-import DELETE_CUSTOMER_ADDRESS_MUTATION from 'src/lib/queries/deleteCustomerAddress.graphql';
-import LoadingIndicator from 'src/lib/components/LoadingIndicator';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { useDeleteCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/Customer/useDeleteCustomerAddress';
 import { useSetDefaultCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/Customer/useSetDefaultCustomerAddress';
 

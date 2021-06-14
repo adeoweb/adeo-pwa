@@ -1,5 +1,7 @@
-import React from 'react';
 import { Form } from 'informed';
+
+import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
 
 import SearchField from '../SearchField';

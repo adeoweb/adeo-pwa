@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { Container } from 'react-bootstrap';
-import Copyright from './Copyright';
+
 import AdeoWebSignature from 'src/lib/components/Footer/FooterBottom/AdeoWebSignature';
+
+import Copyright from './Copyright';
 
 const FooterBottom: FunctionComponent = () => {
     return (

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserPersistence } from '@magento/peregrine/lib/util/simplePersistence';
 
 const peregrine = jest?.requireActual('@magento/peregrine');

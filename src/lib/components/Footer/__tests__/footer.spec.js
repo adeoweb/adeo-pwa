@@ -1,10 +1,11 @@
 import React from 'react';
-import testRenderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
+import testRenderer from 'react-test-renderer';
 
-import Footer from '../Footer';
 import mockUseIsSignedIn from 'src/lib/util/__mocks__/hooks/mockUseIsSignedIn';
 import mockUseSignOut from 'src/lib/util/__mocks__/hooks/mockUseSignOut';
+
+import Footer from '../Footer';
 
 jest.mock('owl.carousel', () => {});
 

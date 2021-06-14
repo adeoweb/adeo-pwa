@@ -1,20 +1,23 @@
-import React, { FunctionComponent, useMemo } from 'react';
-import { Provider as ReduxProvider } from 'react-redux';
-import { Router } from 'react-router-dom';
-import { history } from './history';
-import { ApolloProvider, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { persistCache } from 'apollo-cache-persist';
-import { ApolloClient, ApolloLink } from '@apollo/client/core';
-import { BrowserPersistence } from '@magento/peregrine/lib/util';
 import {
     InMemoryCache,
     IntrospectionFragmentMatcher
 } from 'apollo-cache-inmemory';
+import { persistCache } from 'apollo-cache-persist';
 
-import { cacheKeyFromType } from 'src/lib/util/apolloCache';
+import React, { FunctionComponent, useMemo } from 'react';
+import { Provider as ReduxProvider } from 'react-redux';
+import { Router } from 'react-router-dom';
+
+import { ApolloProvider, createHttpLink } from '@apollo/client';
+import { ApolloClient, ApolloLink } from '@apollo/client/core';
+import { setContext } from '@apollo/client/link/context';
+import { BrowserPersistence } from '@magento/peregrine/lib/util';
+
 import { TAdapterProps, TStorage } from 'src/lib/drivers//AdapterTypes';
 import customFetch from 'src/lib/drivers/customFetch';
+import { cacheKeyFromType } from 'src/lib/util/apolloCache';
+
+import { history } from './history';
 
 const storage = new BrowserPersistence();
 

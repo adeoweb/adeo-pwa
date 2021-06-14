@@ -1,8 +1,10 @@
 import { handleActions } from 'redux-actions';
 
-import actions from '../../actions/adeoweb/app';
 import BrowserPersistence from '@magento/peregrine/lib/util/simplePersistence';
+
 import { DEFAULT_LAYOUT_MODE } from 'src/lib/constants/layoutModes';
+
+import actions from '../../actions/adeoweb/app';
 
 export const name = 'app';
 const storage = new BrowserPersistence();

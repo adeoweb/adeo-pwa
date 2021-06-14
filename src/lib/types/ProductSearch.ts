@@ -1,5 +1,5 @@
-import { TSimpleProduct } from 'src/lib/types/graphql/Product';
 import { TAggregation } from 'src/lib/types/graphql/Aggregation';
+import { TSimpleProduct } from 'src/lib/types/graphql/Product';
 
 export type TProductSearch = TSimpleProduct;
 

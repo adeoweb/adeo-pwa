@@ -1,5 +1,5 @@
-import actions from './actions';
 import { fetchPolicy } from '../../../../util/adeoweb/fetchPolicy';
+import actions from './actions';
 
 export const getConfig =
     ({ fetchConfig }) =>

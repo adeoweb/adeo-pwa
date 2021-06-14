@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { descriptionTitle, Description } from './Description';
 import { reviewsTitle, ReviewsContent } from './Reviews';
-import { useTranslation } from 'react-i18next';
 
 interface IProductTabsProps {
     description: string;

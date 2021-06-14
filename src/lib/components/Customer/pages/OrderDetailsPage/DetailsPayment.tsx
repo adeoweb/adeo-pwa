@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
+
 import DetailsAccordion from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsAccordion';
 // import swedbankLogo from 'src/lib/assets/images/swedbank_logo.png';
 import { TOrderBillingAddress } from 'src/lib/types/graphql/Customer';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 
 interface IDetailsPaymentProps {
     billingAddress: TOrderBillingAddress;

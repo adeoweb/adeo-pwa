@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { useFooterContact } from 'src/peregrine/lib/talons/adeoweb/Footer/useFooterContact';
 
 const ContactInformation: FunctionComponent = () => {

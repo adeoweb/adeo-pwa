@@ -1,4 +1,5 @@
 import { handleActions } from 'redux-actions';
+
 import actions from '../../actions/adeoweb/catalog';
 
 export const name = 'catalog';

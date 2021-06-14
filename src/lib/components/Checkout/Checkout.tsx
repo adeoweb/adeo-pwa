@@ -1,13 +1,15 @@
 import React, { FunctionComponent, Suspense } from 'react';
+
+import { FullPageLoadingIndicator } from 'src/lib/components/LoadingIndicator';
 import { Redirect, Route, Switch } from 'src/lib/drivers';
+
+import CheckoutHeader from './CheckoutHeader';
 import {
     CheckoutRoutes,
     defaultCheckoutRoute,
     rootCheckoutRoute
 } from './CheckoutRoutes';
 import CheckoutWrapper from './CheckoutWrapper';
-import CheckoutHeader from './CheckoutHeader';
-import { FullPageLoadingIndicator } from 'src/lib/components/LoadingIndicator';
 
 const Checkout: FunctionComponent = () => {
     const RoutesArray = Object.values(CheckoutRoutes);

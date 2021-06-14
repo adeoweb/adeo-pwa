@@ -1,7 +1,9 @@
-import { ChangeEvent } from 'react';
 import { FormikErrors, FormikTouched } from 'formik';
-import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
+
+import { ChangeEvent } from 'react';
+
 import { TCartAddressInput } from 'src/lib/types/graphql/Cart';
+import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
 
 export type TBillingAddressFormValues = Record<string, unknown> &
     TCartAddressInput;

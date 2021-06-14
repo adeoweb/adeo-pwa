@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import Message from './Message';
-import CloseButton from './CloseButton';
-import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
+
 import MessageType from 'src/lib/constants/message';
+import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
+
+import CloseButton from './CloseButton';
+import Message from './Message';
 
 interface IMessageBlock {
     type: MessageType;

@@ -1,14 +1,17 @@
-import React, { useMemo } from 'react';
 import { array, arrayOf, shape, string } from 'prop-types';
+
+import React, { useMemo } from 'react';
+import { Modal } from 'react-bootstrap';
 import { X as CloseIcon } from 'react-feather';
+
 import { useFilterModal } from 'src/peregrine/lib/talons/adeoweb/FilterModal';
 
 import { mergeClasses } from '../../classify';
 import Icon from '../Icon';
-import { Modal } from 'react-bootstrap';
 import CurrentFilters from './CurrentFilters';
 import FilterBlock from './filterBlock';
 import FilterFooter from './filterFooter';
+
 import defaultClasses from './filterModal.css';
 
 /**

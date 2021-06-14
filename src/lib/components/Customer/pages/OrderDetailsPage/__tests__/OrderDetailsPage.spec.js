@@ -1,6 +1,8 @@
 import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
 import { BrowserRouter as Router } from 'react-router-dom';
+
+import { createTestInstance } from '@magento/peregrine';
+
 import OrderDetailsPage from 'src/lib/components/Customer/pages/OrderDetailsPage';
 
 jest.mock('src/lib/drivers', () => {

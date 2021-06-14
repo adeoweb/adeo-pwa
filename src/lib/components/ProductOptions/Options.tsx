@@ -1,7 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { TConfigurableProductOptions } from 'src/lib/types/graphql/Product';
-import { TSelectedConfigurableOption } from 'src/lib/types/graphql/CartItem';
+
 import { useOptions } from '@magento/peregrine/lib/talons/ProductOptions/useOptions';
+
+import { TSelectedConfigurableOption } from 'src/lib/types/graphql/CartItem';
+import { TConfigurableProductOptions } from 'src/lib/types/graphql/Product';
+
 import Option from './Option';
 
 type TProductOptionsProps = {

@@ -1,11 +1,15 @@
-import React from 'react';
 import { string, number, shape } from 'prop-types';
-import { mergeClasses } from '../../classify';
-import { FullPageLoadingIndicator } from '../LoadingIndicator';
-import defaultClasses from './categoryList.css';
-import CategoryTile from './categoryTile';
-import categoryListQuery from '../../queries/getCategoryList.graphql';
+
+import React from 'react';
+
 import { useCategoryList } from '@magento/peregrine/lib/talons/CategoryList/useCategoryList';
+
+import { mergeClasses } from '../../classify';
+import categoryListQuery from '../../queries/getCategoryList.graphql';
+import { FullPageLoadingIndicator } from '../LoadingIndicator';
+import CategoryTile from './categoryTile';
+
+import defaultClasses from './categoryList.css';
 
 // map Magento 2.3.1 schema changes to Venia 2.0.0 proptype shape to maintain backwards compatibility
 const mapCategory = categoryItem => {

@@ -1,8 +1,10 @@
-import React, { useMemo } from 'react';
 import { shape, string } from 'prop-types';
+
+import React, { useMemo } from 'react';
 
 import { mergeClasses } from '../../../classify';
 import CurrentFilter from './currentFilter';
+
 import defaultClasses from './currentFilters.css';
 
 const CurrentFilters = props => {

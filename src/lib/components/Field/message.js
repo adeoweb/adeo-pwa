@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
 import { node, shape, string } from 'prop-types';
 
+import React, { Component } from 'react';
+
 import classify from '../../classify';
+
 import defaultClasses from './message.css';
 
 export class Message extends Component {

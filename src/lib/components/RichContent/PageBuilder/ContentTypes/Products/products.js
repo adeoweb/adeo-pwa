@@ -1,13 +1,17 @@
-import React from 'react';
-import defaultClasses from './products.css';
-import { mergeClasses } from '../../../../../classify';
 import { arrayOf, bool, number, oneOf, shape, string } from 'prop-types';
-import SlickSlider from 'react-slick';
-import Gallery from '../../../../Gallery';
-import GET_PRODUCTS_BY_SKU from '../../../../../queries/getProductsBySku.graphql';
+
 import { useQuery } from '@apollo/react-hooks';
-import GalleryItem from '../../../../Gallery/item';
+import React from 'react';
+import SlickSlider from 'react-slick';
+
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+
+import { mergeClasses } from '../../../../../classify';
+import GET_PRODUCTS_BY_SKU from '../../../../../queries/getProductsBySku.graphql';
+import Gallery from '../../../../Gallery';
+import GalleryItem from '../../../../Gallery/item';
+
+import defaultClasses from './products.css';
 
 /**
  * Sort products based on the original order of SKUs

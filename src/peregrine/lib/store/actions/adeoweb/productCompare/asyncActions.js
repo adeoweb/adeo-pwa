@@ -1,8 +1,10 @@
 import BrowserPersistence from '@magento/peregrine/lib/util/simplePersistence';
-import actions from './actions';
-import { COMPARE_STORAGE_NAME } from 'src/lib/constants/productCompare';
-import { name as reducerName } from '../../../reducers/adeoweb/productCompare';
+
 import scrollTo from 'src//lib/util/scrollTo';
+import { COMPARE_STORAGE_NAME } from 'src/lib/constants/productCompare';
+
+import { name as reducerName } from '../../../reducers/adeoweb/productCompare';
+import actions from './actions';
 
 const storage = new BrowserPersistence();
 

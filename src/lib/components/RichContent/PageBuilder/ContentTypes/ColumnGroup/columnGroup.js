@@ -1,7 +1,10 @@
-import React from 'react';
-import defaultClasses from './columnGroup.css';
-import { mergeClasses } from '../../../../../classify';
 import { shape, string } from 'prop-types';
+
+import React from 'react';
+
+import { mergeClasses } from '../../../../../classify';
+
+import defaultClasses from './columnGroup.css';
 
 /**
  * Page Builder ColumnGroup component.

@@ -1,5 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react';
+
 import { TProductSearch } from 'src/lib/types/ProductSearch';
+
 import SuggestedProduct from './SuggestedProduct';
 
 export type TSuggestedProductsProps = {

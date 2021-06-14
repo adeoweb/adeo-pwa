@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import { useImage } from 'src/peregrine/lib/talons/adeoweb/Image/useImage';
 
 import { mergeClasses } from 'src/lib/util/mergeClasses';
-import defaultClasses from './Image.scss';
+import { useImage } from 'src/peregrine/lib/talons/adeoweb/Image/useImage';
+
+import { IImageProps } from './ImageTypes';
 import PlaceholderImage from './PlaceholderImage';
 import ResourceImage from './ResourceImage';
 import SimpleImage from './SimpleImage';
-import { IImageProps } from './ImageTypes';
+
+import defaultClasses from './Image.scss';
 
 const Image: FunctionComponent<IImageProps> = ({
     alt,

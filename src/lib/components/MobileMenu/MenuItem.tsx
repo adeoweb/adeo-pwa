@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useState } from 'react';
+
+import MenuList from 'src/lib/components/MobileMenu/MenuList';
 import { Link, useLocation } from 'src/lib/drivers';
 import { TCategoryTree } from 'src/lib/types/graphql/Category';
-import MenuList from 'src/lib/components/MobileMenu/MenuList';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 type TMenuItemProps = {

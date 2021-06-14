@@ -1,12 +1,12 @@
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-import { CacheFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
+import { CacheFirst } from 'workbox-strategies';
 
 import { PREFETCH_IMAGES } from '@magento/venia-ui/lib/constants/swMessageTypes';
 
-import { isFastNetwork } from './networkUtils';
 import { THIRTY_DAYS, IMAGES_CACHE_NAME } from '../defaults';
 import { registerMessageHandler } from './messageHandler';
+import { isFastNetwork } from './networkUtils';
 
 const imageRegex = new RegExp(/\.(?:png|jpg|jpeg)$/);
 

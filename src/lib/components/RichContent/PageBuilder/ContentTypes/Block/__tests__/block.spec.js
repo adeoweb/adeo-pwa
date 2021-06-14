@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
-import Block from '../block';
+
 import * as config from '../../../config';
+import Block from '../block';
 
 jest.mock('owl.carousel', () => {});
 

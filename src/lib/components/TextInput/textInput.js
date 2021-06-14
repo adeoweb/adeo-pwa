@@ -1,10 +1,12 @@
-import React, { Component, Fragment } from 'react';
-import { node, shape, string } from 'prop-types';
 import { BasicText, asField } from 'informed';
+import { node, shape, string } from 'prop-types';
 import { compose } from 'redux';
+
+import React, { Component, Fragment } from 'react';
 
 import classify from '../../classify';
 import { FieldIcons, Message } from '../Field';
+
 import defaultClasses from './textInput.css';
 
 export class TextInput extends Component {

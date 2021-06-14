@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useCompare } from 'src/peregrine/lib/talons/adeoweb/Compare/useCompare';
+
 import Table from 'src/lib/components/Compare/Table';
 import isObjectEmpty from 'src/lib/util/isObjectEmpty';
+import { useCompare } from 'src/peregrine/lib/talons/adeoweb/Compare/useCompare';
 
 const Compare: FunctionComponent = () => {
     const { t } = useTranslation();

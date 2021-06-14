@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import SuggestedProducts from './SuggestedProducts';
+
 import { TProductsSearch } from 'src/lib/types/ProductSearch';
 import { useSuggestions } from 'src/peregrine/lib/talons/adeoweb/SearchBar/useSuggestions';
+
+import SuggestedProducts from './SuggestedProducts';
 
 type TSuggestionsProps = {
     products?: TProductsSearch;

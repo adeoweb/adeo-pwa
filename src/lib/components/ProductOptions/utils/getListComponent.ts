@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 
-import getOptionType from 'src/lib/components/ProductOptions/utils/getOptionType';
 import SwatchList from 'src/lib/components/ProductOptions/SwatchList';
 import TileList from 'src/lib/components/ProductOptions/TileList';
+import getOptionType from 'src/lib/components/ProductOptions/utils/getOptionType';
 
 import { TValueListProps } from '../ProductOptionsTypes';
 

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { TProduct } from 'src/lib/types/graphql/Product';
 import { useProductCompare } from 'src/peregrine/lib/talons/adeoweb/Product/useProductCompare';
 

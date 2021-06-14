@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
+
 import Price from '@magento/peregrine/lib/Price';
+
 import { TPriceTier } from './remapPriceTiers';
 
 interface ITierRowProps {

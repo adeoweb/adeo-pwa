@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import PRODUCT_SEARCH from '../../queries/productSearch.graphql';
-import { useAutocomplete } from 'src/peregrine/lib/talons/adeoweb/SearchBar/useAutocomplete';
 import Suggestions from 'src/lib/components/SearchBar/Suggestions';
+import { useAutocomplete } from 'src/peregrine/lib/talons/adeoweb/SearchBar/useAutocomplete';
+
+import PRODUCT_SEARCH from '../../queries/productSearch.graphql';
 
 type TAutocompleteProps = {
     setVisible: (isVisible: boolean) => void;

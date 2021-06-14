@@ -1,13 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'src/lib/drivers';
+import { useTranslation } from 'react-i18next';
+
 import Price from '@magento/peregrine/lib/Price';
+
+import Image from 'src/lib/components/Image';
+import { Link } from 'src/lib/drivers';
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import { useProduct } from 'src/peregrine/lib/talons/adeoweb/MiniCart/useProduct';
+
 import CREATE_CART_MUTATION from '../../../queries/createCart.graphql';
-import REMOVE_ITEM_MUTATION from '../../../queries/removeItem.graphql';
 import GET_CART_DETAILS_QUERY from '../../../queries/getCartDetails.graphql';
-import { useTranslation } from 'react-i18next';
-import Image from 'src/lib/components/Image';
+import REMOVE_ITEM_MUTATION from '../../../queries/removeItem.graphql';
 
 interface ProductProps {
     item: TCartItem;

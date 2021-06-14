@@ -1,6 +1,8 @@
-import React from 'react';
-import CmsBlock from '../../../../CmsBlock/block';
 import { arrayOf, string } from 'prop-types';
+
+import React from 'react';
+
+import CmsBlock from '../../../../CmsBlock/block';
 
 /**
  * Page Builder Block component.

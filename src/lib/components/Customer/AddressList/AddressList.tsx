@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { FormGroup } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { TCustomerAddress } from 'src/lib/types/graphql/Customer';
 
 type TAddressListProps = {

@@ -1,7 +1,10 @@
-import React, { useRef, useLayoutEffect } from 'react';
-import defaultClasses from './buttons.css';
 import { oneOf, arrayOf, string, bool, shape } from 'prop-types';
+
+import React, { useRef, useLayoutEffect } from 'react';
+
 import { mergeClasses } from '../../../../../classify';
+
+import defaultClasses from './buttons.css';
 
 /**
  * Page Builder Buttons component.

@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
 import { func, number, object, oneOfType, shape, string } from 'prop-types';
 
+import React, { Component } from 'react';
+
 import classify from '../../classify';
+
 import defaultClasses from './icon.css';
 
 /**

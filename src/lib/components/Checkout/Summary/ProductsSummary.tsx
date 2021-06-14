@@ -1,11 +1,12 @@
 import React, { FunctionComponent, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Table } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 import { Price } from '@magento/peregrine';
+
+import ProductRow from 'src/lib/components/Checkout/Summary/ProductRow';
 import SummaryWrapper from 'src/lib/components/Checkout/Summary/SummaryWrapper';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
-import ProductRow from 'src/lib/components/Checkout/Summary/ProductRow';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const ProductsSummary: FunctionComponent = () => {

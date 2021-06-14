@@ -1,10 +1,11 @@
 import React, { FunctionComponent, Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import ApplyPromoWidget from 'src/lib/components/ApplyPromoWidget';
+import CartItem from 'src/lib/components/Cart/CartItem';
 import { Link } from 'src/lib/drivers';
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
-import CartItem from 'src/lib/components/Cart/CartItem';
 import { useCartBody } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartBody';
-import ApplyPromoWidget from 'src/lib/components/ApplyPromoWidget';
 
 type TCartTableProps = {
     items: TCartItem[];

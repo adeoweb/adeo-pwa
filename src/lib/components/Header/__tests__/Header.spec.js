@@ -1,20 +1,21 @@
 import React from 'react';
-import testRenderer from 'react-test-renderer';
-import Header from '../Header';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
+import { BrowserRouter as Router } from 'react-router-dom';
+import testRenderer from 'react-test-renderer';
 
-import mockUseMenu from 'src/lib/util/__mocks__/hooks/mockUseMenu';
-import mockUseProduct from 'src/lib/util/__mocks__/hooks/mockUseProduct';
-import mockUseMiniCart from 'src/lib/util/__mocks__/hooks/mockUseMiniCart';
-import mockUseLogo from 'src/lib/util/__mocks__/hooks/mockUseLogo';
-import mockUseWelcomeMessage from 'src/lib/util/__mocks__/hooks/mockUseWelcomeMessage';
+import mockUseCompareDropdown from 'src/lib/util/__mocks__/hooks/mockUseCompareDropdown';
 import mockUseHeaderContact from 'src/lib/util/__mocks__/hooks/mockUseHeaderContact';
 import mockUseIsSignedIn from 'src/lib/util/__mocks__/hooks/mockUseIsSignedIn';
+import mockUseLogo from 'src/lib/util/__mocks__/hooks/mockUseLogo';
+import mockUseMenu from 'src/lib/util/__mocks__/hooks/mockUseMenu';
+import mockUseMiniCart from 'src/lib/util/__mocks__/hooks/mockUseMiniCart';
+import mockUseProduct from 'src/lib/util/__mocks__/hooks/mockUseProduct';
+import mockUseProductCompare from 'src/lib/util/__mocks__/hooks/mockUseProductCompare';
 import mockUseSignOut from 'src/lib/util/__mocks__/hooks/mockUseSignOut';
 import mockUseStoreList from 'src/lib/util/__mocks__/hooks/mockUseStoreList';
-import mockUseProductCompare from 'src/lib/util/__mocks__/hooks/mockUseProductCompare';
-import mockUseCompareDropdown from 'src/lib/util/__mocks__/hooks/mockUseCompareDropdown';
+import mockUseWelcomeMessage from 'src/lib/util/__mocks__/hooks/mockUseWelcomeMessage';
+
+import Header from '../Header';
 
 jest.mock('src/peregrine/lib/talons/adeoweb/Menu/useMenu', () => {
     return {

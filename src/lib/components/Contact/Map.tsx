@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import classes from './styles/Map.scss';
 
 interface MapProps {

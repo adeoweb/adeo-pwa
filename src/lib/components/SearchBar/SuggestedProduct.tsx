@@ -1,13 +1,14 @@
 // @ts-nocheck
 // testavimui
-
 import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TProductSearch } from 'src/lib/types/ProductSearch';
-import { Link } from 'src/lib/drivers';
-import Image from 'src/lib/components/Image';
+
 import Price from '@magento/peregrine/lib/Price';
+
+import Image from 'src/lib/components/Image';
 import RichText from 'src/lib/components/RichText';
+import { Link } from 'src/lib/drivers';
+import { TProductSearch } from 'src/lib/types/ProductSearch';
 import getItemUrl from 'src/lib/util/getItemUrl';
 
 export type TSuggestedProductProps = {

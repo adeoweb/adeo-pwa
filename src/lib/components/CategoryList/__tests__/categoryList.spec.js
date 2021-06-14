@@ -1,12 +1,14 @@
 import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
 
-import LoadingIndicator from '../../LoadingIndicator';
-import CategoryTile from '../categoryTile';
-import CategoryList from '../categoryList';
+import { createTestInstance } from '@magento/peregrine';
 import { useCategoryList } from '@magento/peregrine/lib/talons/CategoryList/useCategoryList';
 import { useCategoryTile } from '@magento/peregrine/lib/talons/CategoryList/useCategoryTile';
+
 import mockUseLogo from 'src/lib/util/__mocks__/hooks/mockUseLogo';
+
+import LoadingIndicator from '../../LoadingIndicator';
+import CategoryList from '../categoryList';
+import CategoryTile from '../categoryTile';
 
 jest.mock('src/lib/drivers', () => ({
     Link: jest.fn(() => null)

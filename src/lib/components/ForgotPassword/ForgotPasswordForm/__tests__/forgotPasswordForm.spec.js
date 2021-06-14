@@ -1,6 +1,8 @@
-import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
 import { Form } from 'informed';
+
+import React from 'react';
+
+import { createTestInstance } from '@magento/peregrine';
 
 import ForgotPasswordForm from '../forgotPasswordForm';
 

@@ -1,8 +1,9 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import DetailsGeneral from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsGeneral';
-import DetailsProducts from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsProducts';
+
 import DetailsDelivery from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsDelivery';
+import DetailsGeneral from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsGeneral';
 import DetailsPayment from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsPayment';
+import DetailsProducts from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsProducts';
 import Totals from 'src/lib/components/Customer/pages/OrderDetailsPage/Totals';
 import { TCustomerOrder } from 'src/lib/types/graphql/Customer';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';

@@ -1,7 +1,9 @@
-import React from 'react';
 import { bool, node, shape, string } from 'prop-types';
 
+import React from 'react';
+
 import { mergeClasses } from '../../classify';
+
 import defaultClasses from './field.css';
 
 const Field = props => {

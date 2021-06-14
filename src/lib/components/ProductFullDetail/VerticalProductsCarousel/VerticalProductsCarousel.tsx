@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import SlickSlider, { Settings } from 'react-slick';
-import { TProductInterface } from 'src/lib/types/graphql/Product';
+
 import { ProductItemLeftDetails } from 'src/lib/components/ProductItem';
+import { TProductInterface } from 'src/lib/types/graphql/Product';
 
 interface IVerticalProductsCarouselProps {
     items: TProductInterface[];

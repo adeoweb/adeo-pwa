@@ -1,4 +1,5 @@
 import { TAggregation } from 'src/lib/types/graphql/Aggregation';
+
 import { ProductFilterType } from '../ProductFilterTypes';
 
 const getFilterType = (filter: TAggregation): ProductFilterType => {

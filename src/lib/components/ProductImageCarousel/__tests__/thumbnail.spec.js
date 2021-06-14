@@ -1,8 +1,10 @@
 import React from 'react';
+
 import {
     WindowSizeContextProvider,
     createTestInstance
 } from '@magento/peregrine';
+
 import Thumbnail from '../Thumbnail';
 
 const onClickHandler = jest.fn();

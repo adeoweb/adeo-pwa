@@ -1,8 +1,9 @@
-import { useCallback, useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
-import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
+import { useCallback, useState } from 'react';
+
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
+import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
+import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useCoupon = props => {
     const { applyCouponToCartMutation, removeCouponFromCartMutation } = props;

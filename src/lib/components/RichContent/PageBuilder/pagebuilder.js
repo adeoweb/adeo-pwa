@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ContentTypeFactory from './factory';
 import parseStorageHtml from './parseStorageHtml';
 

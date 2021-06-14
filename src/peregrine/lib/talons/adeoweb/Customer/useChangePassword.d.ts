@@ -1,6 +1,8 @@
-import * as React from 'react';
-import { DocumentNode } from 'graphql';
 import { FormikErrors, FormikTouched } from 'formik';
+import { DocumentNode } from 'graphql';
+
+import * as React from 'react';
+
 import { TChangePasswordForm } from 'src/lib/components/Customer/pages/ChangePasswordPage';
 
 type TUseChangePasswordProps = {

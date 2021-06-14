@@ -1,5 +1,7 @@
 import { combineReducers, createStore } from 'redux';
+
 import { enhancer } from '@magento/peregrine';
+
 import { default as reducers } from 'src/peregrine/lib/store/reducers';
 
 // This is the connective layer between the Peregrine store and the

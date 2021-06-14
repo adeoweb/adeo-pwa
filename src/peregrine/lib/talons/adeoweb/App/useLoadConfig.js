@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
+
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
+
 import { useConfigContext } from '../../../context/adeoweb/config';
 
 export const useLoadConfig = ({ getConfigQuery }) => {

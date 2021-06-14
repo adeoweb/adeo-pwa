@@ -1,10 +1,12 @@
 import React from 'react';
 import { act } from 'react-test-renderer';
+
 import { createTestInstance } from '@magento/peregrine/lib';
 
-import Option from '../Option';
 import SwatchList from 'src/lib/components/ProductOptions/SwatchList';
 import TileList from 'src/lib/components/ProductOptions/TileList';
+
+import Option from '../Option';
 
 jest.mock('src/lib/components/ProductOptions/SwatchList', () => () => <i />);
 jest.mock('src/lib/components/ProductOptions/TileList', () => () => <i />);

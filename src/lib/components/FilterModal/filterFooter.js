@@ -1,9 +1,12 @@
-import React from 'react';
 import { bool, func, shape, string } from 'prop-types';
+
+import React from 'react';
+
 import { useFilterFooter } from '@magento/peregrine/lib/talons/FilterModal';
 
 import { mergeClasses } from '../../classify';
 import Button from '../Button';
+
 import defaultClasses from './filterFooter.css';
 
 const FilterFooter = props => {

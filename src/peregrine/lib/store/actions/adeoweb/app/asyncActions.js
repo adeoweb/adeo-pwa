@@ -1,6 +1,7 @@
-import actions from './actions';
-import { removeCart } from '../cart/asyncActions';
 import BrowserPersistence from '@magento/peregrine/lib/util/simplePersistence';
+
+import { removeCart } from '../cart/asyncActions';
+import actions from './actions';
 
 const storage = new BrowserPersistence();
 

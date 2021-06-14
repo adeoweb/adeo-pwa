@@ -1,9 +1,10 @@
 import { DocumentNode } from 'graphql';
+
+import { TShippingAddressFormValues } from 'src/lib/components/Checkout/Shipping';
 import {
     TAvailableShippingMethod,
     TSelectedShippingMethod
 } from 'src/lib/types/graphql/Cart';
-import { TShippingAddressFormValues } from 'src/lib/components/Checkout/Shipping';
 
 type TUseShippingStepProps = {
     setGuestEmailMutation: DocumentNode;

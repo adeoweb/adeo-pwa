@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Form, FormCheck } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsTypes';
-import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
-import { optionSort } from 'src/lib/components/CustomOptions/utils/optionSort';
 import { getOptionPriceText } from 'src/lib/components/CustomOptions/utils/getOptionPriceText';
+import { optionSort } from 'src/lib/components/CustomOptions/utils/optionSort';
+import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
 
 const RadioOption: FunctionComponent<TOptionProps> = ({
     option,

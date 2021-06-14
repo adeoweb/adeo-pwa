@@ -1,13 +1,14 @@
-import { useBillingAddressForm } from 'src/peregrine/lib/talons/adeoweb/Checkout/useBillingAddressForm';
-import { useCallback, useState } from 'react';
-import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
-import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useMutation } from '@apollo/react-hooks';
+import { useCallback, useState } from 'react';
+
+import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
+import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
+import { useBillingAddressForm } from 'src/peregrine/lib/talons/adeoweb/Checkout/useBillingAddressForm';
 import {
     getTransformedAddress,
     isBillingAndShippingEqual
 } from 'src/peregrine/lib/talons/adeoweb/Checkout/utils';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const usePaymentStep = props => {

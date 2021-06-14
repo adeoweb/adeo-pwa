@@ -1,6 +1,8 @@
+import { Form } from 'informed';
+
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { Form } from 'informed';
+
 import TextArea from '../textArea';
 
 jest.mock('../../../classify');

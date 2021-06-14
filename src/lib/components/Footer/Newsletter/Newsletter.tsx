@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
-import { Button, Form } from 'react-bootstrap';
 import * as yup from 'yup';
+
+import React, { FunctionComponent } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const Newsletter: FunctionComponent = () => {
     const { t } = useTranslation();

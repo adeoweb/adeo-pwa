@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import WelcomeMessage from './WelcomeMessage';
+
 import LinkList from './LinkList';
+import WelcomeMessage from './WelcomeMessage';
 
 const RightBlock: FunctionComponent = () => {
     return (

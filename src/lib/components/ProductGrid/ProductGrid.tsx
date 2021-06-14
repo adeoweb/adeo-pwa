@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { TProduct } from 'src/lib/types/graphql/Product';
 import { Row, Col } from 'react-bootstrap';
+
 import ProductItem from 'src/lib/components/ProductItem';
 import { TCategoryInterface } from 'src/lib/types/graphql/Category';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 type TProductGridProps = {
     items: TProduct[];

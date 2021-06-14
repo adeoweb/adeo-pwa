@@ -1,8 +1,8 @@
+import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 
 import { useErrorContext } from 'src/peregrine/lib/context/adeoweb/unhandledErrors';
-import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
 
 import App from './app';
 import { useErrorBoundary } from './useErrorBoundary';

@@ -1,8 +1,10 @@
 import React, { FunctionComponent, useMemo } from 'react';
+
 import { useOption } from '@magento/peregrine/lib/talons/ProductOptions/useOption';
-import { TConfigurableProductOptions } from 'src/lib/types/graphql/Product';
+
 import getItemKey from 'src/lib/components/ProductOptions/utils/getItemKey';
 import getListComponent from 'src/lib/components/ProductOptions/utils/getListComponent';
+import { TConfigurableProductOptions } from 'src/lib/types/graphql/Product';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 type TProductOptionProps = {

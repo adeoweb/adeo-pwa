@@ -1,13 +1,16 @@
-import React from 'react';
 import { array, func, oneOfType, shape, string } from 'prop-types';
+
 import { useQuery } from '@apollo/react-hooks';
+import React from 'react';
+
+import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 import { mergeClasses } from '../../classify';
-import Block from './block';
-import defaultClasses from './cmsBlock.css';
 import { FullPageLoadingIndicator } from '../../components/LoadingIndicator';
 import GET_CMS_BLOCKS from '../../queries/getCmsBlocks.graphql';
-import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import Block from './block';
+
+import defaultClasses from './cmsBlock.css';
 
 const CmsBlockGroup = props => {
     const { identifiers } = props;

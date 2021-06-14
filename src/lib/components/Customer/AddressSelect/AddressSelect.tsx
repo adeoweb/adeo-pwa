@@ -1,3 +1,4 @@
+import { useMutation } from '@apollo/react-hooks';
 import React, {
     Fragment,
     FunctionComponent,
@@ -5,22 +6,23 @@ import React, {
     useEffect,
     useState
 } from 'react';
-import { useMutation } from '@apollo/react-hooks';
-import { useTranslation } from 'react-i18next';
 import { Button } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
+import { OperationVariables } from '@apollo/client';
+import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
+
 import {
     CustomerAddressForm,
     CustomerAddressList,
     TCustomerAddressFormValues
 } from 'src/lib/components/Customer';
-import { useCustomerAddressForm } from 'src/peregrine/lib/talons/adeoweb/Customer/useCustomerAddressForm';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
-import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 import CREATE_CUSTOMER_ADDRESS_MUTATION from 'src/lib/queries/createCustomerAddress.graphql';
 import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
 import GET_CUSTOMER_QUERY from 'src/lib/queries/getCustomer.graphql';
 import { TCustomer } from 'src/lib/types/graphql/Customer';
-import { OperationVariables } from '@apollo/client';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
+import { useCustomerAddressForm } from 'src/peregrine/lib/talons/adeoweb/Customer/useCustomerAddressForm';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 

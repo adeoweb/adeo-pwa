@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
 import { useLazyQuery } from '@apollo/react-hooks';
+import { useEffect } from 'react';
+
 import { useConfigContext } from 'src/peregrine/lib/context/adeoweb/config';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 

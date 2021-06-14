@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import CompareDropdown from './CompareDropdown';
+
 import { useProductCompare } from 'src/peregrine/lib/talons/adeoweb/Product/useProductCompare';
+
+import CompareDropdown from './CompareDropdown';
 
 const Compare: FunctionComponent = () => {
     const { t } = useTranslation();

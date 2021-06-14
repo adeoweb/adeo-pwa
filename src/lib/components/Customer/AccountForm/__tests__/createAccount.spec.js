@@ -1,7 +1,10 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
-import CreateAccountForm from '../AccountForm';
+
 import { useHistory } from 'src/lib/drivers';
+
+import CreateAccountForm from '../AccountForm';
 
 const history = {
     push: jest.fn()

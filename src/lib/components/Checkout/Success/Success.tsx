@@ -1,5 +1,6 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { useSuccess } from 'src/peregrine/lib/talons/adeoweb/Checkout/useSuccess';
 
 const Success: FunctionComponent = () => {

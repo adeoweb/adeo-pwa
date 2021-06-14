@@ -4,21 +4,22 @@ import React, {
     useEffect,
     useCallback
 } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Row, Col, Form, FormCheck, Button } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { CheckoutRoutes } from 'src/lib/components/Checkout';
-import { ProductsSummary } from 'src/lib/components/Checkout/Summary';
 import AddressBlock from 'src/lib/components/Checkout/Address';
 import InfoBox from 'src/lib/components/Checkout/InfoBox';
-import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
-import SET_BILLING_ADDRESS_ON_CART_MUTATION from 'src/lib/queries/setBillingAddressOnCart.graphql';
-import BillingAddressForm from 'src/lib/components/Checkout/Payment/BillingAdressForm';
 import { TBillingAddressFormValues } from 'src/lib/components/Checkout/Payment';
+import BillingAddressForm from 'src/lib/components/Checkout/Payment/BillingAdressForm';
+import PaymentMethodSelect from 'src/lib/components/Checkout/Payment/PaymentMethodSelect';
+import { ProductsSummary } from 'src/lib/components/Checkout/Summary';
+import { CustomerAddressSelect } from 'src/lib/components/Customer';
 import LoadingIndicator from 'src/lib/components/LoadingIndicator';
 import { useHistory } from 'src/lib/drivers';
-import PaymentMethodSelect from 'src/lib/components/Checkout/Payment/PaymentMethodSelect';
+import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
+import SET_BILLING_ADDRESS_ON_CART_MUTATION from 'src/lib/queries/setBillingAddressOnCart.graphql';
 import { usePaymentStep } from 'src/peregrine/lib/talons/adeoweb/Checkout/usePaymentStep';
-import { CustomerAddressSelect } from 'src/lib/components/Customer';
 
 const Payment: FunctionComponent = () => {
     const PREVIOUS_STEP_URL = CheckoutRoutes.shipping.url;

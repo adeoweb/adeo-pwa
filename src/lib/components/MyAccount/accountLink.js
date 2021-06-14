@@ -1,5 +1,6 @@
-import React, { useCallback } from 'react';
 import { arrayOf, func, node, shape, string } from 'prop-types';
+
+import React, { useCallback } from 'react';
 
 import { mergeClasses } from '../../classify';
 import Button from '../Button';

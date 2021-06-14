@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
+
 import { useTile } from '@magento/peregrine/lib/talons/ProductOptions/useTile';
+
 import { TConfigurableProductOptionsValues } from 'src/lib/types/graphql/Product';
 
 type TTileProps = {

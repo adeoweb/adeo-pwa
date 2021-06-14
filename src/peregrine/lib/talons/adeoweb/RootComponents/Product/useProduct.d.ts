@@ -1,4 +1,5 @@
 import { DocumentNode } from 'graphql';
+
 import { TProduct } from 'src/lib/types/graphql/Product';
 
 type TUseProductProps = {

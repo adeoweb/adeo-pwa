@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { Util } from '@magento/peregrine';
 
 export const useCookieWarning = () => {

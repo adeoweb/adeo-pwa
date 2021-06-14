@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Card, Form, InputGroup } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 import Price from '@magento/peregrine/lib/Price';
-import { useCoupon } from 'src/peregrine/lib/talons/adeoweb/Cart/useCoupon';
+
 import APPLY_COUPON_TO_CART_MUTATION from 'src/lib/queries/applyCouponToCart.graphql';
 import REMOVE_COUPON_FROM_CART_MUTATION from 'src/lib/queries/removeCouponFromCart.graphql';
+import { useCoupon } from 'src/peregrine/lib/talons/adeoweb/Cart/useCoupon';
 
 const ApplyPromoWidget: React.FunctionComponent = () => {
     const { t } = useTranslation();

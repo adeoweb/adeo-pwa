@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactHTML } from 'react';
+
 import { useHistory } from 'src/lib/drivers';
 
 type TRichTextProps = {

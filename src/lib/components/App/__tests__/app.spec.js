@@ -1,14 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import { createTestInstance } from '@magento/peregrine';
+
+import { Switch } from 'src/lib/drivers';
 import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useLoadConfig } from 'src/peregrine/lib/talons/adeoweb/App/useLoadConfig';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 import Main from '../../Main';
 import Mask from '../../Mask';
 import MobileMenu from '../../MobileMenu';
 import Routes from '../../Routes';
-import { Switch } from 'src/lib/drivers';
 
 jest.mock('../../Head', () => ({
     HeadProvider: ({ children }) => <div>{children}</div>,

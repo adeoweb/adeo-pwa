@@ -1,19 +1,18 @@
-import { TCategoryInterface } from 'src/lib/types/graphql/Category';
-import { TProduct } from 'src/lib/types/graphql/Product';
 import { ICategoryContentProps } from 'src/lib/components/CategoryContent';
 import { ICategoryFilterControl } from 'src/lib/components/CategoryContent/CategoryContentTypes';
-
-import {
-    ProductSortDirections,
-    ProductSortFields
-} from 'src/lib/constants/product';
 import {
     activeFiltersMock,
     filtersMock,
     setFilterMock,
     toggleFilterMock
 } from 'src/lib/components/ProductFilters/__mocks__';
+import {
+    ProductSortDirections,
+    ProductSortFields
+} from 'src/lib/constants/product';
+import { TCategoryInterface } from 'src/lib/types/graphql/Category';
 import { CurrencyEnum } from 'src/lib/types/graphql/Money';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 const category: TCategoryInterface = {
     id: 21,

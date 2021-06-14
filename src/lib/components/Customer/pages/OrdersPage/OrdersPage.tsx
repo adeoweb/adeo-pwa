@@ -1,14 +1,16 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { useWindowSize } from '@magento/peregrine/lib/hooks/useWindowSize';
+
+import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
+import OrdersListDesktop from 'src/lib/components/Customer/pages/OrdersPage/OrdersListDesktop';
+import OrdersListMobile from 'src/lib/components/Customer/pages/OrdersPage/OrdersListMobile';
+import LoadingIndicator from 'src/lib/components/LoadingIndicator';
+import MessageType from 'src/lib/constants/message';
+import GET_CUSTOMER_ORDERS from 'src/lib/queries/getCustomerOrders.graphql';
 import { useCustomerOrders } from 'src/peregrine/lib/talons/adeoweb/Customer/useCustomerOrders';
 import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
-import GET_CUSTOMER_ORDERS from 'src/lib/queries/getCustomerOrders.graphql';
-import MessageType from 'src/lib/constants/message';
-import LoadingIndicator from 'src/lib/components/LoadingIndicator';
-import OrdersListMobile from 'src/lib/components/Customer/pages/OrdersPage/OrdersListMobile';
-import OrdersListDesktop from 'src/lib/components/Customer/pages/OrdersPage/OrdersListDesktop';
-import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
 
 const OrdersPage: FunctionComponent = () => {
     // TODO: add pagination

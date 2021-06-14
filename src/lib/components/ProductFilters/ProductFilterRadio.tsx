@@ -1,8 +1,10 @@
 import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TProductFilterProps } from './ProductFilterTypes';
+
 import { TAggregationOption } from 'src/lib/types/graphql/Aggregation';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
+
+import { TProductFilterProps } from './ProductFilterTypes';
 
 const ProductFilterRadio: FunctionComponent<TProductFilterProps> = ({
     filter,

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { TSelectedCustomizableOption } from 'src/lib/types/graphql/CartItem';
+
 import { optionSort } from 'src/lib/components/CustomOptions/utils/optionSort';
+import { TSelectedCustomizableOption } from 'src/lib/types/graphql/CartItem';
 
 type TSelectedCustomOptionsProps = {
     options: TSelectedCustomizableOption[];

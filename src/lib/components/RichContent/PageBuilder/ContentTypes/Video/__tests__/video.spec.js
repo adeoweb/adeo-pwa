@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import Video from '../video';
 
 test('renders an empty Video component', () => {

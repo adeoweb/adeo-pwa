@@ -1,6 +1,8 @@
-import { TCustomizableOption, TProduct } from 'src/lib/types/graphql/Product';
-import * as React from 'react';
 import { FormikErrors, FormikTouched } from 'formik';
+
+import * as React from 'react';
+
+import { TCustomizableOption, TProduct } from 'src/lib/types/graphql/Product';
 
 type TUseCustomProductProps = {
     product: TProduct;

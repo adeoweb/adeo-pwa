@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 
 export const useReceipt = props => {
     const { onClose } = props;

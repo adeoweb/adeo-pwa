@@ -1,8 +1,12 @@
-import React from 'react';
 import { shape, string } from 'prop-types';
+
+import React from 'react';
+
 import { useToasts } from '@magento/peregrine';
-import Toast from './toast';
+
 import { mergeClasses } from '../../classify';
+import Toast from './toast';
+
 import defaultClasses from './toastContainer.css';
 
 /**

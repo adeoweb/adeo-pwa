@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from 'react';
+
 import { transparentPlaceholder } from '@magento/peregrine/lib/util/images';
+
 import { usePlaceholderImage } from 'src/peregrine/lib/talons/adeoweb/Image/usePlaceholderImage';
 
-import SimpleImage from './SimpleImage';
 import { IPlaceholderImageProps } from './PlaceholderImageTypes';
+import SimpleImage from './SimpleImage';
 
 const PlaceholderImage: FunctionComponent<IPlaceholderImageProps> = ({
     alt,

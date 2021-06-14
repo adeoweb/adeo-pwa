@@ -1,8 +1,11 @@
 import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
-import Banner from '../banner';
 import { act } from 'react-test-renderer';
+
+import { createTestInstance } from '@magento/peregrine';
+
 import { Link } from 'src/lib/drivers';
+
+import Banner from '../banner';
 
 jest.mock('src/lib/drivers', () => ({
     resourceUrl: jest.fn(url => url),

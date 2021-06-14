@@ -5,9 +5,10 @@ import React, {
     useEffect,
     useState
 } from 'react';
+
 import { CustomerAddressSelect } from 'src/lib/components/Customer';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 
 type TLoggedInUserFormProps = {
     submitAddress: (id: number) => void;

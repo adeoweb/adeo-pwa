@@ -1,13 +1,16 @@
-import React from 'react';
-import { arrayOf, shape, string } from 'prop-types';
-import { ChevronDown as ArrowDown, ChevronUp as ArrowUp } from 'react-feather';
 import { Form } from 'informed';
+import { arrayOf, shape, string } from 'prop-types';
+
+import React from 'react';
+import { ChevronDown as ArrowDown, ChevronUp as ArrowUp } from 'react-feather';
+
 import { useFilterBlock } from '@magento/peregrine/lib/talons/FilterModal';
 import setValidator from '@magento/peregrine/lib/validators/set';
 
 import { mergeClasses } from '../../classify';
 import Icon from '../Icon';
 import FilterList from './FilterList';
+
 import defaultClasses from './filterBlock.css';
 
 const FilterBlock = props => {

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { TShippingAddressFormProps } from './ShippingAddressFormTypes';
 
 const ShippingAddressForm: FunctionComponent<TShippingAddressFormProps> = ({

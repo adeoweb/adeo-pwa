@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+
 import {
     DEFAULT_PRODUCT_SORT_DIR,
     DEFAULT_PRODUCT_SORT_FIELD

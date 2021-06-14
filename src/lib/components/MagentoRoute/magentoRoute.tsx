@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from 'react';
+
+import ErrorPage from 'src/lib/components/ErrorPage';
 import {
     INTERNAL_ERROR,
     NOT_FOUND,
@@ -6,7 +8,6 @@ import {
 } from 'src/peregrine/lib/talons/MagentoRoute';
 
 import { FullPageLoadingIndicator } from '../LoadingIndicator';
-import ErrorPage from 'src/lib/components/ErrorPage';
 
 const MagentoRoute: FunctionComponent = () => {
     const talonProps = useMagentoRoute();

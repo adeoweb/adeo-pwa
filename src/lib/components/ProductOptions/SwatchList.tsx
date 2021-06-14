@@ -1,6 +1,8 @@
 import React, { FunctionComponent, useMemo } from 'react';
-import Swatch from './Swatch';
+
 import { TValueListProps } from 'src/lib/components/ProductOptions/ProductOptionsTypes';
+
+import Swatch from './Swatch';
 
 const SwatchList: FunctionComponent<TValueListProps> = ({
     getItemKey,

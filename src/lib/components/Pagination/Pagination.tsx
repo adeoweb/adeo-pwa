@@ -1,11 +1,13 @@
 import React, { useMemo, FunctionComponent } from 'react';
+
+import { IPaginationProps } from 'src/lib/components/Pagination/PaginationTypes';
 import { usePagination } from 'src/peregrine/lib/talons/adeoweb/Pagination/usePagination';
+
+import { PAGER_TILE_TYPE_ELLIPSIS } from '../../constants/pagination';
+import NavButton from './NavButton';
 import Tile from './Tile';
 import TileEllipsis from './TileEllipsis';
-import NavButton from './NavButton';
 import { navButtons } from './buttonVariables';
-import { PAGER_TILE_TYPE_ELLIPSIS } from '../../constants/pagination';
-import { IPaginationProps } from 'src/lib/components/Pagination/PaginationTypes';
 
 const Pagination: FunctionComponent<IPaginationProps> = ({
     currentPage,

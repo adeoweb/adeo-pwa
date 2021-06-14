@@ -1,13 +1,15 @@
 import React from 'react';
+
 import {
     WindowSizeContextProvider,
     createTestInstance
 } from '@magento/peregrine';
 
-import ProductFullDetail from '../productFullDetail';
-import Carousel from '../../ProductImageCarousel';
 import mockUseLogo from 'src/lib/util/__mocks__/hooks/mockUseLogo';
 import mockUseProductCompare from 'src/lib/util/__mocks__/hooks/mockUseProductCompare';
+
+import Carousel from '../../ProductImageCarousel';
+import ProductFullDetail from '../productFullDetail';
 
 jest.mock('src/lib/drivers', () => ({
     useHistory: jest.fn(),

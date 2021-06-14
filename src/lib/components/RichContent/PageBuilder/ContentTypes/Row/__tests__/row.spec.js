@@ -1,6 +1,10 @@
+import { jarallax } from 'jarallax';
+
 import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
 import { act } from 'react-test-renderer';
+
+import { createTestInstance } from '@magento/peregrine';
+
 import Row from '../row';
 
 jest.mock('src/lib/drivers', () => ({
@@ -12,7 +16,7 @@ jest.mock('jarallax', () => {
         jarallax: jest.fn()
     };
 });
-import { jarallax } from 'jarallax';
+
 const mockJarallax = jarallax.mockImplementation(() => {});
 
 jest.mock('src/lib/classify');

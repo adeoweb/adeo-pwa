@@ -1,8 +1,10 @@
-import React from 'react';
 import { func, shape, string } from 'prop-types';
+
+import React from 'react';
 
 import { mergeClasses } from '../../../classify';
 import Button from '../../Button';
+
 import defaultClasses from './formSubmissionSuccessful.css';
 
 const FormSubmissionSuccessful = props => {

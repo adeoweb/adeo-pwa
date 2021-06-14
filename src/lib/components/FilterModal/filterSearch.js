@@ -1,11 +1,13 @@
-import React from 'react';
 import { useFormApi, useFieldState } from 'informed';
+
+import React from 'react';
 import { Search as SearchIcon, X as ClearIcon } from 'react-feather';
 
 import { mergeClasses } from '../../classify';
 import Icon from '../Icon';
 import TextInput from '../TextInput';
 import Trigger from '../Trigger';
+
 import defaultClasses from './filterSearch.css';
 
 const clearIcon = <Icon src={ClearIcon} size={18} />;

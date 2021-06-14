@@ -1,20 +1,22 @@
 import React, { Fragment, FunctionComponent, useEffect } from 'react';
-import { useSearchPage } from 'src/peregrine/lib/talons/adeoweb/SearchPage/useSearchPage';
-import PRODUCT_SEARCH from 'src/lib/queries/productSearch.graphql';
-import { FullPageLoadingIndicator } from 'src/lib/components/LoadingIndicator';
-import { usePagination } from '@magento/peregrine/lib/hooks/usePagination';
-import { useProductsSort } from 'src/peregrine/lib/talons/adeoweb/Product/useProductsSort';
 import { Col, Container, Row } from 'react-bootstrap';
-import ProductsSort from 'src/lib/components/ProductsSort';
-import ProductResults from 'src/lib/components/ProductResults';
+
+import { usePagination } from '@magento/peregrine/lib/hooks/usePagination';
+
 import LayoutModes from 'src/lib/components/LayoutModes';
-import { LAYOUT_MODE_GRID } from 'src/lib/constants/layoutModes';
-import ProductGrid from 'src/lib/components/ProductGrid';
-import ProductList from 'src/lib/components/ProductList';
+import { FullPageLoadingIndicator } from 'src/lib/components/LoadingIndicator';
 import Pagination from 'src/lib/components/Pagination';
 import ProductFilters from 'src/lib/components/ProductFilters';
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+import ProductGrid from 'src/lib/components/ProductGrid';
+import ProductList from 'src/lib/components/ProductList';
+import ProductResults from 'src/lib/components/ProductResults';
 import ProductsSidebar from 'src/lib/components/ProductsSidebar';
+import ProductsSort from 'src/lib/components/ProductsSort';
+import { LAYOUT_MODE_GRID } from 'src/lib/constants/layoutModes';
+import PRODUCT_SEARCH from 'src/lib/queries/productSearch.graphql';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+import { useProductsSort } from 'src/peregrine/lib/talons/adeoweb/Product/useProductsSort';
+import { useSearchPage } from 'src/peregrine/lib/talons/adeoweb/SearchPage/useSearchPage';
 
 const SearchPage: FunctionComponent = () => {
     const [paginationValues, paginationApi] = usePagination();

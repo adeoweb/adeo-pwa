@@ -2,12 +2,12 @@ import { useCallback, useEffect } from 'react';
 
 import { useCarousel } from '@magento/peregrine';
 
+import { PREFETCH_IMAGES } from 'src/lib/constants/swMessageTypes';
+import { generateUrlFromContainerWidth } from 'src/lib/util/images';
 import {
     sendMessageToSW,
     VALID_SERVICE_WORKER_ENVIRONMENT
 } from 'src/lib/util/swUtils';
-import { PREFETCH_IMAGES } from 'src/lib/constants/swMessageTypes';
-import { generateUrlFromContainerWidth } from 'src/lib/util/images';
 
 export const useProductImageCarousel = props => {
     const { images = [], imageWidth } = props;

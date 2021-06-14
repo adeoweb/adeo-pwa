@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'src/lib/drivers';
 import { Button } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
+import { Link } from 'src/lib/drivers';
 import { TProduct } from 'src/lib/types/graphql/Product';
 
 type TCompareProductProps = {

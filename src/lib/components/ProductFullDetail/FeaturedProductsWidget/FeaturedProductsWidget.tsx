@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Settings } from 'react-slick';
-import { TProductInterface } from 'src/lib/types/graphql/Product';
+
 import VerticalProductsCarousel from 'src/lib/components/ProductFullDetail/VerticalProductsCarousel';
+import { TProductInterface } from 'src/lib/types/graphql/Product';
 
 interface IFeaturedProductsWidgetProps {
     items: TProductInterface[];

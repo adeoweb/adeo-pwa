@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import { TSelectedConfigurableOption } from 'src/lib/types/graphql/CartItem';
 
 type TSelectedConfigOptionsProps = {
