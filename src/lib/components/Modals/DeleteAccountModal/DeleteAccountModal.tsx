@@ -6,7 +6,6 @@ import { Button, Form, Modal, ModalProps } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import PasswordField from 'src/lib/components/PasswordField';
-import { errorMessages } from 'src/lib/util/errorMessages';
 
 type TDeleteAccountModalProps = {
     close: () => void;
@@ -23,7 +22,7 @@ const DeleteAccountModal: FunctionComponent<TDeleteAccountModalProps> = ({
 }) => {
     const { t } = useTranslation();
     const validationSchema = yup.object({
-        password: yup.string().required(t(errorMessages.required))
+        password: yup.string().required()
     });
     const initialValues = {
         password: ''

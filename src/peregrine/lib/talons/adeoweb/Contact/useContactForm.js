@@ -1,9 +1,6 @@
-import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 import { useTranslation } from 'react-i18next';
-
-import { errorMessages } from 'src/lib/util/errorMessages';
 
 export const useContactForm = ({ initialValues = {} }) => {
     const { t } = useTranslation();
@@ -13,13 +10,10 @@ export const useContactForm = ({ initialValues = {} }) => {
     };
 
     const formSchema = yup.object({
-        name: yup.string().required(t(errorMessages.required)),
-        email: yup
-            .string()
-            .required(t(errorMessages.required))
-            .email(t(errorMessages.email)),
+        name: yup.string().required(),
+        email: yup.string().required().email(),
         phone: yup.string(),
-        message: yup.string().required(t(errorMessages.required))
+        message: yup.string().required()
     });
 
     const { handleSubmit, handleChange, values, errors, touched } = useFormik({

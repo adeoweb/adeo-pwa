@@ -55,19 +55,16 @@ const AccountForm: FunctionComponent = () => {
     const { t } = useTranslation();
 
     const schema = yup.object({
-        firstName: yup.string().required(t(errorMessages.required)),
-        lastName: yup.string().required(t(errorMessages.required)),
-        email: yup
-            .string()
-            .required(t(errorMessages.required))
-            .email(t(errorMessages.email)),
+        firstName: yup.string().required(),
+        lastName: yup.string().required(),
+        email: yup.string().required().email(),
         password: yup
             .string()
             .matches(
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/,
                 t(errorMessages.password)
             )
-            .required(t(errorMessages.required)),
+            .required(),
         confirm: yup
             .string()
             .oneOf([yup.ref('password'), null], t(errorMessages.passwordMatch)),
