@@ -7,14 +7,7 @@ import * as yup from 'yup';
 const Newsletter: FunctionComponent = () => {
     const { t } = useTranslation();
     const schema = yup.object({
-        email: yup
-            .string()
-            .required()
-            .email(
-                t(
-                    'Please enter a valid email address (Ex: johndoe@domain.com).'
-                )
-            )
+        email: yup.string().required().email()
     });
     // ToDo: add data processing
     const submitCallback = () => {

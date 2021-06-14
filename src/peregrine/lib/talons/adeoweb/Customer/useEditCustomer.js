@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { errorMessages } from 'src/lib/util/errorMessages';
@@ -12,17 +11,17 @@ import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useEditCustomer = props => {
     const { updateCustomerMutation, isChangeEmail } = props;
-    const { t } = useTranslation();
+
     const validationSchema = yup.object({
-        firstname: yup.string().required(t(errorMessages.required)),
-        lastname: yup.string().required(t(errorMessages.required)),
+        firstname: yup.string().required(),
+        lastname: yup.string().required(),
         email: yup.string().when('$isChangeEmail', {
             is: isChangeEmail => isChangeEmail,
-            then: yup.string().required(t(errorMessages.required))
+            then: yup.string().required()
         }),
         password: yup.string().when('$isChangeEmail', {
             is: isChangeEmail => isChangeEmail,
-            then: yup.string().required(t(errorMessages.required))
+            then: yup.string().required()
         }),
         is_subscribed: yup.boolean()
     });
