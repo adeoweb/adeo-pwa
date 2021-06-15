@@ -9,12 +9,12 @@ interface IBackButtonProps {
 }
 
 const BackButton: FunctionComponent<IBackButtonProps> = ({ url }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
     return (
         <Link to={url} className="back-button">
             <ArrowIcon />
-            {t('back')}
+            {t('Back')}
         </Link>
     );
 };

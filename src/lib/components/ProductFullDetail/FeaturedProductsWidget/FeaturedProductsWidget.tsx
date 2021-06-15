@@ -11,7 +11,7 @@ interface IFeaturedProductsWidgetProps {
 
 const FeaturedProductsWidget: FunctionComponent<IFeaturedProductsWidgetProps> =
     ({ items }) => {
-        const { t } = useTranslation();
+        const { t } = useTranslation('product');
         const carouselSettings: Settings = {
             autoplay: true,
             arrows: true

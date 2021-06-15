@@ -7,7 +7,7 @@ import PageHeader from 'src/lib/components/PageHeader';
 import CreateAccountForm from '../../AccountForm';
 
 const CreateAccountPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
 
     return (
         <AuthUserToRoot>

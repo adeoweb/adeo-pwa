@@ -11,7 +11,7 @@ import GET_CUSTOMER_QUERY from 'src/lib/queries/getCustomer.graphql';
 import { useCreateCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/Customer/useCreateCustomerAddress';
 
 const AddBillingAddressPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'address']);
     const history = useHistory();
 
     const goBack = useCallback(() => {
@@ -48,9 +48,9 @@ const AddBillingAddressPage: FunctionComponent = () => {
         <div>
             <Button variant="link" className="px-0 mb-2" onClick={goBack}>
                 <i className="fas fa-arrow-left mr-2" />
-                {t('Back')}
+                {t('common:Back')}
             </Button>
-            <h3>{t('Add billing info')}</h3>
+            <h3>{t('address:Add billing info')}</h3>
             <CustomerAddressForm
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
@@ -67,14 +67,14 @@ const AddBillingAddressPage: FunctionComponent = () => {
                 className="mr-4"
                 onClick={goBack}
             >
-                {t('Cancel')}
+                {t('common:Cancel')}
             </Button>
             <Button
                 variant="primary"
                 disabled={!isDirty || !isValid || isCreatingAddress}
                 onClick={() => handleSubmit()}
             >
-                {t('Save')}
+                {t('common:Save')}
             </Button>
         </div>
     );

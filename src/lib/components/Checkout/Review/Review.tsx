@@ -5,7 +5,7 @@ import React, {
     useCallback
 } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
+import { TFuncKey, useTranslation } from 'react-i18next';
 
 import ApplyPromoWidget from 'src/lib/components/ApplyPromoWidget';
 import { CheckoutRoutes } from 'src/lib/components/Checkout';
@@ -23,7 +23,7 @@ const Review: FunctionComponent = () => {
     const FIRST_STEP = CheckoutRoutes.shipping.url;
     const SUCCESS_PAGE_URL = CheckoutRoutes.success.url;
     const ERROR_PAGE_URL = CheckoutRoutes.failure.url;
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const history = useHistory();
 
     const redirectToFirst = useCallback(() => {
@@ -79,6 +79,11 @@ const Review: FunctionComponent = () => {
         }
     }, [orderNumber, redirectToSuccess]);
 
+    const shippingMethodKey =
+        selectedShippingMethod?.carrier_title &&
+        selectedShippingMethod.method_title &&
+        (`${selectedShippingMethod.carrier_title} - ${selectedShippingMethod.method_title}` as TFuncKey<'order'>);
+
     return (
         <Fragment>
             <Row>
@@ -104,20 +109,14 @@ const Review: FunctionComponent = () => {
                                     <AddressBlock address={shippingAddress} />
                                 </InfoBox>
                             )}
-                            {selectedShippingMethod &&
-                                selectedShippingMethod.carrier_title &&
-                                selectedShippingMethod.method_title && (
-                                    <InfoBox
-                                        title={t('Shipping Method:')}
-                                        editRoute={CheckoutRoutes.shipping.url}
-                                    >
-                                        <p>
-                                            {t(
-                                                `${selectedShippingMethod.carrier_title} - ${selectedShippingMethod.method_title}`
-                                            )}
-                                        </p>
-                                    </InfoBox>
-                                )}
+                            {shippingMethodKey && (
+                                <InfoBox
+                                    title={t('Shipping Method:')}
+                                    editRoute={CheckoutRoutes.shipping.url}
+                                >
+                                    <p>{t(shippingMethodKey)}</p>
+                                </InfoBox>
+                            )}
                         </Col>
                         <Col lg={6}>
                             {billingAddress && (
@@ -134,7 +133,11 @@ const Review: FunctionComponent = () => {
                                         title={t('Payment Method:')}
                                         editRoute={CheckoutRoutes.payment.url}
                                     >
-                                        <p>{t(selectedPaymentMethod.title)}</p>
+                                        <p>
+                                            {t(
+                                                selectedPaymentMethod.title as TFuncKey<'order'>
+                                            )}
+                                        </p>
                                     </InfoBox>
                                 )}
                         </Col>

@@ -10,7 +10,7 @@ import { useIsSignedIn } from 'src/peregrine/lib/talons/adeoweb/IsSignedIn/useIs
 import { useSignOut } from 'src/peregrine/lib/talons/adeoweb/SignOut/useSignOut';
 
 const AccountLinks: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
     const { isSignedIn } = useIsSignedIn();
 
     const { handleSignOut } = useSignOut({
@@ -26,12 +26,12 @@ const AccountLinks: FunctionComponent = () => {
                     <Fragment>
                         <li>
                             <Link to={RouterRoutes.customer.url}>
-                                {t('My account')}
+                                {t('My Account')}
                             </Link>
                         </li>
                         <li>
                             <Link to={CustomerRoutes.wishlist.url}>
-                                {t('My wishlist')}
+                                {t('My Wishlist')}
                             </Link>
                         </li>
                         <li>

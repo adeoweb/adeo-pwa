@@ -18,7 +18,7 @@ interface IAddToCartProps {
 }
 
 const AddToCart: FunctionComponent<IAddToCartProps> = ({ product }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const talonProps = useAddToCart({
         addSimpleProductToCartMutation: ADD_SIMPLE_MUTATION,
         createCartMutation: CREATE_CART_MUTATION,

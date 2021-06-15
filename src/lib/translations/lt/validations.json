@@ -1,0 +1,9 @@
+{
+    "Error": "Klaida",
+    "invalid-email": "Įveskite el. pašto adresą (pvz.: johndoe@domain.com).",
+    "Maximum number of characters:": "Maksimalus simbolių skaičius: {{limit}}",
+    "Please enter a valid phone number.": "Įveskite teisingą telefono numerį.",
+    "required-field": "Šis laukelis yra privalomas",
+    "invalid-password": "Slaptažodį turi sudaryti ne mažiau kaip 8 simboliai. Slaptažodyje turi būti panaudoti simboliai bent iš trijų aibių - mažosios ir didžiosios raidės, skaitmenys, specialūs simboliai(~!@#$%^&*()_+[]\\;’,./{}|:”<>?).",
+    "passwords-match": "Slaptažodžiai turi sutapti."
+}

@@ -12,7 +12,7 @@ import { Link } from 'src/lib/drivers';
 import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 
 const LoginPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
 
     const [, { setCustomerModal }] = useAppContext();
 

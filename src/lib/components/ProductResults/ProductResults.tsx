@@ -14,7 +14,7 @@ const ProductResults: FunctionComponent<TProductResultsProps> = ({
     pageSize,
     currentPage
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { fromProducts, toProducts } = useProductResults({
         totalProducts,
         pageSize,

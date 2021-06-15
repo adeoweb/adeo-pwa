@@ -20,7 +20,7 @@ const CustomerModal: FunctionComponent<ICustomerModalProps> = ({
     modalType,
     handleClose
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
     const [, { setCustomerModal }] = useAppContext();
 
     // Keep modal type value in state to ensure proper render during close animation

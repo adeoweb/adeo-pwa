@@ -14,7 +14,7 @@ const ProductsTable: FunctionComponent<TProductsTable> = ({
     items,
     currencyCode
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['product', 'order']);
 
     if (!items || !Array.isArray(items) || !items.length) {
         return null;
@@ -23,16 +23,18 @@ const ProductsTable: FunctionComponent<TProductsTable> = ({
     return (
         <div className="checkout-payment">
             <h2 className="step-title">
-                {t('Products')} ({items.length})
+                {t('order:Products')} ({items.length})
             </h2>
             <div className="cart-table-container">
                 <table className="table table-cart">
                     <thead>
                         <tr>
-                            <th className="product-col">{t('Product')}</th>
-                            <th className="price-col">{t('Price')}</th>
-                            <th className="qty-col">{t('Qty')}</th>
-                            <th>{t('Subtotal')}</th>
+                            <th className="product-col">
+                                {t('product:Product')}
+                            </th>
+                            <th className="price-col">{t('product:Price')}</th>
+                            <th className="qty-col">{t('product:Qty')}</th>
+                            <th>{t('order:Subtotal')}</th>
                         </tr>
                     </thead>
                     <tbody>

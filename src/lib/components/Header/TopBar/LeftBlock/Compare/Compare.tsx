@@ -6,7 +6,7 @@ import { useProductCompare } from 'src/peregrine/lib/talons/adeoweb/Product/useP
 import CompareDropdown from './CompareDropdown';
 
 const Compare: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const { productData } = useProductCompare();
     const productQuantity = Object.keys(productData).length;
     const isActive = productQuantity > 0;

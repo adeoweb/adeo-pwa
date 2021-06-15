@@ -12,7 +12,7 @@ import CheckoutProgressBar from '../CheckoutProgressBar';
 import { CheckoutRoutes } from './CheckoutRoutes';
 
 const CheckoutWrapper: FunctionComponent = ({ children }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const steps = [
         {
             title: t('Shipping'),

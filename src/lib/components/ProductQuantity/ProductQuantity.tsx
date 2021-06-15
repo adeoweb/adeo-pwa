@@ -14,7 +14,7 @@ const ProductQuantity: FunctionComponent<IQuantityProps> = ({
     initialValue,
     onValueChange
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     const { quantity, setQuantity, incrementQuantity, decrementQuantity } =
         useProductQuantity({

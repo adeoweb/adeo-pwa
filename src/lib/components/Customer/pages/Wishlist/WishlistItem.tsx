@@ -18,7 +18,7 @@ type TWishlistItemProps = {
 };
 
 const WishlistItem: FunctionComponent<TWishlistItemProps> = ({ product }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { handleRemoveFromWishlist } = useWishlistItem({
         product,
         addToWishlistMutation: ADD_TO_WISHLIST_MUTATION,

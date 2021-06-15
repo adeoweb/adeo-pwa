@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import classes from './styles/ContactDetails.scss';
 
 const ContactDetails: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
     return (
         <Col md={4}>

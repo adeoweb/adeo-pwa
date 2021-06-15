@@ -15,7 +15,7 @@ const AddressList: FunctionComponent<TAddressListProps> = ({
     onChange,
     addresses
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('address');
 
     return (
         <FormGroup>
@@ -25,7 +25,7 @@ const AddressList: FunctionComponent<TAddressListProps> = ({
                 onBlur={() => {}}
                 value={selectedAddressId || ''}
             >
-                <option value="">{t('Select address')}</option>
+                <option value="">{t('Select Address')}</option>
                 {addresses.map(
                     ({ id, firstname, lastname, street, city, postcode }) => (
                         <option key={id} value={id}>

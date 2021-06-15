@@ -23,7 +23,7 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
     openForgotPassword,
     isSignedInCallback
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['validations', 'customer']);
 
     const talonProps = useSignIn({
         signInMutation: SIGN_IN_MUTATION,
@@ -42,12 +42,12 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
     }, [isSignedIn, isSignedInCallback]);
 
     const schema = yup.object({
-        email: yup.string().required().email(),
+        email: yup.string().email().required(),
         password: yup
             .string()
             .matches(
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/,
-                t(errorMessages.password)
+                t(`validations:${errorMessages.password}` as const)
             )
             .required()
     });
@@ -68,7 +68,7 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
 
     return (
         <Form noValidate onSubmit={handleSubmit}>
-            <Form.Label>{t('Email')}</Form.Label>
+            <Form.Label>{t('customer:Email')}</Form.Label>
             <Form.Control
                 type="text"
                 name="email"
@@ -81,7 +81,7 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
                 {errors.email}
             </Form.Control.Feedback>
 
-            <Form.Label>{t('Password')}</Form.Label>
+            <Form.Label>{t('customer:Password')}</Form.Label>
             <Form.Control
                 type="password"
                 name="password"
@@ -100,14 +100,14 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
                     disabled={isBusy}
                     className="btn btn-primary"
                 >
-                    {t('Login')}
+                    {t('customer:Login')}
                 </button>
                 <Button
                     variant="link"
                     className="forget-pass"
                     onClick={openForgotPassword}
                 >
-                    {t('Forgot your password?')}
+                    {t('customer:Forgot your password?')}
                 </Button>
             </div>
         </Form>

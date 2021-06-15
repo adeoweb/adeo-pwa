@@ -8,7 +8,7 @@ import { Link } from 'src/lib/drivers';
 import { useCartSummary } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartSummary';
 
 const CartSummary: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const {
         currencyCode,
         grandTotal,

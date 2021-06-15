@@ -9,7 +9,7 @@ type TAddToCompareProps = {
 };
 
 const AddToCompare: FunctionComponent<TAddToCompareProps> = ({ product }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { setProductHandler, isProductBeingCompared } = useProductCompare();
 
     const addProductToCompare = () => {

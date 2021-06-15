@@ -17,12 +17,21 @@ const CustomOptions: FunctionComponent<TProductCustomOptionsProps> = ({
     errors,
     touched
 }) => {
+    if (!customOptions.length) {
+        return null;
+    }
+
     const sortedOptions = customOptions.sort(optionSort);
 
     return (
         <Form noValidate>
             {sortedOptions.map(option => {
+                if (!option.option_id) {
+                    return null;
+                }
+
                 const Option = getOptionComponent(option);
+
                 const optionProps: TOptionProps = {
                     key: option.option_id.toString(),
                     option,

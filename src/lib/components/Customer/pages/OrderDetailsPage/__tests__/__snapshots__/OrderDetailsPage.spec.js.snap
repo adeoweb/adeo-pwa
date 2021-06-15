@@ -116,7 +116,7 @@ exports[`renders correctly 1`] = `
         type="button"
       >
         <div>
-          Goods (3)
+          order:Goods (3)
         </div>
         <svg
           className="customer-order-accordion-chevron"
@@ -157,7 +157,7 @@ exports[`renders correctly 1`] = `
                   <tbody>
                     <tr>
                       <th>
-                        Product code
+                        product:Product code
                       </th>
                       <td>
                         23188
@@ -176,7 +176,7 @@ exports[`renders correctly 1`] = `
                 <div
                   className="customer-order-product-description"
                 >
-                  Quantity
+                  product:Quantity
                 </div>
                 <div
                   className="customer-order-product-value"
@@ -190,7 +190,7 @@ exports[`renders correctly 1`] = `
                 <div
                   className="customer-order-product-description"
                 >
-                  Price with tax
+                  product:Price with tax
                 </div>
                 <div
                   className="customer-order-product-value customer-order-product-price"
@@ -216,7 +216,7 @@ exports[`renders correctly 1`] = `
                   <tbody>
                     <tr>
                       <th>
-                        Product code
+                        product:Product code
                       </th>
                       <td>
                         23187
@@ -235,7 +235,7 @@ exports[`renders correctly 1`] = `
                 <div
                   className="customer-order-product-description"
                 >
-                  Quantity
+                  product:Quantity
                 </div>
                 <div
                   className="customer-order-product-value"
@@ -249,7 +249,7 @@ exports[`renders correctly 1`] = `
                 <div
                   className="customer-order-product-description"
                 >
-                  Price with tax
+                  product:Price with tax
                 </div>
                 <div
                   className="customer-order-product-value customer-order-product-price"
@@ -275,7 +275,7 @@ exports[`renders correctly 1`] = `
                   <tbody>
                     <tr>
                       <th>
-                        Product code
+                        product:Product code
                       </th>
                       <td>
                         23161
@@ -294,7 +294,7 @@ exports[`renders correctly 1`] = `
                 <div
                   className="customer-order-product-description"
                 >
-                  Quantity
+                  product:Quantity
                 </div>
                 <div
                   className="customer-order-product-value"
@@ -308,7 +308,7 @@ exports[`renders correctly 1`] = `
                 <div
                   className="customer-order-product-description"
                 >
-                  Price with tax
+                  product:Price with tax
                 </div>
                 <div
                   className="customer-order-product-value customer-order-product-price"
@@ -334,7 +334,7 @@ exports[`renders correctly 1`] = `
         type="button"
       >
         <div>
-          Delivery information
+          order:Delivery Information
         </div>
         <svg
           className="customer-order-accordion-chevron"
@@ -368,7 +368,7 @@ exports[`renders correctly 1`] = `
               <div
                 className="customer-order-font-description"
               >
-                First Name, Last Name
+                customer:First Name, customer:Last Name
               </div>
               <div
                 className="customer-order-font-info"
@@ -382,7 +382,7 @@ exports[`renders correctly 1`] = `
               <div
                 className="customer-order-font-description"
               >
-                Email 
+                customer:Email
               </div>
               <div
                 className="customer-order-font-info"
@@ -396,7 +396,7 @@ exports[`renders correctly 1`] = `
               <div
                 className="customer-order-font-description"
               >
-                Phone Number
+                customer:Phone Number
               </div>
               <div
                 className="customer-order-font-info"
@@ -415,7 +415,7 @@ exports[`renders correctly 1`] = `
                 <div
                   className="customer-order-font-description"
                 >
-                  Address
+                  customer:Address
                 </div>
                 <div
                   className="customer-order-font-info"
@@ -429,7 +429,7 @@ exports[`renders correctly 1`] = `
                 <div
                   className="customer-order-font-description"
                 >
-                  Phone Number
+                  customer:Phone Number
                 </div>
                 <div
                   className="customer-order-font-info"
@@ -455,7 +455,7 @@ exports[`renders correctly 1`] = `
         type="button"
       >
         <div>
-          Payment information
+          order:Payment Information
         </div>
         <svg
           className="customer-order-accordion-chevron"
@@ -483,7 +483,7 @@ exports[`renders correctly 1`] = `
           <div
             className="customer-order-font-emphasised"
           >
-            Electronic banking and other methods
+            order:Electronic banking and other methods
           </div>
           <div
             className="customer-order-payment-customer"
@@ -494,7 +494,7 @@ exports[`renders correctly 1`] = `
               <div
                 className="customer-order-font-description"
               >
-                First Name, Last Name
+                customer:First Name, customer:Last Name
               </div>
               <div
                 className="customer-order-font-info"
@@ -508,7 +508,7 @@ exports[`renders correctly 1`] = `
               <div
                 className="customer-order-font-description"
               >
-                Email 
+                customer:Email
               </div>
               <div
                 className="customer-order-font-info"
@@ -522,7 +522,7 @@ exports[`renders correctly 1`] = `
               <div
                 className="customer-order-font-description"
               >
-                Phone Number
+                customer:Phone Number
               </div>
               <div
                 className="customer-order-font-info"
@@ -536,7 +536,7 @@ exports[`renders correctly 1`] = `
               <div
                 className="customer-order-font-description"
               >
-                Address
+                customer:Address
               </div>
               <div
                 className="customer-order-font-info"

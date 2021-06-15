@@ -10,7 +10,7 @@ import { useIsSignedIn } from 'src/peregrine/lib/talons/adeoweb/IsSignedIn/useIs
 import { useSignOut } from 'src/peregrine/lib/talons/adeoweb/SignOut/useSignOut';
 
 const LinkList: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'customer']);
 
     const { isSignedIn } = useIsSignedIn();
 
@@ -25,12 +25,12 @@ const LinkList: FunctionComponent = () => {
                 <ul>
                     <li>
                         <Link to={RouterRoutes.contact.url}>
-                            {t('Contact')}
+                            {t('common:Contact')}
                         </Link>
                     </li>
                     <li>
                         <Link to={RouterRoutes.loginPage.url}>
-                            {t('Login')}
+                            {t('customer:Login')}
                         </Link>
                     </li>
                 </ul>
@@ -38,17 +38,17 @@ const LinkList: FunctionComponent = () => {
                 <ul>
                     <li>
                         <Link to={RouterRoutes.customer.url}>
-                            {t('My account')}
+                            {t('customer:My Account')}
                         </Link>
                     </li>
                     <li>
                         <Link to={CustomerRoutes.wishlist.url}>
-                            {t('My wishlist')}
+                            {t('customer:My Wishlist')}
                         </Link>
                     </li>
                     <li>
                         <Link to={RouterRoutes.contact.url}>
-                            {t('Contact')}
+                            {t('common:Contact')}
                         </Link>
                     </li>
                     <li>
@@ -56,7 +56,7 @@ const LinkList: FunctionComponent = () => {
                             className="btn btn-link top-bar-button-link"
                             onClick={handleSignOut}
                         >
-                            {t('Log out')}
+                            {t('customer:Log out')}
                         </button>
                     </li>
                 </ul>

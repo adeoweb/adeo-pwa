@@ -7,7 +7,7 @@ import { Link } from 'src/lib/drivers';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 
 const AccountInfoPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['customer', 'common']);
     const [
         {
             currentUser: { firstname, lastname, email }
@@ -16,15 +16,15 @@ const AccountInfoPage: FunctionComponent = () => {
 
     return (
         <div>
-            <h3>{t('Account Information')}</h3>
+            <h3>{t('customer:Account Information')}</h3>
             <Card>
                 <Card.Header>
-                    {t('Contact Information')}
+                    {t('customer:Contact Information')}
                     <Link
                         to={CustomerRoutes.editCustomer.url}
                         className="card-edit"
                     >
-                        {t('Edit')}
+                        {t('common:Edit')}
                     </Link>
                 </Card.Header>
                 <Card.Body>
@@ -34,7 +34,7 @@ const AccountInfoPage: FunctionComponent = () => {
                         {email}
                         <br />
                         <Link to={CustomerRoutes.changePassword.url}>
-                            {t('Change Password')}
+                            {t('customer:Change Password')}
                         </Link>
                     </p>
                 </Card.Body>

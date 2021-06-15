@@ -14,7 +14,7 @@ const CompareProduct: FunctionComponent<TCompareProductProps> = ({
     product,
     removeHandler
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { name, url_key = '', url_suffix = '' } = product;
     const productUrl = `/${url_key}${url_suffix}`;
 

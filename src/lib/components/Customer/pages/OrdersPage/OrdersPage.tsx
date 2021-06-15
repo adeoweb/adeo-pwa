@@ -15,7 +15,7 @@ import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/use
 const OrdersPage: FunctionComponent = () => {
     // TODO: add pagination
 
-    const { t } = useTranslation();
+    const { t } = useTranslation(['order', 'customer']);
     const { outerWidth } = useWindowSize();
     const { addMessage } = useMessageCard();
     const { loadingOrders, ordersError, orders } = useCustomerOrders({
@@ -52,9 +52,9 @@ const OrdersPage: FunctionComponent = () => {
                         : 'customer-orders-title-desktop'
                 }
             >
-                {t('My Orders')}
+                {t('customer:My Orders')}
             </h3>
-            {noOrders && <p>{t('No Order yet.')}</p>}
+            {noOrders && <p>{t('order:No Order yet.')}</p>}
             {ordersAreValid && (
                 <OrdersContent
                     orders={orders}

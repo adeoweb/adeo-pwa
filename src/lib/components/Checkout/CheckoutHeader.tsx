@@ -6,7 +6,7 @@ import Logo from 'src/lib/components/Logo';
 import { Link } from 'src/lib/drivers';
 
 const CheckoutHeader: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('navigation');
 
     return (
         <Container className="checkout-header">

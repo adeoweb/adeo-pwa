@@ -16,7 +16,7 @@ const SearchField: FunctionComponent<TSearchFieldProps> = ({
     value,
     setFieldValue
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('search');
     useSearchField({ setFieldValue });
 
     return (

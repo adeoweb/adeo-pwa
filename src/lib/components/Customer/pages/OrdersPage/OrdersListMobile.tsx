@@ -9,7 +9,7 @@ const OrdersListMobile: FunctionComponent<IOrdersListProps> = ({
     orders,
     createDetailsUrl
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['order', 'common']);
 
     return (
         <Fragment>
@@ -32,7 +32,7 @@ const OrdersListMobile: FunctionComponent<IOrdersListProps> = ({
                             <table>
                                 <tbody>
                                     <tr>
-                                        <th>{t('Order No.')}</th>
+                                        <th>{t('order:Order No.')}</th>
                                         <td>
                                             <Link to={detailsUrl}>
                                                 {orderNumber}
@@ -40,11 +40,11 @@ const OrdersListMobile: FunctionComponent<IOrdersListProps> = ({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>{t('Status')}</th>
+                                        <th>{t('order:Status')}</th>
                                         <td>{status}</td>
                                     </tr>
                                     <tr>
-                                        <th>{t('Invoice')}</th>
+                                        <th>{t('order:Invoice')}</th>
                                         <td>
                                             <PdfIcons />
                                             {/* TODO: display link to file, with file name as title, when backend done */}
@@ -52,11 +52,11 @@ const OrdersListMobile: FunctionComponent<IOrdersListProps> = ({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>{t('Order Total')}</th>
+                                        <th>{t('order:Order Total')}</th>
                                         <td>{grandTotal}</td>
                                     </tr>
                                     <tr>
-                                        <th>{t('Date')}</th>
+                                        <th>{t('order:Date')}</th>
                                         <td>{createdAt}</td>
                                     </tr>
                                 </tbody>
@@ -65,7 +65,7 @@ const OrdersListMobile: FunctionComponent<IOrdersListProps> = ({
                                 to={detailsUrl}
                                 className="customer-orders-details"
                             >
-                                {t('Open')}
+                                {t('common:Open')}
                             </Link>
                         </div>
                     );

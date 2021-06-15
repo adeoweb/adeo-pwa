@@ -15,7 +15,7 @@ const AddToWishlist: FunctionComponent<TAddToWishlistProps> = ({
     product,
     handleNotLoggedIn
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const {
         handleAddToWishlist,
         handleRemoveFromWishlist,

@@ -176,7 +176,7 @@ export const useProductFullDetail = ({
     const [, { toggleDrawer }] = useAppContext();
     const [{ isAddingItem }, { addItemToCart }] = useCartContext();
     const [, { addMessage }] = useMessageCardContext();
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     const {
         customOptions,

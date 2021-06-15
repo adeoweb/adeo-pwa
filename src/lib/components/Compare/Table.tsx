@@ -10,7 +10,7 @@ interface ITableProps {
 }
 
 const Table: FunctionComponent<ITableProps> = ({ productData }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     return (
         <div className="columns">

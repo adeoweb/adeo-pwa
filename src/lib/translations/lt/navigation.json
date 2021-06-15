@@ -1,0 +1,12 @@
+{
+    "move to the previous page": "grįžti į ankstesnį puslapį",
+    "move to the next page": "eiti į kitą puslapį",
+    "< Back to homepage": "< Atgal į pagrindinį puslapį",
+    "Internal server error": "Vidinė serverio klaida",
+    "Sorry, there were some technical issues while processing your request.": "Apgailestaujame, apdorojant jūsų užklausą kilo techninių problemų.",
+    "We will try to fix this as fast as possible.": "Mes stengsimės tai išspręsti kuo greičiau.",
+    "The page you are looking for could not be found": "Jūsų ieškomo puslapio nepavyko rasti",
+    "This page does not exist or has been removed.": "Šio puslapio nėra arba jis buvo pašalintas.",
+    "Previous page": "Ankstesnis puslapis",
+    "Take me home": "Eiti į pagrindinį"
+}

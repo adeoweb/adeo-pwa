@@ -14,7 +14,7 @@ import { useCustomerOrders } from 'src/peregrine/lib/talons/adeoweb/Customer/use
 import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
 
 const OrderDetailsPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const location = useLocation();
     const history = useHistory();
     const { addMessage } = useMessageCard();

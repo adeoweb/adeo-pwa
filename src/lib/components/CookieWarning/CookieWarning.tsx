@@ -8,7 +8,7 @@ import { useCookieWarning } from 'src/peregrine/lib/talons/adeoweb/CookieWarning
 import defaultClasses from './CookieWarning.scss';
 
 const CookieWarning: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
     const { allowCookies, handleAllowCookiesClick } = useCookieWarning();
 

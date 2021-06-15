@@ -21,7 +21,7 @@ import { useShippingStep } from 'src/peregrine/lib/talons/adeoweb/Checkout/useSh
 
 const Shipping: FunctionComponent = () => {
     const NEXT_STEP_URL = CheckoutRoutes.payment.url;
-    const { t } = useTranslation();
+    const { t } = useTranslation(['address', 'common']);
     const history = useHistory();
 
     const redirectToNext = useCallback(() => {
@@ -63,7 +63,7 @@ const Shipping: FunctionComponent = () => {
                     <ul className="checkout-steps">
                         <li>
                             <h2 className="step-title">
-                                {t('Shipping Address')}
+                                {t('address:Shipping Address')}
                             </h2>
                             {isSignedIn ? (
                                 <LoggedInUserForm
@@ -77,7 +77,7 @@ const Shipping: FunctionComponent = () => {
                             <li>
                                 <div className="checkout-step-shipping">
                                     <h2 className="step-title">
-                                        {t('Shipping Methods')}
+                                        {t('address:Shipping Methods')}
                                     </h2>
                                     <ShippingMethods
                                         items={availableShippingMethods}
@@ -101,7 +101,7 @@ const Shipping: FunctionComponent = () => {
                             disabled={!isNextEnabled}
                             onClick={handleNext}
                         >
-                            {t('Next')}
+                            {t('common:Next')}
                         </Button>
                     </div>
                 </Col>

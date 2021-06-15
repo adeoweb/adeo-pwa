@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const reviewsTitle: string = 'Reviews';
+const reviewsTitle = 'Reviews';
 
 const ReviewsContent: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     return (
         <div className="product-reviews-content">

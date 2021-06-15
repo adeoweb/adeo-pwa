@@ -1,12 +1,13 @@
+import { TFuncKey } from 'react-i18next';
+
 interface IErrorMessages {
-    [key: string]: string;
+    [key: string]: TFuncKey<'validations'>;
 }
 
 export const errorMessages: IErrorMessages = {
-    email: 'Please enter a valid email address (Ex: johndoe@domain.com).',
-    password:
-        'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case character.',
-    passwordMatch: 'Passwords must match.',
-    required: 'A required field.',
+    email: 'invalid-email',
+    password: 'invalid-password',
+    passwordMatch: 'passwords-match',
+    required: 'required-field',
     max: 'Maximum number of characters:'
 };

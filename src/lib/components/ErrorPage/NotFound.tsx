@@ -7,7 +7,7 @@ type TNotFoundProps = {
 };
 
 const NotFound: FunctionComponent<TNotFoundProps> = ({ goHome }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('navigation');
 
     return (
         <Container className="error-page-wrapper">
