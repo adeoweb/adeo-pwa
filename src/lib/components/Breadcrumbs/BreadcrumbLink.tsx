@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
+import { TFuncKey, useTranslation } from 'react-i18next';
 
 import { Link, resourceUrl } from 'src/lib/drivers';
 
@@ -12,9 +12,9 @@ const BreadcrumbsLink: FunctionComponent<TBreadcrumbLinkProps> = ({
     text,
     path
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
-    return <Link to={resourceUrl(path)}>{t(text)}</Link>;
+    return <Link to={resourceUrl(path)}>{t(text as TFuncKey<'common'>)}</Link>;
 };
 
 export default BreadcrumbsLink;

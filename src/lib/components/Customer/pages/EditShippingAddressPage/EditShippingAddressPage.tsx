@@ -11,7 +11,7 @@ import UPDATE_CUSTOMER_ADDRESS_MUTATION from 'src/lib/queries/updateCustomerAddr
 import { useEditCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/Customer/useEditCustomerAddress';
 
 const EditShippingAddressPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'address']);
     const history = useHistory();
 
     const goBack = useCallback(() => {
@@ -47,9 +47,9 @@ const EditShippingAddressPage: FunctionComponent = () => {
         <div>
             <Button variant="link" className="px-0 mb-2" onClick={goBack}>
                 <i className="fas fa-arrow-left mr-2" />
-                {t('Back')}
+                {t('common:Back')}
             </Button>
-            <h3>{t('Edit shipping info')}</h3>
+            <h3>{t('address:Edit shipping info')}</h3>
             <CustomerAddressForm
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
@@ -66,14 +66,14 @@ const EditShippingAddressPage: FunctionComponent = () => {
                 className="mr-4"
                 onClick={goBack}
             >
-                {t('Cancel')}
+                {t('common:Cancel')}
             </Button>
             <Button
                 variant="primary"
                 disabled={!isValid || isUpdatingAddress}
                 onClick={() => handleSubmit()}
             >
-                {t('Save')}
+                {t('common:Save')}
             </Button>
         </div>
     );

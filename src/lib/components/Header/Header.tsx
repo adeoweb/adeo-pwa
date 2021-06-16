@@ -14,7 +14,7 @@ import CREATE_CART_MUTATION from '../../queries/createCart.graphql';
 import GET_CART_DETAILS_QUERY from '../../queries/getCartDetails.graphql';
 import TopBar from './TopBar';
 
-const Header = () => {
+const Header = (): JSX.Element => {
     const { handleSearchTriggerClick, searchOpen } = useHeader();
     const { handleOpenNavigation } = useNavigationTrigger();
 

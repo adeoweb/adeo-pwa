@@ -39,7 +39,7 @@ const AddressSelect: FunctionComponent<TAddressSelectProps> = ({
     isForBilling = false,
     isForShipping = false
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'address']);
     const [showAddAddress, setShowAddAddress] = useState(false);
     const fetchUserDetails = useAwaitQuery<TCustomer, OperationVariables>(
         GET_CUSTOMER_QUERY
@@ -131,7 +131,7 @@ const AddressSelect: FunctionComponent<TAddressSelectProps> = ({
                         selectedAddressId={selectedAddressId}
                     />
                     <Button onClick={showAddAddressForm}>
-                        {t('Add new address')}
+                        {t('address:Add new address')}
                     </Button>
                 </Fragment>
             )}
@@ -155,14 +155,14 @@ const AddressSelect: FunctionComponent<TAddressSelectProps> = ({
                             disabled={!isValid || !isDirty || isCreatingAddress}
                             onClick={() => handleSubmit()}
                         >
-                            {t('Submit')}
+                            {t('common:Submit')}
                         </Button>
                         {addresses.length > 0 && (
                             <Button
                                 variant="secondary"
                                 onClick={hideAddAddressForm}
                             >
-                                {t('Cancel')}
+                                {t('common:Cancel')}
                             </Button>
                         )}
                     </div>

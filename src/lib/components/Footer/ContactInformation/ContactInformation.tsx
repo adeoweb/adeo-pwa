@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useFooterContact } from 'src/peregrine/lib/talons/adeoweb/Footer/useFooterContact';
 
 const ContactInformation: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['customer', 'address', 'common']);
     const { storeAddress, storePhone, storeEmail, storeWorkingHours } =
         useFooterContact();
 
@@ -15,7 +15,7 @@ const ContactInformation: FunctionComponent = () => {
                     {storeAddress && (
                         <li>
                             <span className="contact-info-label">
-                                {t('Address')}:
+                                {t('customer:Address')}:
                             </span>
                             {storeAddress}
                         </li>
@@ -23,15 +23,16 @@ const ContactInformation: FunctionComponent = () => {
                     {storePhone && (
                         <li>
                             <span className="contact-info-label">
-                                {t('Phone')}:
+                                {t('customer:Phone')}:
                             </span>
-                            {t('Toll Free')} <a href="tel:">{storePhone}</a>
+                            {t('common:Toll Free')}{' '}
+                            <a href="tel:">{storePhone}</a>
                         </li>
                     )}
                     {storeEmail && (
                         <li>
                             <span className="contact-info-label">
-                                {t('Email')}:
+                                {t('customer:Email')}:
                             </span>{' '}
                             <a href="mailto:mail@example.com">{storeEmail}</a>
                         </li>
@@ -39,7 +40,7 @@ const ContactInformation: FunctionComponent = () => {
                     {storeWorkingHours && (
                         <li>
                             <span className="contact-info-label">
-                                {t('Working Days/Hours')}:
+                                {t('common:Working Days/Hours')}:
                             </span>
                             {storeWorkingHours}
                         </li>

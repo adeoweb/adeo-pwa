@@ -8,7 +8,7 @@ import pdfIcon from 'src/lib/assets/icons/pdf.svg';
 import defaultClasses from './InvoicesPage.scss';
 
 const InvoicesPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
 
     return (
         <div>

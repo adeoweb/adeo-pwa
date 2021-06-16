@@ -12,7 +12,7 @@ const ProductFilterRadio: FunctionComponent<TProductFilterProps> = ({
     setOptions
 }) => {
     const options = filterOutNullableValues(filter?.options);
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const selectValue = useCallback(
         (value: string) => {
             setOptions([value]);

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Button, Table } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
+import { TFuncKey, useTranslation } from 'react-i18next';
 
 import { Price } from '@magento/peregrine';
 
@@ -26,7 +26,7 @@ const PricingSummary: FunctionComponent<TPricingSummary> = ({
     isPlaceOrderEnabled,
     onPlaceOrder
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const subtotal =
         prices.subtotal_excluding_tax && prices.subtotal_excluding_tax.value
             ? prices.subtotal_excluding_tax.value
@@ -58,7 +58,7 @@ const PricingSummary: FunctionComponent<TPricingSummary> = ({
                                 amount.value && (
                                     <tr>
                                         <td className="align-middle">
-                                            {t(label)}
+                                            {t(label as TFuncKey<'order'>)}
                                         </td>
                                         <td className="price-col">
                                             <Price
@@ -74,7 +74,7 @@ const PricingSummary: FunctionComponent<TPricingSummary> = ({
                                 amount.value && (
                                     <tr>
                                         <td className="align-middle">
-                                            {t(label)}
+                                            {t(label as TFuncKey<'order'>)}
                                         </td>
                                         <td className="price-col">
                                             <Price

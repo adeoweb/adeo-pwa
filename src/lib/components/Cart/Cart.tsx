@@ -9,7 +9,7 @@ import LoadingIndicator from 'src/lib/components/LoadingIndicator';
 import { useCart } from 'src/peregrine/lib/talons/adeoweb/Cart/useCart';
 
 const Cart: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const {
         items,
         currencyCode,

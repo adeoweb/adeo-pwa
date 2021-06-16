@@ -102,7 +102,7 @@ exports[`Footer component renders correctly 1`] = `
                 <span
                   className="contact-info-label"
                 >
-                  Address
+                  customer:Address
                   :
                 </span>
                 Mocked store address
@@ -111,10 +111,10 @@ exports[`Footer component renders correctly 1`] = `
                 <span
                   className="contact-info-label"
                 >
-                  Phone
+                  customer:Phone
                   :
                 </span>
-                Toll Free
+                common:Toll Free
                  
                 <a
                   href="tel:"
@@ -126,7 +126,7 @@ exports[`Footer component renders correctly 1`] = `
                 <span
                   className="contact-info-label"
                 >
-                  Email
+                  customer:Email
                   :
                 </span>
                  
@@ -140,7 +140,7 @@ exports[`Footer component renders correctly 1`] = `
                 <span
                   className="contact-info-label"
                 >
-                  Working Days/Hours
+                  common:Working Days/Hours
                   :
                 </span>
                 Mocked store workingHours

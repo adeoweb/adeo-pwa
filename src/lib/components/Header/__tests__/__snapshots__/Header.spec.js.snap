@@ -197,14 +197,14 @@ exports[`Renders correctly 1`] = `
                   className="action-link"
                   onClick={[Function]}
                 >
-                  Clear All
+                  product:Clear All
                 </button>
                 <a
                   className="btn btn-primary"
                   href="/catalog/product_compare/index"
                   onClick={[Function]}
                 >
-                  Compare
+                  common:Compare
                 </a>
               </div>
             </div>
@@ -237,7 +237,7 @@ exports[`Renders correctly 1`] = `
                   href="/contactus"
                   onClick={[Function]}
                 >
-                  Contact
+                  common:Contact
                 </a>
               </li>
               <li>
@@ -245,7 +245,7 @@ exports[`Renders correctly 1`] = `
                   href="/customer/login"
                   onClick={[Function]}
                 >
-                  Login
+                  customer:Login
                 </a>
               </li>
             </ul>
@@ -417,13 +417,13 @@ exports[`Renders correctly 1`] = `
                 <span>
                   1
                    
-                  Items
+                  product:Items
                 </span>
                 <a
                   href="/cart"
                   onClick={[Function]}
                 >
-                  View Cart
+                  order:View Cart
                 </a>
               </div>
               <div
@@ -527,7 +527,7 @@ exports[`Renders correctly 1`] = `
                 className="dropdown-cart-total"
               >
                 <span>
-                  Total
+                  order:Total
                 </span>
                 <span
                   className="cart-total-price"
@@ -554,7 +554,7 @@ exports[`Renders correctly 1`] = `
                   href="/checkout"
                   onClick={[Function]}
                 >
-                  Checkout
+                  order:Checkout
                 </a>
               </div>
             </div>

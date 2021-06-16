@@ -12,9 +12,10 @@ import UPDATE_CUSTOMER_ADDRESS_MUTATION from 'src/lib/queries/updateCustomerAddr
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { useDeleteCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/Customer/useDeleteCustomerAddress';
 import { useSetDefaultCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/Customer/useSetDefaultCustomerAddress';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const ShippingInfoPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['address', 'common']);
     const history = useHistory();
     const { isDeletingAddress, deleteCustomerAddress } =
         useDeleteCustomerAddress({
@@ -28,9 +29,11 @@ const ShippingInfoPage: FunctionComponent = () => {
         });
     const [
         {
-            currentUser: { addresses = [] }
+            currentUser: { addresses }
         }
     ] = useUserContext();
+
+    const customerAddresses = filterOutNullableValues(addresses);
 
     const handleAdd = useCallback(() => {
         history.push(CustomerRoutes.addShipping.url);
@@ -46,7 +49,7 @@ const ShippingInfoPage: FunctionComponent = () => {
     return (
         <div>
             {(isUpdatingAddress || isDeletingAddress) && <LoadingIndicator />}
-            <h3>{t('Shipping information')}</h3>
+            <h3>{t('address:Shipping Information')}</h3>
             <Button
                 variant="primary"
                 size="sm"
@@ -54,12 +57,12 @@ const ShippingInfoPage: FunctionComponent = () => {
                 className="mb-2"
             >
                 <i className="fas fa-plus" />
-                {t('Add')}
+                {t('common:Add')}
             </Button>
 
             <Row>
-                {addresses.length ? (
-                    addresses.map(address => {
+                {customerAddresses.length ? (
+                    customerAddresses.map(address => {
                         const {
                             id,
                             default_shipping: defaultShipping,
@@ -83,7 +86,7 @@ const ShippingInfoPage: FunctionComponent = () => {
                     })
                 ) : (
                     <p className="text-center">
-                        {t('No shipping information')}
+                        {t('address:No shipping information')}
                     </p>
                 )}
             </Row>

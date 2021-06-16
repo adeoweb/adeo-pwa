@@ -1,10 +1,7 @@
+import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-import { useTranslation } from 'react-i18next';
-
 export const useContactForm = ({ initialValues = {} }) => {
-    const { t } = useTranslation();
-
     const handleFormSubmit = values => {
         console.log(values);
     };

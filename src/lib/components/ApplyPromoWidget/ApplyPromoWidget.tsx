@@ -9,7 +9,7 @@ import REMOVE_COUPON_FROM_CART_MUTATION from 'src/lib/queries/removeCouponFromCa
 import { useCoupon } from 'src/peregrine/lib/talons/adeoweb/Cart/useCoupon';
 
 const ApplyPromoWidget: React.FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const [isOpen, setIsOpen] = useState(false);
     const {
         appliedCouponCode,

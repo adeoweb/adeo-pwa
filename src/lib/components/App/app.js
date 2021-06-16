@@ -1,6 +1,6 @@
 import { array, func, shape, string } from 'prop-types';
 
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, Suspense } from 'react';
 import {
     AlertCircle as AlertCircleIcon,
     CloudOff as CloudOffIcon,
@@ -172,22 +172,24 @@ const App = props => {
 
     return (
         <HeadProvider>
-            <Title>{`Home Page - ${STORE_NAME}`}</Title>
-            <Switch>
-                <Route path={rootCheckoutRoute} component={Checkout} />
-                <Main isMasked={hasOverlay}>
-                    <Routes />
-                </Main>
-            </Switch>
-            <Mask isActive={hasOverlay} dismiss={handleCloseDrawer} />
-            <CustomerModal
-                handleClose={hideCustomerModal}
-                modalType={customerModalType}
-            />
-            <MobileMenu />
-            <ToastContainer />
-            <LoadingOverlay />
-            <CookieWarning />
+            <Suspense fallback={<LoadingOverlay />}>
+                <Title>{`Home Page - ${STORE_NAME}`}</Title>
+                <Switch>
+                    <Route path={rootCheckoutRoute} component={Checkout} />
+                    <Main isMasked={hasOverlay}>
+                        <Routes />
+                    </Main>
+                </Switch>
+                <Mask isActive={hasOverlay} dismiss={handleCloseDrawer} />
+                <CustomerModal
+                    handleClose={hideCustomerModal}
+                    modalType={customerModalType}
+                />
+                <MobileMenu />
+                <ToastContainer />
+                <LoadingOverlay />
+                <CookieWarning />
+            </Suspense>
         </HeadProvider>
     );
 };

@@ -20,7 +20,7 @@ const DeleteAccountModal: FunctionComponent<TDeleteAccountModalProps> = ({
     modalProps,
     close
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'customer']);
     const validationSchema = yup.object({
         password: yup.string().required()
     });
@@ -61,16 +61,18 @@ const DeleteAccountModal: FunctionComponent<TDeleteAccountModalProps> = ({
     return (
         <Modal {...modalProps} size="sm">
             <Modal.Header closeButton={true}>
-                <h4>{t('Are you sure you want to delete account?')}</h4>
+                <h4>
+                    {t('customer:Are you sure you want to delete account?')}
+                </h4>
             </Modal.Header>
             <Modal.Body>
                 <p>
                     {t(
-                        'Deleting your account will result in the loss of all order information, invoices, and other account information.'
+                        'customer:Deleting your account will result in the loss of all order information, invoices, and other account information.'
                     )}
                 </p>
                 <Form.Group>
-                    <Form.Label>{t('Password')}</Form.Label>
+                    <Form.Label>{t('customer:Password')}</Form.Label>
                     <PasswordField
                         name="password"
                         value={values.password}
@@ -88,10 +90,10 @@ const DeleteAccountModal: FunctionComponent<TDeleteAccountModalProps> = ({
                     disabled={!isValid}
                     onClick={() => handleSubmit()}
                 >
-                    {t('Delete account')}
-                </Button>{' '}
+                    {t('customer:Delete account')}
+                </Button>
                 <Button variant="outline-primary" onClick={close}>
-                    {t('Cancel')}
+                    {t('common:Cancel')}
                 </Button>
             </Modal.Footer>
         </Modal>

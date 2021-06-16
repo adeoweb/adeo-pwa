@@ -8,7 +8,7 @@ import { createYupSchema } from 'src/lib/util/createYupSchema';
 import { errorMessages } from 'src/lib/util/errorMessages';
 
 export const useCustomProduct = ({ product }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('validations');
     const { options, price_range: priceRange } = product;
     const initialValues = {};
     const customOptions = options || [];

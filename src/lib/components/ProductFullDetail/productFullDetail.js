@@ -40,7 +40,7 @@ const CustomOptions = React.lazy(() => import('../CustomOptions'));
 
 const ProductFullDetail = props => {
     const { product } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const [, { setCustomerModal }] = useAppContext();
     const { addMessage, clearAllMessages } = useMessageCard();
     const talonProps = useProductFullDetail({

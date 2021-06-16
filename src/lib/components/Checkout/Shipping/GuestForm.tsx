@@ -18,7 +18,7 @@ type TGuestFormProps = {
 };
 
 const GuestForm: FunctionComponent<TGuestFormProps> = ({ onSubmit }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const [, { setCustomerModal }] = useAppContext();
     const [
         {

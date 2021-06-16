@@ -17,7 +17,7 @@ type TProductSortProps = {
 const ProductsSort: FunctionComponent<TProductSortProps> = ({
     sortControl
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { field, dir, setSort } = sortControl;
     const sortOptions = new Map<ProductSortFields, string>()
         .set(DEFAULT_PRODUCT_SORT_FIELD, t('Default sorting'))

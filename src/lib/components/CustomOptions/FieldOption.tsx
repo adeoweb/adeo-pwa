@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Form } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
+import { TFuncKey, useTranslation } from 'react-i18next';
 
 import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsTypes';
 import { getOptionPriceText } from 'src/lib/components/CustomOptions/utils/getOptionPriceText';
@@ -14,19 +14,28 @@ const FieldOption: FunctionComponent<TOptionProps> = ({
     error,
     touched
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { currencyCode } = useCurrency();
     const {
         title,
         option_id: optionId,
         required: isRequired,
-        fieldValue: { price = 0, price_type: priceType }
+        value: fieldValue
     } = option;
+
+    if (!optionId) {
+        return null;
+    }
+
     const controlEvents = {
         onChange: handleChange,
         onBlur: handleBlur
     };
-    const priceText = getOptionPriceText(price, priceType, currencyCode);
+    const priceText = getOptionPriceText(
+        fieldValue?.price,
+        fieldValue?.price_type,
+        currencyCode
+    );
 
     return (
         <Form.Group
@@ -36,7 +45,7 @@ const FieldOption: FunctionComponent<TOptionProps> = ({
             controlId={optionId.toString()}
         >
             <Form.Label>
-                {t(title)}
+                {t(title as TFuncKey<'product'>)}
                 {priceText}
             </Form.Label>
             <Form.Control

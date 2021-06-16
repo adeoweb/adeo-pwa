@@ -6,7 +6,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 const Newsletter: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const schema = yup.object({
         email: yup.string().required().email()
     });

@@ -28,7 +28,7 @@ type TGetAttributeValue = (
 ) => string | React.ReactNode;
 
 const Attributes: FunctionComponent<IAttributesProps> = ({ productData }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     if (!productData) {
         return null;

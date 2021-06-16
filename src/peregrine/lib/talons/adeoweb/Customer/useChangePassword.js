@@ -13,7 +13,7 @@ import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useChangePassword = props => {
     const { changePasswordMutation } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('validations');
     const validationSchema = yup.object({
         currentPassword: yup.string().required(),
         newPassword: yup

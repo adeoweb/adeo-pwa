@@ -13,7 +13,7 @@ const InfoBox: FunctionComponent<TInfoBoxProps> = ({
     editRoute,
     children
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
     return (
         <div className="checkout-info-box">

@@ -34,7 +34,7 @@ exports[`Contact page renders correctly 1`] = `
             className="light-title"
           >
             <strong>
-              Contact Us
+              common:Contact Us
             </strong>
           </h2>
           <form
@@ -48,7 +48,7 @@ exports[`Contact page renders correctly 1`] = `
               <label
                 className="form-label"
               >
-                Name
+                customer:Name
               </label>
               <input
                 className="form-control"
@@ -67,7 +67,7 @@ exports[`Contact page renders correctly 1`] = `
               <label
                 className="form-label"
               >
-                Email
+                customer:Email
               </label>
               <input
                 className="form-control"
@@ -86,7 +86,7 @@ exports[`Contact page renders correctly 1`] = `
               <label
                 className="form-label"
               >
-                Phone Number
+                customer:Phone Number
               </label>
               <input
                 className="form-control"
@@ -104,7 +104,7 @@ exports[`Contact page renders correctly 1`] = `
               <label
                 className="form-label"
               >
-                What’s on your mind?
+                customer:What’s on your mind?
               </label>
               <textarea
                 className="form-control"
@@ -123,7 +123,7 @@ exports[`Contact page renders correctly 1`] = `
               disabled={false}
               type="submit"
             >
-              Submit
+              common:Submit
             </button>
           </form>
         </div>

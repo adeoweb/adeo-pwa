@@ -31,7 +31,7 @@ const CartItem: FunctionComponent<TCartItemProps> = ({
     endEditItem,
     isUpdatingItem
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['product', 'common']);
     const {
         handleRemoveItem,
         isLoading: isRemovingItem,
@@ -120,11 +120,13 @@ const CartItem: FunctionComponent<TCartItemProps> = ({
                         {/*</a>*/}
                         <button
                             className="btn-remove btn btn-link"
-                            title={t('Remove Product')}
+                            title={t('product:Remove Product')}
                             onClick={handleRemoveItem}
                             disabled={isDisabled}
                         >
-                            <span className="sr-only">{t('Remove')}</span>
+                            <span className="sr-only">
+                                {t('common:Remove')}
+                            </span>
                         </button>
                     </div>
                 </td>

@@ -7,10 +7,10 @@ interface IDescriptionProps {
     description: string;
 }
 
-const descriptionTitle: string = 'Description';
+const descriptionTitle = 'Description';
 
 const Description: FunctionComponent<IDescriptionProps> = ({ description }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     const fallback = t('Description not available');
 

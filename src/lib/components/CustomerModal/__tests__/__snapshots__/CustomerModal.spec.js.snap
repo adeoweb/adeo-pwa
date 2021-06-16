@@ -75,7 +75,7 @@ exports[`Non empty CustomerModal component renders correctly 1`] = `
       <label
         className="form-label"
       >
-        Email
+        customer:Email
       </label>
       <input
         className="form-control"
@@ -91,7 +91,7 @@ exports[`Non empty CustomerModal component renders correctly 1`] = `
       <label
         className="form-label"
       >
-        Password
+        customer:Password
       </label>
       <input
         className="form-control"
@@ -112,7 +112,7 @@ exports[`Non empty CustomerModal component renders correctly 1`] = `
           disabled={false}
           type="submit"
         >
-          Login
+          customer:Login
         </button>
         <button
           className="forget-pass btn btn-link"
@@ -120,7 +120,7 @@ exports[`Non empty CustomerModal component renders correctly 1`] = `
           onClick={[Function]}
           type="button"
         >
-          Forgot your password?
+          customer:Forgot your password?
         </button>
       </div>
     </form>

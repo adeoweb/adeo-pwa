@@ -9,7 +9,7 @@ interface IProductsProps {
 }
 
 const ProductsTable: FunctionComponent<IProductsProps> = ({ productData }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     if (!productData) {
         return null;

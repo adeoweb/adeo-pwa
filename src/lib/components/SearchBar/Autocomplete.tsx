@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
+import { TFuncKey, useTranslation } from 'react-i18next';
 
 import Suggestions from 'src/lib/components/SearchBar/Suggestions';
 import { useAutocomplete } from 'src/peregrine/lib/talons/adeoweb/SearchBar/useAutocomplete';
@@ -23,14 +23,14 @@ const Autocomplete: FunctionComponent<TAutocompleteProps> = ({
     visible,
     searchValue
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const { messageType, products } = useAutocomplete({
         query: PRODUCT_SEARCH,
         visible,
         value: searchValue
     });
     const wrapperClass = `autocomplete-suggestions${visible ? ' show' : ''}`;
-    const message = t(MESSAGES.get(messageType));
+    const message = t(MESSAGES.get(messageType) as TFuncKey<'order'>);
 
     return (
         <div className={wrapperClass}>

@@ -12,7 +12,7 @@ interface IDetailsDeliveryProps {
 const DetailsDelivery: FunctionComponent<IDetailsDeliveryProps> = ({
     shippingAddress
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['customer', 'order']);
     const [{ currentUser }] = useUserContext();
 
     if (!shippingAddress) {
@@ -34,25 +34,27 @@ const DetailsDelivery: FunctionComponent<IDetailsDeliveryProps> = ({
 
     return (
         <DetailsAccordion
-            title={t('Delivery information')}
+            title={t('order:Delivery Information')}
             contentContainerClass="customer-order-delivery"
         >
             <div className="customer-order-delivery-recipient">
                 <div className="customer-order-delivery-info-block">
                     <div className="customer-order-font-description">
-                        {`${t('First Name')}, ${t('Last Name')}`}
+                        {`${t('customer:First Name')}, ${t(
+                            'customer:Last Name'
+                        )}`}
                     </div>
                     <div className="customer-order-font-info">{`${firstname} ${lastname}`}</div>
                 </div>
                 <div className="customer-order-delivery-info-block">
                     <div className="customer-order-font-description">
-                        {t('Email ')}
+                        {t('customer:Email')}
                     </div>
                     <div className="customer-order-font-info">{email}</div>
                 </div>
                 <div className="customer-order-delivery-info-block">
                     <div className="customer-order-font-description">
-                        {t('Phone Number')}
+                        {t('customer:Phone Number')}
                     </div>
                     <div className="customer-order-font-info">{telephone}</div>
                 </div>
@@ -66,7 +68,7 @@ const DetailsDelivery: FunctionComponent<IDetailsDeliveryProps> = ({
                 <div className="customer-order-delivery-location">
                     <div className="customer-order-delivery-info-block">
                         <div className="customer-order-font-description">
-                            {t('Address')}
+                            {t('customer:Address')}
                         </div>
                         <div className="customer-order-font-info">
                             {`${customerStreet}, ${customerCity}, ${customerPostcode}`}
@@ -74,7 +76,7 @@ const DetailsDelivery: FunctionComponent<IDetailsDeliveryProps> = ({
                     </div>
                     <div className="customer-order-delivery-info-block">
                         <div className="customer-order-font-description">
-                            {t('Phone Number')}
+                            {t('customer:Phone Number')}
                         </div>
                         {customerNotes && (
                             <div className="customer-order-font-info">

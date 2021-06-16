@@ -10,7 +10,7 @@ import CHANGE_PASSWORD_MUTATION from 'src/lib/queries/changePassword.graphql';
 import { useChangePassword } from 'src/peregrine/lib/talons/adeoweb/Customer/useChangePassword';
 
 const ChangePasswordPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'customer']);
     const history = useHistory();
 
     const goBack = useCallback(() => {
@@ -49,13 +49,13 @@ const ChangePasswordPage: FunctionComponent = () => {
             {isChangingPassword && <LoadingIndicator />}
             <Button variant="link" className="px-0 mb-2" onClick={goBack}>
                 <i className="fas fa-arrow-left mr-2" />
-                {t('Back')}
+                {t('common:Back')}
             </Button>
-            <h3>{t('Change Password')}</h3>
+            <h3>{t('customer:Change Password')}</h3>
 
             <Form noValidate onSubmit={handleSubmit}>
                 <Form.Group className="required-field">
-                    <Form.Label>{t('Current password')}</Form.Label>
+                    <Form.Label>{t('customer:Current password')}</Form.Label>
                     <PasswordField
                         name="currentPassword"
                         value={values.currentPassword}
@@ -73,7 +73,7 @@ const ChangePasswordPage: FunctionComponent = () => {
                 </Form.Group>
 
                 <Form.Group className="required-field">
-                    <Form.Label>{t('New password')}</Form.Label>
+                    <Form.Label>{t('customer:New password')}</Form.Label>
                     <PasswordField
                         name="newPassword"
                         value={values.newPassword}
@@ -88,7 +88,7 @@ const ChangePasswordPage: FunctionComponent = () => {
                 </Form.Group>
 
                 <Form.Group className="required-field">
-                    <Form.Label>{t('Repeat new password')}</Form.Label>
+                    <Form.Label>{t('customer:Repeat new password')}</Form.Label>
                     <PasswordField
                         name="passwordConfirmation"
                         value={values.passwordConfirmation}
@@ -111,14 +111,14 @@ const ChangePasswordPage: FunctionComponent = () => {
                 className="mr-4"
                 onClick={goBack}
             >
-                {t('Cancel')}
+                {t('common:Cancel')}
             </Button>
             <Button
                 variant="primary"
                 disabled={!isDirty || !isValid}
                 onClick={() => handleSubmit()}
             >
-                {t('Save')}
+                {t('common:Save')}
             </Button>
         </div>
     );

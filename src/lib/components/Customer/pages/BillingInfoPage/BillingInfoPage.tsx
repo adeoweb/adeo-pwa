@@ -12,9 +12,10 @@ import UPDATE_CUSTOMER_ADDRESS_MUTATION from 'src/lib/queries/updateCustomerAddr
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { useDeleteCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/Customer/useDeleteCustomerAddress';
 import { useSetDefaultCustomerAddress } from 'src/peregrine/lib/talons/adeoweb/Customer/useSetDefaultCustomerAddress';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const BillingInfoPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'address']);
     const history = useHistory();
     const { isDeletingAddress, deleteCustomerAddress } =
         useDeleteCustomerAddress({
@@ -28,9 +29,11 @@ const BillingInfoPage: FunctionComponent = () => {
         });
     const [
         {
-            currentUser: { addresses = [] }
+            currentUser: { addresses }
         }
     ] = useUserContext();
+
+    const customerAddresses = filterOutNullableValues(addresses);
 
     const handleAdd = useCallback(() => {
         history.push(CustomerRoutes.addBilling.url);
@@ -46,7 +49,7 @@ const BillingInfoPage: FunctionComponent = () => {
     return (
         <div>
             {(isUpdatingAddress || isDeletingAddress) && <LoadingIndicator />}
-            <h3>{t('Billing information')}</h3>
+            <h3>{t('address:Billing information')}</h3>
             <Button
                 variant="primary"
                 size="sm"
@@ -54,12 +57,12 @@ const BillingInfoPage: FunctionComponent = () => {
                 className="mb-2"
             >
                 <i className="fas fa-plus" />
-                {t('Add')}
+                {t('common:Add')}
             </Button>
 
             <Row>
-                {addresses.length ? (
-                    addresses.map(address => {
+                {customerAddresses.length ? (
+                    customerAddresses.map(address => {
                         const {
                             id,
                             default_shipping: defaultShipping,
@@ -82,7 +85,9 @@ const BillingInfoPage: FunctionComponent = () => {
                         );
                     })
                 ) : (
-                    <p className="text-center">{t('No billing information')}</p>
+                    <p className="text-center">
+                        {t('address:No billing information')}
+                    </p>
                 )}
             </Row>
         </div>

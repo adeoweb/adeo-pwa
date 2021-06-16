@@ -13,7 +13,7 @@ interface IRelatedProductsSectionProps {
 
 const RelatedProductsSection: FunctionComponent<IRelatedProductsSectionProps> =
     ({ items }) => {
-        const { t } = useTranslation();
+        const { t } = useTranslation('product');
 
         if (!items.length) {
             return null;

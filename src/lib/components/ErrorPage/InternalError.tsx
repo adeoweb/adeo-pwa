@@ -11,7 +11,7 @@ const InternalError: FunctionComponent<TInternalErrorProps> = ({
     goBack,
     goHome
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('navigation');
 
     return (
         <Container className="error-page-wrapper">

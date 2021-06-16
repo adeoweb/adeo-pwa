@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
 import {
@@ -13,8 +12,6 @@ type TAddressBlockProps = {
 };
 
 const AddressBlock: FunctionComponent<TAddressBlockProps> = ({ address }) => {
-    const { t } = useTranslation();
-
     const {
         firstname = '',
         lastname = '',
@@ -41,7 +38,7 @@ const AddressBlock: FunctionComponent<TAddressBlockProps> = ({ address }) => {
             {firstname} {lastname} <br />
             {street.join(' ')} <br />
             {city}, {region ? region.name + ' ' + postcode : postcode} <br />
-            {country && t(country.full_name_english as string)} <br />
+            {country && country.full_name_english} <br />
             {telephone}
         </address>
     );

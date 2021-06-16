@@ -12,7 +12,7 @@ export const useWishlistItem = ({
     addToWishlistMutation,
     removeFromWishlistMutation
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     const [, { addMessage }] = useMessageCardContext();
 

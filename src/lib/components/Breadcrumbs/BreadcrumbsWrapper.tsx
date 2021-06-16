@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import BreadcrumbsLink from 'src/lib/components/Breadcrumbs/BreadcrumbLink';
 
 const BreadcrumbsWrapper: FunctionComponent = ({ children }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
     return (
         <nav aria-label="breadcrumb" className="breadcrumb-nav">

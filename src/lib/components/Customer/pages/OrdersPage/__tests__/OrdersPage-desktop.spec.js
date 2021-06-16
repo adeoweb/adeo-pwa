@@ -1,4 +1,5 @@
 import React from 'react';
+import { IntlProvider } from 'react-intl';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { createTestInstance } from '@magento/peregrine';
@@ -10,7 +11,10 @@ jest.mock('src/peregrine/lib/talons/adeoweb/Customer/useCustomerOrders', () => {
         orders: [
             {
                 created_at: '2222-22-22',
-                grand_total: 99,
+                grand_total: {
+                    value: 59,
+                    currency: 'EUR'
+                },
                 id: 1,
                 order_number: 123,
                 status: 'status'
@@ -39,9 +43,11 @@ jest.mock('src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard', () => {
 
 test('renders correctly', async () => {
     const instance = createTestInstance(
-        <Router>
-            <OrdersPage />
-        </Router>
+        <IntlProvider locale="en">
+            <Router>
+                <OrdersPage />
+            </Router>
+        </IntlProvider>
     );
 
     expect(instance.toJSON()).toMatchSnapshot();

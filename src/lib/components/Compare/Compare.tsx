@@ -6,7 +6,7 @@ import isObjectEmpty from 'src/lib/util/isObjectEmpty';
 import { useCompare } from 'src/peregrine/lib/talons/adeoweb/Compare/useCompare';
 
 const Compare: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     const { productData } = useCompare();
 

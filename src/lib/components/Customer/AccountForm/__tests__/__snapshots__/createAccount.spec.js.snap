@@ -19,7 +19,7 @@ Array [
           <label
             className="form-label"
           >
-            First Name
+            customer:First Name
           </label>
           <input
             className="form-control"
@@ -35,7 +35,7 @@ Array [
           <label
             className="form-label"
           >
-            Last Name
+            customer:Last Name
           </label>
           <input
             className="form-control"
@@ -67,7 +67,7 @@ Array [
                 htmlFor="isSubscribed"
                 title=""
               >
-                Sign Up for Newsletter
+                customer:Sign Up for Newsletter
               </label>
             </div>
           </div>
@@ -78,7 +78,7 @@ Array [
           <label
             className="form-label"
           >
-            Email
+            customer:Email
           </label>
           <input
             className="form-control"
@@ -94,7 +94,7 @@ Array [
           <label
             className="form-label"
           >
-            Password
+            customer:Password
           </label>
           <input
             className="form-control"
@@ -110,7 +110,7 @@ Array [
           <label
             className="form-label"
           >
-            Confirm Password
+            customer:Confirm Password
           </label>
           <input
             className="form-control"
@@ -139,7 +139,7 @@ Array [
               disabled={false}
               type="submit"
             >
-              Create an Account
+              customer:Create an Account
             </button>
           </div>
         </div>

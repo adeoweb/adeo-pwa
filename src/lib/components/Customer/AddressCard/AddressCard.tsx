@@ -22,14 +22,18 @@ const AddressCard: FunctionComponent<TAddressBlockProps> = ({
     onDelete,
     onDefaultChange
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('address');
     const { id } = address;
 
     const handleIsDefaultChange = useCallback(() => {
-        if (!isDefault) {
+        if (!isDefault && id) {
             onDefaultChange(id);
         }
     }, [isDefault, onDefaultChange, id]);
+
+    if (!id) {
+        return null;
+    }
 
     return (
         <Card>

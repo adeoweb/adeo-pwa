@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Table, Form } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
+import { TFuncKey, useTranslation } from 'react-i18next';
 
 import Price from '@magento/peregrine/lib/Price';
 
@@ -20,7 +20,7 @@ const ShippingMethods: FunctionComponent<TShippingMethodsProps> = ({
     selected,
     onSelect
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
 
     return (
         <Table className="table-step-shipping">
@@ -60,8 +60,11 @@ const ShippingMethods: FunctionComponent<TShippingMethodsProps> = ({
                                     ) : null}
                                 </strong>
                             </td>
-                            <td>{methodTitle && t(methodTitle)}</td>
-                            <td>{t(carrierTitle)}</td>
+                            <td>
+                                {methodTitle &&
+                                    t(methodTitle as TFuncKey<'order'>)}
+                            </td>
+                            <td>{t(carrierTitle as TFuncKey<'order'>)}</td>
                         </tr>
                     );
                 })}

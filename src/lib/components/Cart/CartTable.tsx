@@ -22,7 +22,7 @@ const CartTable: FunctionComponent<TCartTableProps> = ({
     endEditItem,
     isUpdatingItem
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['order', 'product']);
     const { handleBeginEditItem, handleEndEditItem } = useCartBody({
         beginEditItem,
         endEditItem
@@ -34,10 +34,12 @@ const CartTable: FunctionComponent<TCartTableProps> = ({
                 <table className="table table-cart">
                     <thead>
                         <tr>
-                            <th className="product-col">{t('Product')}</th>
-                            <th className="price-col">{t('Price')}</th>
-                            <th className="qty-col">{t('Qty')}</th>
-                            <th>{t('Subtotal')}</th>
+                            <th className="product-col">
+                                {t('product:Product')}
+                            </th>
+                            <th className="price-col">{t('product:Price')}</th>
+                            <th className="qty-col">{t('product:Qty')}</th>
+                            <th>{t('order:Subtotal')}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +62,7 @@ const CartTable: FunctionComponent<TCartTableProps> = ({
                     to={'/'}
                     className="btn btn-outline-secondary continue-shopping"
                 >
-                    {t('Continue Shopping')}
+                    {t('product:Continue Shopping')}
                 </Link>
             </div>
         </Fragment>

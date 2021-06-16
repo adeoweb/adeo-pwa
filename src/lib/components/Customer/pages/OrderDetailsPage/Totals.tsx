@@ -18,7 +18,7 @@ const Totals: FunctionComponent<ITotalsProps> = ({
     shippingAmount,
     taxAmount
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
 
     return (
         <div className="customer-order-totals">

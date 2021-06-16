@@ -37,7 +37,7 @@ const Product: FunctionComponent<ProductProps> = ({
         item,
         removeItemMutation: REMOVE_ITEM_MUTATION
     });
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     return (
         <div className="product">

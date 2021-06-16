@@ -5,7 +5,7 @@ import React, {
     useCallback
 } from 'react';
 import { Row, Col, Form, FormCheck, Button } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
+import { TFuncKey, useTranslation } from 'react-i18next';
 
 import { CheckoutRoutes } from 'src/lib/components/Checkout';
 import AddressBlock from 'src/lib/components/Checkout/Address';
@@ -24,7 +24,7 @@ import { usePaymentStep } from 'src/peregrine/lib/talons/adeoweb/Checkout/usePay
 const Payment: FunctionComponent = () => {
     const PREVIOUS_STEP_URL = CheckoutRoutes.shipping.url;
     const NEXT_STEP_URL = CheckoutRoutes.review.url;
-    const { t } = useTranslation();
+    const { t } = useTranslation(['order', 'common']);
     const history = useHistory();
 
     const redirectToPrev = useCallback(() => {
@@ -70,6 +70,11 @@ const Payment: FunctionComponent = () => {
         }
     }, [isRedirectToPrev, redirectToPrev]);
 
+    const shippingMethodKey =
+        selectedShippingMethod?.carrier_title &&
+        selectedShippingMethod.method_title &&
+        (`${selectedShippingMethod.carrier_title} - ${selectedShippingMethod.method_title}` as TFuncKey<'order'>);
+
     return (
         <Fragment>
             {isSubmitting && <LoadingIndicator />}
@@ -78,32 +83,30 @@ const Payment: FunctionComponent = () => {
                     <ProductsSummary />
                     {shippingAddress && (
                         <InfoBox
-                            title={t('Ship To:')}
+                            title={t('order:Ship To:')}
                             editRoute={CheckoutRoutes.shipping.url}
                         >
                             <AddressBlock address={shippingAddress} />
                         </InfoBox>
                     )}
-                    {selectedShippingMethod &&
-                        selectedShippingMethod.carrier_title &&
-                        selectedShippingMethod.method_title && (
-                            <InfoBox
-                                title={t('Shipping Method:')}
-                                editRoute={CheckoutRoutes.shipping.url}
-                            >
-                                <p>
-                                    {t(
-                                        `${selectedShippingMethod.carrier_title} - ${selectedShippingMethod.method_title}`
-                                    )}
-                                </p>
-                            </InfoBox>
-                        )}
+                    {shippingMethodKey && (
+                        <InfoBox
+                            title={t('order:Shipping Method:')}
+                            editRoute={CheckoutRoutes.shipping.url}
+                        >
+                            <p>{t(`order:${shippingMethodKey}` as const)}</p>
+                        </InfoBox>
+                    )}
                 </Col>
                 <Col lg={8} className="order-lg-first">
                     <div className="checkout-payment">
-                        <h2 className="step-title">{t('Payment Method:')}</h2>
+                        <h2 className="step-title">
+                            {t('order:Payment Method:')}
+                        </h2>
                         <PaymentMethodSelect />
-                        <h4>{`${t('Check')} / ${t('Money order')}`}</h4>
+                        <h4>{`${t('order:Check')} / ${t(
+                            'order:Money order'
+                        )}`}</h4>
                         <div className="form-group-custom-control">
                             <Form.Check
                                 id="sameAsShippingAddress"
@@ -115,7 +118,7 @@ const Payment: FunctionComponent = () => {
                                 />
                                 <FormCheck.Label>
                                     {t(
-                                        'My billing and shipping address are the same'
+                                        'order:My billing and shipping address are the same'
                                     )}
                                 </FormCheck.Label>
                             </Form.Check>
@@ -158,7 +161,7 @@ const Payment: FunctionComponent = () => {
                                 disabled={!isSubmitEnabled}
                                 onClick={handleSubmit}
                             >
-                                {t('Next')}
+                                {t('common:Next')}
                             </Button>
                         </div>
                     </div>

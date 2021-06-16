@@ -10,7 +10,7 @@ import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const ProductsSummary: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const [isExpanded, setIsExpanded] = useState(true);
     const [
         {

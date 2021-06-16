@@ -1,5 +1,3 @@
-// @ts-nocheck
-// testavimui
 import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -18,7 +16,7 @@ export type TSuggestedProductProps = {
 const IMAGE_WIDTH = 60;
 
 const SuggestedProduct: FunctionComponent<TSuggestedProductProps> = product => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const {
         small_image: smallImage,
         name,
@@ -40,11 +38,8 @@ const SuggestedProduct: FunctionComponent<TSuggestedProductProps> = product => {
 
     let price: React.ReactNode | null = null;
     if (
-        priceRange &&
-        priceRange.maximum_price &&
-        priceRange.maximum_price.final_price &&
-        priceRange.maximum_price.final_price.currency &&
-        priceRange.maximum_price.final_price.value
+        priceRange?.maximum_price?.final_price?.currency &&
+        priceRange?.maximum_price?.final_price?.value
     ) {
         const { currency, value } = priceRange.maximum_price.final_price;
         price = <Price currencyCode={currency} value={value} />;

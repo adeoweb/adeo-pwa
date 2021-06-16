@@ -52,7 +52,7 @@ const AccountForm: FunctionComponent = () => {
         }
     }, [isSignedIn, redirectToHomepage]);
 
-    const { t } = useTranslation();
+    const { t } = useTranslation(['validations', 'customer']);
 
     const schema = yup.object({
         firstName: yup.string().required(),
@@ -62,12 +62,15 @@ const AccountForm: FunctionComponent = () => {
             .string()
             .matches(
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/,
-                t(errorMessages.password)
+                t(`validations:${errorMessages.password}` as const)
             )
             .required(),
         confirm: yup
             .string()
-            .oneOf([yup.ref('password'), null], t(errorMessages.passwordMatch)),
+            .oneOf(
+                [yup.ref('password'), null],
+                t(`validations:${errorMessages.password}` as const)
+            ),
         isSubscribed: yup.boolean()
     });
 
@@ -95,7 +98,7 @@ const AccountForm: FunctionComponent = () => {
                 <Form noValidate onSubmit={handleSubmit}>
                     <Row>
                         <Col md={6} className={'required-field'}>
-                            <Form.Label>{t('First Name')}</Form.Label>
+                            <Form.Label>{t('customer:First Name')}</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="firstName"
@@ -110,7 +113,7 @@ const AccountForm: FunctionComponent = () => {
                                 {errors.firstName}
                             </Form.Control.Feedback>
 
-                            <Form.Label>{t('Last Name')}</Form.Label>
+                            <Form.Label>{t('customer:Last Name')}</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="lastName"
@@ -132,12 +135,12 @@ const AccountForm: FunctionComponent = () => {
                                     name="isSubscribed"
                                     id={'isSubscribed'}
                                     onChange={handleChange}
-                                    label={t('Sign Up for Newsletter')}
+                                    label={t('customer:Sign Up for Newsletter')}
                                 />
                             </Form.Group>
                         </Col>
                         <Col md={6} className={'required-field'}>
-                            <Form.Label>{t('Email')}</Form.Label>
+                            <Form.Label>{t('customer:Email')}</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="email"
@@ -150,7 +153,7 @@ const AccountForm: FunctionComponent = () => {
                                 {errors.email}
                             </Form.Control.Feedback>
 
-                            <Form.Label>{t('Password')}</Form.Label>
+                            <Form.Label>{t('customer:Password')}</Form.Label>
                             <Form.Control
                                 type="password"
                                 name="password"
@@ -164,7 +167,9 @@ const AccountForm: FunctionComponent = () => {
                                 {errors.password}
                             </Form.Control.Feedback>
 
-                            <Form.Label>{t('Confirm Password')}</Form.Label>
+                            <Form.Label>
+                                {t('customer:Confirm Password')}
+                            </Form.Label>
                             <Form.Control
                                 type="password"
                                 name="confirm"
@@ -182,7 +187,7 @@ const AccountForm: FunctionComponent = () => {
                         <Col>
                             <div className="form-footer">
                                 <Button type="submit" disabled={isDisabled}>
-                                    {t('Create an Account')}
+                                    {t('customer:Create an Account')}
                                 </Button>
                             </div>
                         </Col>

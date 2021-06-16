@@ -1,5 +1,5 @@
-import en from './en/translation';
-import lt from './lt/translation';
+import en from './en';
+import lt from './lt';
 
 export default {
     en,

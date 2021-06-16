@@ -16,7 +16,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
     isForBilling = false,
     isForShipping = false
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['address', 'customer']);
     const controlEvents = {
         onChange: handleChange,
         onBlur: handleBlur
@@ -25,7 +25,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
     return (
         <Form noValidate onSubmit={handleSubmit}>
             <Form.Group className="required-field">
-                <Form.Label>{t('First Name')}</Form.Label>
+                <Form.Label>{t('customer:First Name')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="firstname"
@@ -38,7 +38,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="required-field">
-                <Form.Label>{t('Last Name')}</Form.Label>
+                <Form.Label>{t('customer:Last Name')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="lastname"
@@ -51,7 +51,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group>
-                <Form.Label>{t('Company')}</Form.Label>
+                <Form.Label>{t('address:Company')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="company"
@@ -64,7 +64,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="required-field">
-                <Form.Label>{t('Street Address')}</Form.Label>
+                <Form.Label>{t('address:Street Address')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="street[0]"
@@ -84,7 +84,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                 />
             </Form.Group>
             <Form.Group className="form-group required-field">
-                <Form.Label>{t('City')}</Form.Label>
+                <Form.Label>{t('address:City')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="city"
@@ -97,7 +97,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="form-group required-field">
-                <Form.Label>{t('Country')}</Form.Label>
+                <Form.Label>{t('address:Country')}</Form.Label>
                 <Form.Control
                     as="select"
                     className="select-custom"
@@ -110,7 +110,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                     {countries &&
                         countries.map(({ id, full_name_english: name }) => (
                             <option key={id} value={id}>
-                                {t(name as string)}
+                                {name}
                             </option>
                         ))}
                 </Form.Control>
@@ -120,7 +120,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
             </Form.Group>
             {regions.length > 0 && (
                 <Form.Group className="form-group required-field">
-                    <Form.Label>{t('State/Province')}</Form.Label>
+                    <Form.Label>{t('address:State/Province')}</Form.Label>
                     <Form.Control
                         as="select"
                         className="select-custom"
@@ -129,10 +129,12 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                         isInvalid={!!(errors.region && touched.region)}
                         {...controlEvents}
                     >
-                        <option value="">{t('Select State/Province')}</option>
+                        <option value="">
+                            {t('address:Select State/Province')}
+                        </option>
                         {regions.map(({ id, code, name }) => (
                             <option key={id} value={code}>
-                                {t(name as string)}
+                                {name}
                             </option>
                         ))}
                     </Form.Control>
@@ -142,7 +144,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                 </Form.Group>
             )}
             <Form.Group className="form-group required-field">
-                <Form.Label>{t('Zip/Postal Code')}</Form.Label>
+                <Form.Label>{t('address:Zip/Postal Code')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="postcode"
@@ -155,7 +157,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="form-group required-field">
-                <Form.Label>{t('Phone Number')}</Form.Label>
+                <Form.Label>{t('customer:Phone Number')}</Form.Label>
                 <div className="form-control-tooltip">
                     <Form.Control
                         type="text"
@@ -178,7 +180,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                                 {...controlEvents}
                             />
                             <FormCheck.Label>
-                                {t('Set as default billing address')}
+                                {t('address:Set as default billing address')}
                             </FormCheck.Label>
                         </Form.Check>
                     </div>
@@ -193,7 +195,7 @@ const AddressForm: FunctionComponent<TAddressFormProps> = ({
                                 {...controlEvents}
                             />
                             <FormCheck.Label>
-                                {t('Set as default shipping address')}
+                                {t('address:Set as default shipping address')}
                             </FormCheck.Label>
                         </Form.Check>
                     </div>
