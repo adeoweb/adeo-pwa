@@ -54,7 +54,11 @@ const testAdeoPwa = inPackage => ({
         '\\.(jpg|jpeg|png|svg)$': '<rootDir>/src/__mocks__/fileMock.js',
         '\\.css$': 'identity-obj-proxy',
         '\\.scss$': 'identity-obj-proxy',
-        '\\.svg$': 'identity-obj-proxy'
+        '\\.svg$': 'identity-obj-proxy',
+        'react-feather/dist/icons/(.*)':
+            '<rootDir>/node_modules/react-feather/dist/icons/$1.js',
+        'react-feather/(.*)':
+            '<rootDir>/node_modules/react-feather/dist/icons/$2.js'
     },
     modulePaths: [
         inPackage(),

@@ -3,7 +3,7 @@ import { bool, node, shape, string } from 'prop-types';
 import { compose } from 'redux';
 
 import React, { Component, Fragment } from 'react';
-import { Check as CheckIcon } from 'react-feather';
+import CheckIcon from 'react-feather/dist/icons/check';
 
 import classify from '../../classify';
 import { Message } from '../Field';

@@ -1,7 +1,7 @@
 import { bool, func, number, object, oneOf, string } from 'prop-types';
 
 import React from 'react';
-import { X as CloseIcon } from 'react-feather';
+import CloseIcon from 'react-feather/dist/icons/x';
 
 import { mergeClasses } from '../../classify';
 import Icon from '../Icon';

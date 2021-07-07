@@ -1,7 +1,8 @@
 import { func, shape, string } from 'prop-types';
 
 import React from 'react';
-import { Archive as HistoryIcon, LogOut as SignOutIcon } from 'react-feather';
+import HistoryIcon from 'react-feather/archive';
+import SignOutIcon from 'react-feather/log-out';
 
 import { useMyAccount } from '@magento/peregrine/lib/talons/MyAccount/useMyAccount';
 

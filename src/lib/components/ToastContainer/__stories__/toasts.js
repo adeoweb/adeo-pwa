@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React, { useEffect } from 'react';
-import { Smile as SmileIcon } from 'react-feather';
+import SmileIcon from 'react-feather/smile';
 
 import { ToastContextProvider, useToasts } from '@magento/peregrine';
 
