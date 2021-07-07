@@ -3,6 +3,7 @@ import {
     mockRemoveItem,
     mockSetItem
 } from '@magento/peregrine/lib/util/simplePersistence';
+
 import actions from '../actions';
 import {
     addItemToCart,

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
 import { useCategoryTree } from '@magento/peregrine/lib/talons/CategoryTree';
 

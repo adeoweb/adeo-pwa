@@ -2,6 +2,7 @@ import { cacheNames } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { registerRoute } from 'workbox-routing';
 import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
+
 import {
     isResizedImage,
     findSameOrLargerImage,
@@ -20,7 +21,7 @@ import {
  *
  * @returns {void}
  */
-export default function() {
+export default function () {
     const imageCacheHandler = createImageCacheHandler();
 
     registerRoute(

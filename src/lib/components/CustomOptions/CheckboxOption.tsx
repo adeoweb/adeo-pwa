@@ -4,29 +4,34 @@ import React, {
     useEffect,
     useState
 } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Form, FormCheck } from 'react-bootstrap';
+import { TFuncKey, useTranslation } from 'react-i18next';
+
 import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsTypes';
-import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
-import { optionSort } from 'src/lib/components/CustomOptions/utils/optionSort';
 import { getOptionPriceText } from 'src/lib/components/CustomOptions/utils/getOptionPriceText';
+import { optionSort } from 'src/lib/components/CustomOptions/utils/optionSort';
+import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const CheckboxOption: FunctionComponent<TOptionProps> = ({
     option,
     setFieldValue,
     error
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { currencyCode } = useCurrency();
     const {
         title: optionTitle,
         option_id: optionId,
         required: isRequired,
-        checkboxValue: options
+        value: options = []
     } = option;
     const [checked, setChecked] = useState<string[]>([]);
     const [touched, setTouched] = useState(false);
-    const sortedOptions = (options || []).sort(optionSort);
+    const sortedOptions = filterOutNullableValues(
+        options,
+        'option_type_id'
+    ).sort(optionSort);
 
     const onChange = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,12 +53,15 @@ const CheckboxOption: FunctionComponent<TOptionProps> = ({
         [checked, setChecked]
     );
 
-    const isChecked = useCallback((id: string) => checked.indexOf(id) !== -1, [
-        checked
-    ]);
+    const isChecked = useCallback(
+        (id: string) => checked.indexOf(id) !== -1,
+        [checked]
+    );
 
     useEffect(() => {
-        setFieldValue(optionId.toString(), checked.join(','), true);
+        if (optionId) {
+            setFieldValue(optionId.toString(), checked.join(','), true);
+        }
         if (!touched && checked.length) {
             setTouched(true);
         }
@@ -65,7 +73,7 @@ const CheckboxOption: FunctionComponent<TOptionProps> = ({
                 isRequired ? ' required-field' : ''
             }`}
         >
-            <Form.Label>{t(optionTitle)}</Form.Label>
+            <Form.Label>{t(optionTitle as TFuncKey<'product'>)}</Form.Label>
             <div
                 className={`invalid-feedback${
                     Boolean(error) && touched ? ' d-block' : ''
@@ -80,6 +88,11 @@ const CheckboxOption: FunctionComponent<TOptionProps> = ({
                     price,
                     price_type: priceType
                 } = option;
+
+                if (!id) {
+                    return;
+                }
+
                 const priceText = getOptionPriceText(
                     price,
                     priceType,
@@ -98,7 +111,7 @@ const CheckboxOption: FunctionComponent<TOptionProps> = ({
                             onChange={onChange}
                         />
                         <FormCheck.Label>
-                            {t(title)}
+                            {t(title as TFuncKey<'product'>)}
                             {priceText}
                         </FormCheck.Label>
                     </Form.Check>

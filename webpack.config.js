@@ -6,15 +6,18 @@ const {
         getStoreConfigData,
         getPossibleTypes,
         getUnionAndInterfaceTypes
-    }
+    },
+    Utilities: { loadEnvironment }
 } = require('@magento/pwa-buildpack');
 const webpack = require('webpack');
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, EnvironmentPlugin } = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 
 module.exports = async env => {
+    const projectConfig = await loadEnvironment(path.resolve(__dirname));
+
     /**
      * configureWebpack() returns a regular Webpack configuration object.
      * You can customize the build by mutating the object here, as in
@@ -52,12 +55,31 @@ module.exports = async env => {
 
     const mediaUrl = await getMediaURL();
     const storeConfigData = await getStoreConfigData();
-    // const { availableStores } = await getAvailableStoresConfigData();
     const unionAndInterfaceTypes = await getUnionAndInterfaceTypes();
+
+    /* Backend does not have `availableStores` query.
+     * However, AVAILABLE_STORE_VIEWS should be defined as a global variable, as it's a dependency on PWA 10.
+     * TODO: When APWA backend upgrades to Magento 2.4, make sure it has `availableStores` query and
+     * uncomment lines below.
+     */
+    // const { availableStores } = await getAvailableStoresConfigData();
+
+    /**
+     * Loop the available stores when there is provided STORE_VIEW_CODE
+     * in the .env file, because should set the store name from the
+     * given store code instead of the default one.
+     */
+    // const availableStore = availableStores.find(
+    //     ({ code }) => code === process.env.STORE_VIEW_CODE
+    // );
+
+    // global.AVAILABLE_STORE_VIEWS = availableStores;
+
+    const availableStores = [process.env.STORE_VIEW_CODE];
 
     global.MAGENTO_MEDIA_BACKEND_URL = mediaUrl;
     global.LOCALE = storeConfigData.locale.replace('_', '-');
-    // global.AVAILABLE_STORE_VIEWS = availableStores;
+    global.AVAILABLE_STORE_VIEWS = availableStores;
 
     const possibleTypes = await getPossibleTypes();
 
@@ -162,6 +184,7 @@ module.exports = async env => {
     };
 
     config.plugins = [
+        new EnvironmentPlugin(projectConfig.env),
         ...config.plugins,
         new DefinePlugin({
             /**
@@ -173,7 +196,8 @@ module.exports = async env => {
             STORE_NAME: JSON.stringify('Venia'),
             STORE_VIEW_CODE: process.env.STORE_VIEW_CODE
                 ? JSON.stringify(process.env.STORE_VIEW_CODE)
-                : JSON.stringify(storeConfigData.code)
+                : JSON.stringify(storeConfigData.code),
+            AVAILABLE_STORE_VIEWS: JSON.stringify(availableStores)
         }),
         new HTMLWebpackPlugin({
             filename: 'index.html',

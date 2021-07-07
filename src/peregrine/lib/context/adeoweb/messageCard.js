@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { connect } from 'react-redux';
 
+import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
+
 import actions from '../../store/actions/adeoweb/messageCard/actions';
 import * as asyncActions from '../../store/actions/adeoweb/messageCard/asyncActions';
-import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
+
 const MessageCardContext = createContext();
 
 const MessageCardContextProvider = props => {
@@ -17,10 +19,10 @@ const MessageCardContextProvider = props => {
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [messageCardState, messageCardApi], [
-        messageCardApi,
-        messageCardState
-    ]);
+    const contextValue = useMemo(
+        () => [messageCardState, messageCardApi],
+        [messageCardApi, messageCardState]
+    );
 
     return (
         <MessageCardContext.Provider value={contextValue}>

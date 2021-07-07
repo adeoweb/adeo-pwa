@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react';
+
 import { mergeClasses } from '../../classify';
+
 import defaultClasses from './notFound.css';
 
 const NotFound = props => {

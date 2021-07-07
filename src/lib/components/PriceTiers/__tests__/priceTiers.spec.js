@@ -1,7 +1,9 @@
 import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
-import PriceTiers from '../PriceTiers';
 import { IntlProvider } from 'react-intl';
+
+import { createTestInstance } from '@magento/peregrine';
+
+import PriceTiers from '../PriceTiers';
 
 const tier1 = {
     final_price: {

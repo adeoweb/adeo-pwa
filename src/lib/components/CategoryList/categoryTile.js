@@ -1,11 +1,14 @@
-import React, { useMemo } from 'react';
 import { arrayOf, string, shape } from 'prop-types';
 
-import { Link } from 'src/lib/drivers';
+import React, { useMemo } from 'react';
+
 import { useCategoryTile } from '@magento/peregrine/lib/talons/CategoryList/useCategoryTile';
+
+import { Link } from 'src/lib/drivers';
 
 import { mergeClasses } from '../../classify';
 import Image from '../Image';
+
 import defaultClasses from './categoryTile.css';
 
 const IMAGE_WIDTH = 80;

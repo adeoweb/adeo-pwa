@@ -1,0 +1,9 @@
+{
+    "Error": "Error",
+    "invalid-email": "Please enter a valid email address (Ex: johndoe@domain.com).",
+    "required-field": "A required field.",
+    "invalid-password": "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case character.",
+    "passwords-match": "Passwords must match.",
+    "Maximum number of characters:": "Maximum number of characters: {{limit}}",
+    "Please enter a valid phone number.": "Please enter a valid phone number."
+}

@@ -1,10 +1,12 @@
-import { useCallback, useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
-import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
+import { useCallback, useState, useEffect } from 'react';
+
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
-import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+
 import MessageType from 'src/lib/constants/message';
+import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
+import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 /**
  * Returns props necessary to render CreateAccount component. In particular this

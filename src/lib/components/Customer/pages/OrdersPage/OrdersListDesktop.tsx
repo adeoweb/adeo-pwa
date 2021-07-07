@@ -1,5 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import Price from '@magento/peregrine/lib/Price';
+
 import PdfIcons from 'src/lib/assets/icons/PdfIcons';
 import { IOrdersListProps } from 'src/lib/components/Customer/pages/OrdersPage/OrdersListTypes';
 import { Link } from 'src/lib/drivers';
@@ -8,18 +11,18 @@ const OrdersListDesktop: FunctionComponent<IOrdersListProps> = ({
     orders,
     createDetailsUrl
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['order', 'common']);
 
     return (
         <div className="customer-orders-desktop-table">
             <table>
                 <tbody>
                     <tr>
-                        <th>{t('Order No.')}</th>
-                        <th>{t('Status')}</th>
-                        <th>{t('Invoice')}</th>
-                        <th>{t('Order Total')}</th>
-                        <th>{t('Date')}</th>
+                        <th>{t('order:Order No.')}</th>
+                        <th>{t('order:Status')}</th>
+                        <th>{t('order:Invoice')}</th>
+                        <th>{t('order:Order Total')}</th>
+                        <th>{t('order:Date')}</th>
                     </tr>
                     {orders.map(
                         ({
@@ -29,6 +32,10 @@ const OrdersListDesktop: FunctionComponent<IOrdersListProps> = ({
                             order_number: orderNumber,
                             status
                         }) => {
+                            if (!id) {
+                                return;
+                            }
+
                             const detailsUrl = createDetailsUrl(id);
 
                             return (
@@ -44,14 +51,19 @@ const OrdersListDesktop: FunctionComponent<IOrdersListProps> = ({
                                         <PdfIcons />
                                         {orderNumber}.pdf
                                     </td>
-                                    <td>{grandTotal}</td>
+                                    <td>
+                                        <Price
+                                            value={grandTotal?.value}
+                                            currencyCode={grandTotal?.currency}
+                                        />
+                                    </td>
                                     <td>{createdAt}</td>
                                     <td>
                                         <Link
                                             to={detailsUrl}
                                             className="customer-orders-details"
                                         >
-                                            {t('Open')}
+                                            {t('common:Open')}
                                         </Link>
                                     </td>
                                 </tr>

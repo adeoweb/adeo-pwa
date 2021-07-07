@@ -7,7 +7,7 @@ exports[`renders correctly 1`] = `
   <h3
     className="customer-orders-title"
   >
-    My Orders
+    customer:My Orders
   </h3>
   <div
     className="customer-orders-mobile-block"
@@ -16,7 +16,7 @@ exports[`renders correctly 1`] = `
       <tbody>
         <tr>
           <th>
-            Order No.
+            order:Order No.
           </th>
           <td>
             <a
@@ -29,7 +29,7 @@ exports[`renders correctly 1`] = `
         </tr>
         <tr>
           <th>
-            Status
+            order:Status
           </th>
           <td>
             status
@@ -37,7 +37,7 @@ exports[`renders correctly 1`] = `
         </tr>
         <tr>
           <th>
-            Invoice
+            order:Invoice
           </th>
           <td>
             <svg
@@ -60,7 +60,7 @@ exports[`renders correctly 1`] = `
         </tr>
         <tr>
           <th>
-            Order Total
+            order:Order Total
           </th>
           <td>
             99
@@ -68,7 +68,7 @@ exports[`renders correctly 1`] = `
         </tr>
         <tr>
           <th>
-            Date
+            order:Date
           </th>
           <td>
             2222-22-22
@@ -81,7 +81,7 @@ exports[`renders correctly 1`] = `
       href="/customer/orders/details?id=1"
       onClick={[Function]}
     >
-      Open
+      common:Open
     </a>
   </div>
 </div>

@@ -1,11 +1,12 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Card, Form, FormCheck } from 'react-bootstrap';
-import { useEditCustomer } from 'src/peregrine/lib/talons/adeoweb/Customer/useEditCustomer';
+import { useTranslation } from 'react-i18next';
+
 import UPDATE_CUSTOMER_MUTATION from 'src/lib/queries/updateCustomer.graphql';
+import { useEditCustomer } from 'src/peregrine/lib/talons/adeoweb/Customer/useEditCustomer';
 
 const NewslettersPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
     const {
         handleSubmit,
         handleChange,

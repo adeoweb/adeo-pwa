@@ -1,16 +1,18 @@
-import React, { FunctionComponent, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
-import { Button, Form } from 'react-bootstrap';
 import * as yup from 'yup';
-import { useSignIn } from 'src/peregrine/lib/talons/adeoweb/SignIn/useSignIn';
-import MERGE_CARTS_MUTATION from 'src/lib/queries/mergeCarts.graphql';
+
+import React, { FunctionComponent, useEffect } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import GET_CUSTOMER_QUERY from 'src/lib/queries/getCustomer.graphql';
 import GET_CUSTOMER_CART_QUERY from 'src/lib/queries/getCustomerCart.graphql';
+import MERGE_CARTS_MUTATION from 'src/lib/queries/mergeCarts.graphql';
 import SIGN_IN_MUTATION from 'src/lib/queries/signIn.graphql';
 import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
-import { errorMessages } from 'src/lib/util/errorMessages';
 import { TGenerateCustomerTokenProps } from 'src/lib/types/graphql/SignIn';
+import { errorMessages } from 'src/lib/util/errorMessages';
+import { useSignIn } from 'src/peregrine/lib/talons/adeoweb/SignIn/useSignIn';
 
 type TLoginFormProps = {
     openForgotPassword: () => void;
@@ -21,7 +23,7 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
     openForgotPassword,
     isSignedInCallback
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['validations', 'customer']);
 
     const talonProps = useSignIn({
         signInMutation: SIGN_IN_MUTATION,
@@ -40,37 +42,33 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
     }, [isSignedIn, isSignedInCallback]);
 
     const schema = yup.object({
-        email: yup
-            .string()
-            .required(t(errorMessages.required))
-            .email(t(errorMessages.email)),
+        email: yup.string().email().required(),
         password: yup
             .string()
             .matches(
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/,
-                t(errorMessages.password)
+                t(`validations:${errorMessages.password}` as const)
             )
-            .required(t(errorMessages.required))
+            .required()
     });
 
     const submitCallback = (values: TGenerateCustomerTokenProps) => {
         talonHandleSubmit(values);
     };
 
-    const { handleSubmit, handleChange, values, errors, touched } = useFormik<
-        TGenerateCustomerTokenProps
-    >({
-        validationSchema: schema,
-        initialValues: {
-            email: '',
-            password: ''
-        },
-        onSubmit: submitCallback
-    });
+    const { handleSubmit, handleChange, values, errors, touched } =
+        useFormik<TGenerateCustomerTokenProps>({
+            validationSchema: schema,
+            initialValues: {
+                email: '',
+                password: ''
+            },
+            onSubmit: submitCallback
+        });
 
     return (
         <Form noValidate onSubmit={handleSubmit}>
-            <Form.Label>{t('Email')}</Form.Label>
+            <Form.Label>{t('customer:Email')}</Form.Label>
             <Form.Control
                 type="text"
                 name="email"
@@ -83,7 +81,7 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
                 {errors.email}
             </Form.Control.Feedback>
 
-            <Form.Label>{t('Password')}</Form.Label>
+            <Form.Label>{t('customer:Password')}</Form.Label>
             <Form.Control
                 type="password"
                 name="password"
@@ -102,14 +100,14 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
                     disabled={isBusy}
                     className="btn btn-primary"
                 >
-                    {t('Login')}
+                    {t('customer:Login')}
                 </button>
                 <Button
                     variant="link"
                     className="forget-pass"
                     onClick={openForgotPassword}
                 >
-                    {t('Forgot your password?')}
+                    {t('customer:Forgot your password?')}
                 </Button>
             </div>
         </Form>

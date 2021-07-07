@@ -1,8 +1,4 @@
-export type TCustomerToken = {
-    token: string;
-};
-
-export type TGenerateCustomerTokenProps = {
-    email: string;
-    password: string;
-};
+export {
+    CustomerToken as TCustomerToken,
+    MutationGenerateCustomerTokenArgs as TGenerateCustomerTokenProps
+} from '../graphql-types.generated';

@@ -1,12 +1,14 @@
 import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
-import Tabs from '../tabs';
 import { TabList } from 'react-tabs';
 import { act } from 'react-test-renderer';
 
+import { createTestInstance } from '@magento/peregrine';
+
+import Tabs from '../tabs';
+
 Object.defineProperty(HTMLElement.prototype, 'scrollWidth', {
     configurable: true,
-    get: function() {
+    get: function () {
         return this._scrollHeight || 0;
     },
     set(val) {

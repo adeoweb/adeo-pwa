@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useContactForm } from 'src/peregrine/lib/talons/adeoweb/Contact/useContactForm';
 
 const ContactForm: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'customer']);
 
     const initialValues = {
         name: '',
@@ -14,24 +14,19 @@ const ContactForm: FunctionComponent = () => {
         message: ''
     };
 
-    const {
-        handleSubmit,
-        handleChange,
-        values,
-        errors,
-        touched
-    } = useContactForm({
-        initialValues
-    });
+    const { handleSubmit, handleChange, values, errors, touched } =
+        useContactForm({
+            initialValues
+        });
 
     return (
         <Col md={8}>
             <h2 className="light-title">
-                <strong>{t('Contact Us')}</strong>
+                <strong>{t('common:Contact Us')}</strong>
             </h2>
             <Form noValidate onSubmit={handleSubmit}>
                 <Form.Group className="required-field">
-                    <Form.Label>{t('Name')}</Form.Label>
+                    <Form.Label>{t('customer:Name')}</Form.Label>
                     <Form.Control
                         type="text"
                         name="name"
@@ -45,7 +40,7 @@ const ContactForm: FunctionComponent = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="required-field">
-                    <Form.Label>{t('Email')}</Form.Label>
+                    <Form.Label>{t('customer:Email')}</Form.Label>
                     <Form.Control
                         type="email"
                         name="email"
@@ -59,7 +54,7 @@ const ContactForm: FunctionComponent = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>{t('Phone Number')}</Form.Label>
+                    <Form.Label>{t('customer:Phone Number')}</Form.Label>
                     <Form.Control
                         type="text"
                         name="phone"
@@ -72,7 +67,9 @@ const ContactForm: FunctionComponent = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="required-field">
-                    <Form.Label>{t('What’s on your mind?')}</Form.Label>
+                    <Form.Label>
+                        {t('customer:What’s on your mind?')}
+                    </Form.Label>
                     <Form.Control
                         as="textarea"
                         rows={1}
@@ -88,7 +85,7 @@ const ContactForm: FunctionComponent = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    {t('Submit')}
+                    {t('common:Submit')}
                 </Button>
             </Form>
         </Col>

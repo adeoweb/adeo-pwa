@@ -1,26 +1,26 @@
-schema: http://pwa.localhost:8080/graphql
-documents: ./src/lib/**/**.graphql
+schema: '${MAGENTO_BACKEND_URL}graphql'
 overwrite: true
+documents: ./src/lib/**/**.graphql
 generates:
-    ./src/lib/types/graphql-types.d.ts:
+    src/lib/types/graphql-types.generated.ts:
         config:
             preResolveTypes: true
-            skipTypenameForRoot: true
-            skipTypename: true
+            maybeValue: T | undefined
         plugins:
             - add:
                   content: '/* eslint-disable */'
+            - typescript-operations
             - typescript
     ./:
         preset: near-operation-file
         config:
             onlyOperationTypes: true
             preResolveTypes: true
-            skipTypenameForRoot: true
             skipTypename: true
+            maybeValue: T | undefined
         presetConfig:
             extension: .generated.ts
-            baseTypesPath: ./src/lib/types/graphql-types.d.ts
+            baseTypesPath: ./src/lib/types/graphql-types.generated.ts
         plugins:
             - add:
                   content: '/* eslint-disable */'

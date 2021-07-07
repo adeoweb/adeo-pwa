@@ -1,8 +1,12 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
-import ButtonItem from '../buttonItem';
-import Button from '../../../../../Button/button';
+
 import { useHistory } from 'src/lib/drivers';
+
+import Button from '../../../../../Button/button';
+import ButtonItem from '../buttonItem';
+
 const history = {
     push: jest.fn()
 };

@@ -1,12 +1,15 @@
-import React from 'react';
-import SignOutIcon from 'react-feather/log-out';
-import HistoryIcon from 'react-feather/archive';
 import { func, shape, string } from 'prop-types';
+
+import React from 'react';
+import HistoryIcon from 'react-feather/archive';
+import SignOutIcon from 'react-feather/log-out';
+
+import { useMyAccount } from '@magento/peregrine/lib/talons/MyAccount/useMyAccount';
 
 import { mergeClasses } from '../../classify';
 import AccountLink from './accountLink';
+
 import defaultClasses from './myAccount.css';
-import { useMyAccount } from '@magento/peregrine/lib/talons/MyAccount/useMyAccount';
 
 const PURCHASE_HISTORY = 'Purchase History';
 const SIGN_OUT = 'Sign Out';

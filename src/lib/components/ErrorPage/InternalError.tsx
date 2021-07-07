@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 type TInternalErrorProps = {
     goBack: () => void;
@@ -11,7 +11,7 @@ const InternalError: FunctionComponent<TInternalErrorProps> = ({
     goBack,
     goHome
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('navigation');
 
     return (
         <Container className="error-page-wrapper">

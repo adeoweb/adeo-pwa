@@ -1,10 +1,12 @@
-import React, { Component, Fragment } from 'react';
-import { node, shape, string } from 'prop-types';
 import { BasicText, asField } from 'informed';
+import { node, shape, string } from 'prop-types';
 import { compose } from 'redux';
+
+import React, { Component, Fragment } from 'react';
 
 import classify from '../../classify';
 import { FieldIcons, Message } from '../Field';
+
 import defaultClasses from './textInput.css';
 
 export class TextInput extends Component {
@@ -21,14 +23,8 @@ export class TextInput extends Component {
     };
 
     render() {
-        const {
-            after,
-            before,
-            classes,
-            fieldState,
-            message,
-            ...rest
-        } = this.props;
+        const { after, before, classes, fieldState, message, ...rest } =
+            this.props;
 
         return (
             <Fragment>
@@ -45,7 +41,4 @@ export class TextInput extends Component {
     }
 }
 
-export default compose(
-    classify(defaultClasses),
-    asField
-)(TextInput);
+export default compose(classify(defaultClasses), asField)(TextInput);

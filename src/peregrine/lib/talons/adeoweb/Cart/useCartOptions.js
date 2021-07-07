@@ -1,12 +1,13 @@
-import { useCallback, useMemo, useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
+import { useCallback, useMemo, useState } from 'react';
+
+import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
+import { appendOptionsToPayload } from '@magento/peregrine/lib/util/appendOptionsToPayload';
+import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConfigurable';
 
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
-import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
-import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConfigurable';
-import { appendOptionsToPayload } from '@magento/peregrine/lib/util/appendOptionsToPayload';
-import isItemMissingOptions from 'src/peregrine/lib/util/adeoweb/isItemMissingOptions';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import isItemMissingOptions from 'src/peregrine/lib/util/adeoweb/isItemMissingOptions';
 
 export const useCartOptions = props => {
     const {
@@ -21,10 +22,8 @@ export const useCartOptions = props => {
         updateItemMutation
     } = props;
 
-    const {
-        configurable_options: cartItemOptions,
-        quantity: initialQuantity
-    } = cartItem;
+    const { configurable_options: cartItemOptions, quantity: initialQuantity } =
+        cartItem;
 
     const [, { updateItemInCart }] = useCartContext();
 

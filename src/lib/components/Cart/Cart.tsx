@@ -1,14 +1,15 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { BreadcrumbsWrapper } from 'src/lib/components/Breadcrumbs';
-import { useCart } from 'src/peregrine/lib/talons/adeoweb/Cart/useCart';
+import CartSummary from 'src/lib/components/Cart/CartSummary';
 import CartTable from 'src/lib/components/Cart/CartTable';
 import LoadingIndicator from 'src/lib/components/LoadingIndicator';
-import CartSummary from 'src/lib/components/Cart/CartSummary';
+import { useCart } from 'src/peregrine/lib/talons/adeoweb/Cart/useCart';
 
 const Cart: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const {
         items,
         currencyCode,

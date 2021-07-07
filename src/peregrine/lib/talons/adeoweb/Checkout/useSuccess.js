@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 
 export const useSuccess = () => {

@@ -1,12 +1,14 @@
-import React, { Component, Fragment } from 'react';
-import { bool, node, shape, string } from 'prop-types';
 import { BasicCheckbox, asField } from 'informed';
+import { bool, node, shape, string } from 'prop-types';
 import { compose } from 'redux';
+
+import React, { Component, Fragment } from 'react';
+import CheckIcon from 'react-feather/check';
 
 import classify from '../../classify';
 import { Message } from '../Field';
 import Icon from '../Icon';
-import CheckIcon from 'react-feather/check';
+
 import defaultClasses from './checkbox.css';
 
 /* TODO: change lint config to use `label-has-associated-control` */
@@ -56,7 +58,4 @@ export class Checkbox extends Component {
 
 /* eslint-enable jsx-a11y/label-has-for */
 
-export default compose(
-    classify(defaultClasses),
-    asField
-)(Checkbox);
+export default compose(classify(defaultClasses), asField)(Checkbox);

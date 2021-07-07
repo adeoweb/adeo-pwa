@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { connect } from 'react-redux';
 
+import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
+
 import actions from '../../store/actions/adeoweb/menu/actions';
 import * as asyncActions from '../../store/actions/adeoweb/menu/asyncActions';
-import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
 
 const MenuContext = createContext();
 
@@ -21,10 +22,10 @@ const MenuContextProvider = ({
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [menuState, menuApi], [
-        menuApi,
-        menuState
-    ]);
+    const contextValue = useMemo(
+        () => [menuState, menuApi],
+        [menuApi, menuState]
+    );
 
     return (
         <MenuContext.Provider value={contextValue}>

@@ -1,7 +1,11 @@
 import React from 'react';
 import testRenderer from 'react-test-renderer';
-import MessageCard from '../MessageCard';
+
 import { mockWithMessages } from 'src/lib/util/__mocks__/hooks/useMessageCard';
+
+import MessageCard from '../MessageCard';
+
+window.scrollTo = jest.fn();
 
 jest.mock('src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard', () => {
     return {

@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+
 import { getPageCountInfo } from 'src/lib/util/pageCountHelper';
 
 export const useProductResults = ({ totalProducts, pageSize, currentPage }) => {

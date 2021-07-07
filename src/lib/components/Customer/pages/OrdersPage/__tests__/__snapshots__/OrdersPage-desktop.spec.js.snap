@@ -7,7 +7,7 @@ exports[`renders correctly 1`] = `
   <h3
     className="customer-orders-title-desktop"
   >
-    My Orders
+    customer:My Orders
   </h3>
   <div
     className="customer-orders-desktop-table"
@@ -16,19 +16,19 @@ exports[`renders correctly 1`] = `
       <tbody>
         <tr>
           <th>
-            Order No.
+            order:Order No.
           </th>
           <th>
-            Status
+            order:Status
           </th>
           <th>
-            Invoice
+            order:Invoice
           </th>
           <th>
-            Order Total
+            order:Order Total
           </th>
           <th>
-            Date
+            order:Date
           </th>
         </tr>
         <tr>
@@ -62,7 +62,18 @@ exports[`renders correctly 1`] = `
             .pdf
           </td>
           <td>
-            99
+            <span>
+              €
+            </span>
+            <span>
+              59
+            </span>
+            <span>
+              .
+            </span>
+            <span>
+              00
+            </span>
           </td>
           <td>
             2222-22-22
@@ -73,7 +84,7 @@ exports[`renders correctly 1`] = `
               href="/customer/orders/details?id=1"
               onClick={[Function]}
             >
-              Open
+              common:Open
             </a>
           </td>
         </tr>

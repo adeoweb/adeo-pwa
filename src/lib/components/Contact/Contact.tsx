@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import Map from './Map';
-import ContactForm from './ContactForm';
-import ContactDetails from './ContactDetails';
 import { Container, Row } from 'react-bootstrap';
+
+import ContactDetails from './ContactDetails';
+import ContactForm from './ContactForm';
+import Map from './Map';
 import { mapSrc } from './mapSrc';
 
 const Contact: FunctionComponent = () => {

@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import Price from '@magento/peregrine/lib/Price';
-import { Link } from 'src/lib/drivers';
+
 import CartEstimateShipping from 'src/lib/components/Cart/CartEstimateShipping';
+import { Link } from 'src/lib/drivers';
 import { useCartSummary } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartSummary';
 
 const CartSummary: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const {
         currencyCode,
         grandTotal,

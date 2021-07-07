@@ -1,7 +1,9 @@
-import { useCallback } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
+import { useCallback } from 'react';
+
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
+
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useSetDefaultCustomerAddress = ({

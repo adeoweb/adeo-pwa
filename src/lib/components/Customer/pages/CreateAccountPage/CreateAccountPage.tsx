@@ -1,12 +1,13 @@
 import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import AuthUserToRoot from 'src/lib/components/AuthUserToRoot';
+import PageHeader from 'src/lib/components/PageHeader';
 
 import CreateAccountForm from '../../AccountForm';
-import PageHeader from 'src/lib/components/PageHeader';
-import { useTranslation } from 'react-i18next';
-import AuthUserToRoot from 'src/lib/components/AuthUserToRoot';
 
 const CreateAccountPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
 
     return (
         <AuthUserToRoot>

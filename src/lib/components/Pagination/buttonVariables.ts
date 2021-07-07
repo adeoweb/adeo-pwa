@@ -1,10 +1,12 @@
+import { TFuncKey } from 'react-i18next';
+
 interface INavIcons {
     [index: string]: string;
 }
 
 interface IPage {
     name: string;
-    buttonLabel: string;
+    buttonLabel: TFuncKey<'navigation'>;
 }
 
 interface INavButtons {

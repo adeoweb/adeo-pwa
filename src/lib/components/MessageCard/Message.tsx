@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
+
 import { errorIcon } from 'src/lib/components/MessageCard/icons';
 import MessageType from 'src/lib/constants/message';
+
 import defaultClasses from './Message.scss';
 
 interface IMessageProps {

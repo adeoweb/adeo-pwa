@@ -4,11 +4,13 @@ import React, {
     useCallback,
     useRef
 } from 'react';
-import { Link } from 'src/lib/drivers';
-import Dropdown from 'src/lib/components/Header/MiniCart/Dropdown';
-import { useMiniCart } from 'src/peregrine/lib/talons/adeoweb/MiniCart/useMiniCart';
-import defaultClasses from './MiniCart.scss';
+
 import RouterRoutes from 'src/lib/RouterRoutes';
+import Dropdown from 'src/lib/components/Header/MiniCart/Dropdown';
+import { Link } from 'src/lib/drivers';
+import { useMiniCart } from 'src/peregrine/lib/talons/adeoweb/MiniCart/useMiniCart';
+
+import defaultClasses from './MiniCart.scss';
 
 const MiniCart: FunctionComponent = () => {
     const {
@@ -51,9 +53,7 @@ const MiniCart: FunctionComponent = () => {
         return (
             <div className="dropdown cart-dropdown">
                 <i
-                    className={`dropdown-toggle ${
-                        defaultClasses.hideDropdownArrow
-                    } ${defaultClasses.icon}`}
+                    className={`dropdown-toggle ${defaultClasses.hideDropdownArrow} ${defaultClasses.icon}`}
                 />
             </div>
         );

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
+
 import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
 import { TCustomerAddress } from 'src/lib/types/graphql/Customer';
+import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
 
 type TAddressBlockProps = {
     address: TCustomerAddress;
@@ -11,8 +11,6 @@ type TAddressBlockProps = {
 const AddressBlock: FunctionComponent<TAddressBlockProps> = ({
     address = {}
 }) => {
-    const { t } = useTranslation();
-
     const {
         firstname = '',
         lastname = '',
@@ -38,7 +36,7 @@ const AddressBlock: FunctionComponent<TAddressBlockProps> = ({
             {firstname} {lastname} <br />
             {street.join(' ')} <br />
             {city}, {region ? region.name + ' ' + postcode : postcode} <br />
-            {country && t(country.full_name_english)} <br />
+            {country && country.full_name_english} <br />
             {telephone}
         </address>
     );

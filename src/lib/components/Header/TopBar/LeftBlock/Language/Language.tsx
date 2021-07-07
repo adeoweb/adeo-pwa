@@ -1,17 +1,19 @@
 import React, { FunctionComponent } from 'react';
-import SelectedItem from './SelectedItem';
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
-import { useStoreList } from 'src/peregrine/lib/talons/adeoweb/App/useStoreList';
-import GET_STORE_LIST from '../../../../../queries/getStoreList.graphql';
+
 import Items from 'src/lib/components/Header/TopBar/LeftBlock/Language/Items';
 import { DEFAULT_LANG } from 'src/lib/constants/language';
 import { TStore } from 'src/lib/types/graphql/Store';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+import { useStoreList } from 'src/peregrine/lib/talons/adeoweb/App/useStoreList';
+
+import GET_STORE_LIST from '../../../../../queries/getStoreList.graphql';
+import SelectedItem from './SelectedItem';
 
 const getStoreByLang = (
     lang: string,
     stores: TStore[] = []
 ): TStore | undefined => {
-    return stores.find(store => store.locale.indexOf(lang) === 0);
+    return stores.find(store => store.locale?.indexOf(lang) === 0);
 };
 
 const Language: FunctionComponent = () => {

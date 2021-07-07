@@ -1,4 +1,5 @@
 import { TAggregation } from 'src/lib/types/graphql/Aggregation';
+
 import { ProductFilterType } from '../ProductFilterTypes';
 
 const getFilterType = (filter: TAggregation): ProductFilterType => {
@@ -16,8 +17,8 @@ const getFilterType = (filter: TAggregation): ProductFilterType => {
     if (
         filter.options &&
         filter.options.length === 2 &&
-        filter.options[0].value === '0' &&
-        filter.options[1].value === '1'
+        filter.options[0]?.value === '0' &&
+        filter.options[1]?.value === '1'
     ) {
         return ProductFilterType.Radio;
     }

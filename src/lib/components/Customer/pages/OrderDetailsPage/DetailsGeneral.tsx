@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-// import { Link } from 'src/lib/drivers';
 import { useTranslation } from 'react-i18next';
-import DetailsAccordion from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsAccordion';
+
 import PdfIcons from 'src/lib/assets/icons/PdfIcons';
+import DetailsAccordion from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsAccordion';
 import { TCustomerOrder } from 'src/lib/types/graphql/Customer';
 
 interface IDetailsGeneralProps {
@@ -10,7 +10,7 @@ interface IDetailsGeneralProps {
 }
 
 const DetailsGeneral: FunctionComponent<IDetailsGeneralProps> = ({ order }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
 
     const { created_at: createdAt, order_number: orderNumber, status } = order;
 

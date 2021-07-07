@@ -1,9 +1,13 @@
-import React from 'react';
-import { verticalAlignmentToFlex } from '../../utils';
-import { resourceUrl } from 'src/lib/drivers';
-import { mergeClasses } from '../../../../../classify';
-import defaultClasses from './tabItem.css';
 import { arrayOf, bool, oneOf, shape, string } from 'prop-types';
+
+import React from 'react';
+
+import { resourceUrl } from 'src/lib/drivers';
+
+import { mergeClasses } from '../../../../../classify';
+import { verticalAlignmentToFlex } from '../../utils';
+
+import defaultClasses from './tabItem.css';
 
 /**
  * Page Builder TabItem component.
@@ -89,9 +93,8 @@ const TabItem = props => {
 
     if (verticalAlignment) {
         dynamicStyles.display = 'flex';
-        dynamicStyles.justifyContent = verticalAlignmentToFlex(
-            verticalAlignment
-        );
+        dynamicStyles.justifyContent =
+            verticalAlignmentToFlex(verticalAlignment);
         dynamicStyles.flexDirection = 'column';
     }
 

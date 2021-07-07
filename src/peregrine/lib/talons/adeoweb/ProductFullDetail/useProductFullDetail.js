@@ -1,20 +1,21 @@
-import { useCallback, useState, useMemo } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
-import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
+import { useCallback, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 import { appendOptionsToPayload } from '@magento/peregrine/lib/util/appendOptionsToPayload';
 import { findMatchingVariant } from '@magento/peregrine/lib/util/findMatchingProductVariant';
 import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConfigurable';
+
 import MessageType from 'src/lib/constants/message';
-import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 import scrollTo from 'src/lib/util/scrollTo';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
+import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
 import { useCustomProduct } from 'src/peregrine/lib/talons/adeoweb/ProductFullDetail/useCustomProduct';
-import { isProductCustomizable } from 'src/peregrine/lib/util/adeoweb/isProductCustomizable';
 import { appendCustomizableOptions } from 'src/peregrine/lib/util/adeoweb/appendCustomizableOptions';
+import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import { isProductCustomizable } from 'src/peregrine/lib/util/adeoweb/isProductCustomizable';
 
 const INITIAL_OPTION_CODES = new Map();
 const INITIAL_OPTION_SELECTIONS = new Map();
@@ -169,14 +170,13 @@ export const useProductFullDetail = ({
 }) => {
     const productType = product.__typename;
 
-    const isSupportedProductType = SUPPORTED_PRODUCT_TYPES.includes(
-        productType
-    );
+    const isSupportedProductType =
+        SUPPORTED_PRODUCT_TYPES.includes(productType);
 
     const [, { toggleDrawer }] = useAppContext();
     const [{ isAddingItem }, { addItemToCart }] = useCartContext();
     const [, { addMessage }] = useMessageCardContext();
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     const {
         customOptions,

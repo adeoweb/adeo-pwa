@@ -1,4 +1,5 @@
 import { default as resourceUrl } from './makeUrl';
+
 /**
  * This is specific to the Venia store-front sample data.
  */
@@ -18,16 +19,15 @@ export const imageWidths = new Map(
     })
 );
 
-export const generateUrl = (imageURL: string, mediaBase: string) => (
-    width?: number | string,
-    height?: number | string
-) =>
-    resourceUrl(imageURL, {
-        type: mediaBase,
-        width,
-        height,
-        fit: 'cover'
-    });
+export const generateUrl =
+    (imageURL: string, mediaBase: string) =>
+    (width?: number | string, height?: number | string) =>
+        resourceUrl(imageURL, {
+            type: mediaBase,
+            width,
+            height,
+            fit: 'cover'
+        });
 
 export const generateUrlFromContainerWidth = (
     imageURL: string,

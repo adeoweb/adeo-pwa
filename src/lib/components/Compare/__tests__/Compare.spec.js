@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import Compare from 'src/lib/components/Compare';
 import { mockProductData } from 'src/lib/components/Compare/__tests__/mockData';
 

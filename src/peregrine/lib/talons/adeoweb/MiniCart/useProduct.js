@@ -1,7 +1,9 @@
-import { useCallback, useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
+import { useCallback, useState } from 'react';
+
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
+
+import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useProduct = props => {

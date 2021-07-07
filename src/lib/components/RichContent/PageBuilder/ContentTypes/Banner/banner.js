@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
-import defaultClasses from './banner.css';
-import { mergeClasses } from '../../../../../classify';
 import { arrayOf, bool, oneOf, shape, string } from 'prop-types';
+
+import React, { useState } from 'react';
+
+import { Link, resourceUrl } from 'src/lib/drivers';
+
+import { mergeClasses } from '../../../../../classify';
 import Button from '../../../../Button/button';
 import resolveLinkProps from '../../resolveLinkProps';
-import { Link, resourceUrl } from 'src/lib/drivers';
+
+import defaultClasses from './banner.css';
 
 const toHTML = str => ({ __html: str });
 

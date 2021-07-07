@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
 
 import { useResourceImage } from '../useResourceImage';

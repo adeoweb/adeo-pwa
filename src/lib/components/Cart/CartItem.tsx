@@ -1,18 +1,20 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'src/lib/drivers';
-import { TCartItem } from 'src/lib/types/graphql/CartItem';
-import { useCartProduct } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartProduct';
-import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
-import GET_CART_DETAILS_QUERY from 'src/lib/queries/getCartDetails.graphql';
-import REMOVE_ITEM_MUTATION from 'src/lib/queries/removeItem.graphql';
-import PRODUCT_DETAILS from 'src/lib/queries/getProductDetailBySku.graphql';
-import Image from 'src/lib/components/Image';
+
 import Price from '@magento/peregrine/lib/Price';
-import { useCartEditItem } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartEditItem';
+
 import CartItemQuantity from 'src/lib/components/Cart/CartItemQuantity';
 import SelectedConfigOptions from 'src/lib/components/Cart/SelectedConfigOptions';
 import SelectedCustomOptions from 'src/lib/components/Cart/SelectedCustomOptions';
+import Image from 'src/lib/components/Image';
+import { Link } from 'src/lib/drivers';
+import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
+import GET_CART_DETAILS_QUERY from 'src/lib/queries/getCartDetails.graphql';
+import PRODUCT_DETAILS from 'src/lib/queries/getProductDetailBySku.graphql';
+import REMOVE_ITEM_MUTATION from 'src/lib/queries/removeItem.graphql';
+import { TCartItem } from 'src/lib/types/graphql/CartItem';
+import { useCartEditItem } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartEditItem';
+import { useCartProduct } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartProduct';
 
 type TCartItemProps = {
     item: TCartItem;
@@ -29,7 +31,7 @@ const CartItem: FunctionComponent<TCartItemProps> = ({
     endEditItem,
     isUpdatingItem
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['product', 'common']);
     const {
         handleRemoveItem,
         isLoading: isRemovingItem,
@@ -118,11 +120,13 @@ const CartItem: FunctionComponent<TCartItemProps> = ({
                         {/*</a>*/}
                         <button
                             className="btn-remove btn btn-link"
-                            title={t('Remove Product')}
+                            title={t('product:Remove Product')}
                             onClick={handleRemoveItem}
                             disabled={isDisabled}
                         >
-                            <span className="sr-only">{t('Remove')}</span>
+                            <span className="sr-only">
+                                {t('common:Remove')}
+                            </span>
                         </button>
                     </div>
                 </td>

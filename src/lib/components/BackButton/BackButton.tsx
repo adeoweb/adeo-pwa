@@ -1,19 +1,20 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'src/lib/drivers';
 import { useTranslation } from 'react-i18next';
+
 import ArrowIcon from 'src/lib/assets/icons/ArrowIcon';
+import { Link } from 'src/lib/drivers';
 
 interface IBackButtonProps {
     url: string;
 }
 
 const BackButton: FunctionComponent<IBackButtonProps> = ({ url }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
     return (
         <Link to={url} className="back-button">
             <ArrowIcon />
-            {t('back')}
+            {t('Back')}
         </Link>
     );
 };

@@ -1,8 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
-import defaultClasses from './column.css';
-import { mergeClasses } from '../../../../../classify';
 import { arrayOf, oneOf, shape, string, bool } from 'prop-types';
+
+import React, { useEffect, useState, useRef } from 'react';
+
 import { resourceUrl } from 'src/lib/drivers';
+
+import { mergeClasses } from '../../../../../classify';
+
+import defaultClasses from './column.css';
 
 /**
  * Page Builder Column component.

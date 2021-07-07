@@ -1,11 +1,13 @@
-import { DocumentNode } from 'graphql';
-import * as React from 'react';
 import { FormikErrors, FormikTouched } from 'formik';
-import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
+import { DocumentNode } from 'graphql';
+
+import * as React from 'react';
+
 import {
     TSelectedShippingMethod,
     TShippingCartAddress
 } from 'src/lib/types/graphql/Cart';
+import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
 
 type TUsePaymentStepProps = {
     countriesQuery: DocumentNode;

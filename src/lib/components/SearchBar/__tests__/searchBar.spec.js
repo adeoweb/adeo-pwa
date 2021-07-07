@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
 
 import SearchBar from '../SearchBar';

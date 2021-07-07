@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useMemo } from 'react';
-import Tile from 'src/lib/components/ProductOptions/Tile';
+
 import { TValueListProps } from 'src/lib/components/ProductOptions/ProductOptionsTypes';
+import Tile from 'src/lib/components/ProductOptions/Tile';
 
 const TileList: FunctionComponent<TValueListProps> = ({
     getItemKey,

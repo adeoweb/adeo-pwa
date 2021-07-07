@@ -1,4 +1,7 @@
 import React, { FunctionComponent } from 'react';
+
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
+
 import { TProductFilterProps } from './ProductFilterTypes';
 
 const ProductFilterList: FunctionComponent<TProductFilterProps> = ({
@@ -6,9 +9,9 @@ const ProductFilterList: FunctionComponent<TProductFilterProps> = ({
     isActive,
     toggleOption
 }) => {
-    const { options } = filter;
+    const options = filterOutNullableValues(filter?.options);
 
-    if (!options || !options.length) {
+    if (!options.length) {
         return null;
     }
 

@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import { useFooter } from 'src/peregrine/lib/talons/adeoweb/Footer/useFooter';
 
 const Copyright: FunctionComponent = () => {

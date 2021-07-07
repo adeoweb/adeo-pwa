@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
-import pdfIcon from 'src/lib/assets/icons/pdf.svg';
-import downloadIcon from 'src/lib/assets/icons/download.svg';
-import defaultClasses from './InvoicesPage.scss';
 import { Table } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
+import downloadIcon from 'src/lib/assets/icons/download.svg';
+import pdfIcon from 'src/lib/assets/icons/pdf.svg';
+
+import defaultClasses from './InvoicesPage.scss';
 
 const InvoicesPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
 
     return (
         <div>
@@ -18,9 +20,7 @@ const InvoicesPage: FunctionComponent = () => {
                         <a href="/">190000349717.pdf</a>
                     </div>
                     <div
-                        className={`${defaultClasses.col} ${
-                            defaultClasses.statusCol
-                        }`}
+                        className={`${defaultClasses.col} ${defaultClasses.statusCol}`}
                     >
                         <p>Neapmokėta</p>
                     </div>

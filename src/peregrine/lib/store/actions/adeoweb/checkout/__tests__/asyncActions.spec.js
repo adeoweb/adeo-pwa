@@ -1,5 +1,5 @@
-import actions from '../actions';
 import cartActions from '../../cart/actions';
+import actions from '../actions';
 import {
     submitBillingAddress,
     submitShippingAddress,

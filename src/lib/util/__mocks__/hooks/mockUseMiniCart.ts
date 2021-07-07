@@ -1,10 +1,11 @@
-import { TUseMiniCart } from 'src/peregrine/lib/talons/adeoweb/MiniCart/useMiniCart';
+import { CurrencyEnum } from 'src/lib/types/graphql/Money';
 import { TPriceRange, TProductPrice } from 'src/lib/types/graphql/Product';
+import { TUseMiniCart } from 'src/peregrine/lib/talons/adeoweb/MiniCart/useMiniCart';
 
 const productPrice: TProductPrice = {
     regular_price: {
         value: 10,
-        currency: 'EUR'
+        currency: CurrencyEnum.Eur
     },
     discount: {
         amount_off: 0,
@@ -12,13 +13,13 @@ const productPrice: TProductPrice = {
     },
     final_price: {
         value: 0,
-        currency: 'EUR'
+        currency: CurrencyEnum.Eur
     },
     fixed_product_taxes: [
         {
             amount: {
                 value: 0,
-                currency: 'EUR'
+                currency: CurrencyEnum.Eur
             },
             label: 'fresh air'
         }
@@ -42,21 +43,41 @@ const mock: TUseMiniCart = {
                     url: '',
                     label: ''
                 },
-                price_range: priceRange
+                price_range: priceRange,
+                min_sale_qty: 1
             },
-            quantity: 20
+            quantity: 20,
+            configurable_options: [
+                {
+                    id: 124,
+                    option_label: 'option-label',
+                    value_id: 125,
+                    value_label: 'value-label'
+                }
+            ],
+            customizable_options: [
+                {
+                    id: 126,
+                    is_required: false,
+                    label: 'custom-option-label',
+                    sort_order: 0,
+                    values: []
+                }
+            ]
         }
     ],
     cartState: {
         addItemError: null,
         cartId: 'testCartId',
         details: {
-            id: 123,
+            total_quantity: 10,
+            id: '123',
             is_virtual: false,
             items: [
                 {
                     id: '123',
                     product: {
+                        min_sale_qty: 1,
                         name: 'test product name',
                         sku: 'testSku123',
                         url_key: 'product.html',
@@ -66,13 +87,30 @@ const mock: TUseMiniCart = {
                         },
                         price_range: priceRange
                     },
-                    quantity: 20
+                    quantity: 20,
+                    configurable_options: [
+                        {
+                            id: 124,
+                            option_label: 'option-label',
+                            value_id: 125,
+                            value_label: 'value-label'
+                        }
+                    ],
+                    customizable_options: [
+                        {
+                            id: 126,
+                            is_required: false,
+                            label: 'custom-option-label',
+                            sort_order: 0,
+                            values: []
+                        }
+                    ]
                 }
             ],
             prices: {
                 grand_total: {
                     value: 999,
-                    currency: 'EUR'
+                    currency: CurrencyEnum.Eur
                 }
             },
             shipping_addresses: [
@@ -85,7 +123,8 @@ const mock: TUseMiniCart = {
                     firstname: 'firstname',
                     lastname: 'lastname',
                     street: ['street1', 'street2'],
-                    telephone: 'telephone'
+                    telephone: 'telephone',
+                    same_as_billing: false
                 }
             ]
         },
@@ -98,12 +137,12 @@ const mock: TUseMiniCart = {
         updateItemError: null,
         isEmpty: false,
         derivedDetails: {
-            currencyCode: 'EUR',
+            currencyCode: CurrencyEnum.Eur,
             numItems: 1,
             subtotal: 999
         }
     },
-    currencyCode: 'EUR',
+    currencyCode: CurrencyEnum.Eur,
     handleBeginEditItem: () => {},
     handleDismiss: () => {},
     handleEndEditItem: () => {},

@@ -1,10 +1,13 @@
-import React from 'react';
-import { createTestInstance } from '@magento/peregrine';
-import { act } from 'react-test-renderer';
-import GoogleMap from '../map';
 import loadGoogleMapsApi from 'load-google-maps-api';
+
+import React from 'react';
+import { act } from 'react-test-renderer';
+
+import { createTestInstance } from '@magento/peregrine';
+
 import stub, { mocks } from '../__mocks__/loadGoogleMapsApi';
 import { mapDefaultProps } from '../configAggregator';
+import GoogleMap from '../map';
 
 jest.mock('load-google-maps-api', () =>
     require('../__mocks__/loadGoogleMapsApi')

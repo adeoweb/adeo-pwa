@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import adeoWebLogo from './icons/adeoweb_white.svg';
 
 const AdeoWebSignature: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
     return (
         <a

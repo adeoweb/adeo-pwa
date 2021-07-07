@@ -1,67 +1,74 @@
 import BrowserPersistence from '@magento/peregrine/lib/util/simplePersistence';
-import { mergeCarts } from '../cart';
 
-import actions from './actions';
-import remapToCustomerAddressFormValues from '../../../../util/adeoweb/remapToCustomerAddressFormValues';
 import { fetchPolicy } from '../../../../util/adeoweb/fetchPolicy';
+import remapToCustomerAddressFormValues from '../../../../util/adeoweb/remapToCustomerAddressFormValues';
+import { mergeCarts, removeCart } from '../cart';
+import actions from './actions';
 
 const storage = new BrowserPersistence();
 
-export const signIn = ({
-    email,
-    password,
-    signIn,
-    fetchUserDetails,
-    fetchCustomerCart,
-    mergeCartsRequest,
-    revokeToken
-}) => async dispatch => {
-    try {
-        await dispatch(actions.signIn.request());
-        // Sign in and save the token
-        const { data: signInData, errors } = await signIn({
-            variables: { email, password }
-        });
+export const signIn =
+    ({
+        email,
+        password,
+        signIn,
+        fetchUserDetails,
+        fetchCustomerCart,
+        mergeCartsRequest,
+        revokeToken
+    }) =>
+    async dispatch => {
+        try {
+            await dispatch(actions.signIn.request());
+            // Sign in and save the token
+            const { data: signInData, errors } = await signIn({
+                variables: { email, password }
+            });
 
-        if (errors) {
-            dispatch(actions.signIn.receive(new Error(errors)));
-        } else {
-            const token = signInData && signInData.generateCustomerToken.token;
+            if (errors) {
+                dispatch(actions.signIn.receive(new Error(errors)));
+            } else {
+                const token =
+                    signInData && signInData.generateCustomerToken.token;
 
-            await dispatch(setToken(token));
-            await dispatch(setUserSession({ revokeToken }));
-            await dispatch(getUserDetails({ fetchUserDetails }));
+                await dispatch(setToken(token));
+                await dispatch(setUserSession({ revokeToken }));
+                await dispatch(getUserDetails({ fetchUserDetails }));
 
-            await dispatch(
-                mergeCarts({
-                    fetchCustomerCart,
-                    mergeCartsRequest
-                })
-            );
+                await dispatch(
+                    mergeCarts({
+                        fetchCustomerCart,
+                        mergeCartsRequest
+                    })
+                );
 
-            await dispatch(actions.signIn.receive());
+                await dispatch(actions.signIn.receive());
+            }
+        } catch (error) {
+            dispatch(actions.signIn.receive(error));
+            if (process.env.NODE_ENV === 'development') {
+                console.error(error);
+            }
         }
-    } catch (error) {
-        dispatch(actions.signIn.receive(error));
-        if (process.env.NODE_ENV === 'development') {
-            console.error(error);
+    };
+
+export const signOut =
+    ({ revokeToken }) =>
+    async dispatch => {
+        // Send mutation to revoke token.
+        try {
+            await revokeToken();
+        } catch (error) {
+            console.error('Error Revoking Token', error);
         }
-    }
-};
 
-export const signOut = ({ revokeToken }) => async dispatch => {
-    // Send mutation to revoke token.
-    try {
-        await revokeToken();
-    } catch (error) {
-        console.error('Error Revoking Token', error);
-    }
+        // Remove token from local storage and Redux.
+        await dispatch(clearToken());
+        await dispatch(clearUserSessionTimer());
+        await dispatch(removeCart());
 
-    // Remove token from local storage and Redux.
-    await dispatch(clearToken());
-    await dispatch(clearUserSessionTimer());
-    await dispatch(actions.reset());
-};
+        await dispatch(actions.reset());
+    };
 
 export const setUserSession = ({ revokeToken }) => {
     return async function thunk(dispatch, getState) {

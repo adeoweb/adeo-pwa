@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import React, { Component } from 'react';
+
 import classify from '../../classify';
+
 import defaultClasses from './mask.css';
 
 /**

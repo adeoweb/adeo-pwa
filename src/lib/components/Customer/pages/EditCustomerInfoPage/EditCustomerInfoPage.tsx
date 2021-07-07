@@ -4,17 +4,18 @@ import React, {
     useEffect,
     useState
 } from 'react';
-import { useTranslation } from 'react-i18next';
-import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
-import { useHistory } from 'src/lib/drivers';
 import { Button, Col, Container, Form, FormCheck, Row } from 'react-bootstrap';
-import UPDATE_CUSTOMER_MUTATION from 'src/lib/queries/updateCustomer.graphql';
+import { useTranslation } from 'react-i18next';
+
+import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
 import LoadingIndicator from 'src/lib/components/LoadingIndicator';
-import { useEditCustomer } from 'src/peregrine/lib/talons/adeoweb/Customer/useEditCustomer';
 import PasswordField from 'src/lib/components/PasswordField';
+import { useHistory } from 'src/lib/drivers';
+import UPDATE_CUSTOMER_MUTATION from 'src/lib/queries/updateCustomer.graphql';
+import { useEditCustomer } from 'src/peregrine/lib/talons/adeoweb/Customer/useEditCustomer';
 
 const EditCustomerInfoPage: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['customer', 'common']);
     const history = useHistory();
     const [isChangeEmail, setIsChangeEmail] = useState(false);
 
@@ -62,16 +63,18 @@ const EditCustomerInfoPage: FunctionComponent = () => {
             {isUpdatingCustomer && <LoadingIndicator />}
             <Button variant="link" className="px-0 mb-2" onClick={goBack}>
                 <i className="fas fa-arrow-left mr-2" />
-                {t('Back')}
+                {t('common:Back')}
             </Button>
 
             <Container>
                 <Form noValidate onSubmit={handleSubmit}>
                     <Row>
                         <Col md={6} className="px-0 pr-md-4">
-                            <h3>{t('Edit customer info')}</h3>
+                            <h3>{t('customer:Edit customer info')}</h3>
                             <Form.Group className="required-field">
-                                <Form.Label>{t('First Name')}</Form.Label>
+                                <Form.Label>
+                                    {t('customer:First Name')}
+                                </Form.Label>
                                 <Form.Control
                                     type="text"
                                     name="firstname"
@@ -89,7 +92,9 @@ const EditCustomerInfoPage: FunctionComponent = () => {
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group className="required-field">
-                                <Form.Label>{t('Last Name')}</Form.Label>
+                                <Form.Label>
+                                    {t('customer:Last Name')}
+                                </Form.Label>
                                 <Form.Control
                                     type="text"
                                     name="lastname"
@@ -106,9 +111,11 @@ const EditCustomerInfoPage: FunctionComponent = () => {
                         </Col>
                         {isChangeEmail && (
                             <Col md={6} className="px-0 pl-md-4">
-                                <h3>{t('Change Email')}</h3>
+                                <h3>{t('customer:Change Email')}</h3>
                                 <Form.Group className="required-field">
-                                    <Form.Label>{t('Email')}</Form.Label>
+                                    <Form.Label>
+                                        {t('customer:Email')}
+                                    </Form.Label>
                                     <Form.Control
                                         type="text"
                                         name="email"
@@ -124,7 +131,7 @@ const EditCustomerInfoPage: FunctionComponent = () => {
                                 </Form.Group>
                                 <Form.Group className="required-field">
                                     <Form.Label>
-                                        {t('Current password')}
+                                        {t('customer:Current password')}
                                     </Form.Label>
                                     <PasswordField
                                         name="password"
@@ -143,7 +150,7 @@ const EditCustomerInfoPage: FunctionComponent = () => {
                                 </Form.Group>
                                 {/* TODO: add phone number field */}
                                 {/*<Form.Group className="required-field">*/}
-                                {/*    <Form.Label>{t('Phone Number')}</Form.Label>*/}
+                                {/*    <Form.Label>{t('customer:Phone Number')}</Form.Label>*/}
                                 {/*    <Form.Control*/}
                                 {/*        type="text"*/}
                                 {/*        name="phone"*/}
@@ -172,7 +179,7 @@ const EditCustomerInfoPage: FunctionComponent = () => {
                                         onChange={handleIsChangeEmailChange}
                                     />
                                     <FormCheck.Label>
-                                        {t('Change Email')}
+                                        {t('customer:Change Email')}
                                     </FormCheck.Label>
                                 </Form.Check>
                             </Form.Group>
@@ -186,14 +193,14 @@ const EditCustomerInfoPage: FunctionComponent = () => {
                 className="mr-4"
                 onClick={goBack}
             >
-                {t('Cancel')}
+                {t('common:Cancel')}
             </Button>
             <Button
                 variant="primary"
                 disabled={!isValid}
                 onClick={() => handleSubmit()}
             >
-                {t('Save')}
+                {t('common:Save')}
             </Button>
         </div>
     );

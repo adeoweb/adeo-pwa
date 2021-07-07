@@ -1,10 +1,12 @@
-import React, { Component, Fragment } from 'react';
-import { number, node, oneOf, oneOfType, shape, string } from 'prop-types';
 import { BasicTextArea, asField } from 'informed';
+import { number, node, oneOf, oneOfType, shape, string } from 'prop-types';
 import { compose } from 'redux';
+
+import React, { Component, Fragment } from 'react';
 
 import classify from '../../classify';
 import { Message } from '../Field';
+
 import defaultClasses from './textArea.css';
 
 export class TextArea extends Component {
@@ -44,7 +46,4 @@ export class TextArea extends Component {
     }
 }
 
-export default compose(
-    classify(defaultClasses),
-    asField
-)(TextArea);
+export default compose(classify(defaultClasses), asField)(TextArea);

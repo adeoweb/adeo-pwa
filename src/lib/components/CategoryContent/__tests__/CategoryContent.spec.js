@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import testRenderer from 'react-test-renderer';
+
 import CategoryContent from 'src/lib/components/CategoryContent';
 import { CategoryContentPropsMock } from 'src/lib/components/CategoryContent/__mocks__/CategoryContent.mock';
 

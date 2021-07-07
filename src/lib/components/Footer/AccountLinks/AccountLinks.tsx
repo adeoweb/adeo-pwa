@@ -1,15 +1,16 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useIsSignedIn } from 'src/peregrine/lib/talons/adeoweb/IsSignedIn/useIsSignedIn';
+
 import RouterRoutes from 'src/lib/RouterRoutes';
-import { Link } from 'src/lib/drivers';
-import { useSignOut } from 'src/peregrine/lib/talons/adeoweb/SignOut/useSignOut';
-import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
-import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
 import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
+import { Link } from 'src/lib/drivers';
+import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
+import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
+import { useIsSignedIn } from 'src/peregrine/lib/talons/adeoweb/IsSignedIn/useIsSignedIn';
+import { useSignOut } from 'src/peregrine/lib/talons/adeoweb/SignOut/useSignOut';
 
 const AccountLinks: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
     const { isSignedIn } = useIsSignedIn();
 
     const { handleSignOut } = useSignOut({
@@ -25,12 +26,12 @@ const AccountLinks: FunctionComponent = () => {
                     <Fragment>
                         <li>
                             <Link to={RouterRoutes.customer.url}>
-                                {t('My account')}
+                                {t('My Account')}
                             </Link>
                         </li>
                         <li>
                             <Link to={CustomerRoutes.wishlist.url}>
-                                {t('My wishlist')}
+                                {t('My Wishlist')}
                             </Link>
                         </li>
                         <li>

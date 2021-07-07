@@ -1,7 +1,10 @@
-import * as React from 'react';
-import { DocumentNode } from 'graphql';
 import { FormikErrors, FormikTouched } from 'formik';
+import { DocumentNode } from 'graphql';
+
+import * as React from 'react';
+
 import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
+
 import { FormikState } from 'formik/dist/types';
 
 type TUseCustomerAddressFormProps<Values> = {

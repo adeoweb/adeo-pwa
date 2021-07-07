@@ -1,21 +1,19 @@
-import { useEffect, useState } from 'react';
 import { useLazyQuery } from '@apollo/react-hooks';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+
 import { getSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
-import { useProductFilters } from 'src/peregrine/lib/talons/adeoweb/Product/useProductFilters';
+
 import { usePageSize } from 'src/peregrine/lib/talons/adeoweb/Product/usePageSize';
+import { useProductFilters } from 'src/peregrine/lib/talons/adeoweb/Product/useProductFilters';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useSearchPage = props => {
     const { query, setTotalPages, currentPage, sortField, sortDir } = props;
     const location = useLocation();
     const inputText = getSearchParam('query', location);
-    const {
-        getFilterQuery,
-        activeFilters,
-        setFilter,
-        toggleFilter
-    } = useProductFilters();
+    const { getFilterQuery, activeFilters, setFilter, toggleFilter } =
+        useProductFilters();
 
     const { pageSize, setPageSize } = usePageSize();
     const [data, setData] = useState(null);

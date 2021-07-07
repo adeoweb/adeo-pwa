@@ -1,6 +1,8 @@
 import React from 'react';
-import { usePagination } from '../usePagination';
+
 import { createTestInstance } from '@magento/peregrine';
+
+import { usePagination } from '../usePagination';
 
 const PAGER_TILE_TYPE_ELLIPSIS = 'PAGER_TILE_TYPE_ELLIPSIS';
 

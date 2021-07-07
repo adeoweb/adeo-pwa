@@ -1,19 +1,17 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
+
 import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
 import {
     TBillingCartAddress,
     TShippingCartAddress
 } from 'src/lib/types/graphql/Cart';
+import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
 
 type TAddressBlockProps = {
     address: TShippingCartAddress | TBillingCartAddress;
 };
 
 const AddressBlock: FunctionComponent<TAddressBlockProps> = ({ address }) => {
-    const { t } = useTranslation();
-
     const {
         firstname = '',
         lastname = '',
@@ -40,7 +38,7 @@ const AddressBlock: FunctionComponent<TAddressBlockProps> = ({ address }) => {
             {firstname} {lastname} <br />
             {street.join(' ')} <br />
             {city}, {region ? region.name + ' ' + postcode : postcode} <br />
-            {country && t(country.full_name_english)} <br />
+            {country && country.full_name_english} <br />
             {telephone}
         </address>
     );

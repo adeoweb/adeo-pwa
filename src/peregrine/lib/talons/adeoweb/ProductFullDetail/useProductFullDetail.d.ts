@@ -1,13 +1,15 @@
+import { FormikErrors, FormikTouched } from 'formik';
 import { DocumentNode } from 'graphql';
+
+import * as React from 'react';
+
+import { TMediaGalleryInterface } from 'src/lib/types/graphql/MediaGalleryInterface';
 import {
     TCustomizableOption,
     TPriceRange,
     TProduct,
     TProductTypes
 } from 'src/lib/types/graphql/Product';
-import { TMediaGalleryInterface } from 'src/lib/types/graphql/MediaGalleryInterface';
-import * as React from 'react';
-import { FormikErrors, FormikTouched } from 'formik';
 import { ICustomOptionsForm } from 'src/peregrine/lib/talons/adeoweb/ProductFullDetail/useCustomProduct';
 
 type TUseProductFullDetailProps = {

@@ -1,15 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'src/lib/drivers';
+import { useTranslation } from 'react-i18next';
+
 import RouterRoutes from 'src/lib/RouterRoutes';
+import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
+import { Link } from 'src/lib/drivers';
+import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
+import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
 import { useIsSignedIn } from 'src/peregrine/lib/talons/adeoweb/IsSignedIn/useIsSignedIn';
 import { useSignOut } from 'src/peregrine/lib/talons/adeoweb/SignOut/useSignOut';
-import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
-import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
-import { useTranslation } from 'react-i18next';
-import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
 
 const LinkList: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common', 'customer']);
 
     const { isSignedIn } = useIsSignedIn();
 
@@ -24,12 +25,12 @@ const LinkList: FunctionComponent = () => {
                 <ul>
                     <li>
                         <Link to={RouterRoutes.contact.url}>
-                            {t('Contact')}
+                            {t('common:Contact')}
                         </Link>
                     </li>
                     <li>
                         <Link to={RouterRoutes.loginPage.url}>
-                            {t('Login')}
+                            {t('customer:Login')}
                         </Link>
                     </li>
                 </ul>
@@ -37,17 +38,17 @@ const LinkList: FunctionComponent = () => {
                 <ul>
                     <li>
                         <Link to={RouterRoutes.customer.url}>
-                            {t('My account')}
+                            {t('customer:My Account')}
                         </Link>
                     </li>
                     <li>
                         <Link to={CustomerRoutes.wishlist.url}>
-                            {t('My wishlist')}
+                            {t('customer:My Wishlist')}
                         </Link>
                     </li>
                     <li>
                         <Link to={RouterRoutes.contact.url}>
-                            {t('Contact')}
+                            {t('common:Contact')}
                         </Link>
                     </li>
                     <li>
@@ -55,7 +56,7 @@ const LinkList: FunctionComponent = () => {
                             className="btn btn-link top-bar-button-link"
                             onClick={handleSignOut}
                         >
-                            {t('Log out')}
+                            {t('customer:Log out')}
                         </button>
                     </li>
                 </ul>

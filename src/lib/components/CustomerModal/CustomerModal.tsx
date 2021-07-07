@@ -1,12 +1,14 @@
 import React, { Fragment, FunctionComponent, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+
+import CloseIcon from 'src/lib/assets/icons/CloseIcon';
 import LoginForm from 'src/lib/components/Customer/LoginForm';
 import LoginPageHeading from 'src/lib/components/Customer/pages/LoginPage/LoginPageHeading';
-import { CustomerModalTypes } from 'src/lib/constants/customer';
-import CloseIcon from 'src/lib/assets/icons/CloseIcon';
 import ForgotPasswordModal from 'src/lib/components/ForgotPasswordModal';
+import { CustomerModalTypes } from 'src/lib/constants/customer';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+
 import ForgotPasswordModalClasses from 'src/lib/components/ForgotPasswordModal/ForgotPasswordModal.scss';
 
 interface ICustomerModalProps {
@@ -18,7 +20,7 @@ const CustomerModal: FunctionComponent<ICustomerModalProps> = ({
     modalType,
     handleClose
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
     const [, { setCustomerModal }] = useAppContext();
 
     // Keep modal type value in state to ensure proper render during close animation

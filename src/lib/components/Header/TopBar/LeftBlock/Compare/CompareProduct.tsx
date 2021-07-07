@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'src/lib/drivers';
 import { Button } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
+import { Link } from 'src/lib/drivers';
 import { TProduct } from 'src/lib/types/graphql/Product';
 
 type TCompareProductProps = {
@@ -13,7 +14,7 @@ const CompareProduct: FunctionComponent<TCompareProductProps> = ({
     product,
     removeHandler
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { name, url_key = '', url_suffix = '' } = product;
     const productUrl = `/${url_key}${url_suffix}`;
 

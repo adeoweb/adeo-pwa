@@ -1,6 +1,7 @@
 import * as H from 'history';
-import { TStore } from 'src//lib/types/graphql/Store';
+
 import { CustomerModalTypes } from 'src//lib/constants/customer';
+import { TStore } from 'src//lib/types/graphql/Store';
 
 interface ICloseDrawerProps {
     name: string;

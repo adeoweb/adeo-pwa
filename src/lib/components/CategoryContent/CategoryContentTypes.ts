@@ -1,7 +1,7 @@
 import { IProductsSortControl } from 'src/lib/components/ProductsSort';
+import { TAggregation } from 'src/lib/types/graphql/Aggregation';
 import { TCategoryInterface } from 'src/lib/types/graphql/Category';
 import { TProduct } from 'src/lib/types/graphql/Product';
-import { TAggregation } from 'src/lib/types/graphql/Aggregation';
 
 export interface ICategoryPageControl {
     currentPage: number;

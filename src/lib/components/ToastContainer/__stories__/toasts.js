@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
-import ToastContainer from '../toastContainer';
-import { ToastContextProvider, useToasts } from '@magento/peregrine';
-import Icon from '../../Icon';
-
+import React, { useEffect } from 'react';
 import SmileIcon from 'react-feather/smile';
+
+import { ToastContextProvider, useToasts } from '@magento/peregrine';
+
+import Icon from '../../Icon';
+import ToastContainer from '../toastContainer';
 
 const stories = storiesOf('Components/Toasts', module);
 

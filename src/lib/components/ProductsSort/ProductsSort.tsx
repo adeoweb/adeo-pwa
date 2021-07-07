@@ -1,11 +1,13 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import { Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+
 import {
     DEFAULT_PRODUCT_SORT_FIELD,
     ProductSortDirections,
     ProductSortFields
 } from 'src/lib/constants/product';
+
 import { IProductsSortControl } from './ProductsSortTypes';
 
 type TProductSortProps = {
@@ -15,7 +17,7 @@ type TProductSortProps = {
 const ProductsSort: FunctionComponent<TProductSortProps> = ({
     sortControl
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { field, dir, setSort } = sortControl;
     const sortOptions = new Map<ProductSortFields, string>()
         .set(DEFAULT_PRODUCT_SORT_FIELD, t('Default sorting'))

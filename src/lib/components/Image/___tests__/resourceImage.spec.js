@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import { useResourceImage } from 'src/peregrine/lib/talons/adeoweb/Image/useResourceImage';
 
 import ResourceImage from '../ResourceImage';

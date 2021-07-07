@@ -1,9 +1,13 @@
-import React from 'react';
-import defaultClasses from './image.css';
 import { arrayOf, bool, oneOf, shape, string } from 'prop-types';
+
+import React from 'react';
+
 import { Link, resourceUrl } from 'src/lib/drivers';
-import resolveLinkProps from '../../resolveLinkProps';
+
 import { mergeClasses } from '../../../../../classify';
+import resolveLinkProps from '../../resolveLinkProps';
+
+import defaultClasses from './image.css';
 
 /**
  * Page Builder Image component.

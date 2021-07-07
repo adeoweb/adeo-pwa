@@ -1,11 +1,12 @@
 import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useLocation } from 'src/lib/drivers';
+
 import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
+import { Link, useLocation } from 'src/lib/drivers';
 
 const Menu: FunctionComponent = () => {
     const location = useLocation();
-    const { t } = useTranslation();
+    const { t } = useTranslation(['customer', 'address']);
 
     const isActive = useCallback(
         (route: string) => {
@@ -16,7 +17,7 @@ const Menu: FunctionComponent = () => {
 
     return (
         <div className="widget widget-dashboard">
-            <h3 className="widget-title">{t('My Account')}</h3>
+            <h3 className="widget-title">{t('customer:My Account')}</h3>
 
             <ul className="list">
                 <li
@@ -27,7 +28,7 @@ const Menu: FunctionComponent = () => {
                     }
                 >
                     <Link to={CustomerRoutes.account.url}>
-                        {t('Account Information')}
+                        {t('customer:Account Information')}
                     </Link>
                 </li>
                 <li
@@ -38,7 +39,7 @@ const Menu: FunctionComponent = () => {
                     }
                 >
                     <Link to={CustomerRoutes.shipping.url}>
-                        {t('Shipping Information')}
+                        {t('address:Shipping Information')}
                     </Link>
                 </li>
                 <li
@@ -49,7 +50,7 @@ const Menu: FunctionComponent = () => {
                     }
                 >
                     <Link to={CustomerRoutes.billing.url}>
-                        {t('Billing Information')}
+                        {t('address:Billing Information')}
                     </Link>
                 </li>
                 <li
@@ -60,7 +61,7 @@ const Menu: FunctionComponent = () => {
                     }
                 >
                     <Link to={CustomerRoutes.newsletters.url}>
-                        {t('Newsletters')}
+                        {t('customer:Newsletters')}
                     </Link>
                 </li>
                 <li
@@ -70,7 +71,9 @@ const Menu: FunctionComponent = () => {
                             : undefined
                     }
                 >
-                    <Link to={CustomerRoutes.orders.url}>{t('My Orders')}</Link>
+                    <Link to={CustomerRoutes.orders.url}>
+                        {t('customer:My Orders')}
+                    </Link>
                 </li>
                 <li
                     className={
@@ -80,7 +83,7 @@ const Menu: FunctionComponent = () => {
                     }
                 >
                     <Link to={CustomerRoutes.wishlist.url}>
-                        {t('My wishlist')}
+                        {t('customer:My Wishlist')}
                     </Link>
                 </li>
             </ul>

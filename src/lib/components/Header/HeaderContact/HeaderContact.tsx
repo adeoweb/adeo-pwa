@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { useHeaderContact } from 'src/peregrine/lib/talons/adeoweb/Header/useHeaderContact';
 
 const HeaderContact: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const { storePhone } = useHeaderContact();
 
     if (!storePhone) {

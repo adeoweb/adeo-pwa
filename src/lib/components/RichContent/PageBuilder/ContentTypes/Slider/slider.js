@@ -1,8 +1,11 @@
-import React, { Children } from 'react';
 import { arrayOf, bool, number, oneOf, shape, string } from 'prop-types';
+
+import React, { Children } from 'react';
 import SlickSlider from 'react-slick';
-import defaultClasses from './slider.css';
+
 import { mergeClasses } from '../../../../../classify';
+
+import defaultClasses from './slider.css';
 
 /**
  * Page Builder Slider component.

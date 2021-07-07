@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import classes from './styles/Map.scss';
 
 interface MapProps {
@@ -27,6 +28,7 @@ const Map: FunctionComponent<MapProps> = ({
                 height={height}
                 allowFullScreen={allowFullScreen}
                 aria-hidden={'false'}
+                title={'contact-map'}
             />
         </div>
     );

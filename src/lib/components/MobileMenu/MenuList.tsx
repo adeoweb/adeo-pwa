@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import { TCategoryTree } from 'src/lib/types/graphql/Category';
+
 import MenuItem from 'src/lib/components/MobileMenu/MenuItem';
+import { TCategoryTree } from 'src/lib/types/graphql/Category';
 
 type TMenuListProps = {
     items: TCategoryTree[];

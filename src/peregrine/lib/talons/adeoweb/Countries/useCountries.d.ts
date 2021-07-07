@@ -1,4 +1,5 @@
 import { DocumentNode } from 'graphql';
+
 import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
 
 type TUseCountriesProps = {

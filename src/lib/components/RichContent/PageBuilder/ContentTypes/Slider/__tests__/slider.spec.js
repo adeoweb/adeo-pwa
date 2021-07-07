@@ -1,5 +1,8 @@
 import React from 'react';
+import SlickSlider from 'react-slick';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import Slider from '../slider';
 
 jest.mock('src/lib/drivers', () => ({
@@ -10,7 +13,7 @@ jest.mock('src/lib/classify');
 jest.mock('react-slick', () => {
     return jest.fn();
 });
-import SlickSlider from 'react-slick';
+
 const mockSlick = SlickSlider.mockImplementation(({ children }) => (
     <div>{children}</div>
 ));

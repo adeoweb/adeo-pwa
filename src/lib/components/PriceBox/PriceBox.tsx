@@ -1,6 +1,8 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import { TPriceRange } from 'src/lib/types/graphql/Product';
+
 import { Price } from '@magento/peregrine';
+
+import { TPriceRange } from 'src/lib/types/graphql/Product';
 
 type TPriceBoxProps = {
     priceRange: TPriceRange;

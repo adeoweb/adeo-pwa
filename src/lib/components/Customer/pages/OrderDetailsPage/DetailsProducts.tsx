@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-// import Image from 'src/lib/components/Image';
+
+import { Price } from '@magento/peregrine';
+
 import DetailsAccordion from 'src/lib/components/Customer/pages/OrderDetailsPage/DetailsAccordion';
 import { TOrderItem } from 'src/lib/types/graphql/Customer';
-import { Price } from '@magento/peregrine';
 
 interface IDetailsProductsProps {
     items: TOrderItem[];
@@ -12,7 +13,7 @@ interface IDetailsProductsProps {
 const DetailsProducts: FunctionComponent<IDetailsProductsProps> = ({
     items
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['order', 'product']);
 
     if (!Array.isArray(items) || !items.length) {
         return null;
@@ -20,11 +21,11 @@ const DetailsProducts: FunctionComponent<IDetailsProductsProps> = ({
 
     return (
         <DetailsAccordion
-            title={`${t('Goods')} (${items.length})`}
+            title={`${t('order:Goods')} (${items.length})`}
             contentContainerClass="customer-order-products"
         >
             {items.map(({ name, price_incl_tax: priceInclTax, qty, sku }) => (
-                <div className="customer-order-product">
+                <div className="customer-order-product" key={sku}>
                     <div className="customer-order-product-details-block">
                         {/* TODO: get image url and label from backend */}
                         {/* TODO: uncomment when ready */}
@@ -36,7 +37,7 @@ const DetailsProducts: FunctionComponent<IDetailsProductsProps> = ({
                             <table>
                                 <tbody>
                                     <tr>
-                                        <th>{t('Product code')}</th>
+                                        <th>{t('product:Product code')}</th>
                                         <td>{sku}</td>
                                     </tr>
                                     {/* TODO: uncomment when ready */}
@@ -52,7 +53,7 @@ const DetailsProducts: FunctionComponent<IDetailsProductsProps> = ({
                     <div className="customer-order-product-order-block">
                         <div className="customer-order-product-order-info">
                             <div className="customer-order-product-description">
-                                {t('Quantity')}
+                                {t('product:Quantity')}
                             </div>
                             <div className="customer-order-product-value">
                                 {qty}
@@ -60,13 +61,13 @@ const DetailsProducts: FunctionComponent<IDetailsProductsProps> = ({
                         </div>
                         <div className="customer-order-product-order-info">
                             <div className="customer-order-product-description">
-                                {t('Price with tax')}
+                                {t('product:Price with tax')}
                             </div>
                             <div className="customer-order-product-value customer-order-product-price">
                                 <Price
-                                    value={priceInclTax}
+                                    value={priceInclTax?.value}
                                     // TODO: get currency code from backend
-                                    currencyCode={'EUR'}
+                                    currencyCode={priceInclTax?.currency}
                                 />
                             </div>
                         </div>

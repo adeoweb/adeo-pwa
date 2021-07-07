@@ -1,10 +1,13 @@
+import { Form } from 'informed';
+
 import React from 'react';
 import { act } from 'react-test-renderer';
-import { Form } from 'informed';
+
 import { createTestInstance } from '@magento/peregrine';
 
 import Checkbox from '../checkbox';
 
+const icon = 'icon';
 const field = 'a';
 const label = 'b';
 const classes = ['icon', 'input', 'label', 'message', 'root'].reduce(
@@ -12,7 +15,9 @@ const classes = ['icon', 'input', 'label', 'message', 'root'].reduce(
     {}
 );
 
-const props = { classes, field, label };
+const props = { classes, field, label, icon };
+
+jest.mock('react-feather/check', () => 'icon');
 
 test('renders the correct tree', () => {
     const tree = createTestInstance(

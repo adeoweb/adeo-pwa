@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { TPriceRange, TTierPrice } from 'src/lib/types/graphql/Product';
-import TierRow from './TierRow';
+
 import remapPriceTiers from 'src/lib/components/PriceTiers/remapPriceTiers';
+import { TPriceRange, TTierPrice } from 'src/lib/types/graphql/Product';
+
+import TierRow from './TierRow';
 
 type TPriceTiersProps = {
     priceTiers?: TTierPrice[];

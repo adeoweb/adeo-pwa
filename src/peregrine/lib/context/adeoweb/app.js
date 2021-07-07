@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { connect } from 'react-redux';
 
+import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
+
 import actions from '../../store/actions/adeoweb/app/actions';
 import * as asyncActions from '../../store/actions/adeoweb/app/asyncActions';
-import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
 
 const AppContext = createContext([undefined, undefined]);
 
@@ -33,9 +34,6 @@ const mapDispatchToProps = dispatch => ({
     asyncActions: bindActionCreators(asyncActions, dispatch)
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AppContextProvider);
+export default connect(mapStateToProps, mapDispatchToProps)(AppContextProvider);
 
 export const useAppContext = () => useContext(AppContext);

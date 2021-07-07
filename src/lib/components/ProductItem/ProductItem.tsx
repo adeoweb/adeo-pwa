@@ -1,16 +1,18 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import { Link } from 'src/lib/drivers';
-import Image from 'src/lib/components/Image';
-import ProductTitle from './ProductTitle';
-import AddToCart from './AddToCart';
-import PriceBox from 'src/lib/components/PriceBox';
-import { TProduct } from 'src/lib/types/graphql/Product';
-import { AddToCompare } from 'src/lib/components/Compare';
+
 import AddToWishlist from 'src/lib/components/AddToWishlist';
+import { AddToCompare } from 'src/lib/components/Compare';
+import Image from 'src/lib/components/Image';
+import PriceBox from 'src/lib/components/PriceBox';
 import { CustomerModalTypes } from 'src/lib/constants/customer';
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
-import getItemUrl from 'src/lib/util/getItemUrl';
+import { Link } from 'src/lib/drivers';
 import { TCategoryInterface } from 'src/lib/types/graphql/Category';
+import { TProduct } from 'src/lib/types/graphql/Product';
+import getItemUrl from 'src/lib/util/getItemUrl';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+
+import AddToCart from './AddToCart';
+import ProductTitle from './ProductTitle';
 
 interface IProductItemProps {
     product: TProduct;

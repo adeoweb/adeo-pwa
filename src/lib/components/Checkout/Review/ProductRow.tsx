@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from 'react';
+
 import { Price } from '@magento/peregrine';
-import { TCartItem } from 'src/lib/types/graphql/CartItem';
-import { Link } from 'src/lib/drivers';
+
 import Image from 'src/lib/components/Image';
+import { Link } from 'src/lib/drivers';
+import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import getItemUrl from 'src/lib/util/getItemUrl';
 
 type TProductRowProps = {
@@ -40,19 +42,24 @@ const ProductRow: FunctionComponent<TProductRowProps> = ({
                     </h2>
                     {options && (
                         <ul className="mb-0">
-                            {options.map(
-                                ({
+                            {options.map((option, index) => {
+                                if (!option) {
+                                    return;
+                                }
+                                const {
                                     id,
                                     option_label: optionLabel,
                                     value_label: valueLabel
-                                }) => (
-                                    <li key={id}>
+                                } = option;
+
+                                return (
+                                    <li key={`${id}-${index}`}>
                                         <div>
                                             {optionLabel}: {valueLabel}
                                         </div>
                                     </li>
-                                )
-                            )}
+                                );
+                            })}
                         </ul>
                     )}
                 </div>

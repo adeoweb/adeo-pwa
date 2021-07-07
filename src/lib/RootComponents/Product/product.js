@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
+
 import { useProduct } from 'src/peregrine/lib/talons/adeoweb/RootComponents/Product/useProduct';
 
 import { Title, Meta } from '../../components/Head';
 import { FullPageLoadingIndicator } from '../../components/LoadingIndicator';
 import ProductFullDetail from '../../components/ProductFullDetail';
-import { MagentoGraphQLTypes } from '../../util/apolloCache';
-import getUrlKey from '../../util/getUrlKey';
+import PRODUCT_DETAILS_FRAGMENT from '../../fragments/productDetails.graphql';
 
 /*
  * As of this writing, there is no single Product query type in the M2.3 schema.
@@ -15,7 +15,8 @@ import getUrlKey from '../../util/getUrlKey';
  * TODO: Replace with a single product query when possible.
  */
 import GET_PRODUCT_DETAIL from '../../queries/getProductDetail.graphql';
-import PRODUCT_DETAILS_FRAGMENT from '../../fragments/productDetails.graphql';
+import { MagentoGraphQLTypes } from '../../util/apolloCache';
+import getUrlKey from '../../util/getUrlKey';
 
 const Product = () => {
     useEffect(() => {

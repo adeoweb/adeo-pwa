@@ -1,11 +1,10 @@
 import { useRef, useEffect } from 'react';
+
 import { useProductCompareContext } from 'src/peregrine/lib/context/adeoweb/productCompare';
 
 export const useCompareDropdown = () => {
-    const [
-        { compareDropdownOpen },
-        { toggleCompareDropdown }
-    ] = useProductCompareContext();
+    const [{ compareDropdownOpen }, { toggleCompareDropdown }] =
+        useProductCompareContext();
 
     const compareDropdownRef = useRef(null);
 

@@ -1,6 +1,7 @@
 import { DocumentNode } from 'graphql';
-import { TAvailablePaymentMethod } from 'src/lib/types/graphql/Cart';
+
 import { TPaymentMethodInput } from 'src/lib/types/SetPaymentMethodOnCart';
+import { TAvailablePaymentMethod } from 'src/lib/types/graphql/Cart';
 
 type TUsePaymentMethodSelectProps = {
     setPaymentMethodOnCartMutation: DocumentNode;

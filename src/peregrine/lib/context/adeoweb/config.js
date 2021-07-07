@@ -22,10 +22,10 @@ const ConfigContextProvider = ({
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [configState, configApi], [
-        configApi,
-        configState
-    ]);
+    const contextValue = useMemo(
+        () => [configState, configApi],
+        [configApi, configState]
+    );
 
     return (
         <ConfigContext.Provider value={contextValue}>

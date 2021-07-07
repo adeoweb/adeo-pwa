@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { connect } from 'react-redux';
 
+import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
+
 import actions from '../../store/actions/adeoweb/cart/actions';
 import * as asyncActions from '../../store/actions/adeoweb/cart/asyncActions';
-import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
+
 const CartContext = createContext();
 
 const isCartEmpty = cart =>
@@ -46,10 +48,10 @@ const CartContextProvider = props => {
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [derivedCartState, cartApi], [
-        cartApi,
-        derivedCartState
-    ]);
+    const contextValue = useMemo(
+        () => [derivedCartState, cartApi],
+        [cartApi, derivedCartState]
+    );
 
     return (
         <CartContext.Provider value={contextValue}>

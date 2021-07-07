@@ -1,10 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Form, FormCheck } from 'react-bootstrap';
+import { TFuncKey, useTranslation } from 'react-i18next';
+
 import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsTypes';
-import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
-import { optionSort } from 'src/lib/components/CustomOptions/utils/optionSort';
 import { getOptionPriceText } from 'src/lib/components/CustomOptions/utils/getOptionPriceText';
+import { optionSort } from 'src/lib/components/CustomOptions/utils/optionSort';
+import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const RadioOption: FunctionComponent<TOptionProps> = ({
     option,
@@ -14,19 +16,27 @@ const RadioOption: FunctionComponent<TOptionProps> = ({
     error,
     touched
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { currencyCode } = useCurrency();
     const {
         title: optionTitle,
         option_id: optionId,
         required: isRequired,
-        radioValue: options
+        value: options
     } = option;
+
+    if (!optionId) {
+        return null;
+    }
+
     const controlEvents = {
         onChange: handleChange,
         onBlur: handleBlur
     };
-    const sortedOptions = (options || []).sort(optionSort);
+    const sortedOptions = filterOutNullableValues(
+        options,
+        'option_type_id'
+    ).sort(optionSort);
 
     return (
         <Form.Group
@@ -34,7 +44,7 @@ const RadioOption: FunctionComponent<TOptionProps> = ({
                 isRequired ? ' required-field' : ''
             }`}
         >
-            <Form.Label>{t(optionTitle)}</Form.Label>
+            <Form.Label>{t(optionTitle as TFuncKey<'product'>)}</Form.Label>
             <div
                 className={`invalid-feedback${
                     Boolean(error) && touched ? ' d-block' : ''
@@ -49,6 +59,10 @@ const RadioOption: FunctionComponent<TOptionProps> = ({
                     price,
                     price_type: priceType
                 } = option;
+                if (!id) {
+                    return;
+                }
+
                 const priceText = getOptionPriceText(
                     price,
                     priceType,
@@ -70,7 +84,7 @@ const RadioOption: FunctionComponent<TOptionProps> = ({
                             {...controlEvents}
                         />
                         <FormCheck.Label>
-                            {t(title)}
+                            {t(title as TFuncKey<'product'>)}
                             {priceText}
                         </FormCheck.Label>
                     </Form.Check>

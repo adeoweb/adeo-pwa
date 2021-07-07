@@ -1,6 +1,6 @@
 import React from 'react';
-import testRenderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
+import testRenderer from 'react-test-renderer';
 
 import Contact from 'src/lib/components/Contact';
 import mockUseContactForm from 'src/lib/util/__mocks__/hooks/mockUseContactForm';

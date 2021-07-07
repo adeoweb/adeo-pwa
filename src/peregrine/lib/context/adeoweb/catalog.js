@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { connect } from 'react-redux';
 
+import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
+
 import actions from '../../store/actions/adeoweb/catalog/actions';
 import * as asyncActions from '../../store/actions/adeoweb/catalog/asyncActions';
-import bindActionCreators from '@magento/peregrine/lib/util/bindActionCreators';
+
 const CatalogContext = createContext();
 
 const CatalogContextProvider = props => {
@@ -17,10 +19,10 @@ const CatalogContextProvider = props => {
         [actions, asyncActions]
     );
 
-    const contextValue = useMemo(() => [catalogState, catalogApi], [
-        catalogApi,
-        catalogState
-    ]);
+    const contextValue = useMemo(
+        () => [catalogState, catalogApi],
+        [catalogApi, catalogState]
+    );
 
     return (
         <CatalogContext.Provider value={contextValue}>

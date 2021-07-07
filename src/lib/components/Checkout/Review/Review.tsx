@@ -4,25 +4,26 @@ import React, {
     useEffect,
     useCallback
 } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Row, Col } from 'react-bootstrap';
-import { useReviewStep } from 'src/peregrine/lib/talons/adeoweb/Checkout/useReviewStep';
-import InfoBox from 'src/lib/components/Checkout/InfoBox';
+import { TFuncKey, useTranslation } from 'react-i18next';
+
+import ApplyPromoWidget from 'src/lib/components/ApplyPromoWidget';
 import { CheckoutRoutes } from 'src/lib/components/Checkout';
 import AddressBlock from 'src/lib/components/Checkout/Address';
+import InfoBox from 'src/lib/components/Checkout/InfoBox';
+import ProductsTable from 'src/lib/components/Checkout/Review/ProductsTable';
 import { PricingSummary } from 'src/lib/components/Checkout/Summary';
 import { useHistory } from 'src/lib/drivers';
-import ProductsTable from 'src/lib/components/Checkout/Review/ProductsTable';
 import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
-import PLACE_ORDER_MUTATION from 'src/lib/queries/placeOrder.graphql';
 import GET_CART_DETAILS_QUERY from 'src/lib/queries/getCartDetails.graphql';
-import ApplyPromoWidget from 'src/lib/components/ApplyPromoWidget';
+import PLACE_ORDER_MUTATION from 'src/lib/queries/placeOrder.graphql';
+import { useReviewStep } from 'src/peregrine/lib/talons/adeoweb/Checkout/useReviewStep';
 
 const Review: FunctionComponent = () => {
     const FIRST_STEP = CheckoutRoutes.shipping.url;
     const SUCCESS_PAGE_URL = CheckoutRoutes.success.url;
     const ERROR_PAGE_URL = CheckoutRoutes.failure.url;
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const history = useHistory();
 
     const redirectToFirst = useCallback(() => {
@@ -78,6 +79,11 @@ const Review: FunctionComponent = () => {
         }
     }, [orderNumber, redirectToSuccess]);
 
+    const shippingMethodKey =
+        selectedShippingMethod?.carrier_title &&
+        selectedShippingMethod.method_title &&
+        (`${selectedShippingMethod.carrier_title} - ${selectedShippingMethod.method_title}` as TFuncKey<'order'>);
+
     return (
         <Fragment>
             <Row>
@@ -103,24 +109,14 @@ const Review: FunctionComponent = () => {
                                     <AddressBlock address={shippingAddress} />
                                 </InfoBox>
                             )}
-                            {selectedShippingMethod &&
-                                selectedShippingMethod.carrier_title &&
-                                selectedShippingMethod.method_title && (
-                                    <InfoBox
-                                        title={t('Shipping Method:')}
-                                        editRoute={CheckoutRoutes.shipping.url}
-                                    >
-                                        <p>
-                                            {t(
-                                                `${
-                                                    selectedShippingMethod.carrier_title
-                                                } - ${
-                                                    selectedShippingMethod.method_title
-                                                }`
-                                            )}
-                                        </p>
-                                    </InfoBox>
-                                )}
+                            {shippingMethodKey && (
+                                <InfoBox
+                                    title={t('Shipping Method:')}
+                                    editRoute={CheckoutRoutes.shipping.url}
+                                >
+                                    <p>{t(shippingMethodKey)}</p>
+                                </InfoBox>
+                            )}
                         </Col>
                         <Col lg={6}>
                             {billingAddress && (
@@ -137,7 +133,11 @@ const Review: FunctionComponent = () => {
                                         title={t('Payment Method:')}
                                         editRoute={CheckoutRoutes.payment.url}
                                     >
-                                        <p>{t(selectedPaymentMethod.title)}</p>
+                                        <p>
+                                            {t(
+                                                selectedPaymentMethod.title as TFuncKey<'order'>
+                                            )}
+                                        </p>
                                     </InfoBox>
                                 )}
                         </Col>

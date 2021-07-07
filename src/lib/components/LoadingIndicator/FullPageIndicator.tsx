@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import LoadingIndicator from './LoadingIndicator';
 import { useTranslation } from 'react-i18next';
 
+import LoadingIndicator from './LoadingIndicator';
+
 const FullPageIndicator: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
     return (
         <LoadingIndicator global={true}>

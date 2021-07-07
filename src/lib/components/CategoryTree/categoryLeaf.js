@@ -1,9 +1,12 @@
-import React from 'react';
 import { func, shape, string } from 'prop-types';
+
+import React from 'react';
+
 import { useCategoryLeaf } from '@magento/peregrine/lib/talons/CategoryTree';
 
 import { mergeClasses } from '../../classify';
 import { Link, resourceUrl } from '../../drivers';
+
 import defaultClasses from './categoryLeaf.css';
 
 const suffix = '.html';

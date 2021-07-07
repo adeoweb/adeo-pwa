@@ -1,14 +1,18 @@
-import React from 'react';
 import { string, number, shape } from 'prop-types';
-import { Link, resourceUrl } from 'src/lib/drivers';
+
+import React from 'react';
+
 import { Price } from '@magento/peregrine';
 import { transparentPlaceholder } from '@magento/peregrine/lib/util/images';
+
+import { Link, resourceUrl } from 'src/lib/drivers';
+import getItemUrl from 'src/lib/util/getItemUrl';
 import { UNCONSTRAINED_SIZE_KEY } from 'src/peregrine/lib/talons/adeoweb/Image/useImage';
 
 import { mergeClasses } from '../../classify';
 import Image from '../Image';
+
 import defaultClasses from './item.css';
-import getItemUrl from 'src/lib/util/getItemUrl';
 
 // The placeholder image is 4:5, so we should make sure to size our product
 // images appropriately.

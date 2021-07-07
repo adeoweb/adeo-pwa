@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
+import { TFuncKey, useTranslation } from 'react-i18next';
+
 import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsTypes';
 import { getOptionPriceText } from 'src/lib/components/CustomOptions/utils/getOptionPriceText';
 import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
@@ -13,19 +14,29 @@ const AreaOption: FunctionComponent<TOptionProps> = ({
     error,
     touched
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { currencyCode } = useCurrency();
     const {
         title,
         option_id: optionId,
         required: isRequired,
-        areaValue: { price = 0, price_type: priceType }
+        value: areaValue
     } = option;
+
+    if (!optionId) {
+        return null;
+    }
+
     const controlEvents = {
         onChange: handleChange,
         onBlur: handleBlur
     };
-    const priceText = getOptionPriceText(price, priceType, currencyCode);
+
+    const priceText = getOptionPriceText(
+        areaValue?.price,
+        areaValue?.price_type,
+        currencyCode
+    );
 
     return (
         <Form.Group
@@ -35,7 +46,7 @@ const AreaOption: FunctionComponent<TOptionProps> = ({
             controlId={optionId.toString()}
         >
             <Form.Label>
-                {t(title)}
+                {t(title as TFuncKey<'product'>)}
                 {priceText}
             </Form.Label>
             <Form.Control

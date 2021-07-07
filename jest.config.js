@@ -38,8 +38,7 @@ const path = require('path');
 // All testable code in packages lives at either 'src' for code that must
 // transpile, or 'lib' for code that doesn't have to.
 
-// FIXME: All tests with `fail_spec` in it's are failing.
-const testGlob = './**/__tests__/*.!(fail_)(test|spec).js';
+const testGlob = './**/__tests__/*.(test|spec).(js|tsx)';
 
 // Reusable test configuration for Adeo PWA UI and storefront packages.
 const testAdeoPwa = inPackage => ({
@@ -55,7 +54,9 @@ const testAdeoPwa = inPackage => ({
         '\\.(jpg|jpeg|png|svg)$': '<rootDir>/src/__mocks__/fileMock.js',
         '\\.css$': 'identity-obj-proxy',
         '\\.scss$': 'identity-obj-proxy',
-        '\\.svg$': 'identity-obj-proxy'
+        '\\.svg$': 'identity-obj-proxy',
+        'react-feather/(.*)':
+            '<rootDir>/node_modules/react-feather/dist/icons/$1.js'
     },
     modulePaths: [
         inPackage(),
@@ -183,7 +184,9 @@ const testAdeoPwa = inPackage => ({
                 ]
             }
         },
-        STORE_NAME: 'Venia'
+        STORE_NAME: 'Venia',
+        STORE_VIEW_CODE: 'default',
+        AVAILABLE_STORE_VIEWS: ['default']
     }
 });
 
@@ -244,59 +247,7 @@ const configureProject = (dir, displayName, cb) => {
 };
 
 const jestConfig = {
-    projects: [
-        // configureProject('node_modules/@magento/babel-preset-peregrine', 'Babel Preset', () => ({
-        //     testEnvironment: 'node'
-        // })),
-        // configureProject('peregrine', 'Peregrine', inPackage => ({
-        //     // Expose jsdom to tests.
-        //     browser: true,
-        //     setupFiles: [
-        //         // Shim DOM properties not supported by jsdom
-        //         inPackage('scripts/shim.js'),
-        //         // Always mock `fetch` instead of doing real network calls
-        //         inPackage('scripts/fetch-mock.js')
-        //     ],
-        //     // Set up Enzyme React 16 adapter for testing React components
-        //     setupFilesAfterEnv: [
-        //         path.join('<rootDir>', 'scripts', 'jest-enzyme-setup.js'),
-        //         path.join('<rootDir>', 'scripts', 'setup-tests.js')
-        //     ],
-        //     // Give jsdom a real URL for router testing.
-        //     testURL: 'http://localhost/'
-        // })),
-        // configureProject('pwa-buildpack', 'Buildpack', inPackage => ({
-        //     testEnvironment: 'node',
-        //     modulePaths: [
-        //         inPackage('lib/Utilities/__tests__/__fixtures__/modules')
-        //     ],
-        //     setupFiles: [inPackage('scripts/fetch-mock.js')]
-        // })),
-        // configureProject('upward-js', 'Upward JS', () => ({
-        //     testEnvironment: 'node'
-        // })),
-        // configureProject('venia-concept', 'Venia Storefront', inPackage =>
-        //     testAdeoPwa(inPackage)
-        // ),
-        configureProject('src', 'Adeo PWA UI', testAdeoPwa)
-        // Test any root CI scripts as well, to ensure stable CI behavior.
-        // configureProject('scripts', 'CI Scripts', () => ({
-        //     testEnvironment: 'node',
-        //     testMatch: [`<rootDir>/scripts/${testGlob}`]
-        // }))
-        // Test the graphql-cli plugin
-        // configureProject(
-        //     'graphql-cli-validate-magento-pwa-queries',
-        //     'GraphQL CLI Plugin',
-        //     () => ({
-        //         testEnvironment: 'node',
-        //         moduleNameMapper: {
-        //             './magento-compatibility':
-        //                 '<rootDir>/magento-compatibility.js'
-        //         }
-        //     })
-        // )
-    ],
+    projects: [configureProject('src', 'Adeo PWA UI', testAdeoPwa)],
     // Include files with zero tests in overall coverage analysis by specifying
     // coverage paths manually.
     collectCoverage: false,

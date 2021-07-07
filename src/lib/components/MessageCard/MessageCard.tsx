@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
-import MessageBlock from './MessageBlock';
-import { IMessageBlocks } from 'src/peregrine/lib/store/reducers/adeoweb/messageCard';
+
 import MessageType, { MessageTypeKeys } from 'src/lib/constants/message';
+import { IMessageBlocks } from 'src/peregrine/lib/store/reducers/adeoweb/messageCard';
+import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
+
+import MessageBlock from './MessageBlock';
 
 const shouldShowCard = (messageBlocks: IMessageBlocks) =>
     Boolean(

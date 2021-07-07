@@ -1,15 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import RichText from 'src/lib/components/RichText';
 
 interface IDescriptionProps {
     description: string;
 }
 
-const descriptionTitle: string = 'Description';
+const descriptionTitle = 'Description';
 
 const Description: FunctionComponent<IDescriptionProps> = ({ description }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     const fallback = t('Description not available');
 

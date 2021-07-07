@@ -1,12 +1,14 @@
-import { useTranslation } from 'react-i18next';
-import { useMemo } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { errorMessages } from 'src/lib/util/errorMessages';
+
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { createYupSchema } from 'src/lib/util/createYupSchema';
+import { errorMessages } from 'src/lib/util/errorMessages';
 
 export const useCustomProduct = ({ product }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('validations');
     const { options, price_range: priceRange } = product;
     const initialValues = {};
     const customOptions = options || [];
@@ -122,10 +124,11 @@ export const useCustomProduct = ({ product }) => {
                     case 'CustomizableCheckboxOption': {
                         const selectedValue = option.checkboxValue;
                         if (selectedValue) {
-                            const selectedCheckboxOptions = selectedValue.filter(
-                                ({ option_type_id: id }) =>
-                                    value.indexOf(id.toString()) !== -1
-                            );
+                            const selectedCheckboxOptions =
+                                selectedValue.filter(
+                                    ({ option_type_id: id }) =>
+                                        value.indexOf(id.toString()) !== -1
+                                );
                             selectedOptions = selectedOptions.concat(
                                 selectedCheckboxOptions
                             );

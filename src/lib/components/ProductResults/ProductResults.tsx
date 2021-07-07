@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { useProductResults } from 'src/peregrine/lib/talons/adeoweb/Product/useProductResults';
 
 type TProductResultsProps = {
@@ -13,7 +14,7 @@ const ProductResults: FunctionComponent<TProductResultsProps> = ({
     pageSize,
     currentPage
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { fromProducts, toProducts } = useProductResults({
         totalProducts,
         pageSize,

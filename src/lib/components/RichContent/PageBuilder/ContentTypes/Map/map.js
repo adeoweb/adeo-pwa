@@ -1,10 +1,13 @@
-import React, { useEffect, useRef } from 'react';
-import { arrayOf, string, bool, number, object, shape } from 'prop-types';
 import loadGoogleMapsApi from 'load-google-maps-api';
-import defaultClasses from './map.css';
 import escape from 'lodash.escape';
+import { arrayOf, string, bool, number, object, shape } from 'prop-types';
+
+import React, { useEffect, useRef } from 'react';
+
 import { mergeClasses } from '../../../../../classify';
 import { mapDefaultProps } from './configAggregator';
+
+import defaultClasses from './map.css';
 
 const getLocationFormattedAsHtml = location => {
     const name = location.name ? `<h3>${escape(location.name)}</h3>` : '';
@@ -143,7 +146,8 @@ const GoogleMap = props => {
 
                 // set the bounds of the map to the perimeter of the furthest locations in either direction
                 if (positions.length > 1) {
-                    const latitudeLongitudeBounds = new googleMaps.LatLngBounds();
+                    const latitudeLongitudeBounds =
+                        new googleMaps.LatLngBounds();
 
                     positions.forEach(position => {
                         latitudeLongitudeBounds.extend(position);

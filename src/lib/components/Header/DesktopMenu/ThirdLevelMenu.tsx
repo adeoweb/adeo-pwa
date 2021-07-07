@@ -1,18 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import SimpleError from 'src/lib/components/SimpleError';
-import { TCategoryTree } from 'src/lib/types/graphql/Category';
+
 import { Link } from 'src/lib/drivers';
+import { TCategoryTree } from 'src/lib/types/graphql/Category';
 
 interface IMenuProps {
     menuChildren: TCategoryTree[];
 }
 
 const ThirdLevelMenu: FunctionComponent<IMenuProps> = ({ menuChildren }) => {
-    if (!Array.isArray(menuChildren)) {
-        return <SimpleError />;
-    }
-
-    if (!menuChildren) {
+    if (!menuChildren.length) {
         return null;
     }
 

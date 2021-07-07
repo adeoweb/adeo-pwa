@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 type TNotFoundProps = {
     goHome: () => void;
 };
 
 const NotFound: FunctionComponent<TNotFoundProps> = ({ goHome }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('navigation');
 
     return (
         <Container className="error-page-wrapper">

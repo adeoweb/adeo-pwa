@@ -1,11 +1,13 @@
-import React, { Component, Fragment } from 'react';
-import { arrayOf, node, shape, string } from 'prop-types';
 import { BasicRadioGroup, asField } from 'informed';
+import { arrayOf, node, shape, string } from 'prop-types';
 import { compose } from 'redux';
+
+import React, { Component, Fragment } from 'react';
 
 import classify from '../../classify';
 import { Message } from '../Field';
 import Radio from './radio';
+
 import defaultClasses from './radioGroup.css';
 
 export class RadioGroup extends Component {
@@ -46,7 +48,4 @@ export class RadioGroup extends Component {
     }
 }
 
-export default compose(
-    classify(defaultClasses),
-    asField
-)(RadioGroup);
+export default compose(classify(defaultClasses), asField)(RadioGroup);

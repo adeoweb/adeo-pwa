@@ -1,10 +1,12 @@
-import React from 'react';
 import { bool, func, number, object, oneOf, string } from 'prop-types';
-import defaultClasses from './toast.css';
+
+import React from 'react';
+import CloseIcon from 'react-feather/x';
+
 import { mergeClasses } from '../../classify';
 import Icon from '../Icon';
 
-import CloseIcon from 'react-feather/x';
+import defaultClasses from './toast.css';
 
 const Toast = props => {
     const {

@@ -1,15 +1,16 @@
 import React, { Fragment, useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import SET_SHIPPING_ADDRESSES_MUTATION from 'src/lib/queries/setShippingAddresses.graphql';
-import { useCartEstimate } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartEstimate';
-import SET_SHIPPING_METHOD_MUTATION from 'src/lib/queries/setShippingMethod.graphql';
-import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
-import { TCartAddressInput } from 'src/lib/types/graphql/Cart';
 import { Button, Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import ShippingMethods from 'src/lib/components/ShippingMethods';
+import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
+import SET_SHIPPING_ADDRESSES_MUTATION from 'src/lib/queries/setShippingAddresses.graphql';
+import SET_SHIPPING_METHOD_MUTATION from 'src/lib/queries/setShippingMethod.graphql';
+import { TCartAddressInput } from 'src/lib/types/graphql/Cart';
+import { useCartEstimate } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartEstimate';
 
 const CartEstimateShipping: React.FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['order', 'address', 'common']);
     const [expanded, setExpanded] = useState(false);
     const {
         handleShippingMethodSelect,
@@ -45,12 +46,12 @@ const CartEstimateShipping: React.FunctionComponent = () => {
             <h4>
                 <button
                     className={`btn btn-link ${expanded ? '' : 'collapsed'}`}
-                    role="button"
+                    type="button"
                     aria-expanded={expanded}
                     aria-controls="total-estimate-section"
                     onClick={toggleExpanded}
                 >
-                    {t('Estimate Shipping')}
+                    {t('order:Estimate Shipping')}
                 </button>
             </h4>
 
@@ -61,7 +62,7 @@ const CartEstimateShipping: React.FunctionComponent = () => {
                 <Form noValidate onSubmit={handleSubmit}>
                     {Array.isArray(countries) && (
                         <Form.Group className="form-group form-group-sm required-field">
-                            <Form.Label>{t('Country')}</Form.Label>
+                            <Form.Label>{t('address:Country')}</Form.Label>
                             <Form.Control
                                 as="select"
                                 size="sm"
@@ -76,11 +77,13 @@ const CartEstimateShipping: React.FunctionComponent = () => {
                                 }
                                 {...controlEvents}
                             >
-                                <option value="">{t('Select Country')}</option>
+                                <option value="">
+                                    {t('address:Select Country')}
+                                </option>
                                 {countries.map(
                                     ({ id, full_name_english: name }) => (
                                         <option key={id} value={id}>
-                                            {t(name)}
+                                            {name}
                                         </option>
                                     )
                                 )}
@@ -93,7 +96,9 @@ const CartEstimateShipping: React.FunctionComponent = () => {
 
                     {regions.length > 0 && (
                         <Form.Group className="form-group form-group-sm required-field">
-                            <Form.Label>{t('State/Province')}</Form.Label>
+                            <Form.Label>
+                                {t('address:State/Province')}
+                            </Form.Label>
                             <Form.Control
                                 as="select"
                                 size="sm"
@@ -104,11 +109,11 @@ const CartEstimateShipping: React.FunctionComponent = () => {
                                 {...controlEvents}
                             >
                                 <option value="">
-                                    {t('Select State/Province')}
+                                    {t('address:Select State/Province')}
                                 </option>
                                 {regions.map(({ id, code, name }) => (
                                     <option key={id} value={code}>
-                                        {t(name)}
+                                        {name}
                                     </option>
                                 ))}
                             </Form.Control>
@@ -119,7 +124,7 @@ const CartEstimateShipping: React.FunctionComponent = () => {
                     )}
 
                     <Form.Group className="form-group form-group-sm required-field">
-                        <Form.Label>{t('Zip/Postal Code')}</Form.Label>
+                        <Form.Label>{t('address:Zip/Postal Code')}</Form.Label>
                         <Form.Control
                             type="text"
                             size="sm"
@@ -140,7 +145,7 @@ const CartEstimateShipping: React.FunctionComponent = () => {
                             disabled={!isValid || isSubmitting}
                             onClick={() => handleSubmit()}
                         >
-                            {t('Submit')}
+                            {t('common:Submit')}
                         </Button>
                     </div>
                 </Form>

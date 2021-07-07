@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import Product from 'src/lib/components/Header/MiniCart/Product';
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
 

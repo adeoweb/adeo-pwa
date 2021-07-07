@@ -1,6 +1,6 @@
+import { useApolloClient } from '@apollo/react-hooks';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useApolloClient } from '@apollo/react-hooks';
 
 import addToCache from './addToCache';
 import getRouteComponent from './getRouteComponent';

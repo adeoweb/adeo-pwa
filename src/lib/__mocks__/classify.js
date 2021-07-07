@@ -8,13 +8,15 @@
  *
  * This mock implementation passes the identity-obj-proxy through instead.
  */
-import React, { Component } from 'react';
 import idObj from 'identity-obj-proxy';
+
+import React, { Component } from 'react';
 
 const classify = () => WrappedComponent =>
     class extends Component {
-        static displayName = `Classify(${WrappedComponent.displayName ||
-            WrappedComponent.name})`;
+        static displayName = `Classify(${
+            WrappedComponent.displayName || WrappedComponent.name
+        })`;
 
         render() {
             return <WrappedComponent {...this.props} classes={idObj} />;

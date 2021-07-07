@@ -1,10 +1,11 @@
-import React, { useCallback } from 'react';
 import { shape, string } from 'prop-types';
-import Remove from 'react-feather/x';
+
+import React, { useCallback } from 'react';
 
 import { mergeClasses } from '../../../classify';
 import Icon from '../../Icon';
 import Trigger from '../../Trigger';
+
 import defaultClasses from './currentFilter.css';
 
 const CurrentFilter = props => {

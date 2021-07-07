@@ -1,5 +1,6 @@
-declare const $: any;
 import 'owl.carousel';
+
+declare const $: any;
 
 const sliderDefaultOptions = {
     loop: true,
@@ -46,9 +47,7 @@ export const HomeSliders = (): void => {
             );
 
             homeSlider.on('loaded.owl.lazy', (event: any) => {
-                $(event.element)
-                    .closest('.home-slider')
-                    .addClass('loaded');
+                $(event.element).closest('.home-slider').addClass('loaded');
             });
         });
     } catch (e) {

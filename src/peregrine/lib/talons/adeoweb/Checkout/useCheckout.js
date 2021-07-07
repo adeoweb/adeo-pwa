@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
+import { useEffect } from 'react';
+
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
-import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
+import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useCheckout = props => {
     const {
@@ -10,10 +12,8 @@ export const useCheckout = props => {
         getCartDetailsQuery,
         setShippingAddressesOnCartMutation
     } = props;
-    const [
-        { isLoading, isLoaded, initError: error },
-        { initCheckout }
-    ] = useCheckoutContext();
+    const [{ isLoading, isLoaded, initError: error }, { initCheckout }] =
+        useCheckoutContext();
     const [fetchCartId] = useMutation(createCartMutation, {
         fetchPolicy: fetchPolicy.mutations.default
     });

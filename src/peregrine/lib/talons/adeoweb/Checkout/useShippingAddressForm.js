@@ -1,14 +1,13 @@
 import { useFormik } from 'formik';
-import { useTranslation } from 'react-i18next';
+
 import { useCallback, useEffect, useState } from 'react';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
+
 import { customFormikValidate } from 'src/lib/util/customFormikValidate';
-import * as yup from 'yup';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
 
 export const useShippingAddressForm = props => {
     const { countriesQuery, initialValues = {}, onSubmit } = props;
-    const { t } = useTranslation();
     const validationSchema = yup.object({
         firstname: yup.string().required(),
         lastname: yup.string().required(),
@@ -19,17 +18,8 @@ export const useShippingAddressForm = props => {
                 is: isSignedIn => !isSignedIn,
                 then: yup.string().required()
             })
-            .email(
-                t(
-                    'Please enter a valid email address (Ex: johndoe@domain.com).'
-                )
-            ),
-        street: yup
-            .array()
-            .of(yup.string())
-            .required()
-            .ensure()
-            .compact(),
+            .email(),
+        street: yup.array().of(yup.string()).required().ensure().compact(),
         city: yup.string().required(),
         postcode: yup.string().required(),
         telephone: yup.string().required(),

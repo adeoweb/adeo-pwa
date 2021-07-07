@@ -1,10 +1,11 @@
 import React, { FunctionComponent, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
+import { TFuncKey, useTranslation } from 'react-i18next';
+
 import { navIcons } from './buttonVariables';
 
 interface INavButtonProps {
     name: string;
-    label: string;
+    label: TFuncKey<'navigation'>;
     active: boolean;
     onClick: () => void;
     url: string;
@@ -17,7 +18,7 @@ const NavButton: FunctionComponent<INavButtonProps> = ({
     onClick,
     url
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('navigation');
 
     const handleClick = useCallback(
         event => {

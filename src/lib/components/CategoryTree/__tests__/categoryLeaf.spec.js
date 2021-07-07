@@ -1,6 +1,7 @@
 import React from 'react';
-import { act } from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
+import { act } from 'react-test-renderer';
+
 import { createTestInstance } from '@magento/peregrine';
 
 import Leaf from '../categoryLeaf';

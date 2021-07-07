@@ -5,9 +5,10 @@ import React, {
     useEffect,
     useState
 } from 'react';
+
 import { CustomerAddressSelect } from 'src/lib/components/Customer';
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 
 type TLoggedInUserFormProps = {
     submitAddress: (id: number) => void;
@@ -23,7 +24,7 @@ const LoggedInUserForm: FunctionComponent<TLoggedInUserFormProps> = ({
     ] = useCartContext();
     const customerAddressIdOnCart =
         shippingAddresses && shippingAddresses.length > 0
-            ? shippingAddresses[0].customer_address_id
+            ? shippingAddresses[0]?.customer_address_id
             : null;
     const [
         {
@@ -32,7 +33,7 @@ const LoggedInUserForm: FunctionComponent<TLoggedInUserFormProps> = ({
     ] = useUserContext();
 
     const defaultShippingAddress = addresses.find(
-        ({ default_shipping: defaultShipping }) => defaultShipping
+        address => address?.default_shipping
     );
 
     const [selectedAddressId, setSelectedAddressId] = useState(

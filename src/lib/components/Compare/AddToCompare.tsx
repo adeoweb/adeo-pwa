@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { TProduct } from 'src/lib/types/graphql/Product';
 import { useProductCompare } from 'src/peregrine/lib/talons/adeoweb/Product/useProductCompare';
 
@@ -8,7 +9,7 @@ type TAddToCompareProps = {
 };
 
 const AddToCompare: FunctionComponent<TAddToCompareProps> = ({ product }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { setProductHandler, isProductBeingCompared } = useProductCompare();
 
     const addProductToCompare = () => {

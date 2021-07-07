@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { useProductQuantity } from 'src/peregrine/lib/talons/adeoweb/ProductQuantity/useProductQuantity';
-import { quantityIsValid } from 'src/lib/util/quantityIsValid';
 import { useTranslation } from 'react-i18next';
+
 import { PRODUCT_MINIMUM_QUANTITY } from 'src/lib/constants/product';
+import { quantityIsValid } from 'src/lib/util/quantityIsValid';
+import { useProductQuantity } from 'src/peregrine/lib/talons/adeoweb/ProductQuantity/useProductQuantity';
 
 interface IQuantityProps {
     initialValue: number;
@@ -13,19 +14,15 @@ const ProductQuantity: FunctionComponent<IQuantityProps> = ({
     initialValue,
     onValueChange
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
-    const {
-        quantity,
-        setQuantity,
-        incrementQuantity,
-        decrementQuantity
-    } = useProductQuantity({
-        initialValue,
-        onValueChange,
-        validateQuantity: quantityIsValid,
-        minimumQuantity: PRODUCT_MINIMUM_QUANTITY
-    });
+    const { quantity, setQuantity, incrementQuantity, decrementQuantity } =
+        useProductQuantity({
+            initialValue,
+            onValueChange,
+            validateQuantity: quantityIsValid,
+            minimumQuantity: PRODUCT_MINIMUM_QUANTITY
+        });
 
     const onQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setQuantity(event.target.value);

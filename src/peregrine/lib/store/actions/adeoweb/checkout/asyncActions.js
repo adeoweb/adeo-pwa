@@ -1,17 +1,15 @@
-import actions from './actions';
-import cartActions from '../cart/actions';
-import { createCart, removeCart, getCartDetails } from '../cart';
 import { ESTIMATE_ADDRESS_FIRSTNAME } from 'src/lib/constants/cart';
+
+import { createCart, removeCart, getCartDetails } from '../cart';
+import cartActions from '../cart/actions';
+import actions from './actions';
 
 export const initCheckout = payload =>
     async function thunk(dispatch) {
         dispatch(actions.init.submit());
 
-        const {
-            fetchCartId,
-            fetchCartDetails,
-            setShippingAddressesOnCart
-        } = payload;
+        const { fetchCartId, fetchCartDetails, setShippingAddressesOnCart } =
+            payload;
 
         try {
             await dispatch(

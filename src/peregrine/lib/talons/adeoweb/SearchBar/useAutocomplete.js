@@ -1,6 +1,8 @@
-import { useEffect, useMemo } from 'react';
-import { useLazyQuery } from '@apollo/react-hooks';
 import debounce from 'lodash.debounce';
+
+import { useLazyQuery } from '@apollo/react-hooks';
+import { useEffect, useMemo } from 'react';
+
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 /**
@@ -27,9 +29,10 @@ export const useAutocomplete = props => {
 
     // Create a debounced function so we only search some delay after the last
     // keypress.
-    const debouncedRunQuery = useMemo(() => debounce(runQuery, 500), [
-        runQuery
-    ]);
+    const debouncedRunQuery = useMemo(
+        () => debounce(runQuery, 500),
+        [runQuery]
+    );
 
     // run the query once on mount, and again whenever state changes
     useEffect(() => {

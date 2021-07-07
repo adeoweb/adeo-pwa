@@ -1,11 +1,14 @@
 import React, { FunctionComponent, useMemo } from 'react';
+
 import { useOption } from '@magento/peregrine/lib/talons/ProductOptions/useOption';
-import { TConfigurableProductOption } from 'src/lib/types/graphql/Product';
+
 import getItemKey from 'src/lib/components/ProductOptions/utils/getItemKey';
 import getListComponent from 'src/lib/components/ProductOptions/utils/getListComponent';
+import { TConfigurableProductOptions } from 'src/lib/types/graphql/Product';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 type TProductOptionProps = {
-    option: TConfigurableProductOption;
+    option: TConfigurableProductOptions;
     onSelectionChange: (optionId: string, selection: number) => void;
     selectedValue?: string;
 };
@@ -27,12 +30,13 @@ const Option: FunctionComponent<TProductOptionProps> = ({
         selectedValue,
         values
     });
+    const optionValues = filterOutNullableValues(values);
+    const ValueList = useMemo(
+        () => getListComponent(attributeCode),
+        [attributeCode]
+    );
 
-    const ValueList = useMemo(() => getListComponent(attributeCode), [
-        attributeCode
-    ]);
-
-    if (!attributeCode || !attributeId || !label || !values) {
+    if (!attributeCode || !attributeId || !label || !optionValues.length) {
         return null;
     }
 
@@ -42,7 +46,7 @@ const Option: FunctionComponent<TProductOptionProps> = ({
             <ValueList
                 getItemKey={getItemKey}
                 selectedValue={initialSelection}
-                items={values}
+                items={optionValues}
                 onSelectionChange={handleSelectionChange}
             />
         </div>

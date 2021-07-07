@@ -1,3 +1,4 @@
+import { CurrencyEnum } from 'src/lib/types/graphql/Money';
 import { TUseProductCompare } from 'src/peregrine/lib/talons/adeoweb/Product/useProductCompare';
 
 const mock: TUseProductCompare = {
@@ -8,11 +9,12 @@ const mock: TUseProductCompare = {
             sku: 'testSku123',
             url_key: 'product',
             url_suffix: '.html',
+            min_sale_qty: 1,
             price_range: {
                 minimum_price: {
                     regular_price: {
                         value: 10,
-                        currency: 'EUR'
+                        currency: CurrencyEnum.Eur
                     },
                     discount: {
                         amount_off: 0,
@@ -20,7 +22,7 @@ const mock: TUseProductCompare = {
                     },
                     final_price: {
                         value: 0,
-                        currency: 'EUR'
+                        currency: CurrencyEnum.Eur
                     }
                 }
             }

@@ -1,7 +1,9 @@
-import { createTestInstance } from '@magento/peregrine';
-import ContentTypeFactory from '../factory';
-import * as config from '../config';
 import React from 'react';
+
+import { createTestInstance } from '@magento/peregrine';
+
+import * as config from '../config';
+import ContentTypeFactory from '../factory';
 
 jest.mock('src/lib/drivers', () => ({
     resourceUrl: jest.fn(url => url),

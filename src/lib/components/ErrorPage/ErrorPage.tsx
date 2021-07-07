@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react';
+
+import { useHistory } from 'src/lib/drivers';
 import {
     INTERNAL_ERROR,
     NOT_FOUND
 } from 'src/peregrine/lib/talons/MagentoRoute';
-import NotFound from './NotFound';
+
 import InternalError from './InternalError';
-import { useHistory } from 'src/lib/drivers';
+import NotFound from './NotFound';
 
 type TErrorPageProps = {
     type: string;

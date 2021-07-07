@@ -1,16 +1,18 @@
 import React, { FunctionComponent, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Container } from 'react-bootstrap';
-import CheckoutProgressBar from '../CheckoutProgressBar';
-import { CheckoutRoutes } from './CheckoutRoutes';
+import { useTranslation } from 'react-i18next';
+
+import LoadingIndicator from 'src/lib/components/LoadingIndicator';
 import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
 import GET_CART_DETAILS_QUERY from 'src/lib/queries/getCartDetails.graphql';
-import { useCheckout } from 'src/peregrine/lib/talons/adeoweb/Checkout/useCheckout';
-import LoadingIndicator from 'src/lib/components/LoadingIndicator';
 import SET_SHIPPING_ADDRESSES_MUTATION from 'src/lib/queries/setShippingAddresses.graphql';
+import { useCheckout } from 'src/peregrine/lib/talons/adeoweb/Checkout/useCheckout';
+
+import CheckoutProgressBar from '../CheckoutProgressBar';
+import { CheckoutRoutes } from './CheckoutRoutes';
 
 const CheckoutWrapper: FunctionComponent = ({ children }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const steps = [
         {
             title: t('Shipping'),

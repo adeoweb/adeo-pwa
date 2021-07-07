@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import Compare from './Compare/Compare';
 import Language from './Language';
 

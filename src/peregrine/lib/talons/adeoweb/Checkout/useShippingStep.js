@@ -1,9 +1,11 @@
-import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
-import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
-import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
-import isObjectEmpty from '@magento/peregrine/lib/util/isObjectEmpty';
-import { useCallback } from 'react';
 import { useMutation } from '@apollo/react-hooks';
+import { useCallback } from 'react';
+
+import isObjectEmpty from '@magento/peregrine/lib/util/isObjectEmpty';
+
+import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
+import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 export const useShippingStep = props => {
@@ -42,10 +44,8 @@ export const useShippingStep = props => {
         available_shipping_methods: availableShippingMethods = [],
         selected_shipping_method: selectedShippingMethod
     } = shippingAddress;
-    const [
-        { isSubmitting },
-        { submitShippingMethod, submitShippingAddress }
-    ] = useCheckoutContext();
+    const [{ isSubmitting }, { submitShippingMethod, submitShippingAddress }] =
+        useCheckoutContext();
 
     const submitCustomerAddress = useCallback(
         id => {

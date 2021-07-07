@@ -1,4 +1,5 @@
 import { DocumentNode } from 'graphql';
+
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import { TProduct } from 'src/lib/types/graphql/Product';
 

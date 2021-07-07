@@ -1,13 +1,13 @@
 import AppContextProvider from './app';
 import CartContextProvider from './cart';
-import MenuContextProvider from './menu';
-import UserContextProvider from './user';
-import ConfigContextProvider from './config';
 import CatalogContextProvider from './catalog';
 import CheckoutContextProvider from './checkout';
-import ErrorContextProvider from './unhandledErrors';
+import ConfigContextProvider from './config';
+import MenuContextProvider from './menu';
 import MessageCardContextProvider from './messageCard';
 import ProductCompareContextProvider from './productCompare';
+import ErrorContextProvider from './unhandledErrors';
+import UserContextProvider from './user';
 
 const adeowebContextProviders = [
     ErrorContextProvider,

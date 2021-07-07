@@ -1,11 +1,11 @@
-import { TProduct } from 'src/lib/types/graphql/Product';
 import { TCategoryInterface } from 'src/lib/types/graphql/Category';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 function getCategoryPath(category: TCategoryInterface) {
     const { breadcrumbs, url_key: urlKey } = category;
 
     const parts = (breadcrumbs || []).map(
-        ({ category_url_key: catUrlKey }) => catUrlKey
+        breadcrumb => breadcrumb?.category_url_key
     );
     parts.push(urlKey);
 

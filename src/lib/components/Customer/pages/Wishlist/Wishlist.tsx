@@ -1,14 +1,16 @@
 import React, { Fragment, FunctionComponent, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Row } from 'react-bootstrap';
-import { useWishlist } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlist';
+import { useTranslation } from 'react-i18next';
+
 import WishlistItem from 'src/lib/components/Customer/pages/Wishlist/WishlistItem';
 import LoadingIndicator from 'src/lib/components/LoadingIndicator';
 import MessageType from 'src/lib/constants/message';
 import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
+import { useWishlist } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlist';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const Wishlist: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
     const { addMessage, clearAllMessages } = useMessageCard();
     const {
         items,
@@ -17,6 +19,8 @@ const Wishlist: FunctionComponent = () => {
         isRemovingFromWishlist,
         removeFromWishlistError
     } = useWishlist();
+
+    const filteredWishlistItems = filterOutNullableValues(items, 'product');
 
     useEffect(() => {
         if (addToWishlistError || removeFromWishlistError) {
@@ -39,9 +43,9 @@ const Wishlist: FunctionComponent = () => {
                 <LoadingIndicator />
             )}
             <Row className="product-intro row-sm">
-                {items.length ? (
-                    items.map(item => (
-                        <WishlistItem key={item.id} product={item.product} />
+                {filteredWishlistItems.length ? (
+                    filteredWishlistItems.map(item => (
+                        <WishlistItem key={item.id} product={item.product!} />
                     ))
                 ) : (
                     <p className="text-center">

@@ -1,8 +1,10 @@
-import React, { useMemo } from 'react';
 import { arrayOf, node, shape, string } from 'prop-types';
+
+import React, { useMemo } from 'react';
 
 import { mergeClasses } from '../../classify';
 import Button from './button';
+
 import defaultClasses from './buttonGroup.css';
 
 /**

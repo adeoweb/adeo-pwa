@@ -1,8 +1,9 @@
 import React, { FunctionComponent, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { TCustomerAddress } from 'src/lib/types/graphql/Customer';
 import { Button, Card, Form, FormCheck } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import AddressBlock from 'src/lib/components/Customer/AddressBlock';
+import { TCustomerAddress } from 'src/lib/types/graphql/Customer';
 
 type TAddressBlockProps = {
     address: TCustomerAddress;
@@ -21,14 +22,18 @@ const AddressCard: FunctionComponent<TAddressBlockProps> = ({
     onDelete,
     onDefaultChange
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('address');
     const { id } = address;
 
     const handleIsDefaultChange = useCallback(() => {
-        if (!isDefault) {
+        if (!isDefault && id) {
             onDefaultChange(id);
         }
     }, [isDefault, onDefaultChange, id]);
+
+    if (!id) {
+        return null;
+    }
 
     return (
         <Card>

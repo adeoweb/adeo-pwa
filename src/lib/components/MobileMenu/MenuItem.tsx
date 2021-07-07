@@ -1,7 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
+
+import MenuList from 'src/lib/components/MobileMenu/MenuList';
 import { Link, useLocation } from 'src/lib/drivers';
 import { TCategoryTree } from 'src/lib/types/graphql/Category';
-import MenuList from 'src/lib/components/MobileMenu/MenuList';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 type TMenuItemProps = {
     item: TCategoryTree;
@@ -12,8 +14,8 @@ const MenuItem: FunctionComponent<TMenuItemProps> = ({ item, handleClose }) => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
     const { name, url_path: urlPath, children } = item;
-    const hasChildren =
-        Boolean(children) && Array.isArray(children) && children.length > 0;
+    const menuChildren = filterOutNullableValues(children);
+    const hasChildren = menuChildren.length > 0;
     const isActive = location.pathname === urlPath;
     const classes: string[] = [];
 
@@ -39,13 +41,13 @@ const MenuItem: FunctionComponent<TMenuItemProps> = ({ item, handleClose }) => {
         <li className={classes.join(' ')}>
             <Link to={urlPath} onClick={handleClose}>
                 {name}
-                {hasChildren && children && (
+                {hasChildren && (
                     <button onClick={toggleOpen} className="mmenu-btn" />
                 )}
             </Link>
-            {hasChildren && children && (
+            {hasChildren && (
                 <ul>
-                    <MenuList items={children} handleClose={handleClose} />
+                    <MenuList items={menuChildren} handleClose={handleClose} />
                 </ul>
             )}
         </li>

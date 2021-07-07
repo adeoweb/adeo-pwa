@@ -1,4 +1,5 @@
 import { MutableRefObject } from 'react';
+
 import { FormikProps } from 'src/lib/drivers';
 
 export type TUseSearchBarValues = {

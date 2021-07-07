@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useCallback, useState } from 'react';
+
 import { TAggregation } from 'src/lib/types/graphql/Aggregation';
+
 import { getFilterComponent } from './utils';
 
 type TProductFilterWrapperProps = {

@@ -1,13 +1,14 @@
 import React, { FunctionComponent, useState } from 'react';
+
+import ADD_CONFIGURABLE_MUTATION from 'src/lib/queries/addConfigurableProductsToCart.graphql';
+import ADD_SIMPLE_MUTATION from 'src/lib/queries/addSimpleProductsToCart.graphql';
 import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
 import GET_CART_DETAILS_QUERY from 'src/lib/queries/getCartDetails.graphql';
 import REMOVE_ITEM_MUTATION from 'src/lib/queries/removeItem.graphql';
-import ADD_CONFIGURABLE_MUTATION from 'src/lib/queries/addConfigurableProductsToCart.graphql';
-import ADD_SIMPLE_MUTATION from 'src/lib/queries/addSimpleProductsToCart.graphql';
 import UPDATE_ITEM_MUTATION from 'src/lib/queries/updateItemInCart.graphql';
-import { useCartOptions } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartOptions';
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import { TProduct } from 'src/lib/types/graphql/Product';
+import { useCartOptions } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartOptions';
 
 type CartItemQuantityProps = {
     cartItem: TCartItem;

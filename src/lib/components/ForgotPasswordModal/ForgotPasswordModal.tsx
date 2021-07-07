@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import defaultClasses from './ForgotPasswordModal.scss';
 import { useTranslation } from 'react-i18next';
 
+import defaultClasses from './ForgotPasswordModal.scss';
+
 const ForgotPasswordModal: FunctionComponent = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('customer');
 
     return (
         <div className={defaultClasses.wrapper}>

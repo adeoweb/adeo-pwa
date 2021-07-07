@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+
 import { TBillingAddressFormProps } from 'src/lib/components/Checkout/Payment';
 
 const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
@@ -12,7 +13,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
     countries,
     regions
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(['customer', 'address']);
     const controlEvents = {
         onChange: handleChange,
         onBlur: handleBlur
@@ -21,7 +22,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
     return (
         <Form noValidate>
             <Form.Group className="required-field">
-                <Form.Label>{t('First Name')}</Form.Label>
+                <Form.Label>{t('customer:First Name')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="firstname"
@@ -34,7 +35,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="required-field">
-                <Form.Label>{t('Last Name')}</Form.Label>
+                <Form.Label>{t('customer:Last Name')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="lastname"
@@ -47,7 +48,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="required-field">
-                <Form.Label>{t('Street Address')}</Form.Label>
+                <Form.Label>{t('address:Street Address')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="street[0]"
@@ -67,7 +68,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
                 />
             </Form.Group>
             <Form.Group className="form-group required-field">
-                <Form.Label>{t('City')}</Form.Label>
+                <Form.Label>{t('address:City')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="city"
@@ -80,7 +81,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="form-group required-field">
-                <Form.Label>{t('Country')}</Form.Label>
+                <Form.Label>{t('address:Country')}</Form.Label>
                 <Form.Control
                     as="select"
                     className="select-custom"
@@ -92,7 +93,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
                     <option value="">Select Country</option>
                     {countries.map(({ id, full_name_english: name }) => (
                         <option key={id} value={id}>
-                            {t(name)}
+                            {name}
                         </option>
                     ))}
                 </Form.Control>
@@ -102,7 +103,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
             </Form.Group>
             {regions.length > 0 && (
                 <Form.Group className="form-group required-field">
-                    <Form.Label>{t('State/Province')}</Form.Label>
+                    <Form.Label>{t('address:State/Province')}</Form.Label>
                     <Form.Control
                         as="select"
                         className="select-custom"
@@ -111,10 +112,12 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
                         isInvalid={!!(errors.region && touched.region)}
                         {...controlEvents}
                     >
-                        <option value="">{t('Select State/Province')}</option>
+                        <option value="">
+                            {t('address:Select State/Province')}
+                        </option>
                         {regions.map(({ id, code, name }) => (
                             <option key={id} value={code}>
-                                {t(name)}
+                                {name}
                             </option>
                         ))}
                     </Form.Control>
@@ -124,7 +127,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
                 </Form.Group>
             )}
             <Form.Group className="form-group required-field">
-                <Form.Label>{t('Zip/Postal Code')}</Form.Label>
+                <Form.Label>{t('address:Zip/Postal Code')}</Form.Label>
                 <Form.Control
                     type="text"
                     name="postcode"
@@ -137,7 +140,7 @@ const BillingAddressForm: FunctionComponent<TBillingAddressFormProps> = ({
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="form-group required-field">
-                <Form.Label>{t('Phone Number')}</Form.Label>
+                <Form.Label>{t('customer:Phone Number')}</Form.Label>
                 <div className="form-control-tooltip">
                     <Form.Control
                         type="text"

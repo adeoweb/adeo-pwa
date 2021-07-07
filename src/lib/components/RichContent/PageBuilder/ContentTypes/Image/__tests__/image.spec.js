@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { createTestInstance } from '@magento/peregrine';
+
 import Image from '../image';
 
 jest.mock('src/lib/drivers', () => ({

@@ -1,12 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Price } from '@magento/peregrine';
-import SummaryWrapper from 'src/lib/components/Checkout/Summary/SummaryWrapper';
 import { Button, Table } from 'react-bootstrap';
+import { TFuncKey, useTranslation } from 'react-i18next';
+
+import { Price } from '@magento/peregrine';
+
+import SummaryWrapper from 'src/lib/components/Checkout/Summary/SummaryWrapper';
 import {
     TCartPrices,
     TSelectedShippingMethod
 } from 'src/lib/types/graphql/Cart';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 type TPricingSummary = {
     prices: TCartPrices;
@@ -23,13 +26,13 @@ const PricingSummary: FunctionComponent<TPricingSummary> = ({
     isPlaceOrderEnabled,
     onPlaceOrder
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('order');
     const subtotal =
         prices.subtotal_excluding_tax && prices.subtotal_excluding_tax.value
             ? prices.subtotal_excluding_tax.value
             : 0;
-    const taxes = prices.applied_taxes || [];
-    const discounts = prices.discounts || [];
+    const taxes = filterOutNullableValues(prices.applied_taxes);
+    const discounts = filterOutNullableValues(prices.discounts);
     const shippingPrice = shippingMethod.amount.value || 0;
     const grandTotal =
         prices.grand_total && prices.grand_total.value
@@ -55,7 +58,7 @@ const PricingSummary: FunctionComponent<TPricingSummary> = ({
                                 amount.value && (
                                     <tr>
                                         <td className="align-middle">
-                                            {t(label)}
+                                            {t(label as TFuncKey<'order'>)}
                                         </td>
                                         <td className="price-col">
                                             <Price
@@ -71,7 +74,7 @@ const PricingSummary: FunctionComponent<TPricingSummary> = ({
                                 amount.value && (
                                     <tr>
                                         <td className="align-middle">
-                                            {t(label)}
+                                            {t(label as TFuncKey<'order'>)}
                                         </td>
                                         <td className="price-col">
                                             <Price

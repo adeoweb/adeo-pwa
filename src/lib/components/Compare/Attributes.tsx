@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import RichText from 'src/lib/components/RichText';
-import { TProductData } from 'src/peregrine/lib/store/reducers/adeoweb/productCompare';
 import { TProductInterface } from 'src/lib/types/graphql/Product';
+import { TProductData } from 'src/peregrine/lib/store/reducers/adeoweb/productCompare';
 
 interface IAttributesProps {
     productData: TProductData;
@@ -27,7 +28,7 @@ type TGetAttributeValue = (
 ) => string | React.ReactNode;
 
 const Attributes: FunctionComponent<IAttributesProps> = ({ productData }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     if (!productData) {
         return null;

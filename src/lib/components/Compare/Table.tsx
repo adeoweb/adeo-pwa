@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import ProductsTable from 'src/lib/components/Compare/ProductsTable';
+
 import Attributes from 'src/lib/components/Compare/Attributes';
+import ProductsTable from 'src/lib/components/Compare/ProductsTable';
 import { TProductData } from 'src/peregrine/lib/store/reducers/adeoweb/productCompare';
 
 interface ITableProps {
@@ -9,7 +10,7 @@ interface ITableProps {
 }
 
 const Table: FunctionComponent<ITableProps> = ({ productData }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
 
     return (
         <div className="columns">

@@ -1,10 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
+import { TFuncKey, useTranslation } from 'react-i18next';
+
 import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsTypes';
-import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
 import { getOptionPriceText } from 'src/lib/components/CustomOptions/utils/getOptionPriceText';
 import { optionSort } from 'src/lib/components/CustomOptions/utils/optionSort';
+import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const DropDownOption: FunctionComponent<TOptionProps> = ({
     option,
@@ -14,19 +16,27 @@ const DropDownOption: FunctionComponent<TOptionProps> = ({
     error,
     touched
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const { currencyCode } = useCurrency();
     const {
         title,
         option_id: optionId,
         required: isRequired,
-        dropDownValue: options
+        value: options
     } = option;
+
+    if (!optionId) {
+        return null;
+    }
+
     const controlEvents = {
         onChange: handleChange,
         onBlur: handleBlur
     };
-    const sortedOptions = (options || []).sort(optionSort);
+    const sortedOptions = filterOutNullableValues(
+        options,
+        'option_type_id'
+    ).sort(optionSort);
 
     return (
         <Form.Group
@@ -35,7 +45,7 @@ const DropDownOption: FunctionComponent<TOptionProps> = ({
             }`}
             controlId={optionId.toString()}
         >
-            <Form.Label>{t(title)}</Form.Label>
+            <Form.Label>{t(title as TFuncKey<'product'>)}</Form.Label>
             <Form.Control
                 as="select"
                 size="sm"
@@ -60,7 +70,7 @@ const DropDownOption: FunctionComponent<TOptionProps> = ({
 
                         return (
                             <option key={id} value={id}>
-                                {t(title)}
+                                {t(title as TFuncKey<'product'>)}
                                 {priceText}
                             </option>
                         );

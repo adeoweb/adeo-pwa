@@ -1,11 +1,12 @@
 import { DocumentNode } from 'graphql';
+
 import {
     ProductSortDirections,
     ProductSortFields
 } from 'src/lib/constants/product';
+import { TAggregation } from 'src/lib/types/graphql/Aggregation';
 import { TCategoryInterface } from 'src/lib/types/graphql/Category';
 import { TProduct } from 'src/lib/types/graphql/Product';
-import { TAggregation } from 'src/lib/types/graphql/Aggregation';
 
 type TUseCategoryContentProps = {
     query: DocumentNode;

@@ -1,11 +1,12 @@
 import React, { FunctionComponent, Suspense } from 'react';
-import { FullPageLoadingIndicator } from 'src/lib/components/LoadingIndicator';
 import { Route, Switch } from 'react-router-dom';
+
 import {
     CustomerRoutes,
     defaultCustomerRoute,
     rootCustomerRoute
 } from 'src/lib/components/Customer/CustomerRoutes';
+import { FullPageLoadingIndicator } from 'src/lib/components/LoadingIndicator';
 import { Redirect } from 'src/lib/drivers';
 
 const CustomerRouting: FunctionComponent = () => {

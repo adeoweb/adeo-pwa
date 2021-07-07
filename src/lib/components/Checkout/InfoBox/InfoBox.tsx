@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { Link } from 'src/lib/drivers';
 
 type TInfoBoxProps = {
@@ -12,7 +13,7 @@ const InfoBox: FunctionComponent<TInfoBoxProps> = ({
     editRoute,
     children
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
     return (
         <div className="checkout-info-box">

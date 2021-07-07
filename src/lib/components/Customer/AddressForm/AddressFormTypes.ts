@@ -1,5 +1,7 @@
-import { ChangeEvent, FormEvent } from 'react';
 import { FormikErrors, FormikTouched } from 'formik';
+
+import { ChangeEvent, FormEvent } from 'react';
+
 import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
 
 export type TCustomerAddressFormValues = {

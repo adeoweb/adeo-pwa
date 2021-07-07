@@ -4,23 +4,24 @@ import React, {
     useEffect,
     useCallback
 } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Row, Col, Button } from 'react-bootstrap';
-import { useHistory } from 'src/lib/drivers';
+import { useTranslation } from 'react-i18next';
+
 import { CheckoutRoutes } from 'src/lib/components/Checkout';
-import ShippingMethods from 'src/lib/components/ShippingMethods';
-import LoadingIndicator from 'src/lib/components/LoadingIndicator';
-import SET_SHIPPING_ADDRESSES_MUTATION from 'src/lib/queries/setShippingAddresses.graphql';
-import SET_SHIPPING_METHOD_MUTATION from 'src/lib/queries/setShippingMethod.graphql';
-import SET_GUEST_EMAIL_MUTATION from 'src/lib/queries/setGuestEmailOnCart.graphql';
-import { ProductsSummary } from 'src/lib/components/Checkout/Summary';
-import { useShippingStep } from 'src/peregrine/lib/talons/adeoweb/Checkout/useShippingStep';
 import GuestForm from 'src/lib/components/Checkout/Shipping/GuestForm';
 import LoggedInUserForm from 'src/lib/components/Checkout/Shipping/LoggedInUserForm';
+import { ProductsSummary } from 'src/lib/components/Checkout/Summary';
+import LoadingIndicator from 'src/lib/components/LoadingIndicator';
+import ShippingMethods from 'src/lib/components/ShippingMethods';
+import { useHistory } from 'src/lib/drivers';
+import SET_GUEST_EMAIL_MUTATION from 'src/lib/queries/setGuestEmailOnCart.graphql';
+import SET_SHIPPING_ADDRESSES_MUTATION from 'src/lib/queries/setShippingAddresses.graphql';
+import SET_SHIPPING_METHOD_MUTATION from 'src/lib/queries/setShippingMethod.graphql';
+import { useShippingStep } from 'src/peregrine/lib/talons/adeoweb/Checkout/useShippingStep';
 
 const Shipping: FunctionComponent = () => {
     const NEXT_STEP_URL = CheckoutRoutes.payment.url;
-    const { t } = useTranslation();
+    const { t } = useTranslation(['address', 'common']);
     const history = useHistory();
 
     const redirectToNext = useCallback(() => {
@@ -62,7 +63,7 @@ const Shipping: FunctionComponent = () => {
                     <ul className="checkout-steps">
                         <li>
                             <h2 className="step-title">
-                                {t('Shipping Address')}
+                                {t('address:Shipping Address')}
                             </h2>
                             {isSignedIn ? (
                                 <LoggedInUserForm
@@ -76,7 +77,7 @@ const Shipping: FunctionComponent = () => {
                             <li>
                                 <div className="checkout-step-shipping">
                                     <h2 className="step-title">
-                                        {t('Shipping Methods')}
+                                        {t('address:Shipping Methods')}
                                     </h2>
                                     <ShippingMethods
                                         items={availableShippingMethods}
@@ -100,7 +101,7 @@ const Shipping: FunctionComponent = () => {
                             disabled={!isNextEnabled}
                             onClick={handleNext}
                         >
-                            {t('Next')}
+                            {t('common:Next')}
                         </Button>
                     </div>
                 </Col>

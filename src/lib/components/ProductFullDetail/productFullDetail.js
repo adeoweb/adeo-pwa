@@ -1,45 +1,46 @@
-import React, { Fragment, Suspense, useEffect } from 'react';
 import { arrayOf, bool, number, shape, string } from 'prop-types';
+
+import React, { Fragment, Suspense, useEffect } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
-import { useProductFullDetail } from 'src/peregrine/lib/talons/adeoweb/ProductFullDetail/useProductFullDetail';
 import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConfigurable';
 
-import Breadcrumbs from '../Breadcrumbs';
-import Button from '../Button';
-import Carousel from '../ProductImageCarousel';
-import LoadingIndicator, {
-    FullPageLoadingIndicator
-} from '../LoadingIndicator';
-import ProductQuantity from '../ProductQuantity';
+import AddToWishlist from 'src/lib/components/AddToWishlist';
+import { AddToCompare } from 'src/lib/components/Compare';
+import PriceBox from 'src/lib/components/PriceBox';
+import PriceTiers from 'src/lib/components/PriceTiers';
+import FeaturedProductsWidget from 'src/lib/components/ProductFullDetail/FeaturedProductsWidget';
+import ProductTabs from 'src/lib/components/ProductFullDetail/ProductTabs';
+import RelatedProductsSection from 'src/lib/components/ProductFullDetail/RelatedProductsSection';
+import ShortDescription from 'src/lib/components/ProductFullDetail/ShortDescription';
+import { CustomerModalTypes } from 'src/lib/constants/customer';
+import MessageType from 'src/lib/constants/message';
+import { SHOW_PRICE_TIERS } from 'src/lib/constants/product';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
+import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
+import { useProductFullDetail } from 'src/peregrine/lib/talons/adeoweb/ProductFullDetail/useProductFullDetail';
+import { useWishlist } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlist';
+import { isProductCustomizable } from 'src/peregrine/lib/util/adeoweb/isProductCustomizable';
+
 import ADD_CONFIGURABLE_MUTATION from '../../queries/addConfigurableProductsToCart.graphql';
 import ADD_SIMPLE_MUTATION from '../../queries/addSimpleProductsToCart.graphql';
 import CREATE_CART_MUTATION from '../../queries/createCart.graphql';
 import GET_CART_DETAILS_QUERY from '../../queries/getCartDetails.graphql';
-
-import { Col, Container, Row } from 'react-bootstrap';
-import { SHOW_PRICE_TIERS } from 'src/lib/constants/product';
-import PriceTiers from 'src/lib/components/PriceTiers';
-import PriceBox from 'src/lib/components/PriceBox';
-import ProductTabs from 'src/lib/components/ProductFullDetail/ProductTabs';
-import ShortDescription from 'src/lib/components/ProductFullDetail/ShortDescription';
-import { AddToCompare } from 'src/lib/components/Compare';
-import MessageType from 'src/lib/constants/message';
-import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
-import RelatedProductsSection from 'src/lib/components/ProductFullDetail/RelatedProductsSection';
-import FeaturedProductsWidget from 'src/lib/components/ProductFullDetail/FeaturedProductsWidget';
-import AddToWishlist from 'src/lib/components/AddToWishlist';
-import { useWishlist } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlist';
-import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
-import { CustomerModalTypes } from 'src/lib/constants/customer';
-import { isProductCustomizable } from 'src/peregrine/lib/util/adeoweb/isProductCustomizable';
+import Breadcrumbs from '../Breadcrumbs';
+import Button from '../Button';
+import LoadingIndicator, {
+    FullPageLoadingIndicator
+} from '../LoadingIndicator';
+import Carousel from '../ProductImageCarousel';
+import ProductQuantity from '../ProductQuantity';
 
 const Options = React.lazy(() => import('../ProductOptions'));
 const CustomOptions = React.lazy(() => import('../CustomOptions'));
 
 const ProductFullDetail = props => {
     const { product } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('product');
     const [, { setCustomerModal }] = useAppContext();
     const { addMessage, clearAllMessages } = useMessageCard();
     const talonProps = useProductFullDetail({
