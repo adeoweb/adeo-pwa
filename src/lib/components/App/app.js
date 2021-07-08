@@ -1,12 +1,10 @@
 import { array, func, shape, string } from 'prop-types';
 
 import React, { useCallback, useEffect, Suspense } from 'react';
-import {
-    AlertCircle as AlertCircleIcon,
-    CloudOff as CloudOffIcon,
-    Wifi as WifiIcon,
-    RefreshCcw as RefreshIcon
-} from 'react-feather';
+import AlertCircle from 'react-feather/dist/icons/alert-circle';
+import CloudOff from 'react-feather/dist/icons/cloud-off';
+import RefreshCcw from 'react-feather/dist/icons/refresh-ccw';
+import Wifi from 'react-feather/dist/icons/wifi';
 
 import { useToasts } from '@magento/peregrine';
 
@@ -36,10 +34,10 @@ import ToastContainer from '../ToastContainer';
 
 require('../../styles/styles.scss');
 
-const OnlineIcon = <Icon src={WifiIcon} attrs={{ width: 18 }} />;
-const OfflineIcon = <Icon src={CloudOffIcon} attrs={{ width: 18 }} />;
-const ErrorIcon = <Icon src={AlertCircleIcon} attrs={{ width: 18 }} />;
-const UpdateIcon = <Icon src={RefreshIcon} attrs={{ width: 18 }} />;
+const OnlineIcon = <Icon src={Wifi} attrs={{ width: 18 }} />;
+const OfflineIcon = <Icon src={CloudOff} attrs={{ width: 18 }} />;
+const ErrorIcon = <Icon src={AlertCircle} attrs={{ width: 18 }} />;
+const UpdateIcon = <Icon src={RefreshCcw} attrs={{ width: 18 }} />;
 
 const ERROR_MESSAGE = 'Sorry! An unexpected error occurred.';
 

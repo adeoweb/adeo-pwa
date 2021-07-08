@@ -15,6 +15,7 @@ exports[`renders the correct tree 1`] = `
     <input
       checked={false}
       className="input"
+      icon="icon"
       name="a"
       onBlur={[Function]}
       onChange={[Function]}

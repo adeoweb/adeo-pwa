@@ -21,6 +21,10 @@ jest.mock('../../MobileMenu', () => 'MobileMenu');
 jest.mock('../../Routes', () => 'Routes');
 jest.mock('../../ToastContainer', () => 'ToastContainer');
 jest.mock('owl.carousel', () => {});
+jest.mock('react-feather/dist/icons/alert-circle', () => 'alert-icon');
+jest.mock('react-feather/dist/icons/cloud-off', () => 'cloud-off-icon');
+jest.mock('react-feather/dist/icons/refresh-ccw', () => 'refresh-icon');
+jest.mock('react-feather/dist/icons/wifi', () => 'wifi-icon');
 
 const mockAddToast = jest.fn();
 jest.mock('@magento/peregrine', () => {

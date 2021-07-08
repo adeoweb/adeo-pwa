@@ -7,6 +7,7 @@ import { createTestInstance } from '@magento/peregrine';
 
 import Checkbox from '../checkbox';
 
+const icon = 'icon';
 const field = 'a';
 const label = 'b';
 const classes = ['icon', 'input', 'label', 'message', 'root'].reduce(
@@ -14,7 +15,9 @@ const classes = ['icon', 'input', 'label', 'message', 'root'].reduce(
     {}
 );
 
-const props = { classes, field, label };
+const props = { classes, field, label, icon };
+
+jest.mock('react-feather/dist/icons/check', () => 'icon');
 
 test('renders the correct tree', () => {
     const tree = createTestInstance(

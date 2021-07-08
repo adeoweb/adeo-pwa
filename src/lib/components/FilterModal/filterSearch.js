@@ -1,7 +1,8 @@
 import { useFormApi, useFieldState } from 'informed';
 
 import React from 'react';
-import { Search as SearchIcon, X as ClearIcon } from 'react-feather';
+import SearchIcon from 'react-feather/search';
+import ClearIcon from 'react-feather/x';
 
 import { mergeClasses } from '../../classify';
 import Icon from '../Icon';

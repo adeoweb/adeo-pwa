@@ -3,7 +3,7 @@ import { arrayOf, node, number, oneOfType, shape, string } from 'prop-types';
 import { compose } from 'redux';
 
 import React, { Component, Fragment } from 'react';
-import { ChevronDown as ChevronDownIcon } from 'react-feather';
+import ChevronDownIcon from 'react-feather/chevron-down';
 
 import classify from '../../classify';
 import { FieldIcons, Message } from '../Field';

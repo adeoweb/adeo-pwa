@@ -2,7 +2,7 @@ import { array, arrayOf, shape, string } from 'prop-types';
 
 import React, { useMemo } from 'react';
 import { Modal } from 'react-bootstrap';
-import { X as CloseIcon } from 'react-feather';
+import CloseIcon from 'react-feather/x';
 
 import { useFilterModal } from 'src/peregrine/lib/talons/adeoweb/FilterModal';
 
