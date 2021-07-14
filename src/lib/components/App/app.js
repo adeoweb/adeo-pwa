@@ -155,11 +155,13 @@ const App = props => {
     if (renderError || configError || userDetailsError) {
         return (
             <HeadProvider>
-                <Title>{`Home Page - ${STORE_NAME}`}</Title>
-                <Main isMasked={true} />
-                <Mask isActive={true} />
-                <ToastContainer />
-                <LoadingOverlay />
+                <Suspense fallback={<LoadingOverlay />}>
+                    <Title>{`Home Page - ${STORE_NAME}`}</Title>
+                    <Main isMasked={true} />
+                    <Mask isActive={true} />
+                    <ToastContainer />
+                    <LoadingOverlay />
+                </Suspense>
             </HeadProvider>
         );
     }

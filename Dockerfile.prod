@@ -9,13 +9,9 @@ RUN apk --no-cache --virtual add \
     g++ \
     yarn
 
-COPY scripts ./scripts
-COPY src ./src
-COPY node_modules ./node_modules
-COPY package.json yarn.lock babel.config.js tsconfig.json jest.config.js prettier.config.js magento-compatibility.js ./
+COPY . ./
 
 RUN yarn install --frozen-lockfile
-COPY ./docker/.env.docker.dev ./.env
 
 RUN yarn run build
 RUN chown -R node:node /usr/src/app
