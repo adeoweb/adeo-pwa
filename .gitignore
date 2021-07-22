@@ -13,5 +13,6 @@ lastCachedGraphQLSchema.json
 test-report.xml
 test-results.json
 yarn-error.log
+docker/certs
 src/lib/**/*.generated.ts
 src/lib/types/graphql-types.d.ts
