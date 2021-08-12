@@ -448,13 +448,18 @@ export async function writeImageToCache(item = {}) {
         }
     }
 }
+const INVALID_CART_ERROR_MESSAGES = [
+    'Could not find a cart',
+    "The cart isn't active",
+    'The current user cannot perform operations on cart',
+    'Expected non-nullable type'
+];
 
 // Returns true if the cart is invalid.
 function isInvalidCart(error) {
-    return !!(
-        error.graphQLErrors &&
-        error.graphQLErrors.find(err =>
-            err.message.includes('Could not find a cart')
+    return !!error?.graphQLErrors?.find(err =>
+        INVALID_CART_ERROR_MESSAGES.find(invalidCartError =>
+            err.message.includes(invalidCartError)
         )
     );
 }
