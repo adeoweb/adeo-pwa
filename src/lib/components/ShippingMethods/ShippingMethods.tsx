@@ -11,7 +11,7 @@ import {
 
 type TShippingMethodsProps = {
     items: TAvailableShippingMethod[];
-    selected: TSelectedShippingMethod;
+    selected?: TSelectedShippingMethod;
     onSelect: (item: TAvailableShippingMethod) => void;
 };
 
@@ -42,9 +42,8 @@ const ShippingMethods: FunctionComponent<TShippingMethodsProps> = ({
                                     name="method"
                                     checked={
                                         carrierCode ===
-                                            (selected || {}).carrier_code &&
-                                        methodCode ===
-                                            (selected || {}).method_code
+                                            selected?.carrier_code &&
+                                        methodCode === selected?.method_code
                                     }
                                     onChange={() => onSelect(item)}
                                     disabled={!available}
@@ -55,7 +54,7 @@ const ShippingMethods: FunctionComponent<TShippingMethodsProps> = ({
                                     {currencyCode ? (
                                         <Price
                                             currencyCode={currencyCode}
-                                            value={price || 0}
+                                            value={price}
                                         />
                                     ) : null}
                                 </strong>

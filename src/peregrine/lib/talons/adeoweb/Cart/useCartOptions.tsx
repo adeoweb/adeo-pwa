@@ -1,3 +1,5 @@
+import { DocumentNode } from 'graphql';
+
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useMemo, useState } from 'react';
 
@@ -5,11 +7,38 @@ import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 import { appendOptionsToPayload } from '@magento/peregrine/lib/util/appendOptionsToPayload';
 import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConfigurable';
 
+import { TCartItem } from 'src/lib/types/graphql/CartItem';
+import { TProduct } from 'src/lib/types/graphql/Product';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 import isItemMissingOptions from 'src/peregrine/lib/util/adeoweb/isItemMissingOptions';
 
-export const useCartOptions = props => {
+type TUseCartOptionsProps = {
+    addConfigurableProductToCartMutation: DocumentNode;
+    addSimpleProductToCartMutation: DocumentNode;
+    cartItem: TCartItem;
+    configItem?: Partial<TProduct>;
+    createCartMutation: DocumentNode;
+    endEditItem: () => void;
+    getCartDetailsQuery: DocumentNode;
+    removeItemMutation: DocumentNode;
+    updateItemMutation: DocumentNode;
+};
+
+export type TUseCartOptions = {
+    initialQuantity: number;
+    quantity: number;
+    handleCancel: () => void;
+    handleSelectionChange: (optionId: string, selection: number) => void;
+    handleUpdate: () => Promise<void>;
+    handleUpdateQuantity: (quantity: number) => Promise<void>;
+    handleValueChange: (value: number) => void;
+    isUpdateDisabled: boolean;
+};
+
+export const useCartOptions = (
+    props: TUseCartOptionsProps
+): TUseCartOptions => {
     const {
         addConfigurableProductToCartMutation,
         addSimpleProductToCartMutation,
@@ -53,7 +82,7 @@ export const useCartOptions = props => {
 
         if (cartItemOptions) {
             cartItemOptions.forEach(cartItemOption => {
-                result.set(cartItemOption.id, cartItemOption.value_id);
+                result.set(cartItemOption?.id, cartItemOption?.value_id);
             });
         }
 
@@ -191,10 +220,10 @@ export const useCartOptions = props => {
     );
 
     const handleValueChange = useCallback(
-        value => {
+        (value: number) => {
             // Ensure that quantity remains an int.
-            if (parseInt(value) > 0) {
-                setQuantity(parseInt(value));
+            if (value > 0) {
+                setQuantity(value);
             }
         },
         [setQuantity]

@@ -1,5 +1,5 @@
 import { ExecutionResult, MutationFunctionOptions } from '@apollo/react-common';
-import { QueryOptions } from '@apollo/react-hooks';
+import { MutationFunction } from '@apollo/react-hooks';
 
 import { ApolloQueryResult, OperationVariables } from '@apollo/client';
 
@@ -38,7 +38,7 @@ interface ISubmitShippingAddressPayload {
 
 interface ISubmitShippingMethodPayload {
     shippingMethod: TAvailableShippingMethod;
-    setShippingMethodOnCart: Promise<TCart>;
+    setShippingMethodOnCart: MutationFunction;
 }
 
 interface ISubmitBillingAddressPayload {
@@ -53,27 +53,21 @@ interface ISubmitPaymentMethodPayload {
 
 interface ISubmitOrder {
     fetchCartId: Promise<TFetchCartId>;
-    placeOrder: Promise<TOrder>;
+    placeOrder: MutationFunction;
 }
 
 interface IApplyCouponPayload {
     couponCode: string;
-    applyCouponToCart: (
-        options?: MutationFunctionOptions<TCart>
-    ) => Promise<ExecutionResult<TCart>>;
+    applyCouponToCart: MutationFunction;
 }
 
 interface IRemoveCouponPayload {
-    removeCouponFromCart: (
-        options?: MutationFunctionOptions<TCart>
-    ) => Promise<ExecutionResult<TCart>>;
+    removeCouponFromCart: MutationFunction;
 }
 
 interface ISubmitEstimateAddressPayload {
     formValues: TCartAddressInput;
-    setShippingAddressesOnCart: (
-        options?: MutationFunctionOptions<TCart>
-    ) => Promise<ExecutionResult<TCart>>;
+    setShippingAddressesOnCart: MutationFunction;
 }
 
 export type TCheckoutAsyncActions = {

@@ -1,3 +1,5 @@
+import { DocumentNode } from 'graphql';
+
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useState } from 'react';
 
@@ -5,7 +7,25 @@ import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-export const useCoupon = props => {
+type TUseCouponProps = {
+    applyCouponToCartMutation: DocumentNode;
+    removeCouponFromCartMutation: DocumentNode;
+};
+
+export type TUseCoupon = {
+    appliedCouponCode?: string;
+    discount?: number;
+    currencyCode: string;
+    couponCode: string;
+    error?: string;
+    isSubmitting: boolean;
+    handleInputChange: React.ChangeEventHandler<HTMLInputElement>;
+    handleKeyDown: React.KeyboardEventHandler<HTMLInputElement>;
+    submit: () => void;
+    remove: () => void;
+};
+
+export const useCoupon = (props: TUseCouponProps): TUseCoupon => {
     const { applyCouponToCartMutation, removeCouponFromCartMutation } = props;
     const [
         {
@@ -15,13 +35,8 @@ export const useCoupon = props => {
     ] = useCartContext();
 
     const { currencyCode } = derivedDetails;
-    const discount =
-        prices && prices.discounts && prices.discounts.length
-            ? prices.discounts[0].amount.value
-            : null;
-    const appliedCouponCode = (appliedCoupons || []).length
-        ? appliedCoupons[0].code
-        : null;
+    const discount = prices?.discounts?.[0]?.amount.value;
+    const appliedCouponCode = appliedCoupons?.[0]?.code;
     const [{ applyCouponError, isSubmitting }, { applyCoupon, removeCoupon }] =
         useCheckoutContext();
     const [couponCode, setCouponCode] = useState('');
@@ -69,7 +84,7 @@ export const useCoupon = props => {
         discount,
         currencyCode,
         couponCode,
-        error: applyCouponError,
+        error: applyCouponError?.message,
         isSubmitting,
         handleInputChange,
         handleKeyDown,

@@ -1,9 +1,22 @@
 import { useCallback, useState } from 'react';
 
-export const useCartBody = props => {
+import { TCartItem } from 'src/lib/types/graphql/CartItem';
+
+type TUseCartBodyProps = {
+    beginEditItem: () => void;
+    endEditItem: () => void;
+};
+
+export type TUseCartBody = {
+    editItem: TCartItem | null;
+    handleBeginEditItem: (item: TCartItem) => void;
+    handleEndEditItem: () => void;
+};
+
+export const useCartBody = (props: TUseCartBodyProps): TUseCartBody => {
     const { beginEditItem, endEditItem } = props;
 
-    const [editItem, setEditItem] = useState(null);
+    const [editItem, setEditItem] = useState<TCartItem | null>(null);
     const handleBeginEditItem = useCallback(
         item => {
             beginEditItem();

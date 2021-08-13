@@ -1,3 +1,5 @@
+import { MutationFunction } from '@apollo/react-hooks';
+
 import { TCart } from 'src/lib/types/graphql/Cart';
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
 
@@ -31,9 +33,9 @@ interface IUpdateItemInCartPayload {
 
 interface IRemoveItemFromCartPayload {
     item: TCartItem;
-    fetchCartDetails: Promise<TCart>;
-    fetchCartId: Promise<TFetchCartId>;
-    removeItem: Promise<void>;
+    fetchCartDetails: MutationFunction;
+    fetchCartId: MutationFunction;
+    removeItem: MutationFunction;
 }
 
 interface IMergeCartsPayload {
