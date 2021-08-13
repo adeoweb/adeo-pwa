@@ -8,7 +8,7 @@ import { Util } from '@magento/peregrine';
 import app from '@magento/peregrine/lib/store/actions/app';
 
 import App from 'src/lib/components/App';
-import ContextProvider from 'src/lib/components/App/contextProvider';
+import ContextProvider from 'src/lib/components/App/ContextProvider';
 import { translate } from 'src/lib/drivers/i18n';
 import { registerSW } from 'src/registerSW';
 

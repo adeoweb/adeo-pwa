@@ -4,16 +4,21 @@ import {
 } from 'apollo-cache-inmemory';
 import { persistCache } from 'apollo-cache-persist';
 
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
-import { ApolloProvider, createHttpLink } from '@apollo/client';
-import { ApolloClient, ApolloLink } from '@apollo/client/core';
+import {
+    ApolloProvider,
+    createHttpLink,
+    ApolloClient,
+    ApolloLink,
+    ApolloCache
+} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserPersistence } from '@magento/peregrine/lib/util';
 
-import { TAdapterProps, TStorage } from 'src/lib/drivers//AdapterTypes';
+import { TAdapterProps, TStorage } from 'src/lib/drivers/AdapterTypes';
 import customFetch from 'src/lib/drivers/customFetch';
 import { cacheKeyFromType } from 'src/lib/util/apolloCache';
 
@@ -67,7 +72,8 @@ export const createApolloLink = (apiBase: string): ApolloLink => {
  * wrap their Venia component trees with it, or they can override `src/drivers`
  * so its components don't depend on context and IO.
  */
-const Adapter: FunctionComponent<TAdapterProps<unknown>> = props => {
+
+const Adapter = (props: TAdapterProps<unknown>): JSX.Element => {
     const { apiBase, apollo, children, store } = props;
 
     const apolloClient = useMemo(() => {
@@ -79,8 +85,9 @@ const Adapter: FunctionComponent<TAdapterProps<unknown>> = props => {
         // We need to instantiate an ApolloClient.
         const link = apollo.link || createApolloLink(apiBase);
 
-        const cache = apollo.cache || preInstantiatedCache;
-        // @ts-ignore
+        const cache = (apollo.cache ||
+            preInstantiatedCache) as ApolloCache<unknown>;
+
         const client = new ApolloClient({ cache, link });
 
         // @ts-ignore
@@ -92,16 +99,12 @@ const Adapter: FunctionComponent<TAdapterProps<unknown>> = props => {
     return (
         <ApolloProvider client={apolloClient}>
             <ReduxProvider store={store}>
-                <Router history={history}>
-                    {/* @ts-ignore */}
-                    {children(apolloClient)}
-                </Router>
+                <Router history={history}>{children(apolloClient)}</Router>
             </ReduxProvider>
         </ApolloProvider>
     );
 };
 
-// @ts-ignore
 Adapter.apolloLink = apiBase => {
     return createHttpLink({
         uri: apiBase,
@@ -110,7 +113,6 @@ Adapter.apolloLink = apiBase => {
     });
 };
 
-// @ts-ignore
 Adapter.storeLink = setContext((_, { headers }) => {
     const storeCurrency = storage.getItem('store_view_currency') || null;
     const storeCode =

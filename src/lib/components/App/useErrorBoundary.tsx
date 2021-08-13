@@ -1,24 +1,32 @@
-import React, { Component, useMemo } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 
-export const useErrorBoundary = WrappedComponent =>
+interface State {
+    renderError?: Error;
+}
+
+export const useErrorBoundary = (WrappedComponent: ReactNode) =>
     useMemo(
         () =>
-            class ErrorBoundary extends Component {
+            class ErrorBoundary extends React.Component<
+                Record<string, never>,
+                State
+            > {
                 constructor(props) {
                     super(props);
 
-                    this.state = { renderError: null };
+                    this.state = { renderError: undefined };
                 }
 
-                static getDerivedStateFromError(renderError) {
+                static getDerivedStateFromError(renderError: Error) {
                     return { renderError };
                 }
 
-                render() {
+                render(): ReactNode {
                     const { props, state } = this;
                     const { renderError } = state;
 
                     return (
+                        // @ts-expect-error
                         <WrappedComponent
                             {...props}
                             renderError={renderError}

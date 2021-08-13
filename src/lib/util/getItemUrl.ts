@@ -13,7 +13,10 @@ function getCategoryPath(category: TCategoryInterface) {
 }
 
 export default function getItemUrl(
-    { url_key: urlKey = '', url_suffix: urlSuffix = '' }: TProduct,
+    {
+        url_key: urlKey = '',
+        url_suffix: urlSuffix = ''
+    }: Pick<TProduct, 'url_key' | 'url_suffix'>,
     category?: TCategoryInterface
 ): string {
     const productUrl = urlKey ? `/${urlKey}${urlSuffix}` : '';

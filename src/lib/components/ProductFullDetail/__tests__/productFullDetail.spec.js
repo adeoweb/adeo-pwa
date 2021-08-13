@@ -9,7 +9,7 @@ import mockUseLogo from 'src/lib/util/__mocks__/hooks/mockUseLogo';
 import mockUseProductCompare from 'src/lib/util/__mocks__/hooks/mockUseProductCompare';
 
 import Carousel from '../../ProductImageCarousel';
-import ProductFullDetail from '../productFullDetail';
+import ProductFullDetail from '../ProductFullDetail';
 
 jest.mock('src/lib/drivers', () => ({
     useHistory: jest.fn(),

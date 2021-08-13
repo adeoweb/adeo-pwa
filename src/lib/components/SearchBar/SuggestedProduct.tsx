@@ -22,7 +22,9 @@ const SuggestedProduct: FunctionComponent<TSuggestedProductProps> = product => {
         name,
         onNavigate,
         price_range: priceRange,
-        short_description: shortDescription
+        short_description: shortDescription,
+        url_key,
+        url_suffix
     } = product;
 
     const handleClick = useCallback(() => {
@@ -34,7 +36,10 @@ const SuggestedProduct: FunctionComponent<TSuggestedProductProps> = product => {
     const imageResource =
         smallImage && smallImage.url ? smallImage.url : undefined;
 
-    const uri = getItemUrl(product);
+    const uri = getItemUrl({
+        url_key,
+        url_suffix
+    });
 
     let price: React.ReactNode | null = null;
     if (

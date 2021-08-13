@@ -1,5 +1,3 @@
-import { arrayOf, bool, number, shape, string } from 'prop-types';
-
 import React, { Fragment, Suspense, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -7,38 +5,45 @@ import { useTranslation } from 'react-i18next';
 import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConfigurable';
 
 import AddToWishlist from 'src/lib/components/AddToWishlist';
+import Breadcrumbs from 'src/lib/components/Breadcrumbs';
 import { AddToCompare } from 'src/lib/components/Compare';
 import PriceBox from 'src/lib/components/PriceBox';
 import PriceTiers from 'src/lib/components/PriceTiers';
-import FeaturedProductsWidget from 'src/lib/components/ProductFullDetail/FeaturedProductsWidget';
 import ProductTabs from 'src/lib/components/ProductFullDetail/ProductTabs';
 import RelatedProductsSection from 'src/lib/components/ProductFullDetail/RelatedProductsSection';
 import ShortDescription from 'src/lib/components/ProductFullDetail/ShortDescription';
+import Rating from 'src/lib/components/Rating';
 import { CustomerModalTypes } from 'src/lib/constants/customer';
 import MessageType from 'src/lib/constants/message';
 import { SHOW_PRICE_TIERS } from 'src/lib/constants/product';
+import ADD_CONFIGURABLE_MUTATION from 'src/lib/queries/addConfigurableProductsToCart.graphql';
+import ADD_SIMPLE_MUTATION from 'src/lib/queries/addSimpleProductsToCart.graphql';
+import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
+import GET_CART_DETAILS_QUERY from 'src/lib/queries/getCartDetails.graphql';
+import { TProduct } from 'src/lib/types/graphql/Product';
 import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useMessageCard } from 'src/peregrine/lib/talons/adeoweb/MessageCard/useMessageCard';
 import { useProductFullDetail } from 'src/peregrine/lib/talons/adeoweb/ProductFullDetail/useProductFullDetail';
 import { useWishlist } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWishlist';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 import { isProductCustomizable } from 'src/peregrine/lib/util/adeoweb/isProductCustomizable';
 
-import ADD_CONFIGURABLE_MUTATION from '../../queries/addConfigurableProductsToCart.graphql';
-import ADD_SIMPLE_MUTATION from '../../queries/addSimpleProductsToCart.graphql';
-import CREATE_CART_MUTATION from '../../queries/createCart.graphql';
-import GET_CART_DETAILS_QUERY from '../../queries/getCartDetails.graphql';
-import Breadcrumbs from '../Breadcrumbs';
-import Button from '../Button';
 import LoadingIndicator, {
     FullPageLoadingIndicator
 } from '../LoadingIndicator';
 import Carousel from '../ProductImageCarousel';
 import ProductQuantity from '../ProductQuantity';
+import AddToCartButton from './AddToCartButton';
+import ProductSidebar from './ProductSidebar';
 
 const Options = React.lazy(() => import('../ProductOptions'));
 const CustomOptions = React.lazy(() => import('../CustomOptions'));
 
-const ProductFullDetail = props => {
+interface IProductFullDetailProps {
+    product: TProduct;
+}
+
+const ProductFullDetail = (props: IProductFullDetailProps): JSX.Element => {
     const { product } = props;
     const { t } = useTranslation('product');
     const [, { setCustomerModal }] = useAppContext();
@@ -77,11 +82,19 @@ const ProductFullDetail = props => {
         customOptionsPrice
     } = talonProps;
 
+    const configurableOptions = filterOutNullableValues(
+        product.configurable_options
+    );
+    const priceTiers = filterOutNullableValues(product.price_tiers);
+    const crosssellProducts = filterOutNullableValues(
+        product.crosssell_products
+    );
+
     const options = isProductConfigurable(product) ? (
         <Suspense fallback={<FullPageLoadingIndicator />}>
             <Options
                 onSelectionChange={handleSelectionChange}
-                options={product.configurable_options}
+                options={configurableOptions}
             />
         </Suspense>
     ) : null;
@@ -162,33 +175,18 @@ const ProductFullDetail = props => {
                                         <h1 className="product-title">
                                             {productDetails.name}
                                         </h1>
-
-                                        {/*TODO: Change with Rating component*/}
-                                        <div className="ratings-container">
-                                            <div className="product-ratings">
-                                                <span className="ratings" />
-                                            </div>
-                                            {/*TODO: add this to Rating component*/}
-                                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                            <a href="#" className="rating-link">
-                                                ( 6 Reviews )
-                                            </a>
-                                        </div>
-                                        {/*TODO: end*/}
-
+                                        <Rating />
                                         <PriceBox
                                             priceRange={
                                                 productDetails.priceRange
                                             }
                                             additional={customOptionsPrice}
                                         />
-
                                         <PriceTiers
-                                            priceTiers={product.price_tiers}
+                                            priceTiers={priceTiers}
                                             priceRange={product.price_range}
                                             isVisible={SHOW_PRICE_TIERS}
                                         />
-
                                         <ShortDescription
                                             shortDescription={shortDescription}
                                         />
@@ -212,18 +210,15 @@ const ProductFullDetail = props => {
                                                     handleSetQuantity
                                                 }
                                             />
-                                            {/*TODO: Change with AddToCartButton*/}
-                                            <Button
-                                                className={'paction add-cart'}
-                                                priority="high"
-                                                onClick={handleAddToCart}
-                                                disabled={isAddToCartDisabled}
-                                                title="Add to Cart"
-                                            >
-                                                Add to Cart
-                                            </Button>
-                                            {/*TODO: end*/}
-                                            {/* TODO: handleNotLoggedIn */}
+                                            <AddToCartButton
+                                                handleAddToCart={
+                                                    handleAddToCart
+                                                }
+                                                isAddToCartDisabled={
+                                                    isAddToCartDisabled
+                                                }
+                                            />
+
                                             <AddToWishlist
                                                 product={product}
                                                 handleNotLoggedIn={
@@ -236,93 +231,16 @@ const ProductFullDetail = props => {
                                 </Col>
                             </Row>
                         </div>
-
                         <ProductTabs description={description} />
                     </Col>
-
-                    {/*TODO: SideBar*/}
-                    <div className="sidebar-overlay" />
-
-                    <aside className="sidebar-product col-lg-3 padding-left-lg mobile-sidebar">
-                        <div className="sidebar-wrapper">
-                            {/*TODO: Make InfoWidget*/}
-                            <div className="widget widget-info">
-                                <ul>
-                                    <li>
-                                        <i className="icon-shipping" />
-                                        <h4>
-                                            FREE
-                                            <br />
-                                            SHIPPING
-                                        </h4>
-                                    </li>
-                                    <li>
-                                        <i className="icon-us-dollar" />
-                                        <h4>
-                                            100% MONEY
-                                            <br />
-                                            BACK GUARANTEE
-                                        </h4>
-                                    </li>
-                                    <li>
-                                        <i className="icon-online-support" />
-                                        <h4>
-                                            ONLINE
-                                            <br />
-                                            SUPPORT 24/7
-                                        </h4>
-                                    </li>
-                                </ul>
-                            </div>
-                            {/*TODO: end*/}
-
-                            {product.crosssell_products && (
-                                <FeaturedProductsWidget
-                                    items={product.crosssell_products}
-                                />
-                            )}
-                        </div>
-                    </aside>
-                    {/*TODO: end*/}
+                    <ProductSidebar items={crosssellProducts} />
                 </Row>
             </Container>
-
-            {product.crosssell_products && (
-                <RelatedProductsSection items={product.crosssell_products} />
+            {Boolean(crosssellProducts.length) && (
+                <RelatedProductsSection items={crosssellProducts} />
             )}
         </Fragment>
     );
-};
-
-ProductFullDetail.propTypes = {
-    classes: shape({
-        cartActions: string,
-        description: string,
-        descriptionTitle: string,
-        details: string,
-        detailsTitle: string,
-        imageCarousel: string,
-        options: string,
-        productName: string,
-        productPrice: string,
-        quantity: string,
-        quantityTitle: string,
-        root: string,
-        title: string
-    }),
-    product: shape({
-        __typename: string,
-        id: number,
-        sku: string.isRequired,
-        media_gallery_entries: arrayOf(
-            shape({
-                label: string,
-                position: number,
-                disabled: bool,
-                file: string.isRequired
-            })
-        )
-    }).isRequired
 };
 
 export default ProductFullDetail;

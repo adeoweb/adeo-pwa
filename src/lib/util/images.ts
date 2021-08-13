@@ -21,7 +21,7 @@ export const imageWidths = new Map(
 
 export const generateUrl =
     (imageURL: string, mediaBase: string) =>
-    (width?: number | string, height?: number | string) =>
+    (width?: number | string, height?: number | string): string =>
         resourceUrl(imageURL, {
             type: mediaBase,
             width,

@@ -18,7 +18,7 @@ import GET_PRODUCT_DETAIL from '../../queries/getProductDetail.graphql';
 import { MagentoGraphQLTypes } from '../../util/apolloCache';
 import getUrlKey from '../../util/getUrlKey';
 
-const Product = () => {
+const Product = (): JSX.Element => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -43,7 +43,6 @@ const Product = () => {
         );
     }
 
-    // Note: STORE_NAME is injected by Webpack at build time.
     return (
         <Fragment>
             <Title>{`${product.name} - ${STORE_NAME}`}</Title>

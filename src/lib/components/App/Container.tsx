@@ -1,4 +1,7 @@
-import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
+import {
+    ApolloProvider as ApolloHooksProvider,
+    ApolloClient
+} from '@apollo/react-hooks';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 
@@ -7,7 +10,11 @@ import { useErrorContext } from 'src/peregrine/lib/context/adeoweb/unhandledErro
 import App from './app';
 import { useErrorBoundary } from './useErrorBoundary';
 
-const AppContainer = ({ apolloClient }) => {
+interface IAppContainerProps {
+    apolloClient: ApolloClient<unknown>;
+}
+
+const AppContainer = ({ apolloClient }: IAppContainerProps): JSX.Element => {
     const ErrorBoundary = useErrorBoundary(App);
     const [unhandledErrors, errorApi] = useErrorContext();
 

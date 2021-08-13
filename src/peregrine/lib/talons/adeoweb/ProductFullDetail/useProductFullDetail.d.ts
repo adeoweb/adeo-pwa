@@ -26,11 +26,6 @@ type THandleAddToCart = {
     quantity: number;
 };
 
-type THandleSelectionChangeProps = {
-    optionId: string;
-    selection: number;
-};
-
 export type TProductDetails = {
     description: { html: string };
     shortDescription: { html: string };
@@ -41,8 +36,8 @@ export type TProductDetails = {
 
 type TUseProductFullDetail = {
     breadcrumbCategoryId: number;
-    handleAddToCart: (props: THandleAddToCart) => void;
-    handleSelectionChange: (props: THandleSelectionChangeProps) => void;
+    handleAddToCart: () => void;
+    handleSelectionChange: (optionId: string, selection: number) => void;
     handleSetQuantity: (value: number) => void;
     isSupportedProductType: boolean;
     isAddToCartDisabled: boolean;
