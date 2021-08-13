@@ -7,17 +7,8 @@ import { useContactForm } from 'src/peregrine/lib/talons/adeoweb/Contact/useCont
 const ContactForm: FunctionComponent = () => {
     const { t } = useTranslation(['common', 'customer']);
 
-    const initialValues = {
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-    };
-
     const { handleSubmit, handleChange, values, errors, touched } =
-        useContactForm({
-            initialValues
-        });
+        useContactForm();
 
     return (
         <Col md={8}>

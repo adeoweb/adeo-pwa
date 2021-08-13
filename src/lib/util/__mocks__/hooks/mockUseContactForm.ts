@@ -1,11 +1,14 @@
-import { FormikValues } from 'formik';
+import { TUseContactForm } from 'src/peregrine/lib/talons/adeoweb/Contact/useContactFormTypes';
 
-import { TUseContactForm } from 'src/peregrine/lib/talons/adeoweb/Contact/useContactForm';
-
-const mock: TUseContactForm<FormikValues> = {
+const mock: TUseContactForm = {
     handleSubmit: () => {},
     handleChange: () => {},
-    values: {},
+    values: {
+        email: 'mock-email',
+        message: 'mock-message',
+        name: 'mock-name',
+        phone: 'mock-phone'
+    },
     errors: {},
     touched: {}
 };

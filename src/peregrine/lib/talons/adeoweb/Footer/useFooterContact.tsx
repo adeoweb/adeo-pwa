@@ -1,6 +1,13 @@
 import { useConfigContext } from '../../../context/adeoweb/config';
 
-export const useFooterContact = () => {
+type TUseFooterContact = {
+    storeAddress: string;
+    storePhone: string;
+    storeEmail: string;
+    storeWorkingHours: string;
+};
+
+export const useFooterContact = (): TUseFooterContact => {
     const [
         {
             store_address: storeAddress,

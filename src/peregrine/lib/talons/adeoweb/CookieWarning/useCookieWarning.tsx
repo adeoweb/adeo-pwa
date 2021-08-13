@@ -2,7 +2,12 @@ import { useState } from 'react';
 
 import { Util } from '@magento/peregrine';
 
-export const useCookieWarning = () => {
+export type TUseCookieWarning = {
+    allowCookies: string;
+    handleAllowCookiesClick: () => void;
+};
+
+export const useCookieWarning = (): TUseCookieWarning => {
     const { BrowserPersistence } = Util;
     const storage = new BrowserPersistence();
 

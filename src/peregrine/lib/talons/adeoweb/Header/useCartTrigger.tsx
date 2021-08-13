@@ -1,3 +1,5 @@
+import { DocumentNode } from 'graphql';
+
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useEffect } from 'react';
 
@@ -7,7 +9,19 @@ import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-export const useCartTrigger = props => {
+type TUseCartTriggerProps = {
+    createCartMutation: DocumentNode;
+    getCartDetailsQuery: DocumentNode;
+};
+
+type TUseCartTrigger = {
+    handleClick: () => void;
+    itemCount: number;
+};
+
+export const useCartTrigger = (
+    props: TUseCartTriggerProps
+): TUseCartTrigger => {
     const { createCartMutation, getCartDetailsQuery } = props;
     const [, { toggleDrawer }] = useAppContext();
     const [{ derivedDetails }, { getCartDetails }] = useCartContext();

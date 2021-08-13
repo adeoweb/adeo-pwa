@@ -1,9 +1,14 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-export const useContactForm = ({ initialValues = {} }) => {
-    const handleFormSubmit = values => {
-        console.log(values);
+import { TUseContactForm, TUseContactFormValues } from './useContactFormTypes';
+
+export const useContactForm = (): TUseContactForm => {
+    const initValues: TUseContactFormValues = {
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
     };
 
     const formSchema = yup.object({
@@ -13,9 +18,13 @@ export const useContactForm = ({ initialValues = {} }) => {
         message: yup.string().required()
     });
 
+    const handleFormSubmit = (values: TUseContactFormValues) => {
+        console.log(values);
+    };
+
     const { handleSubmit, handleChange, values, errors, touched } = useFormik({
         validationSchema: formSchema,
-        initialValues,
+        initialValues: initValues,
         onSubmit: handleFormSubmit
     });
 

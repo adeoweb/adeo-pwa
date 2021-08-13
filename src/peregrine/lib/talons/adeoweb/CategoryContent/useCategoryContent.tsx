@@ -1,13 +1,52 @@
+import { DocumentNode } from 'graphql';
+
 import { useLazyQuery } from '@apollo/react-hooks';
 import { useCallback, useEffect, useState } from 'react';
 
+import {
+    ProductSortDirections,
+    ProductSortFields
+} from 'src/lib/constants/product';
+import {
+    GetCategoryContentQuery,
+    GetCategoryContentQueryVariables
+} from 'src/lib/queries/getCategoryContent.generated';
+import { TAggregation } from 'src/lib/types/graphql/Aggregation';
+import { TCategoryInterface } from 'src/lib/types/graphql/Category';
+import { TProduct } from 'src/lib/types/graphql/Product';
 import { usePageSize } from 'src/peregrine/lib/talons/adeoweb/Product/usePageSize';
 import { useProductFilters } from 'src/peregrine/lib/talons/adeoweb/Product/useProductFilters';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
 const CATEGORY_ATTRIBUTE_CODE = 'category_id';
 
-export const useCategoryContent = props => {
+type TUseCategoryContentProps = {
+    query: DocumentNode;
+    currentPage: number;
+    categoryId: number;
+    sortField: ProductSortFields;
+    sortDir: ProductSortDirections;
+    setTotalPages: (count: number) => void;
+};
+
+type TUseCategoryContent = {
+    error?: string;
+    loading: boolean;
+    category: TCategoryInterface | null;
+    products: TProduct[];
+    filters: TAggregation[];
+    totalCount: number;
+    activeFilters: Map<string, string[]>;
+    setFilter: (attributeCode: string, values: string[]) => void;
+    toggleFilter: (attributeCode: string, value: string) => void;
+    pageSize: number;
+    setPageSize: (pageSize: number) => void;
+};
+
+export const useCategoryContent = (
+    props: TUseCategoryContentProps
+): TUseCategoryContent => {
     const {
         query,
         currentPage,
@@ -17,7 +56,7 @@ export const useCategoryContent = props => {
         setTotalPages
     } = props;
 
-    const [activeCategory, setActiveCategory] = useState(null);
+    const [activeCategory, setActiveCategory] = useState<number | null>(null);
     const {
         getFilterQuery,
         activeFilters,
@@ -27,16 +66,18 @@ export const useCategoryContent = props => {
     } = useProductFilters();
 
     const handleToggleFilter = useCallback(
-        (attributeCode, value) => {
+        (attributeCode: string, value: string) => {
             if (attributeCode === CATEGORY_ATTRIBUTE_CODE) {
                 const values = activeFilters.get(attributeCode) || [];
                 const valueIndex = values.indexOf(value);
-                const newValues = [];
+                const newValues: string[] = [];
 
                 if (valueIndex === -1) {
                     newValues.push(value);
                 } else {
-                    newValues.push(activeCategory.toString());
+                    if (activeCategory) {
+                        newValues.push(activeCategory.toString());
+                    }
                 }
 
                 setFilter(attributeCode, newValues);
@@ -48,8 +89,11 @@ export const useCategoryContent = props => {
     );
 
     const { pageSize, setPageSize } = usePageSize();
-    const [data, setData] = useState(null);
-    const [runQuery, queryResponse] = useLazyQuery(query, {
+    const [data, setData] = useState<GetCategoryContentQuery | null>(null);
+    const [runQuery, queryResponse] = useLazyQuery<
+        GetCategoryContentQuery,
+        GetCategoryContentQueryVariables
+    >(query, {
         fetchPolicy: fetchPolicy.queries.default,
         onCompleted: data => {
             setData(data);
@@ -67,6 +111,7 @@ export const useCategoryContent = props => {
                 sort: {
                     [sortField]: sortDir
                 },
+                // @ts-expect-error
                 filter: getFilterQuery()
             }
         });
@@ -83,37 +128,16 @@ export const useCategoryContent = props => {
     ]);
 
     const { loading, error } = queryResponse;
+    const [firstCategory] = filterOutNullableValues(data?.categoryList);
 
-    let category = null;
-    if (data && data.categoryList && Array.isArray(data.categoryList)) {
-        const [firstCategory] = data.categoryList;
-        category = firstCategory;
-    }
+    const category = firstCategory;
+    const products = filterOutNullableValues(
+        data?.products?.items
+    ) as unknown as TProduct[];
+    const filters = filterOutNullableValues(data?.products?.aggregations);
 
-    let products = [];
-    if (data && data.products && Array.isArray(data.products.items)) {
-        products = data.products.items;
-    }
-
-    let filters = [];
-    if (data && data.products && Array.isArray(data.products.aggregations)) {
-        filters = data.products.aggregations;
-    }
-
-    let totalPages = 0;
-    if (
-        data &&
-        data.products &&
-        data.products.page_info &&
-        data.products.page_info.total_pages
-    ) {
-        totalPages = data.products.page_info.total_pages;
-    }
-
-    let totalCount = 0;
-    if (data && data.products && data.products.total_count) {
-        totalCount = data.products.total_count;
-    }
+    const totalPages = data?.products?.page_info?.total_pages ?? 0;
+    const totalCount = data?.products?.total_count ?? 0;
 
     useEffect(() => {
         setTotalPages(totalPages);
@@ -128,7 +152,7 @@ export const useCategoryContent = props => {
 
     return {
         loading,
-        error,
+        error: error?.message,
         category,
         products,
         filters,
