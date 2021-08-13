@@ -1,9 +1,25 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
+import { ICartState } from 'src/peregrine/lib/store/reducers/adeoweb/cart';
 
-export const useCart = () => {
+export type TUseCart = {
+    items: TCartItem[];
+    cartState: ICartState;
+    currencyCode: string;
+    handleBeginEditItem: () => void;
+    handleEndEditItem: () => void;
+    isEditingItem: boolean;
+    isLoading: boolean;
+    isUpdatingItem: boolean;
+    isSubmitting: boolean;
+    numItems: number;
+    subtotal: number;
+};
+
+export const useCart = (): TUseCart => {
     const [{ isSubmitting }] = useCheckoutContext();
     const [cartState] = useCartContext();
     const { derivedDetails, details, isLoading, isUpdatingItem } = cartState;
@@ -25,7 +41,7 @@ export const useCart = () => {
     }, []);
 
     return {
-        items: cartItems,
+        items: cartItems ?? [],
         cartState,
         currencyCode,
         handleBeginEditItem,

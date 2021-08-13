@@ -12,7 +12,7 @@ import { useCartOptions } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartOpt
 
 type CartItemQuantityProps = {
     cartItem: TCartItem;
-    configItem: TProduct;
+    configItem?: Partial<TProduct>;
     currencyCode: string;
     beginEditItem: () => void;
     endEditItem: () => void;

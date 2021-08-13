@@ -1,4 +1,5 @@
-import { useFormik } from 'formik';
+import { useFormik, FormikErrors, FormikTouched } from 'formik';
+import { DocumentNode } from 'graphql';
 import * as yup from 'yup';
 
 import { useMutation } from '@apollo/react-hooks';
@@ -8,13 +9,48 @@ import {
     ESTIMATE_ADDRESS_FIRSTNAME,
     DEFAULT_COUNTRY_CODE
 } from 'src/lib/constants/cart';
+import {
+    TAvailableShippingMethod,
+    TCartAddressInput,
+    TSelectedShippingMethod
+} from 'src/lib/types/graphql/Cart';
+import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
 import { customFormikValidate } from 'src/lib/util/customFormikValidate';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
-export const useCartEstimate = props => {
+type TUseCartEstimateProps = {
+    countriesQuery: DocumentNode;
+    setShippingAddressesOnCartMutation: DocumentNode;
+    setShippingMethodOnCartMutation: DocumentNode;
+    initialValues?: TCartAddressInput;
+};
+
+type TUseCartEstimate = {
+    handleShippingMethodSelect: (item: TAvailableShippingMethod) => void;
+    isSubmitting: boolean;
+    availableShippingMethods: TAvailableShippingMethod[];
+    selectedShippingMethod?: TSelectedShippingMethod;
+    handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
+    handleChange: (
+        eventOrPath: string | React.ChangeEvent<any>
+    ) => void | ((eventOrTextValue: string | React.ChangeEvent<any>) => void);
+    handleBlur: (eventOrString: any) => void | ((e: any) => void);
+    values: TCartAddressInput;
+    errors: FormikErrors<TCartAddressInput>;
+    touched: FormikTouched<TCartAddressInput>;
+    countries: TCountry[];
+    regions: TRegion[];
+    isDirty: boolean;
+    isValid: boolean;
+};
+
+export const useCartEstimate = (
+    props: TUseCartEstimateProps
+): TUseCartEstimate => {
     const {
         countriesQuery,
         setShippingAddressesOnCartMutation,
@@ -47,15 +83,9 @@ export const useCartEstimate = props => {
         }
     ] = useCartContext();
     const estimateAddress =
-        shippingAddresses &&
-        shippingAddresses.length > 0 &&
-        shippingAddresses[0].firstname === ESTIMATE_ADDRESS_FIRSTNAME
+        shippingAddresses?.[0]?.firstname === ESTIMATE_ADDRESS_FIRSTNAME
             ? shippingAddresses[0]
-            : {};
-    const {
-        available_shipping_methods: availableShippingMethods = [],
-        selected_shipping_method: selectedShippingMethod
-    } = estimateAddress;
+            : undefined;
 
     const initialValues = {
         firstname: ESTIMATE_ADDRESS_FIRSTNAME,
@@ -63,10 +93,10 @@ export const useCartEstimate = props => {
         company: 'c',
         street: ['s', 's'],
         city: 'c',
-        postcode: estimateAddress.postcode || '',
+        postcode: estimateAddress?.postcode ?? '',
         telephone: '0',
-        region: estimateAddress.region ? estimateAddress.region.code : '',
-        country_code: estimateAddress.country
+        region: estimateAddress?.region ? estimateAddress.region.code : '',
+        country_code: estimateAddress?.country
             ? estimateAddress.country.code
             : DEFAULT_COUNTRY_CODE
     };
@@ -142,11 +172,15 @@ export const useCartEstimate = props => {
         }
     }, [values.country_code, countryCode, setCountryCode]);
 
+    const availableShippingMethods = filterOutNullableValues(
+        estimateAddress?.available_shipping_methods
+    );
+
     return {
         handleShippingMethodSelect,
         isSubmitting,
         availableShippingMethods,
-        selectedShippingMethod,
+        selectedShippingMethod: estimateAddress?.selected_shipping_method,
         handleSubmit,
         handleChange,
         handleBlur,
