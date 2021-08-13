@@ -18,7 +18,7 @@ const contextProviders = [
     ToastContextProvider
 ];
 
-const ContextProvider = ({ children }) => {
+const ContextProvider: React.FC = ({ children }) => {
     return contextProviders.reduceRight((memo, ContextProvider) => {
         return <ContextProvider>{memo}</ContextProvider>;
     }, children);

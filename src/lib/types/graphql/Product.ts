@@ -24,7 +24,7 @@ export {
     ConfigurableProduct as TConfigurableProduct
 } from '../graphql-types.generated';
 
-export type TProduct = SimpleProduct | ConfigurableProduct;
+export type TProduct = SimpleProduct & ConfigurableProduct;
 
 export type TCustomizableOption = CustomizableAreaOption &
     CustomizableDateOption &
