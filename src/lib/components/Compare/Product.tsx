@@ -6,7 +6,7 @@ import AddToCart from 'src/lib/components/ProductItem/AddToCart';
 import { Link } from 'src/lib/drivers';
 import { TProduct } from 'src/lib/types/graphql/Product';
 import getItemUrl from 'src/lib/util/getItemUrl';
-import { useRemoveProduct } from 'src/peregrine/lib/talons/adeoweb/Compare/useRemoveProduct';
+import { useProductCompareContext } from 'src/peregrine/lib/context/adeoweb/productCompare';
 
 interface IProductProps {
     product: TProduct;
@@ -19,7 +19,7 @@ const Product: FunctionComponent<IProductProps> = ({
     product,
     columnStyle
 }) => {
-    const { removeProduct } = useRemoveProduct();
+    const [, { removeProduct }] = useProductCompareContext();
 
     const { name, small_image: smallImage, price_range: priceRange } = product;
     const itemUrl = getItemUrl(product);

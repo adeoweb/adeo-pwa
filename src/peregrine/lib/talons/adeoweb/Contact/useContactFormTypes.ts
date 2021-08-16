@@ -2,8 +2,8 @@ import { FormikErrors, FormikTouched } from 'formik';
 
 import * as React from 'react';
 
-type TUseContactFormProps<Values> = {
-    initialValues?: Values;
+export type TUseContactFormProps = {
+    initialValues?: TUseContactFormValues;
 };
 
 export type TUseContactFormValues = {
@@ -13,16 +13,12 @@ export type TUseContactFormValues = {
     message: string;
 };
 
-type TUseContactForm<Values> = {
+export type TUseContactForm = {
     handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
     handleChange: (
         eventOrPath: string | React.ChangeEvent<any>
     ) => void | ((eventOrTextValue: string | React.ChangeEvent<any>) => void);
-    values: Values;
-    errors: FormikErrors<Values>;
-    touched: FormikTouched<Values>;
+    values: TUseContactFormValues;
+    errors: FormikErrors<TUseContactFormValues>;
+    touched: FormikTouched<TUseContactFormValues>;
 };
-
-export function useContactForm<Values>(
-    props: TUseContactFormProps<Values>
-): TUseContactForm<Values>;

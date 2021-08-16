@@ -56,6 +56,7 @@ exports[`Contact page renders correctly 1`] = `
                 onChange={[Function]}
                 required={true}
                 type="text"
+                value="mock-name"
               />
               <div
                 className="invalid-feedback"
@@ -75,6 +76,7 @@ exports[`Contact page renders correctly 1`] = `
                 onChange={[Function]}
                 required={true}
                 type="email"
+                value="mock-email"
               />
               <div
                 className="invalid-feedback"
@@ -93,6 +95,7 @@ exports[`Contact page renders correctly 1`] = `
                 name="phone"
                 onChange={[Function]}
                 type="text"
+                value="mock-phone"
               />
               <div
                 className="invalid-feedback"
@@ -113,6 +116,7 @@ exports[`Contact page renders correctly 1`] = `
                 onChange={[Function]}
                 required={true}
                 rows={1}
+                value="mock-message"
               />
               <div
                 className="invalid-feedback"

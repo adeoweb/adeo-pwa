@@ -11,5 +11,5 @@ type TUseProductFilters = {
 };
 
 export function useProductFilters(
-    props: TUseProductFiltersProps
+    props?: TUseProductFiltersProps
 ): TUseProductFilters;

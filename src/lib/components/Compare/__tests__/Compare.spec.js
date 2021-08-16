@@ -6,11 +6,14 @@ import { createTestInstance } from '@magento/peregrine';
 import Compare from 'src/lib/components/Compare';
 import { mockProductData } from 'src/lib/components/Compare/__tests__/mockData';
 
-jest.mock('src/peregrine/lib/talons/adeoweb/Compare/useRemoveProduct', () => {
+jest.mock('src/peregrine/lib/context/adeoweb/productCompare', () => {
     return {
-        useRemoveProduct: () => ({
-            removeProduct: jest.fn(() => {})
-        })
+        useProductCompareContext: () => [
+            {},
+            {
+                removeProduct: jest.fn(() => {})
+            }
+        ]
     };
 });
 

@@ -45,7 +45,7 @@ interface IMergeCartsPayload {
 
 interface IGetCartDetailsPayload {
     fetchCartDetails: Promise<TCart>;
-    fetchCartId: Promise<TFetchCartId>;
+    fetchCartId: MutationFunction;
 }
 
 export type TCartAsyncActions = {
