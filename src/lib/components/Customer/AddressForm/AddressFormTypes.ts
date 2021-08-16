@@ -14,7 +14,7 @@ export type TCustomerAddressFormValues = {
     lastname: string;
     postcode: string;
     region: string;
-    street: [string, string];
+    street: string[];
     telephone: string;
 };
 

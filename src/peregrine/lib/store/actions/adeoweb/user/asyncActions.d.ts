@@ -1,5 +1,5 @@
 import { ExecutionResult, MutationFunctionOptions } from '@apollo/react-common';
-import { QueryOptions } from '@apollo/react-hooks';
+import { MutationFunction, QueryOptions } from '@apollo/react-hooks';
 
 import { ApolloQueryResult, OperationVariables } from '@apollo/client';
 
@@ -14,11 +14,11 @@ import {
 export interface ISignInProps {
     email: string;
     password: string;
-    signIn: Promise<string>;
+    signIn: MutationFunction;
     fetchUserDetails: Promise<TCustomer>;
     fetchCustomerCart: Promise<TCart>;
-    mergeCartsRequest: Promise<TCart>;
-    revokeToken: Promise<void>;
+    mergeCartsRequest: MutationFunction;
+    revokeToken: MutationFunction;
 }
 
 export interface ISignOutProps {
@@ -31,9 +31,7 @@ export interface IGetUserDetails {
 
 export interface ICreateCustomerAddress {
     address: TCustomerAddressFormValues;
-    createCustomerAddress: (
-        options?: MutationFunctionOptions<TCustomerAddress>
-    ) => Promise<ExecutionResult<TCustomerAddress>>;
+    createCustomerAddress: MutationFunction;
     fetchUserDetails: (
         options: QueryOptions<OperationVariables>
     ) => Promise<ApolloQueryResult<TCustomer>>;
@@ -42,9 +40,7 @@ export interface ICreateCustomerAddress {
 export interface IUpdateCustomerAddress {
     id: number;
     address: TCustomerAddressFormValues;
-    updateCustomerAddress: (
-        options?: MutationFunctionOptions<TCustomerAddress>
-    ) => Promise<ExecutionResult<TCustomerAddress>>;
+    updateCustomerAddress: MutationFunction;
     fetchUserDetails: (
         options: QueryOptions<OperationVariables>
     ) => Promise<ApolloQueryResult<TCustomer>>;
@@ -52,9 +48,7 @@ export interface IUpdateCustomerAddress {
 
 export interface ISetDefaultAddress {
     id: number;
-    updateCustomerAddressQuery: (
-        options?: MutationFunctionOptions<TCustomerAddress>
-    ) => Promise<ExecutionResult<TCustomerAddress>>;
+    updateCustomerAddressQuery: MutationFunction;
     fetchUserDetails: (
         options: QueryOptions<OperationVariables>
     ) => Promise<ApolloQueryResult<TCustomer>>;
@@ -64,9 +58,7 @@ export interface ISetDefaultAddress {
 
 export interface IDeleteCustomerAddress {
     id: number;
-    deleteCustomerAddress: (
-        options: QueryOptions<OperationVariables>
-    ) => Promise<ExecutionResult<boolean>>;
+    deleteCustomerAddress: MutationFunction;
 }
 
 export interface IResetPasswordProps {
@@ -90,9 +82,7 @@ export interface IChangePasswordProps {
         currentPassword: string;
         newPassword: string;
     };
-    changePassword: (
-        options?: MutationFunctionOptions<TCustomer>
-    ) => Promise<ExecutionResult<TCustomer>>;
+    changePassword: MutationFunction;
 }
 
 export interface IUpdateCustomerProps {
@@ -100,9 +90,7 @@ export interface IUpdateCustomerProps {
         currentPassword: string;
         newPassword: string;
     };
-    updateCustomer: (
-        options?: MutationFunctionOptions<TCustomer>
-    ) => Promise<ExecutionResult<TCustomer>>;
+    updateCustomer: MutationFunction;
 }
 
 export interface IAddToWishlistProps {

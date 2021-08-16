@@ -1,3 +1,5 @@
+import { DocumentNode } from 'graphql';
+
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useState, useEffect } from 'react';
 
@@ -8,12 +10,31 @@ import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/message
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-/**
- * Returns props necessary to render CreateAccount component. In particular this
- * talon handles the submission flow by first doing a pre-submisson validation
- * and then, on success, invokes the `onSubmit` prop, which is usually the action.
- *
- */
+export type TUseCreateAccountProps = {
+    createAccountQuery: DocumentNode;
+    mergeCartsMutation: DocumentNode;
+    signInMutation: DocumentNode;
+    customerQuery: DocumentNode;
+    getCustomerCartQuery: DocumentNode;
+    signOutMutation: DocumentNode;
+    onSubmit: () => void;
+};
+
+type TUseCreateAccount = {
+    handleSubmit: (props: TUseCreateAccountFormValues) => void;
+    isDisabled: boolean;
+    isSignedIn: boolean;
+};
+
+export type TUseCreateAccountFormValues = {
+    email: string;
+    firstName: string;
+    lastName: string;
+    password: string;
+    isSubscribed: boolean;
+    confirm?: string;
+};
+
 export const useCreateAccount = ({
     createAccountQuery,
     mergeCartsMutation,
@@ -22,7 +43,7 @@ export const useCreateAccount = ({
     getCustomerCartQuery,
     signOutMutation,
     onSubmit
-}) => {
+}: TUseCreateAccountProps): TUseCreateAccount => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [{ isGettingDetails, isSignedIn }, { signIn }] = useUserContext();
 

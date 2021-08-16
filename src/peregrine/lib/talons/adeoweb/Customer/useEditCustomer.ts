@@ -1,33 +1,57 @@
-import { useFormik } from 'formik';
+import { useFormik, FormikErrors, FormikTouched } from 'formik';
+import { DocumentNode } from 'graphql';
 import * as yup from 'yup';
 
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import MessageType from 'src/lib/constants/message';
+import { TCustomerInput } from 'src/lib/types/graphql/Customer';
 import { customFormikValidate } from 'src/lib/util/customFormikValidate';
-import { errorMessages } from 'src/lib/util/errorMessages';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-export const useEditCustomer = props => {
+type TUseEditCustomerProps = {
+    updateCustomerMutation: DocumentNode;
+    isChangeEmail?: boolean;
+};
+
+type TUseEditCustomer = {
+    handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
+    handleChange: (
+        eventOrPath: string | React.ChangeEvent<any>
+    ) => void | ((eventOrTextValue: string | React.ChangeEvent<any>) => void);
+    handleBlur: (eventOrString: any) => void | ((e: any) => void);
+    values: TCustomerInput;
+    errors: FormikErrors<TCustomerInput>;
+    touched: FormikTouched<TCustomerInput>;
+    isDirty: boolean;
+    isValid: boolean;
+    isSubmitted: boolean;
+    isUpdatingCustomer: boolean;
+    updateCustomerError: string | null;
+};
+
+const validationSchema = yup.object({
+    firstname: yup.string().required(),
+    lastname: yup.string().required(),
+    email: yup.string().when('$isChangeEmail', {
+        is: isChangeEmail => isChangeEmail,
+        then: yup.string().required()
+    }),
+    password: yup.string().when('$isChangeEmail', {
+        is: isChangeEmail => isChangeEmail,
+        then: yup.string().required()
+    }),
+    is_subscribed: yup.boolean()
+});
+
+export const useEditCustomer = (
+    props: TUseEditCustomerProps
+): TUseEditCustomer => {
     const { updateCustomerMutation, isChangeEmail } = props;
 
-    const validationSchema = yup.object({
-        firstname: yup.string().required(),
-        lastname: yup.string().required(),
-        email: yup.string().when('$isChangeEmail', {
-            is: isChangeEmail => isChangeEmail,
-            then: yup.string().required()
-        }),
-        password: yup.string().when('$isChangeEmail', {
-            is: isChangeEmail => isChangeEmail,
-            then: yup.string().required()
-        }),
-        is_subscribed: yup.boolean()
-    });
     const [
         {
             currentUser: {
@@ -59,7 +83,7 @@ export const useEditCustomer = props => {
                 context
             );
         },
-        [validationSchema, isChangeEmail]
+        [isChangeEmail]
     );
 
     const initialValues = {
@@ -132,7 +156,6 @@ export const useEditCustomer = props => {
         handleBlur,
         handleChange,
         handleSubmit,
-        resetForm,
         isValid,
         isDirty,
         values,
