@@ -1,9 +1,24 @@
+import { DocumentNode } from 'graphql';
+
 import { useLazyQuery } from '@apollo/react-hooks';
 import { useEffect } from 'react';
 
+import { TCustomerOrder } from 'src/lib/types/graphql/Customer';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-export const useCustomerOrders = ({ query }) => {
+type TUseCustomerOrdersProps = {
+    query: DocumentNode;
+};
+
+export type TUseCustomerOrders = {
+    loadingOrders: boolean;
+    ordersError?: Error;
+    orders: TCustomerOrder[];
+};
+
+export const useCustomerOrders = ({
+    query
+}: TUseCustomerOrdersProps): TUseCustomerOrders => {
     const [runQuery, queryResponse] = useLazyQuery(query, {
         fetchPolicy: fetchPolicy.queries.default
     });

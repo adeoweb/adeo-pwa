@@ -1,13 +1,33 @@
 import { useCallback, useState } from 'react';
 
+import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
-import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
+import { ICartState } from 'src/peregrine/lib/store/reducers/adeoweb/cart';
 
-export const useMiniCart = () => {
+export type TUseMiniCart = {
+    cartItems: TCartItem[];
+    cartState: ICartState;
+    currencyCode: string;
+    handleBeginEditItem: () => void;
+    handleEndEditItem: () => void;
+    handleClose: () => void;
+    handleToggleCart: () => void;
+    isEditingItem: boolean;
+    isLoading: boolean;
+    isMiniCartMaskOpen: boolean;
+    isOpen: boolean;
+    isUpdatingItem: boolean;
+    numItems: number;
+    setStep: (step: string) => void;
+    shouldShowFooter: boolean;
+    step: string;
+    subtotal: number;
+};
+
+export const useMiniCart = (): TUseMiniCart => {
     const [{ drawer }, { closeDrawer, toggleDrawer }] = useAppContext();
     const [cartState] = useCartContext();
-    const [, { cancelCheckout }] = useCheckoutContext();
 
     const [isEditingItem, setIsEditingItem] = useState(false);
     const [step, setStep] = useState('cart');
@@ -38,11 +58,6 @@ export const useMiniCart = () => {
         setIsEditingItem(false);
     }, []);
 
-    const handleDismiss = useCallback(() => {
-        setStep('cart');
-        cancelCheckout();
-    }, [cancelCheckout]);
-
     const handleToggleCart = useCallback(() => {
         if (isOpen) {
             closeDrawer();
@@ -53,11 +68,10 @@ export const useMiniCart = () => {
     }, [isOpen, closeDrawer, toggleDrawer]);
 
     return {
-        cartItems: items,
+        cartItems: items ?? [],
         cartState,
         currencyCode,
         handleBeginEditItem,
-        handleDismiss,
         handleEndEditItem,
         handleClose,
         handleToggleCart,

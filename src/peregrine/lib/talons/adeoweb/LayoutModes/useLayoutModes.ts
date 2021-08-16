@@ -6,7 +6,13 @@ import {
 } from 'src/lib/constants/layoutModes';
 import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 
-export const useLayoutModes = () => {
+export type TUseLayoutModes = {
+    layoutMode: string | null;
+    setGrid: () => void;
+    setList: () => void;
+};
+
+export const useLayoutModes = (): TUseLayoutModes => {
     const [{ layoutMode }, { setLayoutMode }] = useAppContext();
 
     const setGrid = useCallback(

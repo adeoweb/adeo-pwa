@@ -144,7 +144,6 @@ const mock: TUseMiniCart = {
     },
     currencyCode: CurrencyEnum.Eur,
     handleBeginEditItem: () => {},
-    handleDismiss: () => {},
     handleEndEditItem: () => {},
     handleClose: () => {},
     handleToggleCart: () => {},

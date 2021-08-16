@@ -12,8 +12,8 @@ export interface TUserState {
     isDeletingAddress: boolean;
     changePasswordError: null | string;
     isChangingPassword: boolean;
-    isUpdatingCustomer: null | string;
-    updateCustomerError: boolean;
+    isUpdatingCustomer: boolean;
+    updateCustomerError: null | string;
     isResettingPassword: boolean;
     isAddingToWishlist: boolean;
     addToWishlistError: null | string;

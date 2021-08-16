@@ -1,17 +1,41 @@
-import { useFormik } from 'formik';
+import { FormikErrors, FormikTouched, useFormik } from 'formik';
+import { DocumentNode } from 'graphql';
 import * as yup from 'yup';
 
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { TChangePasswordForm } from 'src/lib/components/Customer/pages/ChangePasswordPage';
 import MessageType from 'src/lib/constants/message';
 import { errorMessages } from 'src/lib/util/errorMessages';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-export const useChangePassword = props => {
+type TUseChangePasswordProps = {
+    changePasswordMutation: DocumentNode;
+};
+
+type TUseChangePassword = {
+    handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
+    handleChange: (
+        eventOrPath: string | React.ChangeEvent<any>
+    ) => void | ((eventOrTextValue: string | React.ChangeEvent<any>) => void);
+    handleBlur: (eventOrString: any) => void | ((e: any) => void);
+    values: TChangePasswordForm;
+    errors: FormikErrors<TChangePasswordForm>;
+    touched: FormikTouched<TChangePasswordForm>;
+    isDirty: boolean;
+    isValid: boolean;
+    isSubmitted: boolean;
+    isChangingPassword: boolean;
+    changePasswordError: string | null;
+};
+
+export const useChangePassword = (
+    props: TUseChangePasswordProps
+): TUseChangePassword => {
     const { changePasswordMutation } = props;
     const { t } = useTranslation('validations');
     const validationSchema = yup.object({
@@ -93,7 +117,6 @@ export const useChangePassword = props => {
         handleBlur,
         handleChange,
         handleSubmit,
-        resetForm,
         isValid,
         isDirty,
         values,
