@@ -10,7 +10,23 @@ export const UNCONSTRAINED_SIZE_KEY = 'default';
  * @param {number}   props.width the intrinsic width of the image & the width to request for the fallback image for browsers that don't support srcset / sizes.
  * @param {Map}      props.widths a map of breakpoints to possible widths used to create the img's sizes attribute.
  */
-export const useImage = props => {
+
+type TUseImageProps = {
+    onError?: () => void;
+    onLoad?: () => void;
+    width?: number | string;
+    widths?: Map<number | string, number>;
+};
+
+type TUseImage = {
+    handleError: () => void;
+    handleImageLoad: () => void;
+    hasError: boolean;
+    isLoaded: boolean;
+    resourceWidth?: number | string;
+};
+
+export const useImage = (props: TUseImageProps): TUseImage => {
     const { onError, onLoad, width, widths } = props;
     const [isLoaded, setIsLoaded] = useState(false);
     const [hasError, setHasError] = useState(false);

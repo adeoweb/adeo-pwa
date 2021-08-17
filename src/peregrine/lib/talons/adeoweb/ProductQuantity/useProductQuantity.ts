@@ -1,6 +1,22 @@
 import { useState, useCallback } from 'react';
 
-export const useProductQuantity = props => {
+type TUseProductQuantity = {
+    quantity: string;
+    setQuantity: (quantity: string) => void;
+    incrementQuantity: () => void;
+    decrementQuantity: () => void;
+};
+
+interface IUseProductQuantityProps {
+    initialValue?: number;
+    onValueChange?: (value: number) => void;
+    validateQuantity: (quantity: number) => boolean;
+    minimumQuantity: number;
+    stepSize?: number;
+}
+export const useProductQuantity = (
+    props: IUseProductQuantityProps
+): TUseProductQuantity => {
     const {
         validateQuantity,
         minimumQuantity,
@@ -47,7 +63,7 @@ export const useProductQuantity = props => {
     }, [setQuantityWithValidation, quantity, stepSize]);
 
     return {
-        quantity,
+        quantity: quantity.toString(),
         setQuantity: setQuantityWithValidation,
         incrementQuantity,
         decrementQuantity

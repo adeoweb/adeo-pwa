@@ -1,6 +1,14 @@
 import { useCallback } from 'react';
 
-export const useThumbnail = props => {
+type TUseThumbnail = {
+    handleClick: () => void;
+};
+
+interface IUseThumbnailProps {
+    itemIndex: number;
+    onClickHandler: (index: number) => void;
+}
+export const useThumbnail = (props: IUseThumbnailProps): TUseThumbnail => {
     const { itemIndex, onClickHandler } = props;
 
     const handleClick = useCallback(() => {

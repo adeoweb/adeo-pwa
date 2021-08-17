@@ -1,14 +1,26 @@
-import { useCallback } from 'react';
+import { useCallback, MutableRefObject } from 'react';
 
 import { useDropdown } from '@magento/peregrine/lib/hooks/useDropdown';
 
-import { useFormik } from 'src/lib/drivers';
+import { useFormik, FormikProps } from 'src/lib/drivers';
 
 import { history } from '../../../../../lib/drivers/history';
 
 const initialValues = { search_query: '' };
 
-export const useSearchBar = () => {
+export type TUseSearchBarValues = {
+    search_query: string;
+};
+
+type TUseSearchBar = {
+    containerRef: MutableRefObject<null>;
+    expanded: boolean;
+    setExpanded: (isExpanded: boolean) => void;
+    handleFocus: () => void;
+    form: FormikProps<TUseSearchBarValues>;
+};
+
+export const useSearchBar = (): TUseSearchBar => {
     const { push } = history;
     const { elementRef, expanded, setExpanded } = useDropdown();
 

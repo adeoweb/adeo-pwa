@@ -24,7 +24,7 @@ describe('useProductQuantity', () => {
 
         createTestInstance(<Component />);
 
-        expect(testQuantity).toBe(mockProductMinimumQuantity);
+        expect(Number(testQuantity)).toBe(mockProductMinimumQuantity);
     });
 
     test('valid initial value is set to quantity', () => {
@@ -43,7 +43,7 @@ describe('useProductQuantity', () => {
 
         createTestInstance(<Component />);
 
-        expect(testQuantity).toBe(initialValue);
+        expect(testQuantity).toBe(initialValue.toString());
     });
 
     test('setQuantity sets quantity', () => {
@@ -68,7 +68,7 @@ describe('useProductQuantity', () => {
 
         createTestInstance(<Component />);
 
-        expect(testQuantity).toBe(newQuantity);
+        expect(testQuantity).toBe(newQuantity.toString());
     });
 
     test('incrementQuantity increments quantity by provided step size', () => {
@@ -96,7 +96,9 @@ describe('useProductQuantity', () => {
 
         createTestInstance(<Component />);
 
-        expect(testQuantity).toBe(initialValue + stepSize);
+        const result = initialValue + stepSize;
+
+        expect(Number(testQuantity)).toBe(result);
     });
 
     test('decrementQuantity decrements quantity by provided step size', () => {
@@ -123,7 +125,8 @@ describe('useProductQuantity', () => {
         };
 
         createTestInstance(<Component />);
+        const result = initialValue - stepSize;
 
-        expect(testQuantity).toBe(initialValue - stepSize);
+        expect(testQuantity).toBe(result.toString());
     });
 });

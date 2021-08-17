@@ -16,7 +16,7 @@ const SuggestedProducts: FunctionComponent<TSuggestedProductsProps> = ({
     products
 }) => {
     const items = products.slice(0, limit).map(product => (
-        <div key={product.id} className="autocomplete-suggestion">
+        <div key={product?.id} className="autocomplete-suggestion">
             <SuggestedProduct {...product} onNavigate={onNavigate} />
         </div>
     ));

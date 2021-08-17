@@ -1,10 +1,10 @@
 import React, { Fragment, FunctionComponent } from 'react';
 
 import { Redirect } from 'src/lib/drivers';
-import { useIsSignedIn } from 'src/peregrine/lib/talons/adeoweb/IsSignedIn/useIsSignedIn';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 
 const AuthUserToRoot: FunctionComponent = ({ children }) => {
-    const { isSignedIn } = useIsSignedIn();
+    const [{ isSignedIn }] = useUserContext();
 
     if (isSignedIn) {
         return <Redirect to="/" />;

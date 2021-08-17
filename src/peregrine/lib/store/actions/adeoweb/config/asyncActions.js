@@ -19,7 +19,7 @@ export const getConfig =
                 receivePayload = data.storeConfig;
             }
 
-            dispatch(actions.getConfig.receive(receivePayload));
+            await dispatch(actions.getConfig.receive(receivePayload));
         } catch (error) {
             dispatch(actions.getConfig.receive(error));
         }
