@@ -3,10 +3,14 @@ import React, { FunctionComponent } from 'react';
 import Image from 'src/lib/components/Image';
 import PriceBox from 'src/lib/components/PriceBox';
 import AddToCart from 'src/lib/components/ProductItem/AddToCart';
+import { CustomerModalTypes } from 'src/lib/constants/customer';
 import { Link } from 'src/lib/drivers';
 import { TProduct } from 'src/lib/types/graphql/Product';
 import getItemUrl from 'src/lib/util/getItemUrl';
+import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useProductCompareContext } from 'src/peregrine/lib/context/adeoweb/productCompare';
+
+import AddToWishlist from '../AddToWishlist';
 
 interface IProductProps {
     product: TProduct;
@@ -20,6 +24,7 @@ const Product: FunctionComponent<IProductProps> = ({
     columnStyle
 }) => {
     const [, { removeProduct }] = useProductCompareContext();
+    const [, { setCustomerModal }] = useAppContext();
 
     const { name, small_image: smallImage, price_range: priceRange } = product;
     const itemUrl = getItemUrl(product);
@@ -29,6 +34,9 @@ const Product: FunctionComponent<IProductProps> = ({
 
     const handleRemoveProduct = () => {
         removeProduct(product);
+    };
+    const handleNotLoggedIn = () => {
+        setCustomerModal(CustomerModalTypes.LOG_IN);
     };
 
     return (
@@ -57,9 +65,10 @@ const Product: FunctionComponent<IProductProps> = ({
             <PriceBox priceRange={priceRange} />
             <div className="product-item-actions">
                 <AddToCart product={product} />
-                <a href="/" className="btn-icon-wish">
-                    <i className="icon-heart" />
-                </a>
+                <AddToWishlist
+                    product={product}
+                    handleNotLoggedIn={handleNotLoggedIn}
+                />
             </div>
         </td>
     );

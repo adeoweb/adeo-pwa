@@ -1,10 +1,27 @@
 import queryString from 'query-string';
 
-import { useCallback, useMemo } from 'react';
+import { ReactText, useCallback, useMemo } from 'react';
 
 import { PAGER_TILE_TYPE_ELLIPSIS } from 'src/lib/constants/pagination';
 
-export const usePagination = props => {
+type TUsePaginationProps = {
+    currentPage: number;
+    setPage: (page: number) => void;
+    totalPages: number;
+};
+
+export type TUsePagination = {
+    handleNavBack: () => void;
+    handleNavForward: () => void;
+    isActiveLeft: boolean;
+    isActiveRight: boolean;
+    navBackUrl: string;
+    navForwardUrl: string;
+    tiles: ReactText[];
+    getPageUrl: (page: number) => string;
+};
+
+export const usePagination = (props: TUsePaginationProps): TUsePagination => {
     const { currentPage, setPage, totalPages } = props;
 
     const handleNavBack = useCallback(() => {
@@ -26,10 +43,10 @@ export const usePagination = props => {
         const delta = 1;
         const left = currentPage - delta;
         const right = currentPage + delta + 1;
-        const range = [];
-        const rangeWithDots = [];
+        const range: number[] = [];
+        const rangeWithDots: ReactText[] = [];
 
-        let l;
+        let l = 0;
 
         for (let i = 1; i <= totalPages; i++) {
             if (i === 1 || i === totalPages || (i >= left && i < right)) {

@@ -6,4 +6,5 @@ export type TProductData = {
 
 export type TProductCompareState = {
     productData: TProductData;
+    compareDropdownOpen: boolean;
 };

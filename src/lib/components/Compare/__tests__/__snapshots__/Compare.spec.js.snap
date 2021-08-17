@@ -152,14 +152,15 @@ exports[`Footer component renders correctly 1`] = `
                       Add to cart
                     </div>
                   </button>
-                  <a
+                  <button
                     className="btn-icon-wish"
-                    href="/"
+                    onClick={[Function]}
+                    title="Add to Wishlist"
                   >
                     <i
                       className="icon-heart"
                     />
-                  </a>
+                  </button>
                 </div>
               </td>
             </tr>

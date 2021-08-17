@@ -4,7 +4,6 @@ const compareDropdownTestRef = { current: null };
 
 const mock: TUseCompareDropdown = {
     compareDropdownOpen: false,
-    openCompareDropdown: () => {},
     compareDropdownRef: compareDropdownTestRef
 };
 

@@ -63,6 +63,7 @@ const ProductItem: FunctionComponent<IProductItemProps> = ({
                     <AddToWishlist
                         product={product}
                         handleNotLoggedIn={handleNotLoggedIn}
+                        isProductAction
                     />
                     <AddToCart product={product} />
                     <AddToCompare product={product} />

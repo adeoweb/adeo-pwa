@@ -4,6 +4,7 @@ import { TUseProductCompare } from 'src/peregrine/lib/talons/adeoweb/Product/use
 const mock: TUseProductCompare = {
     productData: {
         '123': {
+            __typename: 'SimpleProduct',
             id: 123,
             name: 'test product name',
             sku: 'testSku123',

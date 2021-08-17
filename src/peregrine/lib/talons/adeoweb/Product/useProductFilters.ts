@@ -1,13 +1,27 @@
 import { useCallback, useState } from 'react';
 
-export const useProductFilters = (props = {}) => {
+type TUseProductFiltersProps = {
+    initialValues?: Map<string, string[]>;
+};
+
+type TUseProductFilters = {
+    getFilterQuery: () => Map<string, string[]>;
+    activeFilters: Map<string, string[]>;
+    setActiveFilters: (filters: Map<string, string[]>) => void;
+    setFilter: (attributeCode: string, values: string[]) => void;
+    toggleFilter: (attributeCode: string, value: string) => void;
+};
+
+export const useProductFilters = (
+    props: TUseProductFiltersProps
+): TUseProductFilters => {
     const { initialValues } = props;
     const [activeFilters, setActiveFilters] = useState(
         initialValues || new Map()
     );
 
     const getFilterQuery = useCallback(() => {
-        const filter = {};
+        const filter = new Map<string, string[]>();
 
         activeFilters.forEach((values, key) => {
             if (values.length === 1) {

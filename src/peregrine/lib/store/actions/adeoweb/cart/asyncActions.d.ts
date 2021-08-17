@@ -2,6 +2,7 @@ import { MutationFunction } from '@apollo/react-hooks';
 
 import { TCart } from 'src/lib/types/graphql/Cart';
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 export type TFetchCartId = () => {
     data: {
@@ -10,12 +11,12 @@ export type TFetchCartId = () => {
 };
 
 interface IAddItemToCartPayload {
-    addItemMutation: Promise<void>;
+    addItemMutation: MutationFunction;
     fetchCartDetails: Promise<TCart>;
-    fetchCartId: Promise<TFetchCartId>;
-    item: TCartItem;
+    fetchCartId: MutationFunction;
+    item: TProduct;
     quantity: number;
-    parentSku: string;
+    parentSku?: string;
     addItemSuccessCallback: () => void;
     addItemErrorCallback: (errorMessage: string) => void;
 }

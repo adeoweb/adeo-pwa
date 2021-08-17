@@ -17,6 +17,31 @@ jest.mock('src/peregrine/lib/context/adeoweb/productCompare', () => {
     };
 });
 
+jest.mock('src/peregrine/lib/talons/adeoweb/Wishlist/useWishlistItem', () => {
+    return {
+        useWishlistItem: () => [
+            {},
+            {
+                handleAddToWishlist: jest.fn(() => {}),
+                handleRemoveFromWishlist: jest.fn(() => {}),
+                isInWishlist: false,
+                isSignedIn: false
+            }
+        ]
+    };
+});
+
+jest.mock('src/peregrine/lib/context/adeoweb/app', () => {
+    return {
+        useAppContext: () => [
+            {},
+            {
+                setCustomerModal: jest.fn(() => {})
+            }
+        ]
+    };
+});
+
 jest.mock('src/peregrine/lib/talons/adeoweb/Compare/useCompare', () => {
     return {
         useCompare: () => ({

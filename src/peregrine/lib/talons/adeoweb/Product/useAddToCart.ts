@@ -1,9 +1,12 @@
+import { DocumentNode } from 'graphql';
+
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback } from 'react';
 
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 
 import MessageType from 'src/lib/constants/message';
+import { TProduct } from 'src/lib/types/graphql/Product';
 import scrollTo from 'src/lib/util/scrollTo';
 import { useAppContext } from 'src/peregrine/lib/context/adeoweb/app';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
@@ -13,12 +16,24 @@ import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 const defaultQuantity = 1;
 const supportedProductTypes = ['SimpleProduct'];
 
+type TUseAddToCart = {
+    handleAddToCart: () => void;
+    isAddToCartDisabled: boolean;
+};
+
+type TUseAddToCartProps = {
+    getCartDetailsQuery: DocumentNode;
+    createCartMutation: DocumentNode;
+    addSimpleProductToCartMutation: DocumentNode;
+    product: TProduct;
+};
+
 export const useAddToCart = ({
     addSimpleProductToCartMutation,
     createCartMutation,
     getCartDetailsQuery,
     product
-}) => {
+}: TUseAddToCartProps): TUseAddToCart => {
     const productType = product.__typename;
 
     const isSupportedProductType = supportedProductTypes.includes(productType);
@@ -39,12 +54,6 @@ export const useAddToCart = ({
     const fetchCartDetails = useAwaitQuery(getCartDetailsQuery);
 
     const handleAddToCart = useCallback(async () => {
-        const payload = {
-            item: product,
-            productType,
-            quantity: defaultQuantity
-        };
-
         if (isSupportedProductType) {
             let addItemMutation;
             // Use the proper mutation for the type.
@@ -65,7 +74,8 @@ export const useAddToCart = ({
             };
 
             await addItemToCart({
-                ...payload,
+                item: product,
+                quantity: defaultQuantity,
                 addItemMutation,
                 fetchCartDetails,
                 fetchCartId,
