@@ -1,6 +1,19 @@
 import { useCallback, useState } from 'react';
+import { ModalProps } from 'react-bootstrap';
 
-export const useModal = (props = {}) => {
+type TUseModalProps = {
+    initialIsOpen?: boolean;
+    modalProps?: ModalProps;
+};
+
+export type TUseModal = {
+    toggleModal: () => void;
+    showModal: () => void;
+    hideModal: () => void;
+    modalProps: ModalProps;
+};
+
+export const useModal = (props: TUseModalProps): TUseModal => {
     const { initialIsOpen, modalProps = {} } = props;
     const [isOpen, setIsOpen] = useState(Boolean(initialIsOpen));
 

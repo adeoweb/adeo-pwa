@@ -2,7 +2,22 @@ import { useMemo } from 'react';
 
 import { getPageCountInfo } from 'src/lib/util/pageCountHelper';
 
-export const useProductResults = ({ totalProducts, pageSize, currentPage }) => {
+type TUseProductResultsProps = {
+    totalProducts: number;
+    pageSize: number;
+    currentPage: number;
+};
+
+type TUseProductResults = {
+    fromProducts: number;
+    toProducts: number;
+};
+
+export const useProductResults = ({
+    totalProducts,
+    pageSize,
+    currentPage
+}: TUseProductResultsProps): TUseProductResults => {
     const getPageCountInfoArgs = {
         totalProducts,
         pageSize,

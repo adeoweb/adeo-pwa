@@ -6,4 +6,6 @@ export type TProductCompareActions = {
     setProduct: TActionFunctionAny;
     removeProduct: TActionFunctionAny;
     removeAllProducts: TActionFunctionAny;
+    removeAllProducts: TActionFunctionAny;
+    toggleCompareDropdown: TActionFunctionAny;
 };

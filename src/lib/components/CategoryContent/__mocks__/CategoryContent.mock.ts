@@ -24,6 +24,7 @@ const category: TCategoryInterface = {
 
 const products: TProduct[] = [
     {
+        __typename: 'SimpleProduct',
         description: {
             html: "<p>Convenience is next to nothing when your day is crammed with action. So whether you're heading to class, gym, or the unbeaten path, make sure you've got your Strive Shoulder Pack stuffed with all your essentials, and extras as well.</p>\r\n<ul>\r\n<li>Zippered main compartment.</li>\r\n<li>Front zippered pocket.</li>\r\n<li>Side mesh pocket.</li>\r\n<li>Cell phone pocket on strap.</li>\r\n<li>Adjustable shoulder strap and top carry handle.</li>\r\n</ul>"
         },

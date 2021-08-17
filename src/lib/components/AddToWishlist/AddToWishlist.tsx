@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -9,11 +11,13 @@ import { useWishlistItem } from 'src/peregrine/lib/talons/adeoweb/Wishlist/useWi
 type TAddToWishlistProps = {
     product: TProduct;
     handleNotLoggedIn: () => void;
+    isProductAction?: boolean;
 };
 
 const AddToWishlist: FunctionComponent<TAddToWishlistProps> = ({
     product,
-    handleNotLoggedIn
+    handleNotLoggedIn,
+    isProductAction
 }) => {
     const { t } = useTranslation('product');
     const {
@@ -51,7 +55,9 @@ const AddToWishlist: FunctionComponent<TAddToWishlistProps> = ({
 
     return (
         <button
-            className="paction btn-icon-wish"
+            className={classNames('btn-icon-wish', {
+                paction: isProductAction
+            })}
             title={title}
             onClick={onButtonClick}
         >

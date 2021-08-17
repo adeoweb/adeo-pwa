@@ -38,7 +38,7 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
                     <Tile
                         isActive={tileNumber === currentPage}
                         key={`tile-${tileNumber}`}
-                        number={tileNumber}
+                        number={Number(tileNumber)}
                         onClick={setPage}
                         getPageUrl={getPageUrl}
                     />

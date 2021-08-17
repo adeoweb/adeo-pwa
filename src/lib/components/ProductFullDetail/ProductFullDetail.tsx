@@ -224,6 +224,7 @@ const ProductFullDetail = (props: IProductFullDetailProps): JSX.Element => {
                                                 handleNotLoggedIn={
                                                     handleNotLoggedIn
                                                 }
+                                                isProductAction
                                             />
                                             <AddToCompare product={product} />
                                         </div>

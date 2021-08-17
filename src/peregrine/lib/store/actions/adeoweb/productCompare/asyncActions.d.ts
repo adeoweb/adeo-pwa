@@ -4,4 +4,5 @@ export type TProductCompareAsyncActions = {
     setProduct(payload: TProduct): Promise<void>;
     removeProduct(payload: TProduct): Promise<void>;
     removeAllProducts(): Promise<void>;
+    toggleCompareDropdown(payload: boolean): Promise<void>;
 };

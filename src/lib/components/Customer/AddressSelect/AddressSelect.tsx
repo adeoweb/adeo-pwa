@@ -14,8 +14,7 @@ import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 
 import {
     CustomerAddressForm,
-    CustomerAddressList,
-    TCustomerAddressFormValues
+    CustomerAddressList
 } from 'src/lib/components/Customer';
 import CREATE_CUSTOMER_ADDRESS_MUTATION from 'src/lib/queries/createCustomerAddress.graphql';
 import GET_ALL_COUNTRIES from 'src/lib/queries/getAllCountries.graphql';
@@ -95,7 +94,7 @@ const AddressSelect: FunctionComponent<TAddressSelectProps> = ({
         regions,
         isValid,
         isDirty
-    } = useCustomerAddressForm<TCustomerAddressFormValues>({
+    } = useCustomerAddressForm({
         countriesQuery: GET_ALL_COUNTRIES,
         onSubmit: handleSubmitNewAddress
     });

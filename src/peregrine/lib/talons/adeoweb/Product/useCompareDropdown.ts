@@ -1,19 +1,24 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, RefObject } from 'react';
 
 import { useProductCompareContext } from 'src/peregrine/lib/context/adeoweb/productCompare';
 
-export const useCompareDropdown = () => {
+export type TUseCompareDropdown = {
+    compareDropdownOpen: boolean;
+    compareDropdownRef: RefObject<HTMLDivElement>;
+};
+
+export const useCompareDropdown = (): TUseCompareDropdown => {
     const [{ compareDropdownOpen }, { toggleCompareDropdown }] =
         useProductCompareContext();
 
-    const compareDropdownRef = useRef(null);
+    const compareDropdownRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleCloseCompareDropdown = ({ target }) => {
             if (
                 compareDropdownOpen &&
                 compareDropdownRef.current &&
-                !compareDropdownRef.current.contains(target)
+                !compareDropdownRef.current?.contains(target)
             ) {
                 toggleCompareDropdown(false);
             }
@@ -25,7 +30,7 @@ export const useCompareDropdown = () => {
                 handleCloseCompareDropdown
             );
         };
-    }, [compareDropdownOpen]);
+    }, [compareDropdownOpen, toggleCompareDropdown]);
 
     return {
         compareDropdownOpen,

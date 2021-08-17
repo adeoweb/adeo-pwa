@@ -1,12 +1,39 @@
+import { DocumentNode } from 'graphql';
+
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useState } from 'react';
 
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 
+import { SelectedConfigurableOption } from 'src/lib/types/graphql-types.generated';
+import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
-export const useProduct = props => {
+type TUseProductProps = {
+    beginEditItem: () => void;
+    createCartMutation: DocumentNode;
+    getCartDetailsQuery: DocumentNode;
+    item: TCartItem;
+    removeItemMutation: DocumentNode;
+};
+
+export type TUseProduct = {
+    handleEditItem: () => void;
+    handleFavoriteItem: () => void;
+    handleRemoveItem: () => void;
+    isFavorite: boolean;
+    isLoading: boolean;
+    productImage: string;
+    productName: string;
+    productOptions: SelectedConfigurableOption[];
+    productPrice: number;
+    productQuantity: number;
+    productUrlKey: string;
+};
+
+export const useProduct = (props: TUseProductProps): TUseProduct => {
     const {
         beginEditItem,
         createCartMutation,
@@ -16,7 +43,7 @@ export const useProduct = props => {
     } = props;
 
     const {
-        configurable_options: options,
+        configurable_options,
         product: {
             small_image: image,
             name = '',
@@ -27,12 +54,7 @@ export const useProduct = props => {
         quantity = 0
     } = item;
 
-    const productPrice =
-        (priceRange &&
-            priceRange.minimum_price &&
-            priceRange.minimum_price.regular_price &&
-            priceRange.minimum_price.regular_price.value) ||
-        0;
+    const productPrice = priceRange?.minimum_price?.regular_price?.value ?? 0;
 
     const productImage = (image && image.url) || '';
 
@@ -53,8 +75,8 @@ export const useProduct = props => {
     }, [isFavorite]);
 
     const handleEditItem = useCallback(() => {
-        beginEditItem(item);
-    }, [beginEditItem, item]);
+        beginEditItem();
+    }, [beginEditItem]);
 
     const handleRemoveItem = useCallback(() => {
         setIsLoading(true);
@@ -65,6 +87,8 @@ export const useProduct = props => {
             removeItem
         });
     }, [fetchCartDetails, fetchCartId, item, removeItem, removeItemFromCart]);
+
+    const options = filterOutNullableValues(configurable_options);
 
     return {
         handleEditItem,
