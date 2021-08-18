@@ -49,7 +49,9 @@ const ProductImageCarousel: FunctionComponent<TCarouselProps> = ({
 
     let image;
     if (currentImage.url) {
-        image = <Image alt={altText} resource={currentImage.url} />;
+        image = (
+            <Image alt={altText} resource={currentImage.url} useZoomIn={true} />
+        );
     } else {
         image = <Image alt={altText} src={transparentPlaceholder} />;
     }

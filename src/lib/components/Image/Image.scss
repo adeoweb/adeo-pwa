@@ -40,3 +40,7 @@
     composes: placeholder;
     background-color: unset;
 }
+
+.innerImageZoom {
+    @extend .loaded
+}

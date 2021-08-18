@@ -21,5 +21,6 @@ export interface IImageProps extends TBaseImgProps {
     resource?: string;
     src?: string;
     type?: string;
+    useZoomIn?: boolean;
     widths?: Map<number | string, number>;
 }
