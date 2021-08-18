@@ -1,21 +1,34 @@
+import { DocumentNode } from 'graphql';
 import debounce from 'lodash.debounce';
 
 import { useLazyQuery } from '@apollo/react-hooks';
 import { useEffect, useMemo } from 'react';
 
+import { TProductsSearch } from 'src/lib/types/ProductSearch';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-/**
- * @typedef { import("graphql").DocumentNode } DocumentNode
- */
+type TUseAutocompleteProps = {
+    query: DocumentNode;
+    visible: boolean;
+    value: string;
+};
 
-/**
- * Returns props necessary to render an Autocomplete component.
- * @param {Object} props
- * @param {DocumentNode} props.query - GraphQL query
- * @param {Boolean} props.visible - whether to show
- */
-export const useAutocomplete = props => {
+export type MessageType =
+    | ''
+    | 'ERROR'
+    | 'LOADING'
+    | 'PROMPT'
+    | 'EMPTY_RESULT'
+    | 'RESULT_SUMMARY';
+
+type TUseAutocomplete = {
+    messageType: MessageType;
+    products?: TProductsSearch;
+};
+
+export const useAutocomplete = (
+    props: TUseAutocompleteProps
+): TUseAutocomplete => {
     const { query, visible, value } = props;
 
     // prepare to run query
@@ -45,7 +58,7 @@ export const useAutocomplete = props => {
     const products = data && data.products;
     const hasResult = products && products.items;
     const resultCount = hasResult && products.items.length;
-    let messageType = '';
+    let messageType: MessageType = '';
 
     if (error) {
         messageType = 'ERROR';
@@ -61,9 +74,6 @@ export const useAutocomplete = props => {
 
     return {
         messageType,
-        products,
-        queryResult,
-        resultCount,
-        value
+        products
     };
 };

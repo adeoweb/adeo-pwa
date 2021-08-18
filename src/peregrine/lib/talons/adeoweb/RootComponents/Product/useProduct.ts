@@ -1,26 +1,29 @@
+import { DocumentNode } from 'graphql';
+
 import { useApolloClient, useQuery } from '@apollo/react-hooks';
 import { useMemo } from 'react';
 
+import { TProduct } from 'src/lib/types/graphql/Product';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-/**
- * A [React Hook]{@link https://reactjs.org/docs/hooks-intro.html} that
- * controls the logic for the Product Root Component.
- *
- * @kind function
- *
- * @param {object}      props
- * @param {String}      props.cachePrefix - The prefix to apply to the cache key.
- * @param {GraphQLAST}  props.fragment - The GraphQL fragment to match against a cache entry.
- * @param {GraphQLAST}  props.query - The query to fetch a product.
- * @param {String}      props.urlKey - The url_key of this product.
- *
- * @returns {object}    result
- * @returns {Bool}      result.error - Indicates a network error occurred.
- * @returns {Bool}      result.loading - Indicates the query is in flight.
- * @returns {Bool}      result.product - The product's details.
- */
-export const useProduct = ({ cachePrefix, query, urlKey }) => {
+type TUseProductProps = {
+    cachePrefix: string;
+    fragment: DocumentNode;
+    query: DocumentNode;
+    urlKey: string;
+};
+
+type TUseProduct = {
+    error: boolean;
+    loading: boolean;
+    product: TProduct | null;
+};
+
+export const useProduct = ({
+    cachePrefix,
+    query,
+    urlKey
+}: TUseProductProps): TUseProduct => {
     const apolloClient = useApolloClient();
 
     /*
@@ -78,7 +81,7 @@ export const useProduct = ({ cachePrefix, query, urlKey }) => {
     }, [data, productFromCache]);
 
     return {
-        error,
+        error: Boolean(error),
         loading,
         product
     };

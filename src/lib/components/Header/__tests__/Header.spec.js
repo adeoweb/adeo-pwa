@@ -5,7 +5,6 @@ import testRenderer from 'react-test-renderer';
 
 import mockUseCompareDropdown from 'src/lib/util/__mocks__/hooks/mockUseCompareDropdown';
 import mockUseHeaderContact from 'src/lib/util/__mocks__/hooks/mockUseHeaderContact';
-import mockUseIsSignedIn from 'src/lib/util/__mocks__/hooks/mockUseIsSignedIn';
 import mockUseLogo from 'src/lib/util/__mocks__/hooks/mockUseLogo';
 import mockUseMenu from 'src/lib/util/__mocks__/hooks/mockUseMenu';
 import mockUseMiniCart from 'src/lib/util/__mocks__/hooks/mockUseMiniCart';
@@ -28,10 +27,14 @@ jest.mock('src/peregrine/lib/talons/adeoweb/Logo/useLogo', () => {
         useLogo: () => mockUseLogo
     };
 });
-
-jest.mock('src/peregrine/lib/talons/adeoweb/IsSignedIn/useIsSignedIn', () => {
+jest.mock('src/peregrine/lib/context/adeoweb/user', () => {
     return {
-        useIsSignedIn: () => mockUseIsSignedIn
+        useUserContext: jest.fn(() => [
+            {
+                isSignedIn: false
+            },
+            {}
+        ])
     };
 });
 

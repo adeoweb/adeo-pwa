@@ -6,7 +6,20 @@
  * @param {string}   props.imageHasError there was an error loading the actual image.
  * @param {string}   props.imageIsLoaded the actual image is loaded.
  */
-export const usePlaceholderImage = props => {
+
+type TUsePlaceholderImageProps = {
+    displayPlaceholder: boolean;
+    imageHasError: boolean;
+    imageIsLoaded: boolean;
+};
+
+type TUsePlaceholderImage = {
+    shouldRenderPlaceholder: boolean;
+};
+
+export const usePlaceholderImage = (
+    props: TUsePlaceholderImageProps
+): TUsePlaceholderImage => {
     const { displayPlaceholder, imageHasError, imageIsLoaded } = props;
 
     // Render the placeholder unless we've been told not to,

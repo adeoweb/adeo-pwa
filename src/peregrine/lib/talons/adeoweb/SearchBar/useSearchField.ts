@@ -2,14 +2,11 @@ import { useEffect } from 'react';
 
 import { getSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
 
-/**
- * Returns props necessary to render a SearchField component.
- *
- * @param {Object} props
- * @param {Object} props.location
- * @param {Function} props.onChange
- */
-export const useSearchField = props => {
+type TUseSearchFieldProps = {
+    setFieldValue: (field: string, value: string) => void;
+};
+
+export const useSearchField = (props: TUseSearchFieldProps): void => {
     const { setFieldValue } = props;
 
     // Pre-populate the search field with the search term from the URL.

@@ -6,13 +6,13 @@ import { CustomerRoutes } from 'src/lib/components/Customer/CustomerRoutes';
 import { Link } from 'src/lib/drivers';
 import CREATE_CART_MUTATION from 'src/lib/queries/createCart.graphql';
 import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
-import { useIsSignedIn } from 'src/peregrine/lib/talons/adeoweb/IsSignedIn/useIsSignedIn';
+import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { useSignOut } from 'src/peregrine/lib/talons/adeoweb/SignOut/useSignOut';
 
 const LinkList: FunctionComponent = () => {
     const { t } = useTranslation(['common', 'customer']);
 
-    const { isSignedIn } = useIsSignedIn();
+    const [{ isSignedIn }] = useUserContext();
 
     const { handleSignOut } = useSignOut({
         signOutMutation: SIGN_OUT_MUTATION,

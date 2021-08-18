@@ -1,23 +1,61 @@
+import { DocumentNode } from 'graphql';
+
 import { useLazyQuery } from '@apollo/react-hooks';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { getSearchParam } from '@magento/peregrine/lib/hooks/useSearchParam';
 
+import {
+    ProductSortDirections,
+    ProductSortFields
+} from 'src/lib/constants/product';
+import {
+    ProductSearchQuery,
+    ProductSearchQueryVariables
+} from 'src/lib/queries/productSearch.generated';
+import { TAggregation } from 'src/lib/types/graphql/Aggregation';
+import { TProduct } from 'src/lib/types/graphql/Product';
 import { usePageSize } from 'src/peregrine/lib/talons/adeoweb/Product/usePageSize';
 import { useProductFilters } from 'src/peregrine/lib/talons/adeoweb/Product/useProductFilters';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
-export const useSearchPage = props => {
+type TUseSearchPageProps = {
+    query: DocumentNode;
+    currentPage: number;
+    sortField: ProductSortFields;
+    sortDir: ProductSortDirections;
+    setTotalPages: (count: number) => void;
+};
+
+type TUseSearchPage = {
+    isLoading: boolean;
+    error?: Error;
+    products: TProduct[];
+    filters: TAggregation[];
+    totalCount: number;
+    inputText: string;
+    activeFilters: Map<string, string[]>;
+    setFilter: (attributeCode: string, values: string[]) => void;
+    toggleFilter: (attributeCode: string, value: string) => void;
+    pageSize: number;
+    setPageSize: (pageSize: number) => void;
+};
+
+export const useSearchPage = (props: TUseSearchPageProps): TUseSearchPage => {
     const { query, setTotalPages, currentPage, sortField, sortDir } = props;
     const location = useLocation();
     const inputText = getSearchParam('query', location);
     const { getFilterQuery, activeFilters, setFilter, toggleFilter } =
-        useProductFilters();
+        useProductFilters({});
 
     const { pageSize, setPageSize } = usePageSize();
-    const [data, setData] = useState(null);
-    const [runQuery, queryResponse] = useLazyQuery(query, {
+    const [data, setData] = useState<ProductSearchQuery | null>(null);
+    const [runQuery, queryResponse] = useLazyQuery<
+        ProductSearchQuery,
+        ProductSearchQueryVariables
+    >(query, {
         fetchPolicy: fetchPolicy.queries.default,
         onCompleted: data => {
             setData(data);
@@ -33,6 +71,7 @@ export const useSearchPage = props => {
                 sort: {
                     [sortField]: sortDir
                 },
+                // @ts-expect-error
                 filter: getFilterQuery(),
                 inputText
             }
@@ -50,25 +89,13 @@ export const useSearchPage = props => {
 
     const { loading: isLoading, error } = queryResponse;
 
-    let products = [];
-    if (data && data.products && Array.isArray(data.products.items)) {
-        products = data.products.items;
-    }
+    const products = filterOutNullableValues(
+        data?.products?.items
+    ) as unknown as TProduct[];
 
-    let filters = [];
-    if (data && data.products && Array.isArray(data.products.aggregations)) {
-        filters = data.products.aggregations;
-    }
+    const filters = filterOutNullableValues(data?.products?.aggregations);
 
-    let totalPages = 0;
-    if (
-        data &&
-        data.products &&
-        data.products.page_info &&
-        data.products.page_info.total_pages
-    ) {
-        totalPages = data.products.page_info.total_pages;
-    }
+    const totalPages = data?.products?.page_info?.total_pages ?? 0;
 
     let totalCount = 0;
     if (data && data.products && data.products.total_count) {

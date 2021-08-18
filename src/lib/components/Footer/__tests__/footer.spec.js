@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import testRenderer from 'react-test-renderer';
 
-import mockUseIsSignedIn from 'src/lib/util/__mocks__/hooks/mockUseIsSignedIn';
 import mockUseSignOut from 'src/lib/util/__mocks__/hooks/mockUseSignOut';
 
 import Footer from '../Footer';
@@ -40,10 +39,17 @@ jest.mock('src/peregrine/lib/talons/adeoweb/Footer/useFooterContact', () => {
     };
 });
 
-jest.mock('src/peregrine/lib/talons/adeoweb/IsSignedIn/useIsSignedIn', () => {
-    return {
-        useIsSignedIn: () => mockUseIsSignedIn
+jest.mock('src/peregrine/lib/context/adeoweb/user', () => {
+    const userState = {
+        isSignedIn: false
     };
+    const userApi = {
+        getUserDetails: jest.fn(),
+        setToken: jest.fn()
+    };
+    const useUserContext = jest.fn(() => [userState, userApi]);
+
+    return { useUserContext };
 });
 
 jest.mock('src/peregrine/lib/talons/adeoweb/SignOut/useSignOut', () => {

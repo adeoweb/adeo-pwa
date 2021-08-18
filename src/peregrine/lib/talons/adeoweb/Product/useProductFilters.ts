@@ -13,11 +13,10 @@ type TUseProductFilters = {
 };
 
 export const useProductFilters = (
-    props: TUseProductFiltersProps
+    props?: TUseProductFiltersProps
 ): TUseProductFilters => {
-    const { initialValues } = props;
     const [activeFilters, setActiveFilters] = useState(
-        initialValues || new Map()
+        props?.initialValues || new Map()
     );
 
     const getFilterQuery = useCallback(() => {
