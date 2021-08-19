@@ -1,3 +1,5 @@
+import { DocumentNode } from 'graphql';
+
 import { useApolloClient, useMutation } from '@apollo/react-hooks';
 import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -7,7 +9,19 @@ import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 import { useUserContext } from '../../../context/adeoweb/user';
 
-export const useSignOut = ({ signOutMutation, createCartMutation }) => {
+type TUseSignOutProps = {
+    signOutMutation: DocumentNode;
+    createCartMutation: DocumentNode;
+};
+
+export type TUseSignOut = {
+    handleSignOut: () => void;
+};
+
+export const useSignOut = ({
+    signOutMutation,
+    createCartMutation
+}: TUseSignOutProps): TUseSignOut => {
     const { resetStore } = useApolloClient();
     const [{ currentUser }, { signOut }] = useUserContext();
     const [revokeToken] = useMutation(signOutMutation, {

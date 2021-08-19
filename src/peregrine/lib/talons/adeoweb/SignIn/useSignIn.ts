@@ -1,13 +1,30 @@
+import { DocumentNode } from 'graphql';
+
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useEffect } from 'react';
 
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 
 import MessageType from 'src/lib/constants/message';
+import { TGenerateCustomerTokenProps } from 'src/lib/types/graphql/SignIn';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
 import { useUserContext } from '../../../context/adeoweb/user';
+
+type TUseSignInProps = {
+    signInMutation: DocumentNode;
+    customerQuery: DocumentNode;
+    getCustomerCartQuery: DocumentNode;
+    mergeCartsMutation: DocumentNode;
+    signOutMutation: DocumentNode;
+};
+
+type TUseSignIn = {
+    handleSubmit: (props: TGenerateCustomerTokenProps) => void;
+    isBusy: boolean;
+    isSignedIn: boolean;
+};
 
 export const useSignIn = ({
     signInMutation,
@@ -15,7 +32,7 @@ export const useSignIn = ({
     getCustomerCartQuery,
     mergeCartsMutation,
     signOutMutation
-}) => {
+}: TUseSignInProps): TUseSignIn => {
     const [
         {
             isSigningIn,
