@@ -4853,6 +4853,13 @@
   dependencies:
     "@types/react" "^16"
 
+"@types/react-inner-image-zoom@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-inner-image-zoom/-/react-inner-image-zoom-2.0.1.tgz#4b723d44c5529d64b11b569fc3dcf1b3db51b9fc"
+  integrity sha512-pADorue3ZydfJOEpe3FJUs2Tc4iz5RByQ+H+N0IRLUYtUWOJ5TyfujJJiXU5xdHyD0GruqBl7fRev6cWJWkZeA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-redux@~7.1.7":
   version "7.1.16"
   resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.16.tgz#0fbd04c2500c12105494c83d4a3e45c084e3cb21"
@@ -17903,6 +17910,11 @@ react-i18next@~11.11.0:
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
+
+react-inner-image-zoom@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-inner-image-zoom/-/react-inner-image-zoom-2.0.3.tgz#7ffe23734e51606c7012f4479c9a66736453c941"
+  integrity sha512-l/30pVjYieeooac8ifLQX18Zn3goFhlhL4Zo/lV2DPCtm8rkNaCo/6Oxx8HqBMq+p7QXvnG9qYs06577UbHw/g==
 
 react-intl@~5.7.0:
   version "5.7.2"

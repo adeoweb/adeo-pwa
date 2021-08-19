@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 
 import { mergeClasses } from 'src/lib/util/mergeClasses';
 import { useImage } from 'src/peregrine/lib/talons/adeoweb/Image/useImage';
@@ -21,6 +23,7 @@ const Image: FunctionComponent<IImageProps> = ({
     src,
     type,
     height,
+    useZoomIn,
     width,
     widths,
     ...rest
@@ -64,21 +67,31 @@ const Image: FunctionComponent<IImageProps> = ({
             />
         );
     } else if (resource) {
-        actualImage = (
-            <ResourceImage
-                alt={alt}
-                className={imageClass}
-                handleError={handleError}
-                handleLoad={handleImageLoad}
-                resource={resource}
-                type={type}
-                width={talonResourceWidth}
-                height={height}
-                widths={widths}
-                style={style}
-                {...rest}
-            />
-        );
+        if (useZoomIn) {
+            actualImage = (
+                <InnerImageZoom
+                    src={resource}
+                    alt={alt}
+                    className={defaultClasses.innerImageZoom}
+                />
+            );
+        } else {
+            actualImage = (
+                <ResourceImage
+                    alt={alt}
+                    className={imageClass}
+                    handleError={handleError}
+                    handleLoad={handleImageLoad}
+                    resource={resource}
+                    type={type}
+                    width={talonResourceWidth}
+                    height={height}
+                    widths={widths}
+                    style={style}
+                    {...rest}
+                />
+            );
+        }
     }
 
     return (
