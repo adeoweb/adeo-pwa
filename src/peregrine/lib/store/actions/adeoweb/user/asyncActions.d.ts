@@ -22,7 +22,7 @@ export interface ISignInProps {
 }
 
 export interface ISignOutProps {
-    revokeToken: Promise<void>;
+    revokeToken: MutationFunction;
 }
 
 export interface IGetUserDetails {
@@ -70,7 +70,7 @@ export interface ISetTokenProps {
 }
 
 export interface ISetUserSessionProps {
-    revokeToken: Promise<void>;
+    revokeToken: MutationFunction;
 }
 
 export interface ICheckUserSessionTimeoutProps {
@@ -95,18 +95,14 @@ export interface IUpdateCustomerProps {
 
 export interface IAddToWishlistProps {
     productId: number;
-    addToWishlistQuery: (
-        options?: MutationFunctionOptions<TWishlist>
-    ) => Promise<ExecutionResult<TWishlist>>;
+    addToWishlistQuery: MutationFunction;
     successCallback: () => void;
     errorCallback: (error: string) => void;
 }
 
 export interface IRemoveFromWishlistProps {
     productId: number;
-    removeFromWishlistQuery: (
-        options?: MutationFunctionOptions<TWishlist>
-    ) => Promise<ExecutionResult<TWishlist>>;
+    removeFromWishlistQuery: MutationFunction;
     successCallback: () => void;
     errorCallback: (error: string) => void;
 }

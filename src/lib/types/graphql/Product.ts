@@ -31,14 +31,15 @@ export type TProduct = Omit<
     __typename: 'ConfigurableProduct' | 'SimpleProduct';
 };
 
-export type TCustomizableOption = CustomizableAreaOption &
-    CustomizableDateOption &
-    CustomizableDropDownOption &
-    CustomizableMultipleOption &
-    CustomizableFieldOption &
-    CustomizableFileOption &
-    CustomizableRadioOption &
-    CustomizableCheckboxOption;
+export type TCustomizableOption =
+    | CustomizableAreaOption
+    | CustomizableDateOption
+    | CustomizableDropDownOption
+    | CustomizableMultipleOption
+    | CustomizableFieldOption
+    | CustomizableFileOption
+    | CustomizableRadioOption
+    | CustomizableCheckboxOption;
 
 export enum TProductTypes {
     VirtualProduct = 'VirtualProduct',

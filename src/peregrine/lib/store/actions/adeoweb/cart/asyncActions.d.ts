@@ -4,11 +4,9 @@ import { TCart } from 'src/lib/types/graphql/Cart';
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
 import { TProduct } from 'src/lib/types/graphql/Product';
 
-export type TFetchCartId = () => {
-    data: {
-        cartId: string;
-    };
-};
+interface ICreateCartPayload {
+    fetchCartId: MutationFunction;
+}
 
 interface IAddItemToCartPayload {
     addItemMutation: MutationFunction;
@@ -24,7 +22,7 @@ interface IAddItemToCartPayload {
 interface IUpdateItemInCartPayload {
     cartItemId: string;
     fetchCartDetails: Promise<TCart>;
-    fetchCartId: Promise<TFetchCartId>;
+    fetchCartId: MutationFunction;
     item: TCartItem;
     productType: string;
     quantity: number;
@@ -50,7 +48,7 @@ interface IGetCartDetailsPayload {
 }
 
 export type TCartAsyncActions = {
-    createCart(payload: TFetchCartId): Promise<void>;
+    createCart(payload: ICreateCartPayload): Promise<void>;
     addItemToCart(payload: IAddItemToCartPayload): Promise<void>;
     updateItemInCart(payload: IUpdateItemInCartPayload): Promise<void>;
     removeItemFromCart(payload: IRemoveItemFromCartPayload): Promise<void>;

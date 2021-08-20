@@ -12,19 +12,11 @@ export const useCustomProduct = ({ product }) => {
     const { options, price_range: priceRange } = product;
     const initialValues = {};
     const customOptions = options || [];
-    let productPrice = 0;
-
-    if (
-        priceRange &&
-        priceRange.minimum_price &&
-        priceRange.minimum_price.final_price &&
-        priceRange.minimum_price.final_price.value
-    ) {
-        productPrice = priceRange.minimum_price.final_price.value;
-    }
+    let productPrice = priceRange?.minimum_price?.final_price?.value ?? 0;
 
     const formData = useMemo(() => {
         return customOptions.map(option => {
+            // Option is typeof CustomizableOptionInterface, however it has no __typename attribute.
             const { option_id: optionId, required, __typename: type } = option;
             const validations = [];
 
@@ -38,12 +30,12 @@ export const useCustomProduct = ({ product }) => {
             if (
                 (type === 'CustomizableFieldOption' ||
                     type === 'CustomizableAreaOption') &&
-                ((option.fieldValue && option.fieldValue.max_characters) ||
-                    (option.areaValue && option.areaValue.max_characters))
+                (option?.fieldValue?.max_characters ||
+                    option?.areaValue?.max_characters)
             ) {
                 const maxChars =
-                    (option.fieldValue || {}).max_characters ||
-                    (option.areaValue || {}).max_characters;
+                    option?.fieldValue?.max_characters ||
+                    option.areaValue?.max_characters;
                 validations.push({
                     type: 'max',
                     params: [

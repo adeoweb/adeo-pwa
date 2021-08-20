@@ -16,7 +16,6 @@ generates:
         config:
             onlyOperationTypes: true
             preResolveTypes: true
-            skipTypename: true
             maybeValue: T | undefined
         presetConfig:
             extension: .generated.ts

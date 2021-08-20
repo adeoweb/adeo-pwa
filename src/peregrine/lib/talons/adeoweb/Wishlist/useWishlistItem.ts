@@ -1,17 +1,35 @@
+import { DocumentNode } from 'graphql';
+
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import MessageType from 'src/lib/constants/message';
+import { TWishlistItem } from 'src/lib/types/graphql/Customer';
+import { TProduct } from 'src/lib/types/graphql/Product';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+
+type TUseWishlistItemProps = {
+    addToWishlistMutation: DocumentNode;
+    removeFromWishlistMutation: DocumentNode;
+    product: TProduct;
+};
+
+type TUseWishlistItem = {
+    handleAddToWishlist: () => void;
+    handleRemoveFromWishlist: () => void;
+    items: TWishlistItem[];
+    isInWishlist: boolean;
+    isSignedIn: boolean;
+};
 
 export const useWishlistItem = ({
     product,
     addToWishlistMutation,
     removeFromWishlistMutation
-}) => {
+}: TUseWishlistItemProps): TUseWishlistItem => {
     const { t } = useTranslation('product');
 
     const [, { addMessage }] = useMessageCardContext();
