@@ -9,21 +9,8 @@ import Toast from './toast';
 
 import defaultClasses from './toastContainer.css';
 
-/**
- * A container for toast notifications.
- *
- * This component must be a child, nested or otherwise, of a
- * ToastContextProvider component.
- *
- * @typedef ToastContainer
- * @kind functional component
- *
- * @param {props} props React component props
- *
- * @returns {React.Element} A React component that displays toast notification data.
- */
-const ToastContainer = props => {
-    const classes = mergeClasses(defaultClasses, props.classes);
+const ToastContainer = () => {
+    const classes = defaultClasses;
     const [{ toasts }] = useToasts();
 
     // Given a map of toasts each with a property "timestamp", sort and display
@@ -44,21 +31,6 @@ const ToastContainer = props => {
             {toastElements}
         </div>
     );
-};
-
-/**
- * Props for {@link ToastContainer}
- *
- * @typedef props
- *
- * @property {Object} classes An object containing the class names for the
- *   ToastContainer and its Toast components
- * @property {String} classes.root CSS classes for the root container
- */
-ToastContainer.propTypes = {
-    classes: shape({
-        root: string
-    })
 };
 
 export default ToastContainer;
