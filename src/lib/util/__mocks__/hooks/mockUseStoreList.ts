@@ -1,7 +1,6 @@
 import { TUseStoreList } from 'src/peregrine/lib/talons/adeoweb/App/useStoreList';
 
 const mock: TUseStoreList = {
-    error: null,
     loading: false,
     data: [
         {

@@ -1,7 +1,7 @@
+import isEmpty from 'lodash.isempty';
+
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback } from 'react';
-
-import isObjectEmpty from '@magento/peregrine/lib/util/isObjectEmpty';
 
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
@@ -81,7 +81,7 @@ export const useShippingStep = props => {
 
     const isNextEnabled =
         items.length > 0 &&
-        !isObjectEmpty(shippingAddress) &&
+        !isEmpty(shippingAddress) &&
         availableShippingMethods &&
         availableShippingMethods.length > 0 &&
         selectedShippingMethod &&

@@ -1,5 +1,3 @@
-import { array, func, shape, string } from 'prop-types';
-
 import React, { useCallback, useEffect, Suspense } from 'react';
 import AlertCircle from 'react-feather/dist/icons/alert-circle';
 import CloudOff from 'react-feather/dist/icons/cloud-off';
@@ -41,7 +39,15 @@ const UpdateIcon = <Icon src={RefreshCcw} attrs={{ width: 18 }} />;
 
 const ERROR_MESSAGE = 'Sorry! An unexpected error occurred.';
 
-const App = props => {
+interface IAppProps {
+    markErrorHandled: () => void;
+    renderError: {
+        stack: string;
+    };
+    unhandledErrors: string[];
+}
+
+const App = (props: IAppProps): JSX.Element => {
     const { markErrorHandled, renderError, unhandledErrors } = props;
     const [, { addToast }] = useToasts();
 
@@ -64,7 +70,7 @@ const App = props => {
     }, [addToast]);
 
     const handleHTMLUpdate = useCallback(
-        resetHTMLUpdateAvaiableFlag => {
+        resetHTMLUpdateAvailableFlag => {
             addToast({
                 type: 'warning',
                 icon: UpdateIcon,
@@ -75,7 +81,7 @@ const App = props => {
                     location.reload();
                 },
                 onDismiss: removeToast => {
-                    resetHTMLUpdateAvaiableFlag();
+                    resetHTMLUpdateAvailableFlag();
                     removeToast();
                 }
             });
@@ -84,7 +90,7 @@ const App = props => {
     );
 
     const handleError = useCallback(
-        (error, id, loc, handleDismissError) => {
+        (_error, id, loc, handleDismissError) => {
             const errorToastProps = {
                 icon: ErrorIcon,
                 message: `${ERROR_MESSAGE}\nDebug: ${id} ${loc}`,
@@ -129,7 +135,7 @@ const App = props => {
 
     useUserSession({ signOutMutation: SIGN_OUT_MUTATION });
 
-    useEffect(() => {
+    useEffect((): any => {
         const unregisterHandler = registerMessageHandler(
             HTML_UPDATE_AVAILABLE,
             () => {
@@ -192,14 +198,6 @@ const App = props => {
             </Suspense>
         </HeadProvider>
     );
-};
-
-App.propTypes = {
-    markErrorHandled: func,
-    renderError: shape({
-        stack: string
-    }),
-    unhandledErrors: array
 };
 
 export default App;

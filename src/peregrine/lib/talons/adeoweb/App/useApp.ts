@@ -1,7 +1,15 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import {
+    Dispatch,
+    SetStateAction,
+    useCallback,
+    useEffect,
+    useMemo,
+    useState
+} from 'react';
 
 import errorRecord from '@magento/peregrine/lib/util/createErrorRecord';
 
+import { CustomerModalTypes } from 'src/lib/constants/customer';
 import { useHistory } from 'src/lib/drivers';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
 
@@ -16,24 +24,31 @@ const getErrorDismisser = (error, onDismissError) => {
         : dismissers.set(error, () => onDismissError(error)).get(error);
 };
 
-/**
- * Talon that handles effects for App and returns props necessary for rendering
- * the app.
- *
- * @param {Function} props.handleError callback to invoke for each error
- * @param {Function} props.handleIsOffline callback to invoke when the app goes offline
- * @param {Function} props.handleIsOnline callback to invoke wen the app goes online
- * @param {Function} props.handleHTMLUpdate callback to invoke when a HTML update is available
- * @param {Function} props.markErrorHandled callback to invoke when handling an error
- * @param {Function} props.renderError an error that occurs during rendering of the app
- * @param {Function} props.unhandledErrors errors coming from the error reducer
- *
- * @returns {{
- *  hasOverlay: boolean
- *  handleCloseDrawer: function
- * }}
- */
-export const useApp = props => {
+interface IUseAppProps {
+    handleError: (
+        error: Error,
+        id: string,
+        loc: string,
+        errorDismisser: () => void
+    ) => void;
+    handleIsOffline: () => void;
+    handleIsOnline: () => void;
+    handleHTMLUpdate: (cb: () => void) => void;
+    markErrorHandled: () => void;
+    renderError: {
+        stack: string;
+    };
+    unhandledErrors?: string[];
+}
+
+type TUseApp = {
+    hasOverlay: boolean;
+    handleCloseDrawer: () => void;
+    setHTMLUpdateAvailable: Dispatch<SetStateAction<boolean>>;
+    hideCustomerModal: () => Promise<void>;
+    customerModalType: CustomerModalTypes | null;
+};
+export const useApp = (props: IUseAppProps): TUseApp => {
     const {
         handleError,
         handleIsOffline,
@@ -72,7 +87,7 @@ export const useApp = props => {
         [renderError]
     );
 
-    const errors = renderError ? renderErrors : unhandledErrors;
+    const errors = (renderError ? renderErrors : unhandledErrors) ?? [];
     const handleDismissError = renderError ? reload : markErrorHandled;
 
     // Only add toasts for errors if the errors list changes. Since `addToast`

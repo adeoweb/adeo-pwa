@@ -1,8 +1,9 @@
+import isEmpty from 'lodash.isempty';
+
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Table from 'src/lib/components/Compare/Table';
-import isObjectEmpty from 'src/lib/util/isObjectEmpty';
 import { useCompare } from 'src/peregrine/lib/talons/adeoweb/Compare/useCompare';
 
 const Compare: FunctionComponent = () => {
@@ -10,7 +11,7 @@ const Compare: FunctionComponent = () => {
 
     const { productData } = useCompare();
 
-    const productDataIsValid = productData && !isObjectEmpty(productData);
+    const productDataIsValid = productData && !isEmpty(productData);
 
     return (
         <div className="page-main">

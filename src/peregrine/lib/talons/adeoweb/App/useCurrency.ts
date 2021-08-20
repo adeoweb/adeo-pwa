@@ -1,6 +1,10 @@
 import { useConfigContext } from '../../../context/adeoweb/config';
 
-export const useCurrency = () => {
+type TUseCurrency = {
+    currencyCode: null | string;
+};
+
+export const useCurrency = (): TUseCurrency => {
     const [{ base_currency_code: currencyCode }] = useConfigContext();
 
     return {
