@@ -1,11 +1,13 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 
 import React, { FunctionComponent, useCallback, useEffect } from 'react';
 import { Button, Form, Modal, ModalProps } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import PasswordField from 'src/lib/components/PasswordField';
+
+import { create as object } from 'yup/lib/object';
+import { create as string } from 'yup/lib/string';
 
 type TDeleteAccountModalProps = {
     close: () => void;
@@ -21,8 +23,8 @@ const DeleteAccountModal: FunctionComponent<TDeleteAccountModalProps> = ({
     close
 }) => {
     const { t } = useTranslation(['common', 'customer']);
-    const validationSchema = yup.object({
-        password: yup.string().required()
+    const validationSchema = object({
+        password: string().required()
     });
     const initialValues = {
         password: ''

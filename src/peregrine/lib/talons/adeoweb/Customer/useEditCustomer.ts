@@ -1,6 +1,5 @@
 import { useFormik, FormikErrors, FormikTouched } from 'formik';
 import { DocumentNode } from 'graphql';
-import * as yup from 'yup';
 
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useEffect, useState } from 'react';
@@ -11,6 +10,10 @@ import { customFormikValidate } from 'src/lib/util/customFormikValidate';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+
+import { create as boolean } from 'yup/lib/boolean';
+import { create as object } from 'yup/lib/object';
+import { create as string } from 'yup/lib/string';
 
 type TUseEditCustomerProps = {
     updateCustomerMutation: DocumentNode;
@@ -33,18 +36,18 @@ type TUseEditCustomer = {
     updateCustomerError: string | null;
 };
 
-const validationSchema = yup.object({
-    firstname: yup.string().required(),
-    lastname: yup.string().required(),
-    email: yup.string().when('$isChangeEmail', {
+const validationSchema = object({
+    firstname: string().required(),
+    lastname: string().required(),
+    email: string().when('$isChangeEmail', {
         is: isChangeEmail => isChangeEmail,
-        then: yup.string().required()
+        then: string().required()
     }),
-    password: yup.string().when('$isChangeEmail', {
+    password: string().when('$isChangeEmail', {
         is: isChangeEmail => isChangeEmail,
-        then: yup.string().required()
+        then: string().required()
     }),
-    is_subscribed: yup.boolean()
+    is_subscribed: boolean()
 });
 
 export const useEditCustomer = (

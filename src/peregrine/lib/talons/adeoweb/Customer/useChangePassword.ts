@@ -1,6 +1,5 @@
 import { FormikErrors, FormikTouched, useFormik } from 'formik';
 import { DocumentNode } from 'graphql';
-import * as yup from 'yup';
 
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useEffect, useState } from 'react';
@@ -12,6 +11,10 @@ import { errorMessages } from 'src/lib/util/errorMessages';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+
+import { create as ref } from 'yup/lib/Reference';
+import { create as object } from 'yup/lib/object';
+import { create as string } from 'yup/lib/string';
 
 type TUseChangePasswordProps = {
     changePasswordMutation: DocumentNode;
@@ -38,21 +41,16 @@ export const useChangePassword = (
 ): TUseChangePassword => {
     const { changePasswordMutation } = props;
     const { t } = useTranslation('validations');
-    const validationSchema = yup.object({
-        currentPassword: yup.string().required(),
-        newPassword: yup
-            .string()
+    const validationSchema = object({
+        currentPassword: string().required(),
+        newPassword: string()
             .matches(
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/,
                 t(errorMessages.password)
             )
             .required(),
-        passwordConfirmation: yup
-            .string()
-            .oneOf(
-                [yup.ref('newPassword'), null],
-                t(errorMessages.passwordMatch)
-            )
+        passwordConfirmation: string()
+            .oneOf([ref('newPassword'), null], t(errorMessages.passwordMatch))
             .required()
     });
     const [{ isChangingPassword, changePasswordError }, { changePassword }] =

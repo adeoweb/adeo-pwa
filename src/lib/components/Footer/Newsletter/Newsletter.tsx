@@ -1,14 +1,16 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 
 import React, { FunctionComponent } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
+import { create as object } from 'yup/lib/object';
+import { create as string } from 'yup/lib/string';
+
 const Newsletter: FunctionComponent = () => {
     const { t } = useTranslation('common');
-    const schema = yup.object({
-        email: yup.string().required().email()
+    const schema = object({
+        email: string().required().email()
     });
     // ToDo: add data processing
     const submitCallback = () => {

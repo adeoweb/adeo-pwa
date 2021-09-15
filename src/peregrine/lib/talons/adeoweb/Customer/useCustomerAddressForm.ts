@@ -1,6 +1,5 @@
 import { FormikErrors, FormikState, FormikTouched, useFormik } from 'formik';
 import { DocumentNode } from 'graphql';
-import * as yup from 'yup';
 
 import { useCallback, useEffect, useState } from 'react';
 
@@ -8,6 +7,11 @@ import { TCustomerAddressFormValues } from 'src/lib/components/Customer';
 import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
 import { customFormikValidate } from 'src/lib/util/customFormikValidate';
 import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
+
+import { create as array } from 'yup/lib/array';
+import { create as boolean } from 'yup/lib/boolean';
+import { create as object } from 'yup/lib/object';
+import { create as string } from 'yup/lib/string';
 
 type TUseCustomerAddressFormProps = {
     countriesQuery: DocumentNode;
@@ -33,21 +37,21 @@ type TUseCustomerAddressForm = {
     isValid: boolean;
 };
 
-const validationSchema = yup.object({
-    firstname: yup.string().required(),
-    lastname: yup.string().required(),
-    company: yup.string(),
-    street: yup.array().of(yup.string()).required().ensure().compact(),
-    city: yup.string().required(),
-    postcode: yup.string().required(),
-    telephone: yup.string().required(),
-    region: yup.string().when('$isRegionsAvailable', {
+const validationSchema = object({
+    firstname: string().required(),
+    lastname: string().required(),
+    company: string(),
+    street: array().of(string()).required().ensure().compact(),
+    city: string().required(),
+    postcode: string().required(),
+    telephone: string().required(),
+    region: string().when('$isRegionsAvailable', {
         is: isRegionsAvailable => isRegionsAvailable,
-        then: yup.string().required()
+        then: string().required()
     }),
-    country_code: yup.string().required(),
-    default_billing: yup.bool(),
-    default_shipping: yup.bool()
+    country_code: string().required(),
+    default_billing: boolean(),
+    default_shipping: boolean()
 });
 
 export const useCustomerAddressForm = (
