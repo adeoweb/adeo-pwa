@@ -3,29 +3,24 @@ import { DocumentNode } from 'graphql';
 
 import * as React from 'react';
 
+import { TCartAddressInput } from 'src/lib/types/graphql/Cart';
 import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
 
-type TUseShippingAddressFormProps<Values> = {
+export type TUseBillingAddressFormProps = {
     countriesQuery: DocumentNode;
-    initialValues?: Values;
-    onSubmit?: (values: Values) => void;
+    initialValues: TCartAddressInput;
 };
 
-type TUseShippingAddressForm<Values> = {
-    handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
+export type TUseBillingAddressForm = {
     handleChange: (
         eventOrPath: string | React.ChangeEvent<any>
     ) => void | ((eventOrTextValue: string | React.ChangeEvent<any>) => void);
     handleBlur: (eventOrString: any) => void | ((e: any) => void);
-    values: Values;
-    errors: FormikErrors<Values>;
-    touched: FormikTouched<Values>;
+    values: TCartAddressInput;
+    errors: FormikErrors<TCartAddressInput>;
+    touched: FormikTouched<TCartAddressInput>;
     countries: TCountry[];
     regions: TRegion[];
     isDirty: boolean;
     isValid: boolean;
 };
-
-export function useShippingAddressForm<Values>(
-    props: TUseShippingAddressFormProps<Values>
-): TUseShippingAddressForm<Values>;

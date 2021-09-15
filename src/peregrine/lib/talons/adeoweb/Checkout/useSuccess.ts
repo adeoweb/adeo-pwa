@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 
-export const useSuccess = () => {
+type TUseSuccess = {
+    orderNumber: string | null;
+};
+
+export const useSuccess = (): TUseSuccess => {
     const [
         {
             receipt: {
@@ -11,7 +15,7 @@ export const useSuccess = () => {
         },
         { resetReceipt }
     ] = useCheckoutContext();
-    const [orderNumber, setOrderNumber] = useState(null);
+    const [orderNumber, setOrderNumber] = useState<string | null>(null);
 
     useEffect(() => {
         if (number) {

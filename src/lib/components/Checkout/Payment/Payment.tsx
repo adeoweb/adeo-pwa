@@ -10,7 +10,6 @@ import { TFuncKey, useTranslation } from 'react-i18next';
 import { CheckoutRoutes } from 'src/lib/components/Checkout';
 import AddressBlock from 'src/lib/components/Checkout/Address';
 import InfoBox from 'src/lib/components/Checkout/InfoBox';
-import { TBillingAddressFormValues } from 'src/lib/components/Checkout/Payment';
 import BillingAddressForm from 'src/lib/components/Checkout/Payment/BillingAdressForm';
 import PaymentMethodSelect from 'src/lib/components/Checkout/Payment/PaymentMethodSelect';
 import { ProductsSummary } from 'src/lib/components/Checkout/Summary';
@@ -54,7 +53,7 @@ const Payment: FunctionComponent = () => {
         selectedShippingMethod,
         selectedCustomerAddressId,
         onCustomerAddressSelect
-    } = usePaymentStep<TBillingAddressFormValues>({
+    } = usePaymentStep({
         countriesQuery: GET_ALL_COUNTRIES,
         setBillingAddressOnCartMutation: SET_BILLING_ADDRESS_ON_CART_MUTATION,
         handleSubmitCallback: redirectToNext

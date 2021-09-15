@@ -1,4 +1,4 @@
-import { useMutation } from '@apollo/react-hooks';
+import { DocumentNode, useMutation } from '@apollo/react-hooks';
 import { useEffect } from 'react';
 
 import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
@@ -6,7 +6,19 @@ import { useAwaitQuery } from '@magento/peregrine/lib/hooks/useAwaitQuery';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-export const useCheckout = props => {
+export type TUseCheckoutProps = {
+    createCartMutation: DocumentNode;
+    getCartDetailsQuery: DocumentNode;
+    setShippingAddressesOnCartMutation: DocumentNode;
+};
+
+export type TUseCheckout = {
+    isLoading: boolean;
+    isLoaded: boolean;
+    error: Error | null;
+};
+
+export const useCheckout = (props: TUseCheckoutProps): TUseCheckout => {
     const {
         createCartMutation,
         getCartDetailsQuery,

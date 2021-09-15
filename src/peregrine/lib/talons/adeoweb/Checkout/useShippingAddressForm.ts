@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import * as yup from 'yup';
 
 import { useCallback, useEffect, useState } from 'react';
 
@@ -6,8 +7,15 @@ import { customFormikValidate } from 'src/lib/util/customFormikValidate';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
 
-export const useShippingAddressForm = props => {
-    const { countriesQuery, initialValues = {}, onSubmit } = props;
+import {
+    TUseShippingAddressForm,
+    TUseShippingAddressFormProps
+} from './useShippingAddressFormTypes';
+
+export const useShippingAddressForm = (
+    props: TUseShippingAddressFormProps
+): TUseShippingAddressForm => {
+    const { countriesQuery, initialValues, onSubmit } = props;
     const validationSchema = yup.object({
         firstname: yup.string().required(),
         lastname: yup.string().required(),

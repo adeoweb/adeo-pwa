@@ -1,4 +1,12 @@
-const getTransformedAddress = address => ({
+import {
+    TBillingCartAddress,
+    TCartAddressInput,
+    TShippingCartAddress
+} from 'src/lib/types/graphql/Cart';
+
+const getTransformedAddress = (
+    address?: Partial<TBillingCartAddress | TShippingCartAddress>
+): TCartAddressInput => ({
     firstname: address?.firstname ?? '',
     lastname: address?.lastname ?? '',
     company: address?.company ?? '',

@@ -6,13 +6,13 @@ import {
     TSelectedShippingMethod
 } from 'src/lib/types/graphql/Cart';
 
-type TUseShippingStepProps = {
+export type TUseShippingStepProps = {
     setGuestEmailMutation: DocumentNode;
     setShippingAddressesOnCartMutation: DocumentNode;
     setShippingMethodOnCartMutation: DocumentNode;
 };
 
-type TUseShippingStep = {
+export type TUseShippingStep = {
     submitAddress: (values: TShippingAddressFormValues) => void;
     submitCustomerAddress: (id: number) => void;
     isSignedIn: boolean;
@@ -20,8 +20,6 @@ type TUseShippingStep = {
     isNextEnabled: boolean;
     isSubmitting: boolean;
     availableShippingMethods: TAvailableShippingMethod[];
-    selectedShippingMethod: TSelectedShippingMethod;
+    selectedShippingMethod?: TSelectedShippingMethod;
     handleShippingMethodSelect: (item: TAvailableShippingMethod) => void;
 };
-
-export function useShippingStep(props: TUseShippingStepProps): TUseShippingStep;
