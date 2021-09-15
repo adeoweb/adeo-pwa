@@ -7,8 +7,16 @@ import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
-export const useShippingStep = props => {
+import {
+    TUseShippingStep,
+    TUseShippingStepProps
+} from './useShippingStepTypes';
+
+export const useShippingStep = (
+    props: TUseShippingStepProps
+): TUseShippingStep => {
     const {
         setGuestEmailMutation,
         setShippingAddressesOnCartMutation,
@@ -36,14 +44,15 @@ export const useShippingStep = props => {
             details: { shipping_addresses: shippingAddresses, items = [] }
         }
     ] = useCartContext();
+
     const shippingAddress =
-        shippingAddresses && shippingAddresses.length > 0
-            ? shippingAddresses[0]
-            : {};
-    const {
-        available_shipping_methods: availableShippingMethods = [],
-        selected_shipping_method: selectedShippingMethod
-    } = shippingAddress;
+        shippingAddresses && shippingAddresses?.[0] && shippingAddresses[0];
+
+    const selectedShippingMethod = shippingAddress?.selected_shipping_method;
+    const availableShippingMethods = filterOutNullableValues(
+        shippingAddress?.available_shipping_methods
+    );
+
     const [{ isSubmitting }, { submitShippingMethod, submitShippingAddress }] =
         useCheckoutContext();
 
@@ -82,9 +91,9 @@ export const useShippingStep = props => {
     const isNextEnabled =
         items.length > 0 &&
         !isEmpty(shippingAddress) &&
-        availableShippingMethods &&
+        Boolean(availableShippingMethods) &&
         availableShippingMethods.length > 0 &&
-        selectedShippingMethod &&
+        Boolean(selectedShippingMethod) &&
         !isSubmitting;
 
     return {

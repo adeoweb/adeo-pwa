@@ -3,19 +3,20 @@ import { DocumentNode } from 'graphql';
 
 import * as React from 'react';
 
+import { TBillingAddressFormValues } from 'src/lib/components/Checkout/Payment';
 import {
     TSelectedShippingMethod,
     TShippingCartAddress
 } from 'src/lib/types/graphql/Cart';
 import { TCountry, TRegion } from 'src/lib/types/graphql/Country';
 
-type TUsePaymentStepProps = {
+export type TUsePaymentStepProps = {
     countriesQuery: DocumentNode;
     setBillingAddressOnCartMutation: DocumentNode;
     handleSubmitCallback: () => void;
 };
 
-type TUsePaymentStep<Values> = {
+export type TUsePaymentStep = {
     handleChange: (
         eventOrPath: string | React.ChangeEvent<any>
     ) => void | ((eventOrTextValue: string | React.ChangeEvent<any>) => void);
@@ -23,10 +24,10 @@ type TUsePaymentStep<Values> = {
     handleSameAsShippingChange: (
         event: React.ChangeEvent<HTMLInputElement>
     ) => void;
-    handleSubmit: () => Promise<void>;
-    values: Values;
-    errors: FormikErrors<Values>;
-    touched: FormikTouched<Values>;
+    handleSubmit: () => void;
+    values: TBillingAddressFormValues;
+    errors: FormikErrors<TBillingAddressFormValues>;
+    touched: FormikTouched<TBillingAddressFormValues>;
     countries: TCountry[];
     regions: TRegion[];
     isDirty: boolean;
@@ -41,7 +42,3 @@ type TUsePaymentStep<Values> = {
     selectedCustomerAddressId: number | null;
     onCustomerAddressSelect: (id: number) => void;
 };
-
-export function usePaymentStep<Values>(
-    props: TUsePaymentStepProps
-): TUsePaymentStep<Values>;

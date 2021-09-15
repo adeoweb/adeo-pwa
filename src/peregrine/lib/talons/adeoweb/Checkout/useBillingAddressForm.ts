@@ -6,8 +6,16 @@ import { useCallback, useEffect, useState } from 'react';
 import { customFormikValidate } from 'src/lib/util/customFormikValidate';
 import { useCountries } from 'src/peregrine/lib/talons/adeoweb/Countries/useCountries';
 
-export const useBillingAddressForm = props => {
-    const { countriesQuery, initialValues = {} } = props;
+import {
+    TUseBillingAddressForm,
+    TUseBillingAddressFormProps
+} from './useBillingAddressFormTypes';
+
+export const useBillingAddressForm = (
+    props: TUseBillingAddressFormProps
+): TUseBillingAddressForm => {
+    const { countriesQuery, initialValues } = props;
+
     const validationSchema = yup.object({
         firstname: yup.string().required(),
         lastname: yup.string().required(),

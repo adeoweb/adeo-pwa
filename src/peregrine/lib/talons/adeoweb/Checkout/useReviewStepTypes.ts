@@ -9,20 +9,20 @@ import {
 } from 'src/lib/types/graphql/Cart';
 import { TCartItem } from 'src/lib/types/graphql/CartItem';
 
-type TUseReviewStepProps = {
+export type TUseReviewStepProps = {
     createCartMutation: DocumentNode;
     getCartDetailsQuery: DocumentNode;
     placeOrderMutation: DocumentNode;
 };
 
-type TUseReviewStep = {
+export type TUseReviewStep = {
     handlePlaceOrder: () => void;
     shippingAddress?: TShippingCartAddress;
     selectedShippingMethod?: TSelectedShippingMethod;
     billingAddress?: TBillingCartAddress;
     selectedPaymentMethod?: TSelectedPaymentMethod;
     items: TCartItem[];
-    prices: TCartPrices;
+    prices?: TCartPrices;
     currencyCode: string;
     orderError: Error | null;
     orderNumber: string;
@@ -30,5 +30,3 @@ type TUseReviewStep = {
     isRedirectToFirst: boolean;
     resetReceipt: () => Promise<void>;
 };
-
-export function useReviewStep(props: TUseReviewStepProps): TUseReviewStep;

@@ -7,7 +7,9 @@ import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-export const useReviewStep = props => {
+import { TUseReviewStep, TUseReviewStepProps } from './useReviewStepTypes';
+
+export const useReviewStep = (props: TUseReviewStepProps): TUseReviewStep => {
     const { placeOrderMutation, createCartMutation, getCartDetailsQuery } =
         props;
     const [

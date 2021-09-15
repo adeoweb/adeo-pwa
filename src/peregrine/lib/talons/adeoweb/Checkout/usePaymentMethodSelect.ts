@@ -4,8 +4,16 @@ import { useCallback, useState } from 'react';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
+import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
-export const usePaymentMethodSelect = props => {
+import {
+    TUsePaymentMethodSelect,
+    TUsePaymentMethodSelectProps
+} from './usePaymentMethodSelectTypes';
+
+export const usePaymentMethodSelect = (
+    props: TUsePaymentMethodSelectProps
+): TUsePaymentMethodSelect => {
     const { setPaymentMethodOnCartMutation } = props;
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
     const [setPaymentMethodOnCart] = useMutation(
@@ -19,11 +27,15 @@ export const usePaymentMethodSelect = props => {
     const [
         {
             details: {
-                available_payment_methods: availablePaymentMethods = [],
+                available_payment_methods,
                 selected_payment_method: selectedPaymentMethodOnCart
             }
         }
     ] = useCartContext();
+
+    const availablePaymentMethods = filterOutNullableValues(
+        available_payment_methods
+    );
 
     const handlePaymentMethodSelect = useCallback(
         data => {

@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/react-hooks';
 import { useCallback, useState } from 'react';
 
+import { TBillingAddressInput } from 'src/lib/types/graphql/Cart';
 import { useCartContext } from 'src/peregrine/lib/context/adeoweb/cart';
 import { useCheckoutContext } from 'src/peregrine/lib/context/adeoweb/checkout';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
@@ -11,7 +12,11 @@ import {
 } from 'src/peregrine/lib/talons/adeoweb/Checkout/utils';
 import { fetchPolicy } from 'src/peregrine/lib/util/adeoweb/fetchPolicy';
 
-export const usePaymentStep = props => {
+import { TUsePaymentStep, TUsePaymentStepProps } from './usePaymentStepTypes';
+
+export const usePaymentStep = (
+    props: TUsePaymentStepProps
+): TUsePaymentStep => {
     const {
         countriesQuery,
         setBillingAddressOnCartMutation,
@@ -48,7 +53,7 @@ export const usePaymentStep = props => {
         isBillingAndShippingEqual(shippingAddress, billingAddress)
     );
     const defaultBillingAddress = addresses.find(
-        ({ default_billing: defaultBilling }) => defaultBilling
+        address => address?.default_billing
     );
 
     const customerAddressIdOnCart =
@@ -60,8 +65,7 @@ export const usePaymentStep = props => {
             null
     );
 
-    const { selected_shipping_method: selectedShippingMethod } =
-        shippingAddress || {};
+    const selectedShippingMethod = shippingAddress?.selected_shipping_method;
 
     const initialValues = getTransformedAddress(billingAddress || {});
 
@@ -85,12 +89,13 @@ export const usePaymentStep = props => {
     };
 
     const handleSubmit = useCallback(() => {
-        const billingAddress = {};
+        const billingAddress: TBillingAddressInput = {};
         if (isSameAsShipping) {
             billingAddress.address = getTransformedAddress(shippingAddress);
         } else {
             if (isSignedIn) {
-                billingAddress.customer_address_id = selectedAddressId;
+                billingAddress.customer_address_id =
+                    selectedAddressId ?? undefined;
             } else {
                 billingAddress.address = values;
             }
@@ -133,9 +138,9 @@ export const usePaymentStep = props => {
     const isRedirectToPrev =
         !availablePaymentMethods.length ||
         !shippingAddress ||
-        shippingAddressError ||
+        Boolean(shippingAddressError) ||
         !selectedShippingMethod ||
-        shippingMethodError;
+        Boolean(shippingMethodError);
 
     return {
         handleChange,

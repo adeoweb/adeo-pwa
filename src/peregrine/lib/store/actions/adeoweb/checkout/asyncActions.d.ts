@@ -11,29 +11,20 @@ import {
     TCartAddressInput
 } from 'src//lib/types/graphql/Cart';
 import { TOrder } from 'src//lib/types/graphql/Order';
+import { BillingAddressInput } from 'src/lib/types/graphql-types.generated';
 import { TFetchCartId } from 'src/peregrine/lib/store/actions/adeoweb/cart/asyncActions';
 
 interface IInitCheckoutPayload {
-    setShippingAddressesOnCart: (
-        options?: MutationFunctionOptions<TCart>
-    ) => Promise<ExecutionResult<TCart>>;
-    fetchCartDetails: (
-        options: QueryOptions<OperationVariables>
-    ) => Promise<ApolloQueryResult<TCart>>;
-    fetchCartId: (
-        options: QueryOptions<OperationVariables>
-    ) => Promise<ApolloQueryResult<TFetchCartId>>;
+    setShippingAddressesOnCart: MutationFunction;
+    fetchCartDetails: MutationFunction;
+    fetchCartId: MutationFunction;
 }
 
 interface ISubmitShippingAddressPayload {
     customerAddressId?: number;
     formValues?: TShippingAddressFormValues;
-    setGuestEmail: (
-        options?: MutationFunctionOptions<TCart>
-    ) => Promise<ExecutionResult<TCart>>;
-    setShippingAddressesOnCart: (
-        options?: MutationFunctionOptions<TCart>
-    ) => Promise<ExecutionResult<TCart>>;
+    setGuestEmail: MutationFunction;
+    setShippingAddressesOnCart: MutationFunction;
 }
 
 interface ISubmitShippingMethodPayload {
@@ -42,17 +33,20 @@ interface ISubmitShippingMethodPayload {
 }
 
 interface ISubmitBillingAddressPayload {
-    billingAddress: TCartAddressInput;
-    setBillingAddressOnCart: Promise<TCart>;
+    billingAddress: BillingAddressInput;
+    setBillingAddressOnCart: MutationFunction;
 }
 
 interface ISubmitPaymentMethodPayload {
     paymentMethod: TPaymentMethodInput;
-    setPaymentMethodOnCart: Promise<TCart>;
+    setPaymentMethodOnCart: MutationFunction;
 }
 
 interface ISubmitOrder {
-    fetchCartId: Promise<TFetchCartId>;
+    fetchCartId: MutationFunction;
+    fetchCartDetails: (
+        options: QueryOptions<OperationVariables>
+    ) => Promise<ApolloQueryResult<TCart>>;
     placeOrder: MutationFunction;
 }
 
