@@ -98,7 +98,7 @@ module.exports = async env => {
     config.module.rules = [
         ...config.module.rules,
         {
-            test: /\.(ts|tsx|.js)?$/,
+            test: /\.(ts|tsx|js|jsx)?$/,
             exclude: /node_modules/,
             sideEffects: false,
             use: [
@@ -111,17 +111,7 @@ module.exports = async env => {
                 }
             ]
         },
-        {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
-                    plugins: ['@babel/plugin-syntax-dynamic-import']
-                }
-            }
-        },
+
         {
             test: /\.s[ac]ss$/i,
             use: ['style-loader', 'css-loader', 'sass-loader'],
