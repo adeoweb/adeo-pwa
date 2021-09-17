@@ -199,7 +199,7 @@ const configureProject = (dir, displayName, cb) => {
 
     // Pass a function which builds paths inside this project to a callback
     // which returns any additional properties.
-    const config = cb(path.join.bind(path, '<rootDir>', 'packages', dir));
+    const config = cb(path.join.bind(path, '<rootDir>', dir));
 
     // Merge and dedupe some crucial arrays.
     const overrides = {

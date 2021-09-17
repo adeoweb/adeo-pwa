@@ -1,7 +1,8 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 
 import { TUseContactForm, TUseContactFormValues } from './useContactFormTypes';
+import { create as object } from 'yup/lib/object';
+import { create as string } from 'yup/lib/string';
 
 export const useContactForm = (): TUseContactForm => {
     const initValues: TUseContactFormValues = {
@@ -11,11 +12,11 @@ export const useContactForm = (): TUseContactForm => {
         message: ''
     };
 
-    const formSchema = yup.object({
-        name: yup.string().required(),
-        email: yup.string().required().email(),
-        phone: yup.string(),
-        message: yup.string().required()
+    const formSchema = object({
+        name: string().required(),
+        email: string().required().email(),
+        phone: string(),
+        message: string().required()
     });
 
     const handleFormSubmit = (values: TUseContactFormValues) => {

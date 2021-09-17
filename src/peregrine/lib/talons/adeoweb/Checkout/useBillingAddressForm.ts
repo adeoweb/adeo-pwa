@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 
 import { useCallback, useEffect, useState } from 'react';
 
@@ -10,25 +9,28 @@ import {
     TUseBillingAddressForm,
     TUseBillingAddressFormProps
 } from './useBillingAddressFormTypes';
+import { create as array } from 'yup/lib/array';
+import { create as object } from 'yup/lib/object';
+import { create as string } from 'yup/lib/string';
 
 export const useBillingAddressForm = (
     props: TUseBillingAddressFormProps
 ): TUseBillingAddressForm => {
     const { countriesQuery, initialValues } = props;
 
-    const validationSchema = yup.object({
-        firstname: yup.string().required(),
-        lastname: yup.string().required(),
-        company: yup.string(),
-        street: yup.array().of(yup.string()).required().ensure().compact(),
-        city: yup.string().required(),
-        postcode: yup.string().required(),
-        telephone: yup.string().required(),
-        region: yup.string().when('$isRegionsAvailable', {
+    const validationSchema = object({
+        firstname: string().required(),
+        lastname: string().required(),
+        company: string(),
+        street: array().of(string()).required().ensure().compact(),
+        city: string().required(),
+        postcode: string().required(),
+        telephone: string().required(),
+        region: string().when('$isRegionsAvailable', {
             is: isRegionsAvailable => isRegionsAvailable,
-            then: yup.string().required()
+            then: string().required()
         }),
-        country_code: yup.string().required()
+        country_code: string().required()
     });
     const [countryCode, setCountryCode] = useState('');
     const { countries, regions } = useCountries({

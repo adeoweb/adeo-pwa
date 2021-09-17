@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 
 import React, {
     Fragment,
@@ -22,6 +21,11 @@ import {
     TUseCreateAccountFormValues,
     useCreateAccount
 } from 'src/peregrine/lib/talons/adeoweb/CreateAccount/useCreateAccount';
+
+import { create as ref } from 'yup/lib/Reference';
+import { create as boolean } from 'yup/lib/boolean';
+import { create as object } from 'yup/lib/object';
+import { create as string } from 'yup/lib/string';
 
 const AccountForm: FunctionComponent = () => {
     const history = useHistory();
@@ -54,24 +58,21 @@ const AccountForm: FunctionComponent = () => {
 
     const { t } = useTranslation(['validations', 'customer']);
 
-    const schema = yup.object({
-        firstName: yup.string().required(),
-        lastName: yup.string().required(),
-        email: yup.string().required().email(),
-        password: yup
-            .string()
+    const schema = object({
+        firstName: string().required(),
+        lastName: string().required(),
+        email: string().required().email(),
+        password: string()
             .matches(
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/,
                 t(`validations:${errorMessages.password}` as const)
             )
             .required(),
-        confirm: yup
-            .string()
-            .oneOf(
-                [yup.ref('password'), null],
-                t(`validations:${errorMessages.password}` as const)
-            ),
-        isSubscribed: yup.boolean()
+        confirm: string().oneOf(
+            [ref('password'), null],
+            t(`validations:${errorMessages.password}` as const)
+        ),
+        isSubscribed: boolean()
     });
 
     const submitCallback = (values: TUseCreateAccountFormValues) => {

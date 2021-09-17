@@ -1,11 +1,13 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { createYupSchema } from 'src/lib/util/createYupSchema';
 import { errorMessages } from 'src/lib/util/errorMessages';
+
+import { create as boolean } from 'yup/lib/boolean';
+import { create as object } from 'yup/lib/object';
 
 export const useCustomProduct = ({ product }) => {
     const { t } = useTranslation('validations');
@@ -56,8 +58,8 @@ export const useCustomProduct = ({ product }) => {
         });
     }, [customOptions, t]);
 
-    const yepSchema = formData.reduce(createYupSchema, {});
-    const validationSchema = yup.object(yepSchema);
+    const yupSchema = formData.reduce(createYupSchema, {});
+    const validationSchema = object(yupSchema);
 
     formData.forEach(item => {
         initialValues[item.id] = item.initialValue;

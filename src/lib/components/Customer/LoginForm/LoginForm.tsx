@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 
 import React, { FunctionComponent, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
@@ -13,6 +12,9 @@ import SIGN_OUT_MUTATION from 'src/lib/queries/signOut.graphql';
 import { TGenerateCustomerTokenProps } from 'src/lib/types/graphql/SignIn';
 import { errorMessages } from 'src/lib/util/errorMessages';
 import { useSignIn } from 'src/peregrine/lib/talons/adeoweb/SignIn/useSignIn';
+
+import { create as object } from 'yup/lib/object';
+import { create as string } from 'yup/lib/string';
 
 type TLoginFormProps = {
     openForgotPassword: () => void;
@@ -41,10 +43,9 @@ const LoginForm: FunctionComponent<TLoginFormProps> = ({
         }
     }, [isSignedIn, isSignedInCallback]);
 
-    const schema = yup.object({
-        email: yup.string().email().required(),
-        password: yup
-            .string()
+    const schema = object({
+        email: string().email().required(),
+        password: string()
             .matches(
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/,
                 t(`validations:${errorMessages.password}` as const)
