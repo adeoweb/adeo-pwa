@@ -1,5 +1,12 @@
-export const filterSortMenu = categories => {
-    let filterSortedCategories = [];
+import {
+    TCategoryInterface,
+    TCategoryTree
+} from 'src/lib/types/graphql/Category';
+
+export const filterSortMenu = (
+    categories: TCategoryTree
+): TCategoryInterface[] => {
+    let filterSortedCategories: TCategoryInterface[] = [];
 
     if (!categories || !Array.isArray(categories)) {
         return filterSortedCategories;

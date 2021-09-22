@@ -5,10 +5,14 @@
  * Note that these functions should return a string error message
  * when they fail, and `undefined` when they pass.
  */
+import { TCountry } from 'src/lib/types/graphql/Country';
 
 const SUCCESS = undefined;
 
-export const hasLengthAtLeast = (value, values, minimumLength) => {
+export const hasLengthAtLeast = (
+    value: string,
+    minimumLength: number
+): string | undefined => {
     if (!value || value.length < minimumLength) {
         return `Must contain at least ${minimumLength} character(s).`;
     }
@@ -16,7 +20,10 @@ export const hasLengthAtLeast = (value, values, minimumLength) => {
     return SUCCESS;
 };
 
-export const hasLengthAtMost = (value, values, maximumLength) => {
+export const hasLengthAtMost = (
+    value: string,
+    maximumLength: number
+): string | undefined => {
     if (value && value.length > maximumLength) {
         return `Must not exceed ${maximumLength} character(s).`;
     }
@@ -24,7 +31,10 @@ export const hasLengthAtMost = (value, values, maximumLength) => {
     return SUCCESS;
 };
 
-export const hasLengthExactly = (value, values, length) => {
+export const hasLengthExactly = (
+    value: string,
+    length: number
+): string | undefined => {
     if (value && value.length !== length) {
         return `Must contain exactly ${length} character(s).`;
     }
@@ -32,18 +42,21 @@ export const hasLengthExactly = (value, values, length) => {
     return SUCCESS;
 };
 
-export const isRequired = value => {
+export const isRequired = (value: string): string | undefined => {
     return (value || '').trim() ? SUCCESS : 'The field is required.';
 };
 
-export const validateEmail = value => {
+export const validateEmail = (value: string): string | undefined => {
     const regex =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     return regex.test(value) ? SUCCESS : 'invalid-email';
 };
 
-export const validateRegionCode = (value, values, countries) => {
+export const validateRegionCode = (
+    value: string,
+    countries: TCountry[]
+): string | undefined => {
     const country = countries.find(({ id }) => id === 'US');
 
     if (!country) {
@@ -55,7 +68,7 @@ export const validateRegionCode = (value, values, countries) => {
         return 'Country "US" does not contain any available regions.';
     }
 
-    const region = regions.find(({ code }) => code === value);
+    const region = regions.find(region => region?.code === value);
     if (!region) {
         return `State "${value}" is not an valid state abbreviation.`;
     }
@@ -63,7 +76,7 @@ export const validateRegionCode = (value, values, countries) => {
     return SUCCESS;
 };
 
-export const validatePassword = value => {
+export const validatePassword = (value: string): string | undefined => {
     const count = {
         lower: 0,
         upper: 0,
@@ -86,9 +99,9 @@ export const validatePassword = value => {
 };
 
 export const validateConfirmPassword = (
-    value,
-    values,
+    value: string,
+    values: Record<string, string>,
     passwordKey = 'password'
-) => {
+): string | undefined => {
     return value === values[passwordKey] ? SUCCESS : 'Passwords must match.';
 };
