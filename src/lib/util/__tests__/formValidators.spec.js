@@ -2,13 +2,13 @@ import * as validators from '../formValidators';
 
 describe('hasLengthAtLeast', () => {
     test('it returns undefined on success', () => {
-        const result = validators.hasLengthAtLeast('test', [], 1);
+        const result = validators.hasLengthAtLeast('test', 1);
 
         expect(result).toBeUndefined();
     });
 
     test('it returns a string on failure', () => {
-        const result = validators.hasLengthAtLeast('test', [], 10);
+        const result = validators.hasLengthAtLeast('test', 10);
 
         expect(typeof result).toBe('string');
     });
@@ -16,13 +16,13 @@ describe('hasLengthAtLeast', () => {
 
 describe('hasLengthAtMost', () => {
     test('it returns undefined on success', () => {
-        const result = validators.hasLengthAtMost('test', [], 10);
+        const result = validators.hasLengthAtMost('test', 10);
 
         expect(result).toBeUndefined();
     });
 
     test('it returns a string on failure', () => {
-        const result = validators.hasLengthAtMost('test', [], 1);
+        const result = validators.hasLengthAtMost('test', 1);
 
         expect(typeof result).toBe('string');
     });
@@ -30,13 +30,13 @@ describe('hasLengthAtMost', () => {
 
 describe('hasLengthExactly', () => {
     test('it returns undefined on success', () => {
-        const result = validators.hasLengthExactly('test', [], 4);
+        const result = validators.hasLengthExactly('test', 4);
 
         expect(result).toBeUndefined();
     });
 
     test('it returns a string on failure', () => {
-        const result = validators.hasLengthExactly('test', [], 1);
+        const result = validators.hasLengthExactly('test', 1);
 
         expect(typeof result).toBe('string');
     });
@@ -93,23 +93,19 @@ describe('validateRegionCode', () => {
     ];
 
     test('it returns undefined on success', () => {
-        const result = validators.validateRegionCode('AL', [], countries);
+        const result = validators.validateRegionCode('AL', countries);
 
         expect(result).toBeUndefined();
     });
 
     test('it returns a string on failure due to bad state value', () => {
-        const result = validators.validateRegionCode(
-            'some_string',
-            [],
-            countries
-        );
+        const result = validators.validateRegionCode('some_string', countries);
 
         expect(typeof result).toBe('string');
     });
 
     test('it returns a string on failure due to missing country', () => {
-        const result = validators.validateRegionCode('AL', [], []);
+        const result = validators.validateRegionCode('AL', []);
 
         expect(typeof result).toBe('string');
     });
@@ -120,7 +116,6 @@ describe('validateRegionCode', () => {
 
         const result = validators.validateRegionCode(
             'some_string',
-            [],
             missingRegions
         );
 
