@@ -9,11 +9,12 @@ const {
     },
     Utilities: { loadEnvironment }
 } = require('@magento/pwa-buildpack');
-const webpack = require('webpack');
-const { DefinePlugin, EnvironmentPlugin } = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
+
+const { DefinePlugin, EnvironmentPlugin } = webpack;
 
 module.exports = async env => {
     const projectConfig = await loadEnvironment(path.resolve(__dirname));
@@ -111,7 +112,6 @@ module.exports = async env => {
                 }
             ]
         },
-
         {
             test: /\.s[ac]ss$/i,
             use: ['style-loader', 'css-loader', 'sass-loader'],
@@ -125,8 +125,9 @@ module.exports = async env => {
                 {
                     loader: 'css-loader',
                     options: {
-                        localIdentName: '[name]-[local]-[hash:base64:3]',
-                        modules: true
+                        modules: {
+                            localIdentName: '[name]-[local]-[hash:base64:3]'
+                        }
                     }
                 },
                 'sass-loader'
@@ -172,7 +173,6 @@ module.exports = async env => {
             })
         ]
     };
-
     config.plugins = [
         new EnvironmentPlugin(projectConfig.env),
         ...config.plugins,
