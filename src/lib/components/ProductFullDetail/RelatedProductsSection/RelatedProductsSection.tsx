@@ -5,10 +5,10 @@ import { Settings } from 'react-slick';
 
 import ChevronCircleIcon from 'src/lib/assets/icons/ChevronCircleIcon';
 import HorizontalProductsCarousel from 'src/lib/components/ProductFullDetail/HorizontalProductsCarousel';
-import { TProductInterface } from 'src/lib/types/graphql/Product';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 interface IRelatedProductsSectionProps {
-    items: TProductInterface[];
+    items: TProduct[];
 }
 
 const RelatedProductsSection: FunctionComponent<IRelatedProductsSectionProps> =

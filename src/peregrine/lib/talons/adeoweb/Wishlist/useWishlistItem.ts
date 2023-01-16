@@ -5,7 +5,7 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import MessageType from 'src/lib/constants/message';
-import { TWishlistItem } from 'src/lib/types/graphql/Customer';
+import { TWishlist } from 'src/lib/types/graphql/Customer';
 import { TProduct } from 'src/lib/types/graphql/Product';
 import { useMessageCardContext } from 'src/peregrine/lib/context/adeoweb/messageCard';
 import { useUserContext } from 'src/peregrine/lib/context/adeoweb/user';
@@ -20,7 +20,7 @@ type TUseWishlistItemProps = {
 type TUseWishlistItem = {
     handleAddToWishlist: () => void;
     handleRemoveFromWishlist: () => void;
-    items: TWishlistItem[];
+    items?: TWishlist['items'];
     isInWishlist: boolean;
     isSignedIn: boolean;
 };
@@ -43,7 +43,7 @@ export const useWishlistItem = ({
         },
         { addToWishlist, removeFromWishlist }
     ] = useUserContext();
-    const wishlistItem = items.find(item => item.product.id === product.id);
+    const wishlistItem = items.find(item => item?.product?.id === product.id);
     const [addToWishlistQuery] = useMutation(addToWishlistMutation, {
         fetchPolicy: fetchPolicy.mutations.default
     });
@@ -82,6 +82,10 @@ export const useWishlistItem = ({
     );
 
     const handleAddToWishlist = useCallback(async () => {
+        if (!product.id) {
+            return;
+        }
+
         await addToWishlist({
             productId: product.id,
             addToWishlistQuery,
@@ -97,6 +101,10 @@ export const useWishlistItem = ({
     ]);
 
     const handleRemoveFromWishlist = useCallback(async () => {
+        if (!product.id) {
+            return;
+        }
+
         await removeFromWishlist({
             productId: product.id,
             removeFromWishlistQuery,

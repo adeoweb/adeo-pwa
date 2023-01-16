@@ -32,7 +32,7 @@ const CustomOptions: FunctionComponent<TProductCustomOptionsProps> = ({
 
                 const Option = getOptionComponent(option);
 
-                const optionProps: TOptionProps = {
+                const optionProps: TOptionProps<any> = {
                     key: option.option_id.toString(),
                     option,
                     handleChange,

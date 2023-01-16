@@ -2,12 +2,12 @@ import React, { FunctionComponent } from 'react';
 import SlickSlider, { Settings } from 'react-slick';
 
 import ProductItem from 'src/lib/components/ProductItem';
-import { TProductInterface } from 'src/lib/types/graphql/Product';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 import defaultClasses from './HorizontalProductsCarousel.scss';
 
 interface IHorizontalProductsCarouselProps {
-    items: TProductInterface[];
+    items: TProduct[];
     settings: Settings;
 }
 
