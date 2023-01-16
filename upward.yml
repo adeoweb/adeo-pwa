@@ -30,6 +30,9 @@ adeopwaResponse:
     - matches: request.url.pathname
       pattern: '^/(robots\.txt|favicon\.ico|manifest\.json)'
       use: staticFromRoot
+    - matches: request.url.pathname
+      pattern: '\/translations\/.*\.json'
+      use: adeopwaStaticIncludes
     - matches: fileExtension
       pattern: '(js|json|png|svg|ico|css|txt|eot|ttf|woff|woff2)'
       use: adeopwaStatic
