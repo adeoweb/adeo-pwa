@@ -41,14 +41,15 @@ const ERROR_MESSAGE = 'Sorry! An unexpected error occurred.';
 
 interface IAppProps {
     markErrorHandled: () => void;
-    renderError: {
-        stack: string;
-    };
-    unhandledErrors: string[];
+    unhandledErrors: {
+        error: Error;
+        id: string;
+        loc: string;
+    }[];
 }
 
 const App = (props: IAppProps): JSX.Element => {
-    const { markErrorHandled, renderError, unhandledErrors } = props;
+    const { markErrorHandled, unhandledErrors } = props;
     const [, { addToast }] = useToasts();
 
     const handleIsOffline = useCallback(() => {
@@ -113,7 +114,6 @@ const App = (props: IAppProps): JSX.Element => {
         handleIsOnline,
         handleHTMLUpdate,
         markErrorHandled,
-        renderError,
         unhandledErrors
     });
 
@@ -158,7 +158,7 @@ const App = (props: IAppProps): JSX.Element => {
         return () => removeHistoryListener();
     }, [addHistoryListener]);
 
-    if (renderError || configError || userDetailsError) {
+    if (configError || userDetailsError) {
         return (
             <HeadProvider>
                 <Suspense fallback={<LoadingOverlay />}>

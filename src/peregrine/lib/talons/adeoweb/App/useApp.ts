@@ -3,11 +3,8 @@ import {
     SetStateAction,
     useCallback,
     useEffect,
-    useMemo,
     useState
 } from 'react';
-
-import errorRecord from '@magento/peregrine/lib/util/createErrorRecord';
 
 import { CustomerModalTypes } from 'src/lib/constants/customer';
 import { useHistory } from 'src/lib/drivers';
@@ -35,10 +32,11 @@ interface IUseAppProps {
     handleIsOnline: () => void;
     handleHTMLUpdate: (cb: () => void) => void;
     markErrorHandled: () => void;
-    renderError: {
-        stack: string;
-    };
-    unhandledErrors?: string[];
+    unhandledErrors?: {
+        error: Error;
+        id: string;
+        loc: string;
+    }[];
 }
 
 type TUseApp = {
@@ -55,7 +53,6 @@ export const useApp = (props: IUseAppProps): TUseApp => {
         handleIsOnline,
         handleHTMLUpdate,
         markErrorHandled,
-        renderError,
         unhandledErrors
     } = props;
 
@@ -66,43 +63,23 @@ export const useApp = (props: IUseAppProps): TUseApp => {
         [setHTMLUpdateAvailable]
     );
 
-    const reload = useCallback(
-        process.env.NODE_ENV === 'development'
-            ? () => {
-                  console.log(
-                      'Default window.location.reload() error handler not running in developer mode.'
-                  );
-              }
-            : () => {
-                  window.location.reload();
-              },
-        []
-    );
-
-    const renderErrors = useMemo(
-        () =>
-            renderError
-                ? [errorRecord(renderError, window, useApp, renderError.stack)]
-                : [],
-        [renderError]
-    );
-
-    const errors = (renderError ? renderErrors : unhandledErrors) ?? [];
-    const handleDismissError = renderError ? reload : markErrorHandled;
-
     // Only add toasts for errors if the errors list changes. Since `addToast`
     // and `toasts` changes each render we cannot add it as an effect dependency
     // otherwise we infinitely loop.
     useEffect(() => {
-        for (const { error, id, loc } of errors) {
+        if (!unhandledErrors) {
+            return;
+        }
+
+        for (const { error, id, loc } of unhandledErrors) {
             handleError(
                 error,
                 id,
                 loc,
-                getErrorDismisser(error, handleDismissError)
+                getErrorDismisser(error, markErrorHandled)
             );
         }
-    }, [errors, handleDismissError, handleError]);
+    }, [unhandledErrors, markErrorHandled, handleError]);
 
     const [appState, appApi] = useAppContext();
     const { closeDrawer, hideCustomerModal } = appApi;

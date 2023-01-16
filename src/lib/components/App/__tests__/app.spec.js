@@ -290,29 +290,6 @@ test('displays open nav', () => {
     getAndConfirmProps(openNav, MobileMenu);
 });
 
-test('renders with renderErrors', () => {
-    const appProps = {
-        app: {
-            drawer: '',
-            overlay: false,
-            hasBeenOffline: true,
-            isOnline: false
-        },
-        closeDrawer: jest.fn(),
-        markErrorHandled: jest.fn(),
-        unhandledErrors: [],
-        renderError: new Error('A render error!')
-    };
-
-    const root = createTestInstance(
-        <Router>
-            <App {...appProps} />
-        </Router>
-    );
-
-    expect(root.toJSON()).toMatchSnapshot();
-});
-
 test('renders with unhandledErrors', () => {
     const appProps = {
         app: {
@@ -384,35 +361,6 @@ test('adds no toasts when no errors are present', () => {
     );
 
     expect(mockAddToast).not.toHaveBeenCalled();
-});
-
-test('adds toasts for render errors', () => {
-    const appProps = {
-        app: {
-            drawer: '',
-            overlay: false,
-            hasBeenOffline: true,
-            isOnline: false
-        },
-        closeDrawer: jest.fn(),
-        markErrorHandled: jest.fn(),
-        unhandledErrors: [],
-        renderError: new Error('A render error!')
-    };
-
-    createTestInstance(
-        <Router>
-            <App {...appProps} />
-        </Router>
-    );
-
-    expect(mockAddToast).toHaveBeenCalledWith({
-        icon: expect.any(Object),
-        message: expect.any(String),
-        onDismiss: expect.any(Function),
-        timeout: expect.any(Number),
-        type: 'error'
-    });
 });
 
 test('adds toasts for unhandled errors', () => {
