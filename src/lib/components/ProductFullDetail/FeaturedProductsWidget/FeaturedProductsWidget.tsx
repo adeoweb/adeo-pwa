@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { Settings } from 'react-slick';
 
 import VerticalProductsCarousel from 'src/lib/components/ProductFullDetail/VerticalProductsCarousel';
-import { TProductInterface } from 'src/lib/types/graphql/Product';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 interface IFeaturedProductsWidgetProps {
-    items: TProductInterface[];
+    items: TProduct[];
 }
 
 const FeaturedProductsWidget: FunctionComponent<IFeaturedProductsWidgetProps> =

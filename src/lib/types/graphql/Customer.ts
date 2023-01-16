@@ -1,4 +1,6 @@
+import { WishlistItem } from '../graphql-types.generated';
 import { TMoney } from './Money';
+import { TProduct } from './Product';
 import { TSearchResultPageInfo } from './SearchResultPageInfo';
 
 export {
@@ -13,7 +15,6 @@ export {
     OrderPayment as TOrderPayment,
     OrderShippingAddress as TOrderShippingAddress,
     Wishlist as TWishlist,
-    WishlistItem as TWishlistItem,
     Customer as TCustomer,
     CustomerAddress as TCustomerAddress,
     CustomerInput as TCustomerInput
@@ -36,4 +37,8 @@ export type TCustomerStoreCreditHistoryItem = {
     actual_balance: TMoney;
     balance_change: TMoney;
     date_time_changed: string;
+};
+
+export type TWishlistItem = Omit<WishlistItem, 'product'> & {
+    product?: TProduct;
 };

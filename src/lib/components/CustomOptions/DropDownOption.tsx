@@ -5,17 +5,13 @@ import { TFuncKey, useTranslation } from 'react-i18next';
 import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsTypes';
 import { getOptionPriceText } from 'src/lib/components/CustomOptions/utils/getOptionPriceText';
 import { optionSort } from 'src/lib/components/CustomOptions/utils/optionSort';
+import { CustomizableDropDownOption } from 'src/lib/types/graphql-types.generated';
 import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
 import filterOutNullableValues from 'src/peregrine/lib/util/adeoweb/filterOutNullableValues';
 
-const DropDownOption: FunctionComponent<TOptionProps> = ({
-    option,
-    handleChange,
-    handleBlur,
-    value,
-    error,
-    touched
-}) => {
+const DropDownOption: FunctionComponent<
+    TOptionProps<CustomizableDropDownOption>
+> = ({ option, handleChange, handleBlur, value, error, touched }) => {
     const { t } = useTranslation('product');
     const { currencyCode } = useCurrency();
     const {

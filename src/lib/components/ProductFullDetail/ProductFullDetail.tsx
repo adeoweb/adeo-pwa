@@ -234,11 +234,13 @@ const ProductFullDetail = (props: IProductFullDetailProps): JSX.Element => {
                         </div>
                         <ProductTabs description={description} />
                     </Col>
-                    <ProductSidebar items={crosssellProducts} />
+                    <ProductSidebar items={crosssellProducts as TProduct[]} />
                 </Row>
             </Container>
             {Boolean(crosssellProducts.length) && (
-                <RelatedProductsSection items={crosssellProducts} />
+                <RelatedProductsSection
+                    items={crosssellProducts as TProduct[]}
+                />
             )}
         </Fragment>
     );

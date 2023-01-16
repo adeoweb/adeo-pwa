@@ -19,7 +19,7 @@ import { useCartProduct } from 'src/peregrine/lib/talons/adeoweb/Cart/useCartPro
 type TCartItemProps = {
     item: TCartItem;
     currencyCode: string;
-    beginEditItem: () => void;
+    beginEditItem: (cartItem: TCartItem) => void;
     endEditItem: () => void;
     isUpdatingItem: boolean;
 };

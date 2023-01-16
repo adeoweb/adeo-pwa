@@ -4,9 +4,10 @@ import { TFuncKey, useTranslation } from 'react-i18next';
 
 import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsTypes';
 import { getOptionPriceText } from 'src/lib/components/CustomOptions/utils/getOptionPriceText';
+import { CustomizableFieldOption } from 'src/lib/types/graphql-types.generated';
 import { useCurrency } from 'src/peregrine/lib/talons/adeoweb/App/useCurrency';
 
-const FieldOption: FunctionComponent<TOptionProps> = ({
+const FieldOption: FunctionComponent<TOptionProps<CustomizableFieldOption>> = ({
     option,
     handleChange,
     handleBlur,

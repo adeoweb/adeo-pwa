@@ -6,11 +6,25 @@ import { TOptionProps } from 'src/lib/components/CustomOptions/CustomOptionsType
 import DropDownOption from 'src/lib/components/CustomOptions/DropDownOption';
 import FieldOption from 'src/lib/components/CustomOptions/FieldOption';
 import RadioOption from 'src/lib/components/CustomOptions/RadioOption';
+import {
+    CustomizableAreaOption,
+    CustomizableCheckboxOption,
+    CustomizableDropDownOption,
+    CustomizableFieldOption,
+    CustomizableRadioOption
+} from 'src/lib/types/graphql-types.generated';
 import { TCustomizableOption } from 'src/lib/types/graphql/Product';
+
+type TCustomizableOptionComponentVariant =
+    | FunctionComponent<TOptionProps<CustomizableRadioOption>>
+    | FunctionComponent<TOptionProps<CustomizableFieldOption>>
+    | FunctionComponent<TOptionProps<CustomizableDropDownOption>>
+    | FunctionComponent<TOptionProps<CustomizableCheckboxOption>>
+    | FunctionComponent<TOptionProps<CustomizableAreaOption>>;
 
 const getOptionComponent = ({
     __typename: type
-}: TCustomizableOption): FunctionComponent<TOptionProps> | null => {
+}: TCustomizableOption): TCustomizableOptionComponentVariant | null => {
     switch (type) {
         case 'CustomizableAreaOption': {
             return AreaOption;

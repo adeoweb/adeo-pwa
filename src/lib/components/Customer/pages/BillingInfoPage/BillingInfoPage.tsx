@@ -49,7 +49,7 @@ const BillingInfoPage: FunctionComponent = () => {
     return (
         <div>
             {(isUpdatingAddress || isDeletingAddress) && <LoadingIndicator />}
-            <h3>{t('address:Billing information')}</h3>
+            <h3>{t('address:Billing Information')}</h3>
             <Button
                 variant="primary"
                 size="sm"

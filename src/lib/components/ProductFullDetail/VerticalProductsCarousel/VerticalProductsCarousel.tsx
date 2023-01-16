@@ -2,10 +2,10 @@ import React, { FunctionComponent } from 'react';
 import SlickSlider, { Settings } from 'react-slick';
 
 import { ProductItemLeftDetails } from 'src/lib/components/ProductItem';
-import { TProductInterface } from 'src/lib/types/graphql/Product';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 interface IVerticalProductsCarouselProps {
-    items: TProductInterface[];
+    items: TProduct[];
     settings: Settings;
     verticalCount?: number;
 }
@@ -19,7 +19,7 @@ const VerticalProductsCarousel: FunctionComponent<IVerticalProductsCarouselProps
         };
 
         let i;
-        const groupedItems: TProductInterface[][] = [];
+        const groupedItems: TProduct[][] = [];
         for (i = 0; i < items.length; i += verticalCount) {
             groupedItems.push(items.slice(i, i + verticalCount));
         }

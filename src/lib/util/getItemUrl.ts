@@ -1,5 +1,5 @@
 import { TCategoryInterface } from 'src/lib/types/graphql/Category';
-import { TProduct } from 'src/lib/types/graphql/Product';
+import { TProduct, TProductInterface } from 'src/lib/types/graphql/Product';
 
 function getCategoryPath(category: TCategoryInterface) {
     const { breadcrumbs, url_key: urlKey } = category;
@@ -16,7 +16,7 @@ export default function getItemUrl(
     {
         url_key: urlKey = '',
         url_suffix: urlSuffix = ''
-    }: Pick<TProduct, 'url_key' | 'url_suffix'>,
+    }: TProduct | TProductInterface,
     category?: TCategoryInterface
 ): string {
     const productUrl = urlKey ? `/${urlKey}${urlSuffix}` : '';

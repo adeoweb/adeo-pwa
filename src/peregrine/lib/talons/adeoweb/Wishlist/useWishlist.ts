@@ -26,7 +26,7 @@ export const useWishlist = (): TUseWishlist => {
     const wishListItems = filterOutNullableValues(items);
 
     return {
-        items: wishListItems,
+        items: wishListItems as TWishlistItem[],
         addToWishlistError,
         isAddingToWishlist,
         removeFromWishlistError,

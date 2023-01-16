@@ -23,7 +23,7 @@ const getPath = (path, suffix) => {
 };
 
 type TUseBreadcrumbsProps = {
-    categoryId: number;
+    categoryId: number | null;
     query: DocumentNode;
 };
 
@@ -52,7 +52,7 @@ export const useBreadcrumbs = (
         GetBreadcrumbDataQuery,
         GetBreadcrumbDataQueryVariables
     >(query, {
-        variables: { category_id: categoryId.toString() },
+        variables: { category_id: categoryId ? categoryId.toString() : '' },
         skip: categoryId === null,
         fetchPolicy: fetchPolicy.queries.default
     });

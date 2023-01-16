@@ -26,6 +26,7 @@
         "test:debug": "node --experimental-worker --inspect-brk node_modules/.bin/jest --no-cache",
         "test:dev": "node --experimental-worker node_modules/.bin/jest --watch",
         "validate-queries": "yarn run download-schema && graphql validate-magento-pwa-queries --project adeo-pwa",
+        "type:check": "tsc --noEmit",
         "watch": "webpack-dev-server --progress --color --env.mode development",
         "storybook": "start-storybook -p 9001 -c src/.storybook",
         "storybook:build": "build-storybook -c src/.storybook -o storybook-dist",
@@ -214,7 +215,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-push": "yarn run prettier:check && yarn run lint && yarn run test"
+            "pre-push": "yarn run prettier:check && yarn run lint && yarn run type:check && yarn run test"
         }
     },
     "pwa-studio": {

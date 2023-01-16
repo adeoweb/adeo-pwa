@@ -14,7 +14,7 @@ type CartItemQuantityProps = {
     cartItem: TCartItem;
     configItem?: Partial<TProduct>;
     currencyCode: string;
-    beginEditItem: () => void;
+    beginEditItem: (cartItem: TCartItem) => void;
     endEditItem: () => void;
     isDisabled: boolean;
 };
@@ -40,13 +40,13 @@ const CartItemQuantity: FunctionComponent<CartItemQuantityProps> = ({
     const [value, setValue] = useState<string>(quantity.toString());
 
     const incrementQuantity = () => {
-        beginEditItem();
+        beginEditItem(cartItem);
         handleUpdateQuantity(quantity + 1);
     };
 
     const decrementQuantity = () => {
         if (quantity > 1) {
-            beginEditItem();
+            beginEditItem(cartItem);
             handleUpdateQuantity(quantity - 1);
         }
     };

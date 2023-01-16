@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 
-import { ProductInterface } from 'src/lib/types/graphql-types.generated';
+import { TProduct } from 'src/lib/types/graphql/Product';
 
 import FeaturedProductsWidget from '../FeaturedProductsWidget';
 
 interface IProductSidebarProps {
-    items: ProductInterface[];
+    items: TProduct[];
 }
 
 // TODO: Add data from backend when it's implemented.

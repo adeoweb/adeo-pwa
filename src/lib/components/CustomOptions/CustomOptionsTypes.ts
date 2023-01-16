@@ -21,9 +21,9 @@ export type TProductCustomOptionsProps = {
     touched: FormikTouched<ICustomOptionsForm>;
 };
 
-export type TOptionProps = {
+export type TOptionProps<T = TCustomizableOption> = {
     key: string;
-    option: TCustomizableOption;
+    option: T;
     handleChange: (
         eventOrPath: string | React.ChangeEvent<any>
     ) => void | ((eventOrTextValue: string | React.ChangeEvent<any>) => void);
